@@ -1,0 +1,19 @@
+Pin Map of Sparkfun SAMD21 Mini Breakout to Application:
+
+Sparkfun Board  |   Signal Name         |   SAMD21 Pin
+------------------------------------------------------
+    D0          |   PIN_UART_RX         |   PA11
+    D1          |   PIN_UART_TX         |   PA10
+    D3          |   PIN_SX1238_DIO1     |   PA09
+    D4          |   PIN_SX1238_DIO2     |   PA08
+    D6          |   PIN_SX1238_DIO3     |   PA20
+    D7          |   PIN_SX1238_DIO4     |   PA21
+    D8          |   PIN_SX1238_DIO5     |   PA06
+    D10         |   PIN_SPI_CTRL_CS     |   PA18
+    D11         |   PIN_SPI_CTRL_MOSI   |   PA16
+    D12         |   PIN_SPI_CTRL_MISO   |   PA19
+    D13         |   PIN_SPI_CTRL_SCK    |   PA17
+    RXLED       |   PIN_LED_RX          |   PB03
+    TXLED       |   PIN_LED_TX          |   PA27
+    USBP        |   PIN_USB_DP          |   PA25
+    USBN        |   PIN_USB_DN          |   PA24
