@@ -2,6 +2,10 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+app\app.c
+
+app\drivers\sx1238.c
+
 atmel_start.c
 
 Device_Startup\startup_samd21.c
@@ -51,6 +55,8 @@ hpl\pm\hpl_pm.c
 hpl\sercom\hpl_sercom.c
 
 hpl\sysctrl\hpl_sysctrl.c
+
+hpl\systick\hpl_systick.c
 
 hpl\usb\hpl_usb.c
 

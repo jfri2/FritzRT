@@ -194,6 +194,17 @@ drivers:
         configuration:
           core_gclk_selection: Generic clock generator 0
           slow_gclk_selection: Generic clock generator 2
+  DELAY_0:
+    user_label: DELAY_0
+    definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21G18A-AF::SysTick::driver_config_definition::Delay::HAL:Driver:Delay
+    functionality: Delay
+    api: HAL:Driver:Delay
+    configuration:
+      systick_arch_tickint: false
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group: null
   DMAC:
     user_label: DMAC
     definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21G18A-AF::DMAC::driver_config_definition::DMAC::HAL:HPL:DMAC
@@ -630,13 +641,13 @@ pads:
   PIN_SPI_CTRL_MOSI:
     name: PA16
     definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21G18A-AF::pad::PA16
-    mode: Peripheral IO
+    mode: Digital output
     user_label: PIN_SPI_CTRL_MOSI
     configuration: null
   PIN_SPI_CTRL_SCK:
     name: PA17
     definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21G18A-AF::pad::PA17
-    mode: Peripheral IO
+    mode: Digital output
     user_label: PIN_SPI_CTRL_SCK
     configuration: null
   PIN_SPI_CTRL_CS:
@@ -649,7 +660,7 @@ pads:
   PIN_SPI_CTRL_MISO:
     name: PA19
     definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21G18A-AF::pad::PA19
-    mode: Peripheral IO
+    mode: Digital input
     user_label: PIN_SPI_CTRL_MISO
     configuration: null
   PIN_SX1238_DIO3:

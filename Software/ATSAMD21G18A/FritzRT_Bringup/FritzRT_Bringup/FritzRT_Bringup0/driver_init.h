@@ -25,6 +25,8 @@ extern "C" {
 
 #include <hal_usart_sync.h>
 
+#include <hal_delay.h>
+
 #include "hal_usb_device.h"
 
 extern struct spi_m_sync_descriptor CTRL_SPI;
@@ -38,6 +40,8 @@ void CTRL_SPI_init(void);
 void USART_0_PORT_init(void);
 void USART_0_CLOCK_init(void);
 void USART_0_init(void);
+
+void delay_driver_init(void);
 
 void USB_0_CLOCK_init(void);
 void USB_0_init(void);

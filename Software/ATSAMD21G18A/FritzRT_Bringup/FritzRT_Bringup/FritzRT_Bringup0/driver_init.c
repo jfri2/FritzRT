@@ -20,9 +20,40 @@ struct usart_sync_descriptor USART_0;
 void CTRL_SPI_PORT_init(void)
 {
 
+	// Set pin direction to output
+	gpio_set_pin_direction(PIN_SPI_CTRL_MOSI, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_level(PIN_SPI_CTRL_MOSI,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
 	gpio_set_pin_function(PIN_SPI_CTRL_MOSI, PINMUX_PA16C_SERCOM1_PAD0);
 
+	// Set pin direction to output
+	gpio_set_pin_direction(PIN_SPI_CTRL_SCK, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_level(PIN_SPI_CTRL_SCK,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
 	gpio_set_pin_function(PIN_SPI_CTRL_SCK, PINMUX_PA17C_SERCOM1_PAD1);
+
+	// Set pin direction to input
+	gpio_set_pin_direction(PIN_SPI_CTRL_MISO, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(PIN_SPI_CTRL_MISO,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_OFF);
 
 	gpio_set_pin_function(PIN_SPI_CTRL_MISO, PINMUX_PA19C_SERCOM1_PAD3);
 }
@@ -59,6 +90,11 @@ void USART_0_init(void)
 	USART_0_CLOCK_init();
 	usart_sync_init(&USART_0, SERCOM2, (void *)NULL);
 	USART_0_PORT_init();
+}
+
+void delay_driver_init(void)
+{
+	delay_init(SysTick);
 }
 
 void USB_0_PORT_init(void)
@@ -288,6 +324,8 @@ void system_init(void)
 	CTRL_SPI_init();
 
 	USART_0_init();
+
+	delay_driver_init();
 
 	USB_0_init();
 }
