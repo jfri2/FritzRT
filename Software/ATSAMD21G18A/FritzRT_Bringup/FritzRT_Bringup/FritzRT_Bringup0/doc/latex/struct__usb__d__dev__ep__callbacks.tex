@@ -1,0 +1,44 @@
+\hypertarget{struct__usb__d__dev__ep__callbacks}{}\section{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks Struct Reference}
+\label{struct__usb__d__dev__ep__callbacks}\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks}}
+
+
+{\ttfamily \#include $<$hpl\+\_\+usb\+\_\+device.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hpl__usb__device_8h_a81bbff71ce31abdbe92373eed18b1b92}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+setup\+\_\+t} \hyperlink{struct__usb__d__dev__ep__callbacks_adbbe0ff2f92220167cc1aab7585e1abc}{setup}
+\item 
+\hyperlink{hpl__usb__device_8h_a659f0292117e58db11a03eda4c363fcb}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+more\+\_\+t} \hyperlink{struct__usb__d__dev__ep__callbacks_afec5f7edef6aba004bb3950d733c028f}{more}
+\item 
+\hyperlink{hpl__usb__device_8h_a60aa954de0dd8fc6dfd175699d8d7165}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+done\+\_\+t} \hyperlink{struct__usb__d__dev__ep__callbacks_a9cbcdf7ef8ac49d9ad775d87bb3858ca}{done}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Callbacks for H\+PL U\+SB device endpoint. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{struct__usb__d__dev__ep__callbacks_a9cbcdf7ef8ac49d9ad775d87bb3858ca}\label{struct__usb__d__dev__ep__callbacks_a9cbcdf7ef8ac49d9ad775d87bb3858ca}} 
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks}!done@{done}}
+\index{done@{done}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks}}
+\subsubsection{\texorpdfstring{done}{done}}
+{\footnotesize\ttfamily \hyperlink{hpl__usb__device_8h_a60aa954de0dd8fc6dfd175699d8d7165}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+done\+\_\+t} \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks\+::done}
+
+Callback that is invoked when transaction is done, including background transfer, or error occurs. \mbox{\Hypertarget{struct__usb__d__dev__ep__callbacks_afec5f7edef6aba004bb3950d733c028f}\label{struct__usb__d__dev__ep__callbacks_afec5f7edef6aba004bb3950d733c028f}} 
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks}!more@{more}}
+\index{more@{more}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks}}
+\subsubsection{\texorpdfstring{more}{more}}
+{\footnotesize\ttfamily \hyperlink{hpl__usb__device_8h_a659f0292117e58db11a03eda4c363fcb}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+more\+\_\+t} \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks\+::more}
+
+Callback that is invoked to check if buffer is N\+U\+LL and more data is required. It\textquotesingle{}s called when last packet is full size packet, without auto Z\+LP enabled. It could be called when background transfer is still in progress. \mbox{\Hypertarget{struct__usb__d__dev__ep__callbacks_adbbe0ff2f92220167cc1aab7585e1abc}\label{struct__usb__d__dev__ep__callbacks_adbbe0ff2f92220167cc1aab7585e1abc}} 
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks}!setup@{setup}}
+\index{setup@{setup}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks}}
+\subsubsection{\texorpdfstring{setup}{setup}}
+{\footnotesize\ttfamily \hyperlink{hpl__usb__device_8h_a81bbff71ce31abdbe92373eed18b1b92}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+setup\+\_\+t} \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks\+::setup}
+
+Callback that is invoked when S\+E\+T\+UP packet is received. \hyperlink{hpl__usb__device_8h_a986e37ddeda86792722e0bc8aac155bf}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+read\+\_\+req()} must be invoked to read setup data, and allow I\+N/\+O\+UT transactions on control endpoint. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+hal/include/\hyperlink{hpl__usb__device_8h}{hpl\+\_\+usb\+\_\+device.\+h}\end{DoxyCompactItemize}

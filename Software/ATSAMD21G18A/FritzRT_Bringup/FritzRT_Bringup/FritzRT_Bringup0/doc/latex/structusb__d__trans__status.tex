@@ -1,0 +1,84 @@
+\hypertarget{structusb__d__trans__status}{}\section{usb\+\_\+d\+\_\+trans\+\_\+status Struct Reference}
+\label{structusb__d__trans__status}\index{usb\+\_\+d\+\_\+trans\+\_\+status@{usb\+\_\+d\+\_\+trans\+\_\+status}}
+
+
+{\ttfamily \#include $<$hpl\+\_\+usb\+\_\+device.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{structusb__d__trans__status_ad2e40329b15fb1747b2cccee380838f3}{size}
+\item 
+uint32\+\_\+t \hyperlink{structusb__d__trans__status_ad340304b84b6d94fb8dd0b9288bd3c05}{count}
+\item 
+uint8\+\_\+t \hyperlink{structusb__d__trans__status_a97a52984e225a897abf91e01a8cb181e}{ep}
+\item 
+uint8\+\_\+t \hyperlink{structusb__d__trans__status_a94aa357a9ed58c36355ea18097b22ee2}{xtype}\+: 2
+\item 
+uint8\+\_\+t \hyperlink{structusb__d__trans__status_ab9b2e28501cc323122cedf06401e0fbb}{busy}\+: 1
+\item 
+uint8\+\_\+t \hyperlink{structusb__d__trans__status_a0064967b7a44509b6ecdc803562db400}{setup}\+: 1
+\item 
+uint8\+\_\+t \hyperlink{structusb__d__trans__status_a8895af5fe5956a00b78c420d4d698f11}{stall}\+: 1
+\item 
+uint8\+\_\+t \hyperlink{structusb__d__trans__status_ab6caafb7304e31f6b1200022eb1568b0}{dir}\+: 1
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+SB device transactions status structure. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structusb__d__trans__status_ab9b2e28501cc323122cedf06401e0fbb}\label{structusb__d__trans__status_ab9b2e28501cc323122cedf06401e0fbb}} 
+\index{usb\+\_\+d\+\_\+trans\+\_\+status@{usb\+\_\+d\+\_\+trans\+\_\+status}!busy@{busy}}
+\index{busy@{busy}!usb\+\_\+d\+\_\+trans\+\_\+status@{usb\+\_\+d\+\_\+trans\+\_\+status}}
+\subsubsection{\texorpdfstring{busy}{busy}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+d\+\_\+trans\+\_\+status\+::busy}
+
+Transactions state, busy or not. \mbox{\Hypertarget{structusb__d__trans__status_ad340304b84b6d94fb8dd0b9288bd3c05}\label{structusb__d__trans__status_ad340304b84b6d94fb8dd0b9288bd3c05}} 
+\index{usb\+\_\+d\+\_\+trans\+\_\+status@{usb\+\_\+d\+\_\+trans\+\_\+status}!count@{count}}
+\index{count@{count}!usb\+\_\+d\+\_\+trans\+\_\+status@{usb\+\_\+d\+\_\+trans\+\_\+status}}
+\subsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily uint32\+\_\+t usb\+\_\+d\+\_\+trans\+\_\+status\+::count}
+
+Total transfered data count. \mbox{\Hypertarget{structusb__d__trans__status_ab6caafb7304e31f6b1200022eb1568b0}\label{structusb__d__trans__status_ab6caafb7304e31f6b1200022eb1568b0}} 
+\index{usb\+\_\+d\+\_\+trans\+\_\+status@{usb\+\_\+d\+\_\+trans\+\_\+status}!dir@{dir}}
+\index{dir@{dir}!usb\+\_\+d\+\_\+trans\+\_\+status@{usb\+\_\+d\+\_\+trans\+\_\+status}}
+\subsubsection{\texorpdfstring{dir}{dir}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+d\+\_\+trans\+\_\+status\+::dir}
+
+Transactions direction. \mbox{\Hypertarget{structusb__d__trans__status_a97a52984e225a897abf91e01a8cb181e}\label{structusb__d__trans__status_a97a52984e225a897abf91e01a8cb181e}} 
+\index{usb\+\_\+d\+\_\+trans\+\_\+status@{usb\+\_\+d\+\_\+trans\+\_\+status}!ep@{ep}}
+\index{ep@{ep}!usb\+\_\+d\+\_\+trans\+\_\+status@{usb\+\_\+d\+\_\+trans\+\_\+status}}
+\subsubsection{\texorpdfstring{ep}{ep}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+d\+\_\+trans\+\_\+status\+::ep}
+
+Endpoint address. \mbox{\Hypertarget{structusb__d__trans__status_a0064967b7a44509b6ecdc803562db400}\label{structusb__d__trans__status_a0064967b7a44509b6ecdc803562db400}} 
+\index{usb\+\_\+d\+\_\+trans\+\_\+status@{usb\+\_\+d\+\_\+trans\+\_\+status}!setup@{setup}}
+\index{setup@{setup}!usb\+\_\+d\+\_\+trans\+\_\+status@{usb\+\_\+d\+\_\+trans\+\_\+status}}
+\subsubsection{\texorpdfstring{setup}{setup}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+d\+\_\+trans\+\_\+status\+::setup}
+
+Transactions state, setup received or not. \mbox{\Hypertarget{structusb__d__trans__status_ad2e40329b15fb1747b2cccee380838f3}\label{structusb__d__trans__status_ad2e40329b15fb1747b2cccee380838f3}} 
+\index{usb\+\_\+d\+\_\+trans\+\_\+status@{usb\+\_\+d\+\_\+trans\+\_\+status}!size@{size}}
+\index{size@{size}!usb\+\_\+d\+\_\+trans\+\_\+status@{usb\+\_\+d\+\_\+trans\+\_\+status}}
+\subsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily uint32\+\_\+t usb\+\_\+d\+\_\+trans\+\_\+status\+::size}
+
+Total data size. \mbox{\Hypertarget{structusb__d__trans__status_a8895af5fe5956a00b78c420d4d698f11}\label{structusb__d__trans__status_a8895af5fe5956a00b78c420d4d698f11}} 
+\index{usb\+\_\+d\+\_\+trans\+\_\+status@{usb\+\_\+d\+\_\+trans\+\_\+status}!stall@{stall}}
+\index{stall@{stall}!usb\+\_\+d\+\_\+trans\+\_\+status@{usb\+\_\+d\+\_\+trans\+\_\+status}}
+\subsubsection{\texorpdfstring{stall}{stall}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+d\+\_\+trans\+\_\+status\+::stall}
+
+Transactions state, stall or not. \mbox{\Hypertarget{structusb__d__trans__status_a94aa357a9ed58c36355ea18097b22ee2}\label{structusb__d__trans__status_a94aa357a9ed58c36355ea18097b22ee2}} 
+\index{usb\+\_\+d\+\_\+trans\+\_\+status@{usb\+\_\+d\+\_\+trans\+\_\+status}!xtype@{xtype}}
+\index{xtype@{xtype}!usb\+\_\+d\+\_\+trans\+\_\+status@{usb\+\_\+d\+\_\+trans\+\_\+status}}
+\subsubsection{\texorpdfstring{xtype}{xtype}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+d\+\_\+trans\+\_\+status\+::xtype}
+
+Endpoint type -\/ C\+T\+R\+L/\+I\+S\+O/\+I\+N\+T/\+B\+U\+LK. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+hal/include/\hyperlink{hpl__usb__device_8h}{hpl\+\_\+usb\+\_\+device.\+h}\end{DoxyCompactItemize}

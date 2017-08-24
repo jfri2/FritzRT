@@ -1,0 +1,227 @@
+\hypertarget{usbdc_8c}{}\section{usb/device/usbdc.c File Reference}
+\label{usbdc_8c}\index{usb/device/usbdc.\+c@{usb/device/usbdc.\+c}}
+
+
+U\+SB Device Stack Core Layer Implementation.  
+
+
+{\ttfamily \#include \char`\"{}usbdc.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structusbdc__sof__handler}{usbdc\+\_\+sof\+\_\+handler}
+\begin{DoxyCompactList}\small\item\em U\+SB Device Core Sof Handler. \end{DoxyCompactList}\item 
+struct \hyperlink{structusbdc__req__handler}{usbdc\+\_\+req\+\_\+handler}
+\begin{DoxyCompactList}\small\item\em U\+SB Device Core Request Handler. \end{DoxyCompactList}\item 
+struct \hyperlink{structusbdc__change__handler}{usbdc\+\_\+change\+\_\+handler}
+\begin{DoxyCompactList}\small\item\em U\+SB Device Core Change Handler. \end{DoxyCompactList}\item 
+struct \hyperlink{structusbdc__handlers}{usbdc\+\_\+handlers}
+\begin{DoxyCompactList}\small\item\em U\+SB Device Core Handler. \end{DoxyCompactList}\item 
+struct \hyperlink{structusbdc__driver}{usbdc\+\_\+driver}
+\begin{DoxyCompactList}\small\item\em U\+SB Device Core Driver Structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{usbdc_8c_ab6b9ba3a9619d8c7f42bae6761b60aad}\label{usbdc_8c_ab6b9ba3a9619d8c7f42bae6761b60aad}} 
+\#define {\bfseries U\+S\+B\+D\+C\+\_\+\+V\+E\+R\+S\+I\+ON}~0x00000001u
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{usbdc_8c_a01c80928f64b25c148333510497260f6}\label{usbdc_8c_a01c80928f64b25c148333510497260f6}} 
+void \hyperlink{usbdc_8c_a01c80928f64b25c148333510497260f6}{usbdc\+\_\+reset} (void)
+\begin{DoxyCompactList}\small\item\em U\+SB Device Core Reset. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{usbdc_8c_ad213bfedb40fe0440d70b619bf5a9b07}{usbdc\+\_\+xfer} (uint8\+\_\+t ep, uint8\+\_\+t $\ast$buf, uint32\+\_\+t size, bool zlp)
+\begin{DoxyCompactList}\small\item\em Issue U\+SB device transfer. \end{DoxyCompactList}\item 
+void \hyperlink{usbdc_8c_a06bede7ea2660ad2f36e0f1d1a74c617}{usbdc\+\_\+register\+\_\+handler} (enum \hyperlink{usbdc_8h_a53fcd804a2a8765420bbb514294bf4b2}{usbdc\+\_\+handler\+\_\+type} type, const struct \hyperlink{structusbdc__handler}{usbdc\+\_\+handler} $\ast$h)
+\begin{DoxyCompactList}\small\item\em Register the handler. \end{DoxyCompactList}\item 
+void \hyperlink{usbdc_8c_a65f314d87ecfbd84bf2b8f68c7bbe221}{usbdc\+\_\+unregister\+\_\+handler} (enum \hyperlink{usbdc_8h_a53fcd804a2a8765420bbb514294bf4b2}{usbdc\+\_\+handler\+\_\+type} type, const struct \hyperlink{structusbdc__handler}{usbdc\+\_\+handler} $\ast$h)
+\begin{DoxyCompactList}\small\item\em Unregister the handler. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{usbdc_8c_a3695e513fe584059cd6731a828276400}{usbdc\+\_\+init} (uint8\+\_\+t $\ast$ctrl\+\_\+buf)
+\begin{DoxyCompactList}\small\item\em Initialize the U\+SB device core driver. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{usbdc_8c_a7b65803c68a1b3e343ae5000df25b66c}{usbdc\+\_\+deinit} (void)
+\begin{DoxyCompactList}\small\item\em De-\/initialize the U\+SB device core driver. \end{DoxyCompactList}\item 
+void \hyperlink{usbdc_8c_a2328a31e072ebc604f8e8044e134a206}{usbdc\+\_\+register\+\_\+function} (struct \hyperlink{structusbdf__driver}{usbdf\+\_\+driver} $\ast$func)
+\begin{DoxyCompactList}\small\item\em Register/unregister function support of a U\+SB device function. \end{DoxyCompactList}\item 
+void \hyperlink{usbdc_8c_a5b48232344aed00da8b3ebd0b083a92a}{usbdc\+\_\+unregister\+\_\+function} (struct \hyperlink{structusbdf__driver}{usbdf\+\_\+driver} $\ast$func)
+\begin{DoxyCompactList}\small\item\em Unregister function support of a U\+SB device function. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{usbdc_8c_a8b5b10cbd8cba68ca2aaf1d2b9d7f0b7}{usbdc\+\_\+validate\+\_\+desces} (struct \hyperlink{structusbd__descriptors}{usbd\+\_\+descriptors} $\ast$desces)
+\begin{DoxyCompactList}\small\item\em Validate the descriptor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{usbdc_8c_ae85b23944fb5c7bdd8768abda4e6f0d0}\label{usbdc_8c_ae85b23944fb5c7bdd8768abda4e6f0d0}} 
+int32\+\_\+t \hyperlink{usbdc_8c_ae85b23944fb5c7bdd8768abda4e6f0d0}{usbdc\+\_\+check\+\_\+desces} (struct \hyperlink{structusbdc__descriptors}{usbdc\+\_\+descriptors} $\ast$desces)
+\begin{DoxyCompactList}\small\item\em Validate the descriptor. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{usbdc_8c_af5a3fde4d8fb103380ddacb74e2f79ec}{usbdc\+\_\+start} (struct \hyperlink{structusbd__descriptors}{usbd\+\_\+descriptors} $\ast$desces)
+\begin{DoxyCompactList}\small\item\em Start the U\+SB device driver with specific descriptors set. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{usbdc_8c_a9246e844341684daeb4aef423e094da3}{usbdc\+\_\+stop} (void)
+\begin{DoxyCompactList}\small\item\em Stop the U\+SB device driver. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{usbdc_8c_a0f07590a1bd0b88d050da8bb65c76038}\label{usbdc_8c_a0f07590a1bd0b88d050da8bb65c76038}} 
+void \hyperlink{usbdc_8c_a0f07590a1bd0b88d050da8bb65c76038}{usbdc\+\_\+attach} (void)
+\begin{DoxyCompactList}\small\item\em Attach the U\+SB device to host. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{usbdc_8c_a79978b48d86fcfe93ec297e755c8037c}\label{usbdc_8c_a79978b48d86fcfe93ec297e755c8037c}} 
+void \hyperlink{usbdc_8c_a79978b48d86fcfe93ec297e755c8037c}{usbdc\+\_\+detach} (void)
+\begin{DoxyCompactList}\small\item\em Detach the U\+SB device from host. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{usbdc_8c_aae0e86598c4d6e84ee3176dc94f95962}\label{usbdc_8c_aae0e86598c4d6e84ee3176dc94f95962}} 
+void \hyperlink{usbdc_8c_aae0e86598c4d6e84ee3176dc94f95962}{usbdc\+\_\+remotewakeup} (void)
+\begin{DoxyCompactList}\small\item\em Send remote wakeup to host. \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \hyperlink{usbdc_8c_ae8ec409dc9c5bc01a7bbe21d3ec6d987}{usbdc\+\_\+get\+\_\+ctrl\+\_\+buffer} (void)
+\begin{DoxyCompactList}\small\item\em Return U\+SB Device endpoint0 buffer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{usbdc_8c_a320e31688e4dfe53e07e608d2a71bb80}\label{usbdc_8c_a320e31688e4dfe53e07e608d2a71bb80}} 
+uint8\+\_\+t \hyperlink{usbdc_8c_a320e31688e4dfe53e07e608d2a71bb80}{usbdc\+\_\+get\+\_\+state} (void)
+\begin{DoxyCompactList}\small\item\em Return current U\+SB state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{usbdc_8c_a91f4b8df6f1f0cdb1261f61bd3a61af8}\label{usbdc_8c_a91f4b8df6f1f0cdb1261f61bd3a61af8}} 
+uint32\+\_\+t \hyperlink{usbdc_8c_a91f4b8df6f1f0cdb1261f61bd3a61af8}{usbdc\+\_\+get\+\_\+version} (void)
+\begin{DoxyCompactList}\small\item\em Return version. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+SB Device Stack Core Layer Implementation. 
+
+Copyright (C) 2015-\/2016 Atmel Corporation. All rights reserved.
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{usbdc_8c_a7b65803c68a1b3e343ae5000df25b66c}\label{usbdc_8c_a7b65803c68a1b3e343ae5000df25b66c}} 
+\index{usbdc.\+c@{usbdc.\+c}!usbdc\+\_\+deinit@{usbdc\+\_\+deinit}}
+\index{usbdc\+\_\+deinit@{usbdc\+\_\+deinit}!usbdc.\+c@{usbdc.\+c}}
+\subsubsection{\texorpdfstring{usbdc\+\_\+deinit()}{usbdc\_deinit()}}
+{\footnotesize\ttfamily int32\+\_\+t usbdc\+\_\+deinit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+De-\/initialize the U\+SB device core driver. 
+
+Deinitialize the U\+SB device core driver. \mbox{\Hypertarget{usbdc_8c_ae8ec409dc9c5bc01a7bbe21d3ec6d987}\label{usbdc_8c_ae8ec409dc9c5bc01a7bbe21d3ec6d987}} 
+\index{usbdc.\+c@{usbdc.\+c}!usbdc\+\_\+get\+\_\+ctrl\+\_\+buffer@{usbdc\+\_\+get\+\_\+ctrl\+\_\+buffer}}
+\index{usbdc\+\_\+get\+\_\+ctrl\+\_\+buffer@{usbdc\+\_\+get\+\_\+ctrl\+\_\+buffer}!usbdc.\+c@{usbdc.\+c}}
+\subsubsection{\texorpdfstring{usbdc\+\_\+get\+\_\+ctrl\+\_\+buffer()}{usbdc\_get\_ctrl\_buffer()}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ usbdc\+\_\+get\+\_\+ctrl\+\_\+buffer (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Return U\+SB Device endpoint0 buffer. 
+
+Return U\+SB device ctrl end pointer buffer start address. \mbox{\Hypertarget{usbdc_8c_a3695e513fe584059cd6731a828276400}\label{usbdc_8c_a3695e513fe584059cd6731a828276400}} 
+\index{usbdc.\+c@{usbdc.\+c}!usbdc\+\_\+init@{usbdc\+\_\+init}}
+\index{usbdc\+\_\+init@{usbdc\+\_\+init}!usbdc.\+c@{usbdc.\+c}}
+\subsubsection{\texorpdfstring{usbdc\+\_\+init()}{usbdc\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t usbdc\+\_\+init (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{ctrl\+\_\+buf }\end{DoxyParamCaption})}
+
+
+
+Initialize the U\+SB device core driver. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ctrl\+\_\+buf} & Pointer to a buffer to be used by usb device ctrl endpoint Note\+: the size of ctrl\+\_\+buf should not be less than the size of E\+P0 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{usbdc_8c_a2328a31e072ebc604f8e8044e134a206}\label{usbdc_8c_a2328a31e072ebc604f8e8044e134a206}} 
+\index{usbdc.\+c@{usbdc.\+c}!usbdc\+\_\+register\+\_\+function@{usbdc\+\_\+register\+\_\+function}}
+\index{usbdc\+\_\+register\+\_\+function@{usbdc\+\_\+register\+\_\+function}!usbdc.\+c@{usbdc.\+c}}
+\subsubsection{\texorpdfstring{usbdc\+\_\+register\+\_\+function()}{usbdc\_register\_function()}}
+{\footnotesize\ttfamily void usbdc\+\_\+register\+\_\+function (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusbdf__driver}{usbdf\+\_\+driver} $\ast$}]{func }\end{DoxyParamCaption})}
+
+
+
+Register/unregister function support of a U\+SB device function. 
+
+Register function support of a U\+SB device function.
+
+Must be invoked when U\+SB device is stopped. \mbox{\Hypertarget{usbdc_8c_a06bede7ea2660ad2f36e0f1d1a74c617}\label{usbdc_8c_a06bede7ea2660ad2f36e0f1d1a74c617}} 
+\index{usbdc.\+c@{usbdc.\+c}!usbdc\+\_\+register\+\_\+handler@{usbdc\+\_\+register\+\_\+handler}}
+\index{usbdc\+\_\+register\+\_\+handler@{usbdc\+\_\+register\+\_\+handler}!usbdc.\+c@{usbdc.\+c}}
+\subsubsection{\texorpdfstring{usbdc\+\_\+register\+\_\+handler()}{usbdc\_register\_handler()}}
+{\footnotesize\ttfamily void usbdc\+\_\+register\+\_\+handler (\begin{DoxyParamCaption}\item[{enum \hyperlink{usbdc_8h_a53fcd804a2a8765420bbb514294bf4b2}{usbdc\+\_\+handler\+\_\+type}}]{type,  }\item[{const struct \hyperlink{structusbdc__handler}{usbdc\+\_\+handler} $\ast$}]{h }\end{DoxyParamCaption})}
+
+
+
+Register the handler. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em type} & U\+SB device core handler type. \\
+\hline
+\mbox{\tt in}  & {\em h} & Pointer to usb device core handler. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{usbdc_8c_af5a3fde4d8fb103380ddacb74e2f79ec}\label{usbdc_8c_af5a3fde4d8fb103380ddacb74e2f79ec}} 
+\index{usbdc.\+c@{usbdc.\+c}!usbdc\+\_\+start@{usbdc\+\_\+start}}
+\index{usbdc\+\_\+start@{usbdc\+\_\+start}!usbdc.\+c@{usbdc.\+c}}
+\subsubsection{\texorpdfstring{usbdc\+\_\+start()}{usbdc\_start()}}
+{\footnotesize\ttfamily int32\+\_\+t usbdc\+\_\+start (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusbd__descriptors}{usbd\+\_\+descriptors} $\ast$}]{desces }\end{DoxyParamCaption})}
+
+
+
+Start the U\+SB device driver with specific descriptors set. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em desces} & Pointer to usb device core descriptors \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{usbdc_8c_a9246e844341684daeb4aef423e094da3}\label{usbdc_8c_a9246e844341684daeb4aef423e094da3}} 
+\index{usbdc.\+c@{usbdc.\+c}!usbdc\+\_\+stop@{usbdc\+\_\+stop}}
+\index{usbdc\+\_\+stop@{usbdc\+\_\+stop}!usbdc.\+c@{usbdc.\+c}}
+\subsubsection{\texorpdfstring{usbdc\+\_\+stop()}{usbdc\_stop()}}
+{\footnotesize\ttfamily int32\+\_\+t usbdc\+\_\+stop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Stop the U\+SB device driver. 
+
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{usbdc_8c_a5b48232344aed00da8b3ebd0b083a92a}\label{usbdc_8c_a5b48232344aed00da8b3ebd0b083a92a}} 
+\index{usbdc.\+c@{usbdc.\+c}!usbdc\+\_\+unregister\+\_\+function@{usbdc\+\_\+unregister\+\_\+function}}
+\index{usbdc\+\_\+unregister\+\_\+function@{usbdc\+\_\+unregister\+\_\+function}!usbdc.\+c@{usbdc.\+c}}
+\subsubsection{\texorpdfstring{usbdc\+\_\+unregister\+\_\+function()}{usbdc\_unregister\_function()}}
+{\footnotesize\ttfamily void usbdc\+\_\+unregister\+\_\+function (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusbdf__driver}{usbdf\+\_\+driver} $\ast$}]{func }\end{DoxyParamCaption})}
+
+
+
+Unregister function support of a U\+SB device function. 
+
+Must be invoked when U\+SB device is stopped. \mbox{\Hypertarget{usbdc_8c_a65f314d87ecfbd84bf2b8f68c7bbe221}\label{usbdc_8c_a65f314d87ecfbd84bf2b8f68c7bbe221}} 
+\index{usbdc.\+c@{usbdc.\+c}!usbdc\+\_\+unregister\+\_\+handler@{usbdc\+\_\+unregister\+\_\+handler}}
+\index{usbdc\+\_\+unregister\+\_\+handler@{usbdc\+\_\+unregister\+\_\+handler}!usbdc.\+c@{usbdc.\+c}}
+\subsubsection{\texorpdfstring{usbdc\+\_\+unregister\+\_\+handler()}{usbdc\_unregister\_handler()}}
+{\footnotesize\ttfamily void usbdc\+\_\+unregister\+\_\+handler (\begin{DoxyParamCaption}\item[{enum \hyperlink{usbdc_8h_a53fcd804a2a8765420bbb514294bf4b2}{usbdc\+\_\+handler\+\_\+type}}]{type,  }\item[{const struct \hyperlink{structusbdc__handler}{usbdc\+\_\+handler} $\ast$}]{h }\end{DoxyParamCaption})}
+
+
+
+Unregister the handler. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em type} & U\+SB device core handler type. \\
+\hline
+\mbox{\tt in}  & {\em h} & Pointer to usb device core handler. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{usbdc_8c_a8b5b10cbd8cba68ca2aaf1d2b9d7f0b7}\label{usbdc_8c_a8b5b10cbd8cba68ca2aaf1d2b9d7f0b7}} 
+\index{usbdc.\+c@{usbdc.\+c}!usbdc\+\_\+validate\+\_\+desces@{usbdc\+\_\+validate\+\_\+desces}}
+\index{usbdc\+\_\+validate\+\_\+desces@{usbdc\+\_\+validate\+\_\+desces}!usbdc.\+c@{usbdc.\+c}}
+\subsubsection{\texorpdfstring{usbdc\+\_\+validate\+\_\+desces()}{usbdc\_validate\_desces()}}
+{\footnotesize\ttfamily int32\+\_\+t usbdc\+\_\+validate\+\_\+desces (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusbd__descriptors}{usbd\+\_\+descriptors} $\ast$}]{desces }\end{DoxyParamCaption})}
+
+
+
+Validate the descriptor. 
+
+Validate the descriptors. \mbox{\Hypertarget{usbdc_8c_ad213bfedb40fe0440d70b619bf5a9b07}\label{usbdc_8c_ad213bfedb40fe0440d70b619bf5a9b07}} 
+\index{usbdc.\+c@{usbdc.\+c}!usbdc\+\_\+xfer@{usbdc\+\_\+xfer}}
+\index{usbdc\+\_\+xfer@{usbdc\+\_\+xfer}!usbdc.\+c@{usbdc.\+c}}
+\subsubsection{\texorpdfstring{usbdc\+\_\+xfer()}{usbdc\_xfer()}}
+{\footnotesize\ttfamily int32\+\_\+t usbdc\+\_\+xfer (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{ep,  }\item[{uint8\+\_\+t $\ast$}]{buf,  }\item[{uint32\+\_\+t}]{size,  }\item[{bool}]{zlp }\end{DoxyParamCaption})}
+
+
+
+Issue U\+SB device transfer. 
+
+Issue U\+SB device data transfer. 

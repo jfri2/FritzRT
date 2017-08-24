@@ -1,0 +1,57 @@
+\hypertarget{group__doc__driver__hal__helper__sleep}{}\section{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+sleep}
+\label{group__doc__driver__hal__helper__sleep}\index{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+sleep@{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+sleep}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{group__doc__driver__hal__helper__sleep_gab004676b3011ffebede7c473a5cdfccc}{sleep} (const uint8\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Set the sleep mode of the device and put the M\+CU to sleep. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group__doc__driver__hal__helper__sleep_gaab8a7b5dfa992a33c63e63ed98e4b105}{sleep\+\_\+get\+\_\+version} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve the current driver version. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__doc__driver__hal__helper__sleep_gab004676b3011ffebede7c473a5cdfccc}\label{group__doc__driver__hal__helper__sleep_gab004676b3011ffebede7c473a5cdfccc}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+sleep@{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+sleep}!sleep@{sleep}}
+\index{sleep@{sleep}!Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+sleep@{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+sleep}}
+\subsubsection{\texorpdfstring{sleep()}{sleep()}}
+{\footnotesize\ttfamily int sleep (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+
+
+Set the sleep mode of the device and put the M\+CU to sleep. 
+
+For an overview of which systems are disabled in sleep for the different sleep modes, see the data sheet.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em mode} & Sleep mode to use\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of a sleep request 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em -\/1} & The requested sleep mode was invalid or not available \\
+\hline
+{\em 0} & The operation completed successfully, returned after leaving the sleep \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__helper__sleep_gaab8a7b5dfa992a33c63e63ed98e4b105}\label{group__doc__driver__hal__helper__sleep_gaab8a7b5dfa992a33c63e63ed98e4b105}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+sleep@{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+sleep}!sleep\+\_\+get\+\_\+version@{sleep\+\_\+get\+\_\+version}}
+\index{sleep\+\_\+get\+\_\+version@{sleep\+\_\+get\+\_\+version}!Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+sleep@{Doc\+\_\+driver\+\_\+hal\+\_\+helper\+\_\+sleep}}
+\subsubsection{\texorpdfstring{sleep\+\_\+get\+\_\+version()}{sleep\_get\_version()}}
+{\footnotesize\ttfamily uint32\+\_\+t sleep\+\_\+get\+\_\+version (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve the current driver version. 
+
+\begin{DoxyReturn}{Returns}
+Current driver version.
+
+Current driver version 
+\end{DoxyReturn}

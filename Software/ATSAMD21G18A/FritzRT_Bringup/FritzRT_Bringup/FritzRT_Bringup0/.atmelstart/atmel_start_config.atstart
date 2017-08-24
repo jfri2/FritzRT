@@ -205,6 +205,34 @@ drivers:
     variant: null
     clocks:
       domain_group: null
+  TIMER_0:
+    user_label: TIMER_0
+    definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21G18A-AF::TC3::driver_config_definition::Timer::HAL:Driver:Timer
+    functionality: Timer
+    api: HAL:Driver:Timer
+    configuration:
+      tc_arch_dbgrun: false
+      tc_arch_evact: Event action disabled
+      tc_arch_mceo0: false
+      tc_arch_mceo1: false
+      tc_arch_ovfeo: false
+      tc_arch_presync: Reload or reset counter on next GCLK
+      tc_arch_runstdby: false
+      tc_arch_tcei: false
+      tc_arch_tceinv: false
+      timer_advanced_configuration: false
+      timer_event_control: false
+      timer_prescaler: Divide by 2
+      timer_tick: 100
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: TC
+          input: Generic clock generator 2
+        configuration:
+          tc_gclk_selection: Generic clock generator 2
   DMAC:
     user_label: DMAC
     definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21G18A-AF::DMAC::driver_config_definition::DMAC::HAL:HPL:DMAC
@@ -563,47 +591,6 @@ drivers:
     variant: null
     clocks:
       domain_group: null
-  USB_0:
-    user_label: USB_0
-    definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21G18A-AF::USB::driver_config_definition::USB.Device::HAL:Driver:USB.Device
-    functionality: USB
-    api: HAL:Driver:USB_Device
-    configuration:
-      usb_arch_ep0_cache: Cached by 64 bytes buffer
-      usb_arch_ep1_cache: Cached by 64 bytes buffer
-      usb_arch_ep2_cache: Cached by 64 bytes buffer
-      usb_arch_ep3_cache: Cached by 64 bytes buffer
-      usb_arch_ep4_cache: Cached by 64 bytes buffer
-      usb_arch_ep5_cache: Cached by 64 bytes buffer
-      usb_arch_ep6_cache: Cached by 64 bytes buffer
-      usb_arch_ep7_cache: Cached by 64 bytes buffer
-      usb_ep1_I_CACHE: No cache
-      usb_ep2_I_CACHE: No cache
-      usb_ep3_I_CACHE: No cache
-      usb_ep4_I_CACHE: No cache
-      usb_ep5_I_CACHE: No cache
-      usb_ep6_I_CACHE: No cache
-      usb_ep7_I_CACHE: No cache
-      usbd_arch_max_ep_n: 2 (EP 0x82 or 0x02)
-      usbd_arch_speed: Full speed
-      usbd_num_ep_sp: 4 (EP0 + 3 endpoints)
-    optional_signals: []
-    variant:
-      specification: default
-      required_signals:
-      - name: USB/DM
-        pad: PA24
-        label: Data-
-      - name: USB/DP
-        pad: PA25
-        label: Data+
-    clocks:
-      domain_group:
-        nodes:
-        - name: USB
-          input: Generic clock generator 0
-        configuration:
-          usb_gclk_selection: Generic clock generator 0
 pads:
   PIN_SX1238_DIO5:
     name: PA06
@@ -677,18 +664,6 @@ pads:
     user_label: PIN_SX1238_DIO4
     configuration:
       pad_pull_config: Pull-up
-  PIN_USB_DN:
-    name: PA24
-    definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21G18A-AF::pad::PA24
-    mode: Advanced
-    user_label: PIN_USB_DN
-    configuration: null
-  PIN_USB_DP:
-    name: PA25
-    definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21G18A-AF::pad::PA25
-    mode: Advanced
-    user_label: PIN_USB_DP
-    configuration: null
   PIN_LED_TX:
     name: PA27
     definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21G18A-AF::pad::PA27

@@ -1,0 +1,43 @@
+\hypertarget{hpl__timer_8h}{}\section{hal/include/hpl\+\_\+timer.h File Reference}
+\label{hpl__timer_8h}\index{hal/include/hpl\+\_\+timer.\+h@{hal/include/hpl\+\_\+timer.\+h}}
+
+
+Timer related functionality declaration.  
+
+
+{\ttfamily \#include $<$compiler.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+irq.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__timer__callbacks}{\+\_\+timer\+\_\+callbacks}
+\begin{DoxyCompactList}\small\item\em Timer interrupt callbacks. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device}
+\begin{DoxyCompactList}\small\item\em Timer device structure. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__timer__hpl__interface}{\+\_\+timer\+\_\+hpl\+\_\+interface}
+\begin{DoxyCompactList}\small\item\em Timer functions, pointers to low-\/level functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group___h_p_l_gade39b65e851877482435cfb3789724a8}{\+\_\+timer\+\_\+init} (struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize T\+CC. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gac9b7787b4e39ba73070712a897e3198e}{\+\_\+timer\+\_\+deinit} (struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Deinitialize T\+CC. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga29f3fa3f07ba0428641f4db03b5bbee0}{\+\_\+timer\+\_\+start} (struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Start hardware timer. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gaf20437ff953c5533299bd9f7d4fabfe4}{\+\_\+timer\+\_\+stop} (struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Stop hardware timer. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gabca60e7eaef3b0c209d68f5581609a4a}{\+\_\+timer\+\_\+set\+\_\+period} (struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device, const uint32\+\_\+t clock\+\_\+cycles)
+\begin{DoxyCompactList}\small\item\em Set timer period. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___h_p_l_ga7dcd9a3f656643075605cbdd19bb1dc3}{\+\_\+timer\+\_\+get\+\_\+period} (const struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve timer period. \end{DoxyCompactList}\item 
+bool \hyperlink{group___h_p_l_ga32ec962f2bdeb1c15eca8e38e7a88de2}{\+\_\+timer\+\_\+is\+\_\+started} (const struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if timer is running. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga7689280886559ce8d6dd0514b2654146}{\+\_\+timer\+\_\+set\+\_\+irq} (struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Set timer I\+RQ. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Timer related functionality declaration. 
+
+Copyright (C) 2014 -\/ 2016 Atmel Corporation. All rights reserved.

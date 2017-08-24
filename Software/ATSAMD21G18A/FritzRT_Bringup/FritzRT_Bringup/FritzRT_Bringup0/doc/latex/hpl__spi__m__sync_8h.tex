@@ -1,0 +1,41 @@
+\hypertarget{hpl__spi__m__sync_8h}{}\section{hal/include/hpl\+\_\+spi\+\_\+m\+\_\+sync.h File Reference}
+\label{hpl__spi__m__sync_8h}\index{hal/include/hpl\+\_\+spi\+\_\+m\+\_\+sync.\+h@{hal/include/hpl\+\_\+spi\+\_\+m\+\_\+sync.\+h}}
+
+
+S\+PI related functionality declaration.  
+
+
+{\ttfamily \#include $<$hpl\+\_\+spi.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+spi\+\_\+sync.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__hpl__spi_ga7674622aeda62f2981f106e2d8221a5e}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+dev}~\hyperlink{struct__spi__sync__dev}{\+\_\+spi\+\_\+sync\+\_\+dev}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga1ba635e6ad210d1428315ddd399647e2}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+init} (struct \hyperlink{group__hpl__spi_ga7674622aeda62f2981f106e2d8221a5e}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+dev} $\ast$dev, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize S\+PI for access without interrupts It will load default hardware configuration and software struct. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gaf4e206004864513902ccd1c79a4d59d8}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+deinit} (struct \hyperlink{group__hpl__spi_ga7674622aeda62f2981f106e2d8221a5e}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Deinitialize S\+PI Disable, reset the hardware and the software struct. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga3c9ed3535e73ac73198d7a06829ce260}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+enable} (struct \hyperlink{group__hpl__spi_ga7674622aeda62f2981f106e2d8221a5e}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Enable S\+PI for access without interrupts. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga1f98d26555a08dae45c7d80da8a6b1e9}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+disable} (struct \hyperlink{group__hpl__spi_ga7674622aeda62f2981f106e2d8221a5e}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Disable S\+PI for access without interrupts Disable S\+PI. Deactivate all CS pins if works as master. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gafa658db2528d45e511ca80ade9feb2f8}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+mode} (struct \hyperlink{group__hpl__spi_ga7674622aeda62f2981f106e2d8221a5e}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+dev} $\ast$dev, const enum \hyperlink{group__hpl__spi_ga9c30fdfffba6be76b4044ccb17b218e5}{spi\+\_\+transfer\+\_\+mode} mode)
+\begin{DoxyCompactList}\small\item\em Set S\+PI transfer mode Set S\+PI transfer mode (\hyperlink{group__hpl__spi_ga9c30fdfffba6be76b4044ccb17b218e5}{spi\+\_\+transfer\+\_\+mode}), which controls clock polarity and clock phase. Mode 0\+: leading edge is rising edge, data sample on leading edge. Mode 1\+: leading edge is rising edge, data sample on trailing edge. Mode 2\+: leading edge is falling edge, data sample on leading edge. Mode 3\+: leading edge is falling edge, data sample on trailing edge. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga9afbba219e80a3afa273c19c889dae3a}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+baudrate} (struct \hyperlink{group__hpl__spi_ga7674622aeda62f2981f106e2d8221a5e}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+dev} $\ast$dev, const uint32\+\_\+t baud\+\_\+val)
+\begin{DoxyCompactList}\small\item\em Set S\+PI baudrate. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gab3dbaa2147cc8f859c11a6fd2bf04a13}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+char\+\_\+size} (struct \hyperlink{group__hpl__spi_ga7674622aeda62f2981f106e2d8221a5e}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+dev} $\ast$dev, const enum \hyperlink{group__hpl__spi_ga4a3ef460c2cea333834811806f32d60a}{spi\+\_\+char\+\_\+size} char\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Set S\+PI baudrate. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga83403f5f3a201292ac93622f20278221}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+data\+\_\+order} (struct \hyperlink{group__hpl__spi_ga7674622aeda62f2981f106e2d8221a5e}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+dev} $\ast$dev, const enum \hyperlink{group__hpl__spi_gabaa69dbc0601cb5b1e2681400598a4b2}{spi\+\_\+data\+\_\+order} dord)
+\begin{DoxyCompactList}\small\item\em Set S\+PI data order. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga7c3dd5d93fc342e6436bbce037b8b424}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+trans} (struct \hyperlink{group__hpl__spi_ga7674622aeda62f2981f106e2d8221a5e}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+dev} $\ast$dev, const struct \hyperlink{structspi__msg}{spi\+\_\+msg} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Transfer the whole message without interrupt Transfer the message, it will keep waiting until the message finish or error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+S\+PI related functionality declaration. 
+
+Copyright (C) 2015 Atmel Corporation. All rights reserved.

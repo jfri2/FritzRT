@@ -1,0 +1,61 @@
+\hypertarget{hpl__spi_8h}{}\section{hal/include/hpl\+\_\+spi.h File Reference}
+\label{hpl__spi_8h}\index{hal/include/hpl\+\_\+spi.\+h@{hal/include/hpl\+\_\+spi.\+h}}
+
+
+S\+PI related functionality declaration.  
+
+
+{\ttfamily \#include $<$compiler.\+h$>$}\newline
+{\ttfamily \#include $<$utils.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structspi__msg}{spi\+\_\+msg}
+\begin{DoxyCompactList}\small\item\em S\+PI message to let driver to process. \end{DoxyCompactList}\item 
+struct \hyperlink{structspi__xfer}{spi\+\_\+xfer}
+\begin{DoxyCompactList}\small\item\em Transfer descriptor for S\+PI Transfer descriptor holds TX and RX buffers. \end{DoxyCompactList}\item 
+struct \hyperlink{structspi__dev}{spi\+\_\+dev}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__hpl__spi_ga108944a74063db008de048761538192b}{S\+P\+I\+\_\+\+D\+U\+M\+M\+Y\+\_\+\+C\+H\+AR}~0x1ff
+\begin{DoxyCompactList}\small\item\em S\+PI Dummy char is used when reading data from the S\+PI slave. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group__hpl__spi_ga9c30fdfffba6be76b4044ccb17b218e5}{spi\+\_\+transfer\+\_\+mode} \{ \hyperlink{group__hpl__spi_gga9c30fdfffba6be76b4044ccb17b218e5a152359b11fb4b43ed0c5485eb0ab0673}{S\+P\+I\+\_\+\+M\+O\+D\+E\+\_\+0}, 
+\hyperlink{group__hpl__spi_gga9c30fdfffba6be76b4044ccb17b218e5a7c1990cc15e9d69621be8e0e757e634c}{S\+P\+I\+\_\+\+M\+O\+D\+E\+\_\+1}, 
+\hyperlink{group__hpl__spi_gga9c30fdfffba6be76b4044ccb17b218e5a4d350945d895a4acdc45ae96b0b82fc3}{S\+P\+I\+\_\+\+M\+O\+D\+E\+\_\+2}, 
+\hyperlink{group__hpl__spi_gga9c30fdfffba6be76b4044ccb17b218e5af06ec36087996d6f328df39866ff5de6}{S\+P\+I\+\_\+\+M\+O\+D\+E\+\_\+3}
+ \}\begin{DoxyCompactList}\small\item\em S\+PI transfer modes S\+PI transfer mode controls clock polarity and clock phase. Mode 0\+: leading edge is rising edge, data sample on leading edge. Mode 1\+: leading edge is rising edge, data sample on trailing edge. Mode 2\+: leading edge is falling edge, data sample on leading edge. Mode 3\+: leading edge is falling edge, data sample on trailing edge. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group__hpl__spi_ga4a3ef460c2cea333834811806f32d60a}{spi\+\_\+char\+\_\+size} \{ \newline
+\hyperlink{group__hpl__spi_gga4a3ef460c2cea333834811806f32d60aa545c4eeac3fb7aeaeeb2ad03846f2229}{S\+P\+I\+\_\+\+C\+H\+A\+R\+\_\+\+S\+I\+Z\+E\+\_\+8} = 0, 
+\hyperlink{group__hpl__spi_gga4a3ef460c2cea333834811806f32d60aa811e552b89c9b9c3e6a8651132c51a0a}{S\+P\+I\+\_\+\+C\+H\+A\+R\+\_\+\+S\+I\+Z\+E\+\_\+9} = 1, 
+\hyperlink{group__hpl__spi_gga4a3ef460c2cea333834811806f32d60aa9d1f60998e243ba7e89e000729f094c6}{S\+P\+I\+\_\+\+C\+H\+A\+R\+\_\+\+S\+I\+Z\+E\+\_\+10} = 2, 
+\hyperlink{group__hpl__spi_gga4a3ef460c2cea333834811806f32d60aa44e024c8e69dde6a399893ab546f143f}{S\+P\+I\+\_\+\+C\+H\+A\+R\+\_\+\+S\+I\+Z\+E\+\_\+11} = 3, 
+\newline
+\hyperlink{group__hpl__spi_gga4a3ef460c2cea333834811806f32d60aa1173f1bd9d748952aee7a529f29db7ae}{S\+P\+I\+\_\+\+C\+H\+A\+R\+\_\+\+S\+I\+Z\+E\+\_\+12} = 4, 
+\hyperlink{group__hpl__spi_gga4a3ef460c2cea333834811806f32d60aae4bfe6a81d35bb32649c29ef61ed0149}{S\+P\+I\+\_\+\+C\+H\+A\+R\+\_\+\+S\+I\+Z\+E\+\_\+13} = 5, 
+\hyperlink{group__hpl__spi_gga4a3ef460c2cea333834811806f32d60aa362b90f6a542d1562e07f7083bf01356}{S\+P\+I\+\_\+\+C\+H\+A\+R\+\_\+\+S\+I\+Z\+E\+\_\+14} = 6, 
+\hyperlink{group__hpl__spi_gga4a3ef460c2cea333834811806f32d60aa8e89f50814cf80957ef5a5849712384e}{S\+P\+I\+\_\+\+C\+H\+A\+R\+\_\+\+S\+I\+Z\+E\+\_\+15} = 7, 
+\newline
+\hyperlink{group__hpl__spi_gga4a3ef460c2cea333834811806f32d60aa86b0b19ae92d22dbfe40f979ce399140}{S\+P\+I\+\_\+\+C\+H\+A\+R\+\_\+\+S\+I\+Z\+E\+\_\+16} = 8
+ \}\begin{DoxyCompactList}\small\item\em S\+PI character sizes The character size influence the way the data is sent/received. For char size $<$= 8 data is stored byte by byte. For char size between 9 $\sim$ 16 data is stored in 2-\/byte length. Note that the default and recommended char size is 8 bit since it\textquotesingle{}s supported by all system. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group__hpl__spi_gabaa69dbc0601cb5b1e2681400598a4b2}{spi\+\_\+data\+\_\+order} \{ \hyperlink{group__hpl__spi_ggabaa69dbc0601cb5b1e2681400598a4b2a7875038b58baad2610da7f3ef2cd0325}{S\+P\+I\+\_\+\+D\+A\+T\+A\+\_\+\+O\+R\+D\+E\+R\+\_\+\+M\+S\+B\+\_\+1\+ST} = 0, 
+\hyperlink{group__hpl__spi_ggabaa69dbc0601cb5b1e2681400598a4b2ac8b791b014c96eee8c4880c0a743cd10}{S\+P\+I\+\_\+\+D\+A\+T\+A\+\_\+\+O\+R\+D\+E\+R\+\_\+\+L\+S\+B\+\_\+1\+ST} = 1
+ \}\begin{DoxyCompactList}\small\item\em S\+PI data order. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gaf83a57ec4a0328b8d58c9aa847867445}{\+\_\+spi\+\_\+calc\+\_\+baud\+\_\+val} (struct \hyperlink{structspi__dev}{spi\+\_\+dev} $\ast$dev, const uint32\+\_\+t clk, const uint32\+\_\+t baud)
+\begin{DoxyCompactList}\small\item\em Calculate the baudrate value for hardware to use to set baudrate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+S\+PI related functionality declaration. 
+
+Copyright (C) 2014 -\/ 2015 Atmel Corporation. All rights reserved.

@@ -1,0 +1,51 @@
+\hypertarget{structusb__dev__qual__desc}{}\section{usb\+\_\+dev\+\_\+qual\+\_\+desc Struct Reference}
+\label{structusb__dev__qual__desc}\index{usb\+\_\+dev\+\_\+qual\+\_\+desc@{usb\+\_\+dev\+\_\+qual\+\_\+desc}}
+
+
+Standard U\+SB device qualifier descriptor structure.  
+
+
+
+
+{\ttfamily \#include $<$usb\+\_\+protocol.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structusb__dev__qual__desc_a18d5e3ff651e95bf99b8d33f3493e92f}\label{structusb__dev__qual__desc_a18d5e3ff651e95bf99b8d33f3493e92f}} 
+uint8\+\_\+t {\bfseries b\+Length}
+\item 
+\mbox{\Hypertarget{structusb__dev__qual__desc_a5b84c1981fb64fdc3d1db51917ef6f34}\label{structusb__dev__qual__desc_a5b84c1981fb64fdc3d1db51917ef6f34}} 
+uint8\+\_\+t {\bfseries b\+Descriptor\+Type}
+\item 
+\mbox{\Hypertarget{structusb__dev__qual__desc_aeec02798e93014c76cc36cf90e88fb40}\label{structusb__dev__qual__desc_aeec02798e93014c76cc36cf90e88fb40}} 
+le16\+\_\+t {\bfseries bcd\+U\+SB}
+\item 
+\mbox{\Hypertarget{structusb__dev__qual__desc_ab02b233c356370c092b997a816812d1b}\label{structusb__dev__qual__desc_ab02b233c356370c092b997a816812d1b}} 
+uint8\+\_\+t {\bfseries b\+Device\+Class}
+\item 
+\mbox{\Hypertarget{structusb__dev__qual__desc_aed406464ff8facc77c4689653c04ea54}\label{structusb__dev__qual__desc_aed406464ff8facc77c4689653c04ea54}} 
+uint8\+\_\+t {\bfseries b\+Device\+Sub\+Class}
+\item 
+\mbox{\Hypertarget{structusb__dev__qual__desc_a79b295f21654092b25f84c39331b2617}\label{structusb__dev__qual__desc_a79b295f21654092b25f84c39331b2617}} 
+uint8\+\_\+t {\bfseries b\+Device\+Protocol}
+\item 
+\mbox{\Hypertarget{structusb__dev__qual__desc_a5087e660192981b01bfea1220ce96d6a}\label{structusb__dev__qual__desc_a5087e660192981b01bfea1220ce96d6a}} 
+uint8\+\_\+t {\bfseries b\+Max\+Packet\+Size0}
+\item 
+\mbox{\Hypertarget{structusb__dev__qual__desc_ad45e2ee53174dc97fc95a6812d5f194f}\label{structusb__dev__qual__desc_ad45e2ee53174dc97fc95a6812d5f194f}} 
+uint8\+\_\+t {\bfseries b\+Num\+Configurations}
+\item 
+\mbox{\Hypertarget{structusb__dev__qual__desc_a2d0ef5fcd1b91e1e41a08a60756cfd1e}\label{structusb__dev__qual__desc_a2d0ef5fcd1b91e1e41a08a60756cfd1e}} 
+uint8\+\_\+t {\bfseries b\+Reserved}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Standard U\+SB device qualifier descriptor structure. 
+
+This descriptor contains information about the device when running at the \char`\"{}other\char`\"{} speed (i.\+e. if the device is currently operating at high speed, this descriptor can be used to determine what would change if the device was operating at full speed.) 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+usb/\hyperlink{usb__protocol_8h}{usb\+\_\+protocol.\+h}\end{DoxyCompactItemize}

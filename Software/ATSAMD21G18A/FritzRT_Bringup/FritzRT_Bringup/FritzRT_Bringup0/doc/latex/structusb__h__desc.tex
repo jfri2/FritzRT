@@ -1,0 +1,65 @@
+\hypertarget{structusb__h__desc}{}\section{usb\+\_\+h\+\_\+desc Struct Reference}
+\label{structusb__h__desc}\index{usb\+\_\+h\+\_\+desc@{usb\+\_\+h\+\_\+desc}}
+
+
+U\+SB Host Controller device structure.  
+
+
+
+
+{\ttfamily \#include $<$hpl\+\_\+usb\+\_\+host.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{structusb__h__desc_a6058c618d39f7836b7025d2352ef08f8}{hw}
+\item 
+void $\ast$ \hyperlink{structusb__h__desc_a49877672c7dfa8cc9cede4e9b7a0e362}{prvt}
+\item 
+struct \hyperlink{struct__irq__descriptor}{\+\_\+irq\+\_\+descriptor} \hyperlink{structusb__h__desc_af51d57cf25ab32e379c108388d0e5c70}{irq}
+\item 
+\hyperlink{hpl__usb__host_8h_aa4342c321cc874eedaefdde86e06e6c3}{usb\+\_\+h\+\_\+cb\+\_\+sof\+\_\+t} \hyperlink{structusb__h__desc_af861986e911d7479de24d5ff65cbc752}{sof\+\_\+cb}
+\item 
+\hyperlink{hpl__usb__host_8h_aee4ec1554da1298d8875cd8e789c058a}{usb\+\_\+h\+\_\+cb\+\_\+roothub\+\_\+t} \hyperlink{structusb__h__desc_adeab338fa2a4dac953b4305b0b2defad}{rh\+\_\+cb}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+SB Host Controller device structure. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structusb__h__desc_a6058c618d39f7836b7025d2352ef08f8}\label{structusb__h__desc_a6058c618d39f7836b7025d2352ef08f8}} 
+\index{usb\+\_\+h\+\_\+desc@{usb\+\_\+h\+\_\+desc}!hw@{hw}}
+\index{hw@{hw}!usb\+\_\+h\+\_\+desc@{usb\+\_\+h\+\_\+desc}}
+\subsubsection{\texorpdfstring{hw}{hw}}
+{\footnotesize\ttfamily void$\ast$ usb\+\_\+h\+\_\+desc\+::hw}
+
+Pointer to hardware base \mbox{\Hypertarget{structusb__h__desc_af51d57cf25ab32e379c108388d0e5c70}\label{structusb__h__desc_af51d57cf25ab32e379c108388d0e5c70}} 
+\index{usb\+\_\+h\+\_\+desc@{usb\+\_\+h\+\_\+desc}!irq@{irq}}
+\index{irq@{irq}!usb\+\_\+h\+\_\+desc@{usb\+\_\+h\+\_\+desc}}
+\subsubsection{\texorpdfstring{irq}{irq}}
+{\footnotesize\ttfamily struct \hyperlink{struct__irq__descriptor}{\+\_\+irq\+\_\+descriptor} usb\+\_\+h\+\_\+desc\+::irq}
+
+Interrupt handling descriptor \mbox{\Hypertarget{structusb__h__desc_a49877672c7dfa8cc9cede4e9b7a0e362}\label{structusb__h__desc_a49877672c7dfa8cc9cede4e9b7a0e362}} 
+\index{usb\+\_\+h\+\_\+desc@{usb\+\_\+h\+\_\+desc}!prvt@{prvt}}
+\index{prvt@{prvt}!usb\+\_\+h\+\_\+desc@{usb\+\_\+h\+\_\+desc}}
+\subsubsection{\texorpdfstring{prvt}{prvt}}
+{\footnotesize\ttfamily void$\ast$ usb\+\_\+h\+\_\+desc\+::prvt}
+
+Pointer to private data for Host Controller driver \mbox{\Hypertarget{structusb__h__desc_adeab338fa2a4dac953b4305b0b2defad}\label{structusb__h__desc_adeab338fa2a4dac953b4305b0b2defad}} 
+\index{usb\+\_\+h\+\_\+desc@{usb\+\_\+h\+\_\+desc}!rh\+\_\+cb@{rh\+\_\+cb}}
+\index{rh\+\_\+cb@{rh\+\_\+cb}!usb\+\_\+h\+\_\+desc@{usb\+\_\+h\+\_\+desc}}
+\subsubsection{\texorpdfstring{rh\+\_\+cb}{rh\_cb}}
+{\footnotesize\ttfamily \hyperlink{hpl__usb__host_8h_aee4ec1554da1298d8875cd8e789c058a}{usb\+\_\+h\+\_\+cb\+\_\+roothub\+\_\+t} usb\+\_\+h\+\_\+desc\+::rh\+\_\+cb}
+
+Callback of root hub change \mbox{\Hypertarget{structusb__h__desc_af861986e911d7479de24d5ff65cbc752}\label{structusb__h__desc_af861986e911d7479de24d5ff65cbc752}} 
+\index{usb\+\_\+h\+\_\+desc@{usb\+\_\+h\+\_\+desc}!sof\+\_\+cb@{sof\+\_\+cb}}
+\index{sof\+\_\+cb@{sof\+\_\+cb}!usb\+\_\+h\+\_\+desc@{usb\+\_\+h\+\_\+desc}}
+\subsubsection{\texorpdfstring{sof\+\_\+cb}{sof\_cb}}
+{\footnotesize\ttfamily \hyperlink{hpl__usb__host_8h_aa4342c321cc874eedaefdde86e06e6c3}{usb\+\_\+h\+\_\+cb\+\_\+sof\+\_\+t} usb\+\_\+h\+\_\+desc\+::sof\+\_\+cb}
+
+Callback of S\+OF 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+hal/include/\hyperlink{hpl__usb__host_8h}{hpl\+\_\+usb\+\_\+host.\+h}\end{DoxyCompactItemize}

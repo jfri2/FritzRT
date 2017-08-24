@@ -1,0 +1,886 @@
+\hypertarget{hpl__usb__host_8h}{}\section{hal/include/hpl\+\_\+usb\+\_\+host.h File Reference}
+\label{hpl__usb__host_8h}\index{hal/include/hpl\+\_\+usb\+\_\+host.\+h@{hal/include/hpl\+\_\+usb\+\_\+host.\+h}}
+
+
+S\+AM U\+SB host H\+PL.  
+
+
+{\ttfamily \#include $<$hpl\+\_\+usb.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+irq.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}hpl\+\_\+usb\+\_\+config.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc}
+\begin{DoxyCompactList}\small\item\em U\+SB Host Controller device structure. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__h__ctrl__xfer}{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}
+\begin{DoxyCompactList}\small\item\em Transfer descriptor for control transfer. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__h__bulk__int__iso__xfer}{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer}
+\begin{DoxyCompactList}\small\item\em Transfer descriptor for bulk / interrupt / iso transfer. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__h__high__bw__xfer}{usb\+\_\+h\+\_\+high\+\_\+bw\+\_\+xfer}
+\begin{DoxyCompactList}\small\item\em Transfer descriptor for periodic high bandwidth transfer. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__h__xfer}{usb\+\_\+h\+\_\+xfer}
+\begin{DoxyCompactList}\small\item\em General transfer descriptor. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe}
+\begin{DoxyCompactList}\small\item\em U\+SB Host Controller Driver Pipe structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{hpl__usb__host_8h_aaec69fb67362638dec9f1cb89ac71728}{U\+S\+B\+\_\+\+H\+\_\+\+V\+E\+R\+S\+I\+ON}~0x00000001
+\item 
+\#define \hyperlink{hpl__usb__host_8h_a939d788a0c3e9db4104d23da0d693891}{usb\+\_\+h\+\_\+pipe\+\_\+max\+\_\+pkt\+\_\+size}(p)~(p-\/$>$max\+\_\+pkt\+\_\+size)
+\item 
+\#define \hyperlink{hpl__usb__host_8h_abf9850bb5821e2a578e92aa68187d4be}{usb\+\_\+h\+\_\+pipe\+\_\+dev\+\_\+addr}(p)~(p-\/$>$dev)
+\item 
+\#define \hyperlink{hpl__usb__host_8h_a9d217150e101ef92e9218c8b68b82e83}{usb\+\_\+h\+\_\+pipe\+\_\+ep\+\_\+addr}(p)~(p-\/$>$ep)
+\item 
+\#define \hyperlink{hpl__usb__host_8h_a1c116d430b6a8d5d50c9abda1a6a18fb}{usb\+\_\+h\+\_\+pipe\+\_\+state}(p)~(p-\/$>$x.\+general.\+state)
+\item 
+\#define \hyperlink{hpl__usb__host_8h_a0cb649c56949813ce6a2446c70539885}{usb\+\_\+h\+\_\+pipe\+\_\+status}(p)~(p-\/$>$x.\+general.\+status)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hpl__usb__host_8h_aa4342c321cc874eedaefdde86e06e6c3}\label{hpl__usb__host_8h_aa4342c321cc874eedaefdde86e06e6c3}} 
+typedef void($\ast$ \hyperlink{hpl__usb__host_8h_aa4342c321cc874eedaefdde86e06e6c3}{usb\+\_\+h\+\_\+cb\+\_\+sof\+\_\+t}) (struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$drv)
+\begin{DoxyCompactList}\small\item\em Prototyping U\+SB H\+CD callback of S\+OF. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__usb__host_8h_aee4ec1554da1298d8875cd8e789c058a}\label{hpl__usb__host_8h_aee4ec1554da1298d8875cd8e789c058a}} 
+typedef void($\ast$ \hyperlink{hpl__usb__host_8h_aee4ec1554da1298d8875cd8e789c058a}{usb\+\_\+h\+\_\+cb\+\_\+roothub\+\_\+t}) (struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$drv, uint8\+\_\+t port, uint8\+\_\+t ftr)
+\begin{DoxyCompactList}\small\item\em Prototyping U\+SB H\+CD callback of root hub changing. According to the bitmap size, max port number is 31. \end{DoxyCompactList}\item 
+typedef void($\ast$ \hyperlink{hpl__usb__host_8h_a8797518a47a3477b6a65ed5358155078}{usb\+\_\+h\+\_\+pipe\+\_\+cb\+\_\+xfer\+\_\+t}) (struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe} $\ast$pipe)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{hpl__usb__host_8h_abf09ef3e72f2fc7d65232bbf8c5b73a0}{usb\+\_\+h\+\_\+cb\+\_\+type} \{ \hyperlink{hpl__usb__host_8h_abf09ef3e72f2fc7d65232bbf8c5b73a0ab912a27957ea11dd6b7c9c37ae1bbf73}{U\+S\+B\+\_\+\+H\+\_\+\+C\+B\+\_\+\+S\+OF}, 
+\hyperlink{hpl__usb__host_8h_abf09ef3e72f2fc7d65232bbf8c5b73a0a3f10f4bcc77dcdf7e39255aa9c016a4c}{U\+S\+B\+\_\+\+H\+\_\+\+C\+B\+\_\+\+R\+O\+O\+T\+H\+U\+B\+\_\+\+C\+H\+A\+N\+GE}, 
+\hyperlink{hpl__usb__host_8h_abf09ef3e72f2fc7d65232bbf8c5b73a0af72bdb803b90e008b196c137869838be}{U\+S\+B\+\_\+\+H\+\_\+\+C\+B\+\_\+N}
+ \}\begin{DoxyCompactList}\small\item\em U\+SB H\+CD callback types. \end{DoxyCompactList}
+\item 
+enum \hyperlink{hpl__usb__host_8h_a38f4c85be19d950c6901b1df02849ca4}{usb\+\_\+h\+\_\+rsc\+\_\+strategy} \{ \hyperlink{hpl__usb__host_8h_a38f4c85be19d950c6901b1df02849ca4af2b1851d4475e4fe5841f268e8ccf064}{U\+S\+B\+\_\+\+H\+\_\+\+R\+S\+C\+\_\+\+N\+O\+R\+M\+AL} = false, 
+\hyperlink{hpl__usb__host_8h_a38f4c85be19d950c6901b1df02849ca4a4484fdfd1e5a0725b06df2f76e070be3}{U\+S\+B\+\_\+\+H\+\_\+\+R\+S\+C\+\_\+\+M\+I\+N\+I\+M\+AL} = true
+ \}\begin{DoxyCompactList}\small\item\em U\+SB H\+CD resource strategy. \end{DoxyCompactList}
+\item 
+enum \hyperlink{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2}{usb\+\_\+h\+\_\+pipe\+\_\+state} \{ \newline
+\hyperlink{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2a3531f479c50b6ed044eb6983b23f6ddb}{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+F\+R\+EE} = 0x00, 
+\hyperlink{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2a19caa1cf382cb45e8b58560694883aa5}{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+C\+FG} = 0x01, 
+\hyperlink{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2ab5539bd3582f170526a313586c5056a2}{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+I\+D\+LE} = 0x02, 
+\hyperlink{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2a4366706af2e1739b94094049842deec6}{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+S\+E\+T\+UP} = 0x03, 
+\newline
+\hyperlink{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2a7e355763049d996a5b36a51479d4214f}{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+D\+A\+TI} = 0x05, 
+\hyperlink{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2af663a2aa87eabe2f449f94185cd3ac16}{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+D\+A\+TO} = 0x06, 
+\hyperlink{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2ade150ffe51b36ee0854044456cd277fe}{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+Z\+L\+PI} = 0x07, 
+\hyperlink{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2a9724f576741a27537333020cd17c218c}{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+Z\+L\+PO} = 0x08, 
+\newline
+\hyperlink{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2aa2acaba7b09a98d6d1dcacfb0a41d543}{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+S\+T\+A\+TI} = 0x09, 
+\hyperlink{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2af48197dda8b81ee948a3cfcdb1ed9178}{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+S\+T\+A\+TO} = 0x0A, 
+\hyperlink{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2a5089ad74059e2abdc14afc6da822ee35}{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+T\+A\+K\+EN} = 0x10
+ \}\begin{DoxyCompactList}\small\item\em U\+SB H\+CD pipe states. \end{DoxyCompactList}
+\item 
+enum \hyperlink{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831}{usb\+\_\+h\+\_\+status} \{ \newline
+\hyperlink{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a6690c3fb1c49d3435c70750928b90e32}{U\+S\+B\+\_\+\+H\+\_\+\+OK} = E\+R\+R\+\_\+\+N\+O\+NE, 
+\hyperlink{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a246dd03273b245f2367f0987197b0c92}{U\+S\+B\+\_\+\+H\+\_\+\+B\+U\+SY} = E\+R\+R\+\_\+\+B\+U\+SY, 
+\hyperlink{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831abe366fb6cdb2298b693b888375090815}{U\+S\+B\+\_\+\+H\+\_\+\+D\+E\+N\+I\+ED} = E\+R\+R\+\_\+\+D\+E\+N\+I\+ED, 
+\hyperlink{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a901348031f493d1bc5d045b5a8227c1b}{U\+S\+B\+\_\+\+H\+\_\+\+T\+I\+M\+E\+O\+UT} = E\+R\+R\+\_\+\+T\+I\+M\+E\+O\+UT, 
+\newline
+\hyperlink{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a0a20ba0dc11b25eab606c94368eb6350}{U\+S\+B\+\_\+\+H\+\_\+\+A\+B\+O\+RT} = E\+R\+R\+\_\+\+A\+B\+O\+R\+T\+ED, 
+\hyperlink{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831afac8983c3aaa7cce074b536cf5146e39}{U\+S\+B\+\_\+\+H\+\_\+\+S\+T\+A\+LL} = E\+R\+R\+\_\+\+P\+R\+O\+T\+O\+C\+OL, 
+\hyperlink{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831ab5b209b6c88e56bc3017173e6f316631}{U\+S\+B\+\_\+\+H\+\_\+\+R\+E\+S\+ET} = E\+R\+R\+\_\+\+R\+E\+Q\+\_\+\+F\+L\+U\+S\+H\+ED, 
+\hyperlink{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831adb58f0af6ad092677c6fca2920f063ee}{U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+A\+RG} = E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG, 
+\newline
+\hyperlink{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a1561228880021fa90d1c9d361020b9e8}{U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+U\+N\+S\+P\+\_\+\+OP} = E\+R\+R\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+OP, 
+\hyperlink{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a363125f2e788230230e753c404745365}{U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+N\+O\+\_\+\+R\+SC} = E\+R\+R\+\_\+\+N\+O\+\_\+\+R\+E\+S\+O\+U\+R\+CE, 
+\hyperlink{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a761cabde919adab61e43549d814b01c9}{U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+N\+O\+T\+\_\+\+I\+N\+IT} = E\+R\+R\+\_\+\+N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED, 
+\hyperlink{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a08d78b07802927d691c605c7fd15f72a}{U\+S\+B\+\_\+\+H\+\_\+\+E\+RR} = E\+R\+R\+\_\+\+IO
+ \}\begin{DoxyCompactList}\small\item\em U\+SB H\+CD status code. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{hpl__usb__host_8h_a7e865a56f6d5c7b391860e67393ffff6}{\+\_\+usb\+\_\+h\+\_\+init} (struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$drv, void $\ast$hw, void $\ast$prvt)
+\begin{DoxyCompactList}\small\item\em U\+SB H\+CD Initialization. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb__host_8h_a4f7c7927875880ff7cc9aa6714c10060}{\+\_\+usb\+\_\+h\+\_\+deinit} (struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$drv)
+\begin{DoxyCompactList}\small\item\em U\+SB H\+CD de-\/initialization. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb__host_8h_a8fdc329fd5583fb15bb2b67e1fbdbe2b}{\+\_\+usb\+\_\+h\+\_\+enable} (struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$drv)
+\begin{DoxyCompactList}\small\item\em U\+SB H\+CD enable. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb__host_8h_a59bca449bb962ffa6abf9efc826bbcab}{\+\_\+usb\+\_\+h\+\_\+disable} (struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$drv)
+\begin{DoxyCompactList}\small\item\em U\+SB H\+CD disable. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb__host_8h_a923fea6b05c28c2657d65743a852cabc}{\+\_\+usb\+\_\+h\+\_\+register\+\_\+callback} (struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$drv, enum \hyperlink{hpl__usb__host_8h_abf09ef3e72f2fc7d65232bbf8c5b73a0}{usb\+\_\+h\+\_\+cb\+\_\+type} type, \hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR} cb)
+\begin{DoxyCompactList}\small\item\em Register callbacks for U\+SB H\+CD. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{hpl__usb__host_8h_a39b0d6723dd8b47e87cba231af66a59a}{\+\_\+usb\+\_\+h\+\_\+get\+\_\+frame\+\_\+n} (struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$drv)
+\begin{DoxyCompactList}\small\item\em Return current frame number. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{hpl__usb__host_8h_a3739c9b943491ff7ea10244a987430e1}{\+\_\+usb\+\_\+h\+\_\+get\+\_\+microframe\+\_\+n} (struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$drv)
+\begin{DoxyCompactList}\small\item\em Return current micro frame number. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb__host_8h_ab98b574d5b5351f4898d700b76415a3e}{\+\_\+usb\+\_\+h\+\_\+suspend} (struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$drv)
+\begin{DoxyCompactList}\small\item\em Suspend the U\+SB bus. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb__host_8h_aac3ab3e5d10d0e927f464320cfc814d1}{\+\_\+usb\+\_\+h\+\_\+resume} (struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$drv)
+\begin{DoxyCompactList}\small\item\em Resume the U\+SB bus. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb__host_8h_a6f866ce8699c6a96db8de462b90b276a}{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+reset} (struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$drv, uint8\+\_\+t port)
+\begin{DoxyCompactList}\small\item\em Reset the root hub port. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb__host_8h_a5ec7bbf7e8ced2808f74094eded43167}{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+suspend} (struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$drv, uint8\+\_\+t port)
+\begin{DoxyCompactList}\small\item\em Suspend the root hub port. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb__host_8h_a732ff51b881f43532f2a974fde7d54f3}{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+resume} (struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$drv, uint8\+\_\+t port)
+\begin{DoxyCompactList}\small\item\em Resume the root hub port. \end{DoxyCompactList}\item 
+bool \hyperlink{hpl__usb__host_8h_a9c18c29ce857eec0bdd0166b47614a75}{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+check\+\_\+status} (struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$drv, uint8\+\_\+t port, uint8\+\_\+t ftr)
+\begin{DoxyCompactList}\small\item\em Root hub or port feature status check. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe} $\ast$ \hyperlink{hpl__usb__host_8h_a6326dee84550494aef26c03083db69ed}{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+allocate} (struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$drv, uint8\+\_\+t dev, uint8\+\_\+t ep, uint16\+\_\+t max\+\_\+pkt\+\_\+size, uint8\+\_\+t attr, uint8\+\_\+t interval, uint8\+\_\+t speed, bool minimum\+\_\+rsc)
+\begin{DoxyCompactList}\small\item\em Allocate a pipe for U\+SB host communication. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb__host_8h_a035520ff02ca920501548a932302314f}{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+free} (struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe} $\ast$pipe)
+\begin{DoxyCompactList}\small\item\em Free an allocated pipe. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb__host_8h_aeb9738529ca2e452bf33f4e8c6a5b1bc}{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+set\+\_\+control\+\_\+param} (struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe} $\ast$pipe, uint8\+\_\+t dev, uint8\+\_\+t ep, uint16\+\_\+t max\+\_\+pkt\+\_\+size, uint8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Modify parameters of an allocated control pipe. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb__host_8h_a31499903462687078e506ef54ee60127}{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+register\+\_\+callback} (struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe} $\ast$pipe, \hyperlink{hpl__usb__host_8h_a8797518a47a3477b6a65ed5358155078}{usb\+\_\+h\+\_\+pipe\+\_\+cb\+\_\+xfer\+\_\+t} cb)
+\begin{DoxyCompactList}\small\item\em Register transfer callback on a pipe. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb__host_8h_a228bad7944817a59fbfd86ca68483427}{\+\_\+usb\+\_\+h\+\_\+control\+\_\+xfer} (struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe} $\ast$pipe, uint8\+\_\+t $\ast$setup, uint8\+\_\+t $\ast$data, uint16\+\_\+t length, int16\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Issue a control transfer (request) on a pipe. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb__host_8h_ab7dda254a5a9aa21b36acc71bb2abdec}{\+\_\+usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer} (struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe} $\ast$pipe, uint8\+\_\+t $\ast$data, uint32\+\_\+t length, bool auto\+\_\+zlp)
+\begin{DoxyCompactList}\small\item\em Issue a bulk / interrupt / iso transfer on a pipe. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb__host_8h_a58354ca1a551f189c8fb4f5ab848a1ad}{\+\_\+usb\+\_\+h\+\_\+high\+\_\+bw\+\_\+out} (struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe} $\ast$pipe, uint8\+\_\+t $\ast$data, uint32\+\_\+t length, uint16\+\_\+t trans\+\_\+pkt\+\_\+size\mbox{[}3\mbox{]})
+\begin{DoxyCompactList}\small\item\em Issue a periodic high bandwidth output on a pipe. \end{DoxyCompactList}\item 
+bool \hyperlink{hpl__usb__host_8h_ae993f2415ac8a192a6fa5019ab117cbc}{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+is\+\_\+busy} (struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe} $\ast$pipe)
+\begin{DoxyCompactList}\small\item\em Check if pipe is busy transferring. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb__host_8h_ab5f7be0b23ef455151e16effc8f536a2}{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+abort} (struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe} $\ast$pipe)
+\begin{DoxyCompactList}\small\item\em Abort pending transfer on a pipe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+S\+AM U\+SB host H\+PL. 
+
+Copyright (C) 2016 -\/ 2017 Atmel Corporation. All rights reserved.
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{hpl__usb__host_8h_abf9850bb5821e2a578e92aa68187d4be}\label{hpl__usb__host_8h_abf9850bb5821e2a578e92aa68187d4be}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!usb\+\_\+h\+\_\+pipe\+\_\+dev\+\_\+addr@{usb\+\_\+h\+\_\+pipe\+\_\+dev\+\_\+addr}}
+\index{usb\+\_\+h\+\_\+pipe\+\_\+dev\+\_\+addr@{usb\+\_\+h\+\_\+pipe\+\_\+dev\+\_\+addr}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+h\+\_\+pipe\+\_\+dev\+\_\+addr}{usb\_h\_pipe\_dev\_addr}}
+{\footnotesize\ttfamily \#define usb\+\_\+h\+\_\+pipe\+\_\+dev\+\_\+addr(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~(p-\/$>$dev)}
+
+Access to device address of a pipe \mbox{\Hypertarget{hpl__usb__host_8h_a9d217150e101ef92e9218c8b68b82e83}\label{hpl__usb__host_8h_a9d217150e101ef92e9218c8b68b82e83}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!usb\+\_\+h\+\_\+pipe\+\_\+ep\+\_\+addr@{usb\+\_\+h\+\_\+pipe\+\_\+ep\+\_\+addr}}
+\index{usb\+\_\+h\+\_\+pipe\+\_\+ep\+\_\+addr@{usb\+\_\+h\+\_\+pipe\+\_\+ep\+\_\+addr}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+h\+\_\+pipe\+\_\+ep\+\_\+addr}{usb\_h\_pipe\_ep\_addr}}
+{\footnotesize\ttfamily \#define usb\+\_\+h\+\_\+pipe\+\_\+ep\+\_\+addr(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~(p-\/$>$ep)}
+
+Access to endpoint address of a pipe \mbox{\Hypertarget{hpl__usb__host_8h_a939d788a0c3e9db4104d23da0d693891}\label{hpl__usb__host_8h_a939d788a0c3e9db4104d23da0d693891}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!usb\+\_\+h\+\_\+pipe\+\_\+max\+\_\+pkt\+\_\+size@{usb\+\_\+h\+\_\+pipe\+\_\+max\+\_\+pkt\+\_\+size}}
+\index{usb\+\_\+h\+\_\+pipe\+\_\+max\+\_\+pkt\+\_\+size@{usb\+\_\+h\+\_\+pipe\+\_\+max\+\_\+pkt\+\_\+size}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+h\+\_\+pipe\+\_\+max\+\_\+pkt\+\_\+size}{usb\_h\_pipe\_max\_pkt\_size}}
+{\footnotesize\ttfamily \#define usb\+\_\+h\+\_\+pipe\+\_\+max\+\_\+pkt\+\_\+size(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~(p-\/$>$max\+\_\+pkt\+\_\+size)}
+
+Access to max packet size of a pipe \mbox{\Hypertarget{hpl__usb__host_8h_a1c116d430b6a8d5d50c9abda1a6a18fb}\label{hpl__usb__host_8h_a1c116d430b6a8d5d50c9abda1a6a18fb}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!usb\+\_\+h\+\_\+pipe\+\_\+state@{usb\+\_\+h\+\_\+pipe\+\_\+state}}
+\index{usb\+\_\+h\+\_\+pipe\+\_\+state@{usb\+\_\+h\+\_\+pipe\+\_\+state}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+h\+\_\+pipe\+\_\+state}{usb\_h\_pipe\_state}}
+{\footnotesize\ttfamily \#define \hyperlink{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2}{usb\+\_\+h\+\_\+pipe\+\_\+state}(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~(p-\/$>$x.\+general.\+state)}
+
+Access to state of a pipe \mbox{\Hypertarget{hpl__usb__host_8h_a0cb649c56949813ce6a2446c70539885}\label{hpl__usb__host_8h_a0cb649c56949813ce6a2446c70539885}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!usb\+\_\+h\+\_\+pipe\+\_\+status@{usb\+\_\+h\+\_\+pipe\+\_\+status}}
+\index{usb\+\_\+h\+\_\+pipe\+\_\+status@{usb\+\_\+h\+\_\+pipe\+\_\+status}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+h\+\_\+pipe\+\_\+status}{usb\_h\_pipe\_status}}
+{\footnotesize\ttfamily \#define usb\+\_\+h\+\_\+pipe\+\_\+status(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~(p-\/$>$x.\+general.\+status)}
+
+Access to status of a pipe \mbox{\Hypertarget{hpl__usb__host_8h_aaec69fb67362638dec9f1cb89ac71728}\label{hpl__usb__host_8h_aaec69fb67362638dec9f1cb89ac71728}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+V\+E\+R\+S\+I\+ON@{U\+S\+B\+\_\+\+H\+\_\+\+V\+E\+R\+S\+I\+ON}}
+\index{U\+S\+B\+\_\+\+H\+\_\+\+V\+E\+R\+S\+I\+ON@{U\+S\+B\+\_\+\+H\+\_\+\+V\+E\+R\+S\+I\+ON}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+H\+\_\+\+V\+E\+R\+S\+I\+ON}{USB\_H\_VERSION}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+H\+\_\+\+V\+E\+R\+S\+I\+ON~0x00000001}
+
+Driver version 
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{hpl__usb__host_8h_a8797518a47a3477b6a65ed5358155078}\label{hpl__usb__host_8h_a8797518a47a3477b6a65ed5358155078}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!usb\+\_\+h\+\_\+pipe\+\_\+cb\+\_\+xfer\+\_\+t@{usb\+\_\+h\+\_\+pipe\+\_\+cb\+\_\+xfer\+\_\+t}}
+\index{usb\+\_\+h\+\_\+pipe\+\_\+cb\+\_\+xfer\+\_\+t@{usb\+\_\+h\+\_\+pipe\+\_\+cb\+\_\+xfer\+\_\+t}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+h\+\_\+pipe\+\_\+cb\+\_\+xfer\+\_\+t}{usb\_h\_pipe\_cb\_xfer\_t}}
+{\footnotesize\ttfamily typedef void($\ast$ usb\+\_\+h\+\_\+pipe\+\_\+cb\+\_\+xfer\+\_\+t) (struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe} $\ast$pipe)}
+
+Prototyping U\+SB H\+CD callback of pipe transfer done. For control pipe, it\textquotesingle{}s forced to call even if there is no transfer in progress, since the pipe size could be changed at run time. 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{hpl__usb__host_8h_abf09ef3e72f2fc7d65232bbf8c5b73a0}\label{hpl__usb__host_8h_abf09ef3e72f2fc7d65232bbf8c5b73a0}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!usb\+\_\+h\+\_\+cb\+\_\+type@{usb\+\_\+h\+\_\+cb\+\_\+type}}
+\index{usb\+\_\+h\+\_\+cb\+\_\+type@{usb\+\_\+h\+\_\+cb\+\_\+type}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+h\+\_\+cb\+\_\+type}{usb\_h\_cb\_type}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb__host_8h_abf09ef3e72f2fc7d65232bbf8c5b73a0}{usb\+\_\+h\+\_\+cb\+\_\+type}}
+
+
+
+U\+SB H\+CD callback types. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+C\+B\+\_\+\+S\+OF@{U\+S\+B\+\_\+\+H\+\_\+\+C\+B\+\_\+\+S\+OF}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+C\+B\+\_\+\+S\+OF@{U\+S\+B\+\_\+\+H\+\_\+\+C\+B\+\_\+\+S\+OF}}}\mbox{\Hypertarget{hpl__usb__host_8h_abf09ef3e72f2fc7d65232bbf8c5b73a0ab912a27957ea11dd6b7c9c37ae1bbf73}\label{hpl__usb__host_8h_abf09ef3e72f2fc7d65232bbf8c5b73a0ab912a27957ea11dd6b7c9c37ae1bbf73}} 
+U\+S\+B\+\_\+\+H\+\_\+\+C\+B\+\_\+\+S\+OF&S\+OF generated \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+C\+B\+\_\+\+R\+O\+O\+T\+H\+U\+B\+\_\+\+C\+H\+A\+N\+GE@{U\+S\+B\+\_\+\+H\+\_\+\+C\+B\+\_\+\+R\+O\+O\+T\+H\+U\+B\+\_\+\+C\+H\+A\+N\+GE}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+C\+B\+\_\+\+R\+O\+O\+T\+H\+U\+B\+\_\+\+C\+H\+A\+N\+GE@{U\+S\+B\+\_\+\+H\+\_\+\+C\+B\+\_\+\+R\+O\+O\+T\+H\+U\+B\+\_\+\+C\+H\+A\+N\+GE}}}\mbox{\Hypertarget{hpl__usb__host_8h_abf09ef3e72f2fc7d65232bbf8c5b73a0a3f10f4bcc77dcdf7e39255aa9c016a4c}\label{hpl__usb__host_8h_abf09ef3e72f2fc7d65232bbf8c5b73a0a3f10f4bcc77dcdf7e39255aa9c016a4c}} 
+U\+S\+B\+\_\+\+H\+\_\+\+C\+B\+\_\+\+R\+O\+O\+T\+H\+U\+B\+\_\+\+C\+H\+A\+N\+GE&Root Hub change detected \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+C\+B\+\_\+N@{U\+S\+B\+\_\+\+H\+\_\+\+C\+B\+\_\+N}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+C\+B\+\_\+N@{U\+S\+B\+\_\+\+H\+\_\+\+C\+B\+\_\+N}}}\mbox{\Hypertarget{hpl__usb__host_8h_abf09ef3e72f2fc7d65232bbf8c5b73a0af72bdb803b90e008b196c137869838be}\label{hpl__usb__host_8h_abf09ef3e72f2fc7d65232bbf8c5b73a0af72bdb803b90e008b196c137869838be}} 
+U\+S\+B\+\_\+\+H\+\_\+\+C\+B\+\_\+N&Number of U\+SB H\+CD callback types \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2}\label{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!usb\+\_\+h\+\_\+pipe\+\_\+state@{usb\+\_\+h\+\_\+pipe\+\_\+state}}
+\index{usb\+\_\+h\+\_\+pipe\+\_\+state@{usb\+\_\+h\+\_\+pipe\+\_\+state}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+h\+\_\+pipe\+\_\+state}{usb\_h\_pipe\_state}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2}{usb\+\_\+h\+\_\+pipe\+\_\+state}}
+
+
+
+U\+SB H\+CD pipe states. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+F\+R\+EE@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+F\+R\+EE}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+F\+R\+EE@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+F\+R\+EE}}}\mbox{\Hypertarget{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2a3531f479c50b6ed044eb6983b23f6ddb}\label{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2a3531f479c50b6ed044eb6983b23f6ddb}} 
+U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+F\+R\+EE&Pipe is free to allocate \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+C\+FG@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+C\+FG}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+C\+FG@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+C\+FG}}}\mbox{\Hypertarget{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2a19caa1cf382cb45e8b58560694883aa5}\label{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2a19caa1cf382cb45e8b58560694883aa5}} 
+U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+C\+FG&Pipe is in configuration \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+I\+D\+LE@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+I\+D\+LE}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+I\+D\+LE@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+I\+D\+LE}}}\mbox{\Hypertarget{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2ab5539bd3582f170526a313586c5056a2}\label{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2ab5539bd3582f170526a313586c5056a2}} 
+U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+I\+D\+LE&Pipe is allocated and idle \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+S\+E\+T\+UP@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+S\+E\+T\+UP}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+S\+E\+T\+UP@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+S\+E\+T\+UP}}}\mbox{\Hypertarget{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2a4366706af2e1739b94094049842deec6}\label{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2a4366706af2e1739b94094049842deec6}} 
+U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+S\+E\+T\+UP&Pipe in control setup stage \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+D\+A\+TI@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+D\+A\+TI}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+D\+A\+TI@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+D\+A\+TI}}}\mbox{\Hypertarget{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2a7e355763049d996a5b36a51479d4214f}\label{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2a7e355763049d996a5b36a51479d4214f}} 
+U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+D\+A\+TI&Pipe in data IN stage \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+D\+A\+TO@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+D\+A\+TO}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+D\+A\+TO@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+D\+A\+TO}}}\mbox{\Hypertarget{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2af663a2aa87eabe2f449f94185cd3ac16}\label{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2af663a2aa87eabe2f449f94185cd3ac16}} 
+U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+D\+A\+TO&Pipe in data O\+UT stage \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+Z\+L\+PI@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+Z\+L\+PI}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+Z\+L\+PI@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+Z\+L\+PI}}}\mbox{\Hypertarget{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2ade150ffe51b36ee0854044456cd277fe}\label{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2ade150ffe51b36ee0854044456cd277fe}} 
+U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+Z\+L\+PI&Pipe in data IN Z\+LP stage \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+Z\+L\+PO@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+Z\+L\+PO}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+Z\+L\+PO@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+Z\+L\+PO}}}\mbox{\Hypertarget{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2a9724f576741a27537333020cd17c218c}\label{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2a9724f576741a27537333020cd17c218c}} 
+U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+Z\+L\+PO&Pipe in data O\+UT Z\+LP stage \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+S\+T\+A\+TI@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+S\+T\+A\+TI}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+S\+T\+A\+TI@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+S\+T\+A\+TI}}}\mbox{\Hypertarget{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2aa2acaba7b09a98d6d1dcacfb0a41d543}\label{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2aa2acaba7b09a98d6d1dcacfb0a41d543}} 
+U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+S\+T\+A\+TI&Pipe in control status IN stage \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+S\+T\+A\+TO@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+S\+T\+A\+TO}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+S\+T\+A\+TO@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+S\+T\+A\+TO}}}\mbox{\Hypertarget{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2af48197dda8b81ee948a3cfcdb1ed9178}\label{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2af48197dda8b81ee948a3cfcdb1ed9178}} 
+U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+S\+T\+A\+TO&Pipe in control status O\+UT stage \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+T\+A\+K\+EN@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+T\+A\+K\+EN}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+T\+A\+K\+EN@{U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+T\+A\+K\+EN}}}\mbox{\Hypertarget{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2a5089ad74059e2abdc14afc6da822ee35}\label{hpl__usb__host_8h_a7062b0e6636d8de00bfe87caab9a85b2a5089ad74059e2abdc14afc6da822ee35}} 
+U\+S\+B\+\_\+\+H\+\_\+\+P\+I\+P\+E\+\_\+\+S\+\_\+\+T\+A\+K\+EN&Taken by physical pipe (in process) \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{hpl__usb__host_8h_a38f4c85be19d950c6901b1df02849ca4}\label{hpl__usb__host_8h_a38f4c85be19d950c6901b1df02849ca4}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!usb\+\_\+h\+\_\+rsc\+\_\+strategy@{usb\+\_\+h\+\_\+rsc\+\_\+strategy}}
+\index{usb\+\_\+h\+\_\+rsc\+\_\+strategy@{usb\+\_\+h\+\_\+rsc\+\_\+strategy}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+h\+\_\+rsc\+\_\+strategy}{usb\_h\_rsc\_strategy}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb__host_8h_a38f4c85be19d950c6901b1df02849ca4}{usb\+\_\+h\+\_\+rsc\+\_\+strategy}}
+
+
+
+U\+SB H\+CD resource strategy. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+R\+S\+C\+\_\+\+N\+O\+R\+M\+AL@{U\+S\+B\+\_\+\+H\+\_\+\+R\+S\+C\+\_\+\+N\+O\+R\+M\+AL}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+R\+S\+C\+\_\+\+N\+O\+R\+M\+AL@{U\+S\+B\+\_\+\+H\+\_\+\+R\+S\+C\+\_\+\+N\+O\+R\+M\+AL}}}\mbox{\Hypertarget{hpl__usb__host_8h_a38f4c85be19d950c6901b1df02849ca4af2b1851d4475e4fe5841f268e8ccf064}\label{hpl__usb__host_8h_a38f4c85be19d950c6901b1df02849ca4af2b1851d4475e4fe5841f268e8ccf064}} 
+U\+S\+B\+\_\+\+H\+\_\+\+R\+S\+C\+\_\+\+N\+O\+R\+M\+AL&Normal resource allocation, e.\+g., 1 bank for interrupt endpoint, 2 bank for bulk endpoint and normal iso endpoint, 3 bank for iso high bandwidth endpoint. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+R\+S\+C\+\_\+\+M\+I\+N\+I\+M\+AL@{U\+S\+B\+\_\+\+H\+\_\+\+R\+S\+C\+\_\+\+M\+I\+N\+I\+M\+AL}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+R\+S\+C\+\_\+\+M\+I\+N\+I\+M\+AL@{U\+S\+B\+\_\+\+H\+\_\+\+R\+S\+C\+\_\+\+M\+I\+N\+I\+M\+AL}}}\mbox{\Hypertarget{hpl__usb__host_8h_a38f4c85be19d950c6901b1df02849ca4a4484fdfd1e5a0725b06df2f76e070be3}\label{hpl__usb__host_8h_a38f4c85be19d950c6901b1df02849ca4a4484fdfd1e5a0725b06df2f76e070be3}} 
+U\+S\+B\+\_\+\+H\+\_\+\+R\+S\+C\+\_\+\+M\+I\+N\+I\+M\+AL&Minimal resource allocation, e.\+g., only 1 bank for bulk endpoints \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831}\label{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!usb\+\_\+h\+\_\+status@{usb\+\_\+h\+\_\+status}}
+\index{usb\+\_\+h\+\_\+status@{usb\+\_\+h\+\_\+status}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+h\+\_\+status}{usb\_h\_status}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831}{usb\+\_\+h\+\_\+status}}
+
+
+
+U\+SB H\+CD status code. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+OK@{U\+S\+B\+\_\+\+H\+\_\+\+OK}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+OK@{U\+S\+B\+\_\+\+H\+\_\+\+OK}}}\mbox{\Hypertarget{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a6690c3fb1c49d3435c70750928b90e32}\label{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a6690c3fb1c49d3435c70750928b90e32}} 
+U\+S\+B\+\_\+\+H\+\_\+\+OK&OK \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+B\+U\+SY@{U\+S\+B\+\_\+\+H\+\_\+\+B\+U\+SY}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+B\+U\+SY@{U\+S\+B\+\_\+\+H\+\_\+\+B\+U\+SY}}}\mbox{\Hypertarget{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a246dd03273b245f2367f0987197b0c92}\label{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a246dd03273b245f2367f0987197b0c92}} 
+U\+S\+B\+\_\+\+H\+\_\+\+B\+U\+SY&Busy \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+D\+E\+N\+I\+ED@{U\+S\+B\+\_\+\+H\+\_\+\+D\+E\+N\+I\+ED}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+D\+E\+N\+I\+ED@{U\+S\+B\+\_\+\+H\+\_\+\+D\+E\+N\+I\+ED}}}\mbox{\Hypertarget{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831abe366fb6cdb2298b693b888375090815}\label{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831abe366fb6cdb2298b693b888375090815}} 
+U\+S\+B\+\_\+\+H\+\_\+\+D\+E\+N\+I\+ED&Denied \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+T\+I\+M\+E\+O\+UT@{U\+S\+B\+\_\+\+H\+\_\+\+T\+I\+M\+E\+O\+UT}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+T\+I\+M\+E\+O\+UT@{U\+S\+B\+\_\+\+H\+\_\+\+T\+I\+M\+E\+O\+UT}}}\mbox{\Hypertarget{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a901348031f493d1bc5d045b5a8227c1b}\label{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a901348031f493d1bc5d045b5a8227c1b}} 
+U\+S\+B\+\_\+\+H\+\_\+\+T\+I\+M\+E\+O\+UT&Timeout \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+A\+B\+O\+RT@{U\+S\+B\+\_\+\+H\+\_\+\+A\+B\+O\+RT}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+A\+B\+O\+RT@{U\+S\+B\+\_\+\+H\+\_\+\+A\+B\+O\+RT}}}\mbox{\Hypertarget{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a0a20ba0dc11b25eab606c94368eb6350}\label{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a0a20ba0dc11b25eab606c94368eb6350}} 
+U\+S\+B\+\_\+\+H\+\_\+\+A\+B\+O\+RT&Abort \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+S\+T\+A\+LL@{U\+S\+B\+\_\+\+H\+\_\+\+S\+T\+A\+LL}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+S\+T\+A\+LL@{U\+S\+B\+\_\+\+H\+\_\+\+S\+T\+A\+LL}}}\mbox{\Hypertarget{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831afac8983c3aaa7cce074b536cf5146e39}\label{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831afac8983c3aaa7cce074b536cf5146e39}} 
+U\+S\+B\+\_\+\+H\+\_\+\+S\+T\+A\+LL&Stall protocol \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+R\+E\+S\+ET@{U\+S\+B\+\_\+\+H\+\_\+\+R\+E\+S\+ET}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+R\+E\+S\+ET@{U\+S\+B\+\_\+\+H\+\_\+\+R\+E\+S\+ET}}}\mbox{\Hypertarget{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831ab5b209b6c88e56bc3017173e6f316631}\label{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831ab5b209b6c88e56bc3017173e6f316631}} 
+U\+S\+B\+\_\+\+H\+\_\+\+R\+E\+S\+ET&Transfer reset by pipe re-\/configure \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+A\+RG@{U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+A\+RG}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+A\+RG@{U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+A\+RG}}}\mbox{\Hypertarget{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831adb58f0af6ad092677c6fca2920f063ee}\label{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831adb58f0af6ad092677c6fca2920f063ee}} 
+U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+A\+RG&Argument error \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+U\+N\+S\+P\+\_\+\+OP@{U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+U\+N\+S\+P\+\_\+\+OP}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+U\+N\+S\+P\+\_\+\+OP@{U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+U\+N\+S\+P\+\_\+\+OP}}}\mbox{\Hypertarget{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a1561228880021fa90d1c9d361020b9e8}\label{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a1561228880021fa90d1c9d361020b9e8}} 
+U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+U\+N\+S\+P\+\_\+\+OP&Operation not supported \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+N\+O\+\_\+\+R\+SC@{U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+N\+O\+\_\+\+R\+SC}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+N\+O\+\_\+\+R\+SC@{U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+N\+O\+\_\+\+R\+SC}}}\mbox{\Hypertarget{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a363125f2e788230230e753c404745365}\label{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a363125f2e788230230e753c404745365}} 
+U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+N\+O\+\_\+\+R\+SC&No resource \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+N\+O\+T\+\_\+\+I\+N\+IT@{U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+N\+O\+T\+\_\+\+I\+N\+IT}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+N\+O\+T\+\_\+\+I\+N\+IT@{U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+N\+O\+T\+\_\+\+I\+N\+IT}}}\mbox{\Hypertarget{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a761cabde919adab61e43549d814b01c9}\label{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a761cabde919adab61e43549d814b01c9}} 
+U\+S\+B\+\_\+\+H\+\_\+\+E\+R\+R\+\_\+\+N\+O\+T\+\_\+\+I\+N\+IT&Not initialized \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+H\+\_\+\+E\+RR@{U\+S\+B\+\_\+\+H\+\_\+\+E\+RR}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!U\+S\+B\+\_\+\+H\+\_\+\+E\+RR@{U\+S\+B\+\_\+\+H\+\_\+\+E\+RR}}}\mbox{\Hypertarget{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a08d78b07802927d691c605c7fd15f72a}\label{hpl__usb__host_8h_a3abd720f45ed753a1ffb202012da4831a08d78b07802927d691c605c7fd15f72a}} 
+U\+S\+B\+\_\+\+H\+\_\+\+E\+RR&Some general error \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{hpl__usb__host_8h_ab7dda254a5a9aa21b36acc71bb2abdec}\label{hpl__usb__host_8h_ab7dda254a5a9aa21b36acc71bb2abdec}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer@{\+\_\+usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer}}
+\index{\+\_\+usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer@{\+\_\+usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer()}{\_usb\_h\_bulk\_int\_iso\_xfer()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe} $\ast$}]{pipe,  }\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint32\+\_\+t}]{length,  }\item[{bool}]{auto\+\_\+zlp }\end{DoxyParamCaption})}
+
+
+
+Issue a bulk / interrupt / iso transfer on a pipe. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em pipe} & The pipe \\
+\hline
+\mbox{\tt in,out}  & {\em data} & Pointer to the data buffer \\
+\hline
+\mbox{\tt in}  & {\em length} & The data length \\
+\hline
+\mbox{\tt in}  & {\em auto\+\_\+zlp} & Auto append Z\+LP for O\+UT\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation result status 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+R\+R\+\_\+\+N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED} & Pipe is not allocated \\
+\hline
+{\em E\+R\+R\+\_\+\+B\+U\+SY} & Pipe is busy transferring \\
+\hline
+{\em E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG} & Argument error \\
+\hline
+{\em E\+R\+R\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+OP} & Pipe is control pipe \\
+\hline
+{\em E\+R\+R\+\_\+\+N\+O\+NE} & Operation done successfully \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__host_8h_a228bad7944817a59fbfd86ca68483427}\label{hpl__usb__host_8h_a228bad7944817a59fbfd86ca68483427}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+control\+\_\+xfer@{\+\_\+usb\+\_\+h\+\_\+control\+\_\+xfer}}
+\index{\+\_\+usb\+\_\+h\+\_\+control\+\_\+xfer@{\+\_\+usb\+\_\+h\+\_\+control\+\_\+xfer}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+control\+\_\+xfer()}{\_usb\_h\_control\_xfer()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+h\+\_\+control\+\_\+xfer (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe} $\ast$}]{pipe,  }\item[{uint8\+\_\+t $\ast$}]{setup,  }\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint16\+\_\+t}]{length,  }\item[{int16\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+Issue a control transfer (request) on a pipe. 
+
+\begin{DoxyNote}{Note}
+When there is data stage, timeout between data packets is 500ms, the timeout between last data packet and the status packet is 50ms.
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em pipe} & The pipe \\
+\hline
+\mbox{\tt in}  & {\em setup} & Pointer to the setup packet \\
+\hline
+\mbox{\tt in,out}  & {\em data} & Pointer to the data buffer \\
+\hline
+\mbox{\tt in}  & {\em length} & The data length \\
+\hline
+\mbox{\tt in}  & {\em timeout} & Timeout for whole request in ms\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation result status 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+R\+R\+\_\+\+N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED} & Pipe is not allocated \\
+\hline
+{\em E\+R\+R\+\_\+\+B\+U\+SY} & Pipe is busy transferring \\
+\hline
+{\em E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG} & Argument error \\
+\hline
+{\em E\+R\+R\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+OP} & Pipe is not control pipe \\
+\hline
+{\em E\+R\+R\+\_\+\+N\+O\+NE} & Operation done successfully \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__host_8h_a4f7c7927875880ff7cc9aa6714c10060}\label{hpl__usb__host_8h_a4f7c7927875880ff7cc9aa6714c10060}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+deinit@{\+\_\+usb\+\_\+h\+\_\+deinit}}
+\index{\+\_\+usb\+\_\+h\+\_\+deinit@{\+\_\+usb\+\_\+h\+\_\+deinit}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+deinit()}{\_usb\_h\_deinit()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+h\+\_\+deinit (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$}]{drv }\end{DoxyParamCaption})}
+
+
+
+U\+SB H\+CD de-\/initialization. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em drv} & The driver \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__usb__host_8h_a59bca449bb962ffa6abf9efc826bbcab}\label{hpl__usb__host_8h_a59bca449bb962ffa6abf9efc826bbcab}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+disable@{\+\_\+usb\+\_\+h\+\_\+disable}}
+\index{\+\_\+usb\+\_\+h\+\_\+disable@{\+\_\+usb\+\_\+h\+\_\+disable}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+disable()}{\_usb\_h\_disable()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+h\+\_\+disable (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$}]{drv }\end{DoxyParamCaption})}
+
+
+
+U\+SB H\+CD disable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em drv} & The driver \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__usb__host_8h_a8fdc329fd5583fb15bb2b67e1fbdbe2b}\label{hpl__usb__host_8h_a8fdc329fd5583fb15bb2b67e1fbdbe2b}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+enable@{\+\_\+usb\+\_\+h\+\_\+enable}}
+\index{\+\_\+usb\+\_\+h\+\_\+enable@{\+\_\+usb\+\_\+h\+\_\+enable}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+enable()}{\_usb\_h\_enable()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+h\+\_\+enable (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$}]{drv }\end{DoxyParamCaption})}
+
+
+
+U\+SB H\+CD enable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em drv} & The driver \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__usb__host_8h_a39b0d6723dd8b47e87cba231af66a59a}\label{hpl__usb__host_8h_a39b0d6723dd8b47e87cba231af66a59a}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+get\+\_\+frame\+\_\+n@{\+\_\+usb\+\_\+h\+\_\+get\+\_\+frame\+\_\+n}}
+\index{\+\_\+usb\+\_\+h\+\_\+get\+\_\+frame\+\_\+n@{\+\_\+usb\+\_\+h\+\_\+get\+\_\+frame\+\_\+n}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+get\+\_\+frame\+\_\+n()}{\_usb\_h\_get\_frame\_n()}}
+{\footnotesize\ttfamily uint16\+\_\+t \+\_\+usb\+\_\+h\+\_\+get\+\_\+frame\+\_\+n (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$}]{drv }\end{DoxyParamCaption})}
+
+
+
+Return current frame number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em drv} & The driver\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+current frame number 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__usb__host_8h_a3739c9b943491ff7ea10244a987430e1}\label{hpl__usb__host_8h_a3739c9b943491ff7ea10244a987430e1}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+get\+\_\+microframe\+\_\+n@{\+\_\+usb\+\_\+h\+\_\+get\+\_\+microframe\+\_\+n}}
+\index{\+\_\+usb\+\_\+h\+\_\+get\+\_\+microframe\+\_\+n@{\+\_\+usb\+\_\+h\+\_\+get\+\_\+microframe\+\_\+n}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+get\+\_\+microframe\+\_\+n()}{\_usb\_h\_get\_microframe\_n()}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+usb\+\_\+h\+\_\+get\+\_\+microframe\+\_\+n (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$}]{drv }\end{DoxyParamCaption})}
+
+
+
+Return current micro frame number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em drv} & The driver\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+current micro frame number 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__usb__host_8h_a58354ca1a551f189c8fb4f5ab848a1ad}\label{hpl__usb__host_8h_a58354ca1a551f189c8fb4f5ab848a1ad}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+high\+\_\+bw\+\_\+out@{\+\_\+usb\+\_\+h\+\_\+high\+\_\+bw\+\_\+out}}
+\index{\+\_\+usb\+\_\+h\+\_\+high\+\_\+bw\+\_\+out@{\+\_\+usb\+\_\+h\+\_\+high\+\_\+bw\+\_\+out}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+high\+\_\+bw\+\_\+out()}{\_usb\_h\_high\_bw\_out()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+h\+\_\+high\+\_\+bw\+\_\+out (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe} $\ast$}]{pipe,  }\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint32\+\_\+t}]{length,  }\item[{uint16\+\_\+t}]{trans\+\_\+pkt\+\_\+size\mbox{[}3\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Issue a periodic high bandwidth output on a pipe. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em pipe} & The pipe \\
+\hline
+\mbox{\tt in,out}  & {\em data} & Pointer to the data buffer \\
+\hline
+\mbox{\tt in}  & {\em length} & The data length \\
+\hline
+\mbox{\tt in}  & {\em trans\+\_\+pkt\+\_\+size} & The transaction packet sizes in a micro frame, 0 to use endpoint max packet size\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation result status 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+R\+R\+\_\+\+N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED} & Pipe is not allocated \\
+\hline
+{\em E\+R\+R\+\_\+\+B\+U\+SY} & Pipe is busy transferring \\
+\hline
+{\em E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG} & Argument error \\
+\hline
+{\em E\+R\+R\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+OP} & Pipe is not high bandwidth periodic pipe, or D\+MA feature not enabled, or high bandwidth not enabled \\
+\hline
+{\em E\+R\+R\+\_\+\+N\+O\+NE} & Operation done successfully \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__host_8h_a7e865a56f6d5c7b391860e67393ffff6}\label{hpl__usb__host_8h_a7e865a56f6d5c7b391860e67393ffff6}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+init@{\+\_\+usb\+\_\+h\+\_\+init}}
+\index{\+\_\+usb\+\_\+h\+\_\+init@{\+\_\+usb\+\_\+h\+\_\+init}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+init()}{\_usb\_h\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+h\+\_\+init (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$}]{drv,  }\item[{void $\ast$}]{hw,  }\item[{void $\ast$}]{prvt }\end{DoxyParamCaption})}
+
+
+
+U\+SB H\+CD Initialization. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em drv} & Pointer to the H\+CD driver instance \\
+\hline
+\mbox{\tt in}  & {\em hw} & Pointer to hardware base \\
+\hline
+\mbox{\tt in}  & {\em prvt} & The private driver data (implement specific)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation result status 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+R\+R\+\_\+\+D\+E\+N\+I\+ED} & Hardware has been enabled \\
+\hline
+{\em E\+R\+R\+\_\+\+N\+O\+NE} & Operation done successfully \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__host_8h_ab5f7be0b23ef455151e16effc8f536a2}\label{hpl__usb__host_8h_ab5f7be0b23ef455151e16effc8f536a2}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+abort@{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+abort}}
+\index{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+abort@{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+abort}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+abort()}{\_usb\_h\_pipe\_abort()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+h\+\_\+pipe\+\_\+abort (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe} $\ast$}]{pipe }\end{DoxyParamCaption})}
+
+
+
+Abort pending transfer on a pipe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pipe} & The pipe \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__usb__host_8h_a6326dee84550494aef26c03083db69ed}\label{hpl__usb__host_8h_a6326dee84550494aef26c03083db69ed}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+allocate@{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+allocate}}
+\index{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+allocate@{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+allocate}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+allocate()}{\_usb\_h\_pipe\_allocate()}}
+{\footnotesize\ttfamily struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe}$\ast$ \+\_\+usb\+\_\+h\+\_\+pipe\+\_\+allocate (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$}]{drv,  }\item[{uint8\+\_\+t}]{dev,  }\item[{uint8\+\_\+t}]{ep,  }\item[{uint16\+\_\+t}]{max\+\_\+pkt\+\_\+size,  }\item[{uint8\+\_\+t}]{attr,  }\item[{uint8\+\_\+t}]{interval,  }\item[{uint8\+\_\+t}]{speed,  }\item[{bool}]{minimum\+\_\+rsc }\end{DoxyParamCaption})}
+
+
+
+Allocate a pipe for U\+SB host communication. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em drv} & The U\+SB H\+CD driver \\
+\hline
+\mbox{\tt in}  & {\em dev} & The device address \\
+\hline
+\mbox{\tt in}  & {\em ep} & The endpoint address \\
+\hline
+\mbox{\tt in}  & {\em max\+\_\+pkt\+\_\+size} & The endpoint maximum packet size \\
+\hline
+\mbox{\tt in}  & {\em attr} & The endpoint attribute \\
+\hline
+\mbox{\tt in}  & {\em interval} & The endpoint interval (b\+Interval of U\+SB Endpoint Descriptor) \\
+\hline
+\mbox{\tt in}  & {\em speed} & The transfer speed of the endpoint \\
+\hline
+\mbox{\tt in}  & {\em minimum\+\_\+rsc} & Minimum the resource usage, \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{hpl__usb__host_8h_a38f4c85be19d950c6901b1df02849ca4}{usb\+\_\+h\+\_\+rsc\+\_\+strategy}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Pointer to allocated pipe structure instance 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em N\+U\+LL} & allocation fail \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__host_8h_a035520ff02ca920501548a932302314f}\label{hpl__usb__host_8h_a035520ff02ca920501548a932302314f}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+free@{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+free}}
+\index{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+free@{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+free}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+free()}{\_usb\_h\_pipe\_free()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+h\+\_\+pipe\+\_\+free (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe} $\ast$}]{pipe }\end{DoxyParamCaption})}
+
+
+
+Free an allocated pipe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pipe} & The pipe\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation result status 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+R\+R\+\_\+\+B\+U\+SY} & Pipe is busy, use \hyperlink{hpl__usb__host_8h_ab5f7be0b23ef455151e16effc8f536a2}{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+abort} to abort \\
+\hline
+{\em E\+R\+R\+\_\+\+N\+O\+NE} & Operation done successfully \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__host_8h_ae993f2415ac8a192a6fa5019ab117cbc}\label{hpl__usb__host_8h_ae993f2415ac8a192a6fa5019ab117cbc}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+is\+\_\+busy@{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+is\+\_\+busy}}
+\index{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+is\+\_\+busy@{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+is\+\_\+busy}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+is\+\_\+busy()}{\_usb\_h\_pipe\_is\_busy()}}
+{\footnotesize\ttfamily bool \+\_\+usb\+\_\+h\+\_\+pipe\+\_\+is\+\_\+busy (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe} $\ast$}]{pipe }\end{DoxyParamCaption})}
+
+
+
+Check if pipe is busy transferring. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pipe} & The pipe\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if pipe is busy 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__usb__host_8h_a31499903462687078e506ef54ee60127}\label{hpl__usb__host_8h_a31499903462687078e506ef54ee60127}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+register\+\_\+callback@{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+register\+\_\+callback}}
+\index{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+register\+\_\+callback@{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+register\+\_\+callback}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+register\+\_\+callback()}{\_usb\_h\_pipe\_register\_callback()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+h\+\_\+pipe\+\_\+register\+\_\+callback (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe} $\ast$}]{pipe,  }\item[{\hyperlink{hpl__usb__host_8h_a8797518a47a3477b6a65ed5358155078}{usb\+\_\+h\+\_\+pipe\+\_\+cb\+\_\+xfer\+\_\+t}}]{cb }\end{DoxyParamCaption})}
+
+
+
+Register transfer callback on a pipe. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em pipe} & The pipe \\
+\hline
+\mbox{\tt in}  & {\em cb} & Transfer callback function\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation result status 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG} & Argument error \\
+\hline
+{\em E\+R\+R\+\_\+\+N\+O\+NE} & Operation done successfully \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__host_8h_aeb9738529ca2e452bf33f4e8c6a5b1bc}\label{hpl__usb__host_8h_aeb9738529ca2e452bf33f4e8c6a5b1bc}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+set\+\_\+control\+\_\+param@{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+set\+\_\+control\+\_\+param}}
+\index{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+set\+\_\+control\+\_\+param@{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+set\+\_\+control\+\_\+param}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+pipe\+\_\+set\+\_\+control\+\_\+param()}{\_usb\_h\_pipe\_set\_control\_param()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+h\+\_\+pipe\+\_\+set\+\_\+control\+\_\+param (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__pipe}{usb\+\_\+h\+\_\+pipe} $\ast$}]{pipe,  }\item[{uint8\+\_\+t}]{dev,  }\item[{uint8\+\_\+t}]{ep,  }\item[{uint16\+\_\+t}]{max\+\_\+pkt\+\_\+size,  }\item[{uint8\+\_\+t}]{speed }\end{DoxyParamCaption})}
+
+
+
+Modify parameters of an allocated control pipe. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em pipe} & The pipe \\
+\hline
+\mbox{\tt in}  & {\em dev} & The device address \\
+\hline
+\mbox{\tt in}  & {\em ep} & The endpoint address \\
+\hline
+\mbox{\tt in}  & {\em max\+\_\+pkt\+\_\+size} & The maximum packet size, must be equal or less than allocated size \\
+\hline
+\mbox{\tt in}  & {\em speed} & The working speed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation result status 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+R\+R\+\_\+\+N\+O\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED} & Pipe is not allocated \\
+\hline
+{\em E\+R\+R\+\_\+\+B\+U\+SY} & Pipe is busy transferring \\
+\hline
+{\em E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG} & Argument error \\
+\hline
+{\em E\+R\+R\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+OP} & Pipe is not control pipe \\
+\hline
+{\em E\+R\+R\+\_\+\+N\+O\+NE} & Operation done successfully \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__host_8h_a923fea6b05c28c2657d65743a852cabc}\label{hpl__usb__host_8h_a923fea6b05c28c2657d65743a852cabc}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+register\+\_\+callback@{\+\_\+usb\+\_\+h\+\_\+register\+\_\+callback}}
+\index{\+\_\+usb\+\_\+h\+\_\+register\+\_\+callback@{\+\_\+usb\+\_\+h\+\_\+register\+\_\+callback}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+register\+\_\+callback()}{\_usb\_h\_register\_callback()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+h\+\_\+register\+\_\+callback (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$}]{drv,  }\item[{enum \hyperlink{hpl__usb__host_8h_abf09ef3e72f2fc7d65232bbf8c5b73a0}{usb\+\_\+h\+\_\+cb\+\_\+type}}]{type,  }\item[{\hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR}}]{cb }\end{DoxyParamCaption})}
+
+
+
+Register callbacks for U\+SB H\+CD. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em drv} & The driver \\
+\hline
+\mbox{\tt in}  & {\em type} & The callback type \\
+\hline
+\mbox{\tt in}  & {\em cb} & The callback function entry\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation result status 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG} & Argument error \\
+\hline
+{\em E\+R\+R\+\_\+\+N\+O\+NE} & Operation done successfully \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__host_8h_aac3ab3e5d10d0e927f464320cfc814d1}\label{hpl__usb__host_8h_aac3ab3e5d10d0e927f464320cfc814d1}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+resume@{\+\_\+usb\+\_\+h\+\_\+resume}}
+\index{\+\_\+usb\+\_\+h\+\_\+resume@{\+\_\+usb\+\_\+h\+\_\+resume}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+resume()}{\_usb\_h\_resume()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+h\+\_\+resume (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$}]{drv }\end{DoxyParamCaption})}
+
+
+
+Resume the U\+SB bus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em drv} & The driver \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__usb__host_8h_a9c18c29ce857eec0bdd0166b47614a75}\label{hpl__usb__host_8h_a9c18c29ce857eec0bdd0166b47614a75}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+rh\+\_\+check\+\_\+status@{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+check\+\_\+status}}
+\index{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+check\+\_\+status@{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+check\+\_\+status}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+check\+\_\+status()}{\_usb\_h\_rh\_check\_status()}}
+{\footnotesize\ttfamily bool \+\_\+usb\+\_\+h\+\_\+rh\+\_\+check\+\_\+status (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$}]{drv,  }\item[{uint8\+\_\+t}]{port,  }\item[{uint8\+\_\+t}]{ftr }\end{DoxyParamCaption})}
+
+
+
+Root hub or port feature status check. 
+
+Check U\+SB Spec. for hub status and feature selectors.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em drv} & Pointer to the U\+SB H\+CD driver \\
+\hline
+\mbox{\tt in}  & {\em port} & Set to 0 to get hub status, otherwise to get port status \\
+\hline
+\mbox{\tt in}  & {\em ftr} & Hub feature/status selector (0\+: connection, 2\+: suspend, 4\+: reset, 9\+: LS, 10\+: HS)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the status bit is 1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__usb__host_8h_a6f866ce8699c6a96db8de462b90b276a}\label{hpl__usb__host_8h_a6f866ce8699c6a96db8de462b90b276a}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+rh\+\_\+reset@{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+reset}}
+\index{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+reset@{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+reset}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+reset()}{\_usb\_h\_rh\_reset()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+h\+\_\+rh\+\_\+reset (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$}]{drv,  }\item[{uint8\+\_\+t}]{port }\end{DoxyParamCaption})}
+
+
+
+Reset the root hub port. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em drv} & Pointer to the U\+SB H\+CD driver \\
+\hline
+\mbox{\tt in}  & {\em port} & Root hub port, ignored if there is only one port \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__usb__host_8h_a732ff51b881f43532f2a974fde7d54f3}\label{hpl__usb__host_8h_a732ff51b881f43532f2a974fde7d54f3}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+rh\+\_\+resume@{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+resume}}
+\index{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+resume@{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+resume}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+resume()}{\_usb\_h\_rh\_resume()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+h\+\_\+rh\+\_\+resume (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$}]{drv,  }\item[{uint8\+\_\+t}]{port }\end{DoxyParamCaption})}
+
+
+
+Resume the root hub port. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em drv} & Pointer to the U\+SB H\+CD driver \\
+\hline
+\mbox{\tt in}  & {\em port} & Root hub port, ignored if there is only one port \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__usb__host_8h_a5ec7bbf7e8ced2808f74094eded43167}\label{hpl__usb__host_8h_a5ec7bbf7e8ced2808f74094eded43167}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+rh\+\_\+suspend@{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+suspend}}
+\index{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+suspend@{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+suspend}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+rh\+\_\+suspend()}{\_usb\_h\_rh\_suspend()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+h\+\_\+rh\+\_\+suspend (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$}]{drv,  }\item[{uint8\+\_\+t}]{port }\end{DoxyParamCaption})}
+
+
+
+Suspend the root hub port. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em drv} & Pointer to the U\+SB H\+CD driver \\
+\hline
+\mbox{\tt in}  & {\em port} & Root hub port, ignored if there is only one port \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__usb__host_8h_ab98b574d5b5351f4898d700b76415a3e}\label{hpl__usb__host_8h_ab98b574d5b5351f4898d700b76415a3e}} 
+\index{hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}!\+\_\+usb\+\_\+h\+\_\+suspend@{\+\_\+usb\+\_\+h\+\_\+suspend}}
+\index{\+\_\+usb\+\_\+h\+\_\+suspend@{\+\_\+usb\+\_\+h\+\_\+suspend}!hpl\+\_\+usb\+\_\+host.\+h@{hpl\+\_\+usb\+\_\+host.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+h\+\_\+suspend()}{\_usb\_h\_suspend()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+h\+\_\+suspend (\begin{DoxyParamCaption}\item[{struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$}]{drv }\end{DoxyParamCaption})}
+
+
+
+Suspend the U\+SB bus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em drv} & The driver \\
+\hline
+\end{DoxyParams}

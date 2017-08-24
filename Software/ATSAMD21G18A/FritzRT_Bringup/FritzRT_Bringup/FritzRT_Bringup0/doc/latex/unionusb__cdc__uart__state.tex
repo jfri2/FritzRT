@@ -1,0 +1,69 @@
+\hypertarget{unionusb__cdc__uart__state}{}\section{usb\+\_\+cdc\+\_\+uart\+\_\+state Union Reference}
+\label{unionusb__cdc__uart__state}\index{usb\+\_\+cdc\+\_\+uart\+\_\+state@{usb\+\_\+cdc\+\_\+uart\+\_\+state}}
+
+
+U\+A\+RT State Bitmap (cdc spec 1.\+1 chapter 6.\+3.\+5)  
+
+
+
+
+{\ttfamily \#include $<$usb\+\_\+protocol\+\_\+cdc.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{unionusb__cdc__uart__state_a8a5c914e058680f7d0cbcd026cbe364f}\label{unionusb__cdc__uart__state_a8a5c914e058680f7d0cbcd026cbe364f}} 
+le16\+\_\+t {\bfseries value}
+\item 
+\mbox{\Hypertarget{unionusb__cdc__uart__state_af09a8a8111d7fe8a364212faa0f70016}\label{unionusb__cdc__uart__state_af09a8a8111d7fe8a364212faa0f70016}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uint8\_t {\bfseries bRxCarrier}: 1\\
+\>uint8\_t {\bfseries bTxCarrier}: 1\\
+\>uint8\_t {\bfseries bBreak}: 1\\
+\>uint8\_t {\bfseries bRingSignal}: 1\\
+\>uint8\_t {\bfseries bFraming}: 1\\
+\>uint8\_t {\bfseries bParity}: 1\\
+\>uint8\_t {\bfseries bOverRun}\\
+\} {\bfseries bitmap}\\
+
+\end{tabbing}\item 
+\mbox{\Hypertarget{unionusb__cdc__uart__state_a1f5a7908c1ce4c87af997e4b7f5542ac}\label{unionusb__cdc__uart__state_a1f5a7908c1ce4c87af997e4b7f5542ac}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uint8\_t {\bfseries bDCD}: 1\\
+\>uint8\_t {\bfseries bDSR}: 1\\
+\>uint8\_t {\bfseries bBreak}: 1\\
+\>uint8\_t {\bfseries bRingSignal}: 1\\
+\>uint8\_t {\bfseries bFraming}: 1\\
+\>uint8\_t {\bfseries bParity}: 1\\
+\>uint8\_t {\bfseries bOverRun}\\
+\} {\bfseries rs232}\\
+
+\end{tabbing}\item 
+\mbox{\Hypertarget{unionusb__cdc__uart__state_a525c79907e6918489f0f2db168665b4f}\label{unionusb__cdc__uart__state_a525c79907e6918489f0f2db168665b4f}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uint8\_t \hyperlink{unionusb__cdc__uart__state_a6c05d44bfdaddc64bfc5d954d1f4b092}{bS109}: 1\\
+\>\>{\em V.24 signal 109. }\\
+\>uint8\_t \hyperlink{unionusb__cdc__uart__state_a1e2b7d538828fa29791af00b6cecfd2c}{bS106}: 1\\
+\>\>{\em V.24 signal 106. }\\
+\>uint8\_t {\bfseries bBreak}: 1\\
+\>uint8\_t {\bfseries bRingSignal}: 1\\
+\>uint8\_t {\bfseries bFraming}: 1\\
+\>uint8\_t {\bfseries bParity}: 1\\
+\>uint8\_t {\bfseries bOverRun}\\
+\} {\bfseries v24}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+A\+RT State Bitmap (cdc spec 1.\+1 chapter 6.\+3.\+5) 
+
+The documentation for this union was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+usb/class/cdc/\hyperlink{usb__protocol__cdc_8h}{usb\+\_\+protocol\+\_\+cdc.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,62 @@
+\hypertarget{struct__spi__async__dev}{}\section{\+\_\+spi\+\_\+async\+\_\+dev Struct Reference}
+\label{struct__spi__async__dev}\index{\+\_\+spi\+\_\+async\+\_\+dev@{\+\_\+spi\+\_\+async\+\_\+dev}}
+
+
+S\+PI async driver.  
+
+
+
+
+{\ttfamily \#include $<$hpl\+\_\+spi\+\_\+async.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{struct__spi__async__dev_adddb2a5d834ec5253bf566168107f56a}{prvt}
+\item 
+uint8\+\_\+t \hyperlink{struct__spi__async__dev_ac63f49229f0a88031004fe565d95ceca}{char\+\_\+size}
+\item 
+uint16\+\_\+t \hyperlink{struct__spi__async__dev_aa19bf608cb83f4172d6b219d0e328085}{dummy\+\_\+byte}
+\item 
+\mbox{\Hypertarget{struct__spi__async__dev_a908ae4b41c8249c00262f6f351fc60f4}\label{struct__spi__async__dev_a908ae4b41c8249c00262f6f351fc60f4}} 
+struct \hyperlink{struct__spi__async__dev__callbacks}{\+\_\+spi\+\_\+async\+\_\+dev\+\_\+callbacks} \hyperlink{struct__spi__async__dev_a908ae4b41c8249c00262f6f351fc60f4}{callbacks}
+\begin{DoxyCompactList}\small\item\em Pointer to callback functions, ignored for polling mode Pointer to the callback functions so that initialize the driver to handle interrupts. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__irq__descriptor}{\+\_\+irq\+\_\+descriptor} \hyperlink{struct__spi__async__dev_ab24c9b89754b904df98818975cbf091f}{irq}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+S\+PI async driver. 
+
+S\+PI driver to support async H\+AL 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{struct__spi__async__dev_ac63f49229f0a88031004fe565d95ceca}\label{struct__spi__async__dev_ac63f49229f0a88031004fe565d95ceca}} 
+\index{\+\_\+spi\+\_\+async\+\_\+dev@{\+\_\+spi\+\_\+async\+\_\+dev}!char\+\_\+size@{char\+\_\+size}}
+\index{char\+\_\+size@{char\+\_\+size}!\+\_\+spi\+\_\+async\+\_\+dev@{\+\_\+spi\+\_\+async\+\_\+dev}}
+\subsubsection{\texorpdfstring{char\+\_\+size}{char\_size}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+spi\+\_\+async\+\_\+dev\+::char\+\_\+size}
+
+Data size, number of bytes for each character \mbox{\Hypertarget{struct__spi__async__dev_aa19bf608cb83f4172d6b219d0e328085}\label{struct__spi__async__dev_aa19bf608cb83f4172d6b219d0e328085}} 
+\index{\+\_\+spi\+\_\+async\+\_\+dev@{\+\_\+spi\+\_\+async\+\_\+dev}!dummy\+\_\+byte@{dummy\+\_\+byte}}
+\index{dummy\+\_\+byte@{dummy\+\_\+byte}!\+\_\+spi\+\_\+async\+\_\+dev@{\+\_\+spi\+\_\+async\+\_\+dev}}
+\subsubsection{\texorpdfstring{dummy\+\_\+byte}{dummy\_byte}}
+{\footnotesize\ttfamily uint16\+\_\+t \+\_\+spi\+\_\+async\+\_\+dev\+::dummy\+\_\+byte}
+
+Dummy byte used in master mode when reading the slave \mbox{\Hypertarget{struct__spi__async__dev_ab24c9b89754b904df98818975cbf091f}\label{struct__spi__async__dev_ab24c9b89754b904df98818975cbf091f}} 
+\index{\+\_\+spi\+\_\+async\+\_\+dev@{\+\_\+spi\+\_\+async\+\_\+dev}!irq@{irq}}
+\index{irq@{irq}!\+\_\+spi\+\_\+async\+\_\+dev@{\+\_\+spi\+\_\+async\+\_\+dev}}
+\subsubsection{\texorpdfstring{irq}{irq}}
+{\footnotesize\ttfamily struct \hyperlink{struct__irq__descriptor}{\+\_\+irq\+\_\+descriptor} \+\_\+spi\+\_\+async\+\_\+dev\+::irq}
+
+I\+RQ instance for S\+PI device. \mbox{\Hypertarget{struct__spi__async__dev_adddb2a5d834ec5253bf566168107f56a}\label{struct__spi__async__dev_adddb2a5d834ec5253bf566168107f56a}} 
+\index{\+\_\+spi\+\_\+async\+\_\+dev@{\+\_\+spi\+\_\+async\+\_\+dev}!prvt@{prvt}}
+\index{prvt@{prvt}!\+\_\+spi\+\_\+async\+\_\+dev@{\+\_\+spi\+\_\+async\+\_\+dev}}
+\subsubsection{\texorpdfstring{prvt}{prvt}}
+{\footnotesize\ttfamily void$\ast$ \+\_\+spi\+\_\+async\+\_\+dev\+::prvt}
+
+Pointer to the hardware base or private data for special device. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+hal/include/\hyperlink{hpl__spi__async_8h}{hpl\+\_\+spi\+\_\+async.\+h}\end{DoxyCompactItemize}

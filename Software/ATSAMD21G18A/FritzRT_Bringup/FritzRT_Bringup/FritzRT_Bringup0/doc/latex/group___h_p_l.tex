@@ -1,0 +1,1975 @@
+\hypertarget{group___h_p_l}{}\section{Core}
+\label{group___h_p_l}\index{Core@{Core}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__dma__callbacks}{\+\_\+dma\+\_\+callbacks}
+\begin{DoxyCompactList}\small\item\em D\+MA interrupt callbacks. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__dma__resource}{\+\_\+dma\+\_\+resource}
+\begin{DoxyCompactList}\small\item\em D\+MA resource structure. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__irq__descriptor}{\+\_\+irq\+\_\+descriptor}
+\begin{DoxyCompactList}\small\item\em I\+RQ descriptor. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__pwm__callback}{\+\_\+pwm\+\_\+callback}
+\begin{DoxyCompactList}\small\item\em P\+WM interrupt callbacks. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device}
+\begin{DoxyCompactList}\small\item\em P\+WM descriptor device structure. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__pwm__hpl__interface}{\+\_\+pwm\+\_\+hpl\+\_\+interface}
+\begin{DoxyCompactList}\small\item\em P\+WM functions, pointers to low-\/level functions. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__timer__callbacks}{\+\_\+timer\+\_\+callbacks}
+\begin{DoxyCompactList}\small\item\em Timer interrupt callbacks. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device}
+\begin{DoxyCompactList}\small\item\em Timer device structure. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__timer__hpl__interface}{\+\_\+timer\+\_\+hpl\+\_\+interface}
+\begin{DoxyCompactList}\small\item\em Timer functions, pointers to low-\/level functions. \end{DoxyCompactList}\item 
+union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state}
+\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT flow control state. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__usart__async__callbacks}{\+\_\+usart\+\_\+async\+\_\+callbacks}
+\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT interrupt callbacks. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device}
+\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT descriptor device structure. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device}
+\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT descriptor device structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___h_p_l_ga50e2e0aca2b651e066ebc5aeb5fdad25}\label{group___h_p_l_ga50e2e0aca2b651e066ebc5aeb5fdad25}} 
+\#define \hyperlink{group___h_p_l_ga50e2e0aca2b651e066ebc5aeb5fdad25}{G\+P\+I\+O\+\_\+\+P\+IN}(n)~(((n)\&0x1\+Fu) $<$$<$ 0)
+\begin{DoxyCompactList}\small\item\em Macros for the pin and port group, lower 5 bits stands for pin number in the group, higher 3 bits stands for port group. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___h_p_l_ga9797315af6a0aa3291bb73648a3b1379}\label{group___h_p_l_ga9797315af6a0aa3291bb73648a3b1379}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+P\+O\+RT}(n)~((n) $>$$>$ 5)
+\item 
+\mbox{\Hypertarget{group___h_p_l_gaf065b9160b968f60a562bdc5c4454a5a}\label{group___h_p_l_gaf065b9160b968f60a562bdc5c4454a5a}} 
+\#define {\bfseries G\+P\+IO}(port,  pin)~((((port)\&0x7u) $<$$<$ 5) + ((pin)\&0x1\+Fu))
+\item 
+\mbox{\Hypertarget{group___h_p_l_ga4ac520942c3dfa92e76b896518718576}\label{group___h_p_l_ga4ac520942c3dfa92e76b896518718576}} 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+O\+FF}~0xffffffff
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___h_p_l_ga54b3c18a071fea0c56652e887810b3f6}\label{group___h_p_l_ga54b3c18a071fea0c56652e887810b3f6}} 
+typedef uint32\+\_\+t \hyperlink{group___h_p_l_ga54b3c18a071fea0c56652e887810b3f6}{pwm\+\_\+period\+\_\+t}
+\begin{DoxyCompactList}\small\item\em P\+WM pulse-\/width period. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___h_p_l_ga5885ba48297c95f5c8a108cfa02e6e55}\label{group___h_p_l_ga5885ba48297c95f5c8a108cfa02e6e55}} 
+typedef uint32\+\_\+t \hyperlink{group___h_p_l_ga5885ba48297c95f5c8a108cfa02e6e55}{system\+\_\+time\+\_\+t}
+\begin{DoxyCompactList}\small\item\em System time type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___h_p_l_gaf65002742527ebb1bf4157229990d465}\label{group___h_p_l_gaf65002742527ebb1bf4157229990d465}} 
+enum \hyperlink{group___h_p_l_gaf65002742527ebb1bf4157229990d465}{\+\_\+dma\+\_\+callback\+\_\+type} \{ {\bfseries D\+M\+A\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+\_\+\+CB}, 
+{\bfseries D\+M\+A\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+E\+R\+R\+O\+R\+\_\+\+CB}
+ \}\begin{DoxyCompactList}\small\item\em D\+MA callback types. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group___h_p_l_gab9959d4bcdc5049e5898d5100ada3197}\label{group___h_p_l_gab9959d4bcdc5049e5898d5100ada3197}} 
+enum \hyperlink{group___h_p_l_gab9959d4bcdc5049e5898d5100ada3197}{gpio\+\_\+pull\+\_\+mode} \{ {\bfseries G\+P\+I\+O\+\_\+\+P\+U\+L\+L\+\_\+\+O\+FF}, 
+{\bfseries G\+P\+I\+O\+\_\+\+P\+U\+L\+L\+\_\+\+UP}, 
+{\bfseries G\+P\+I\+O\+\_\+\+P\+U\+L\+L\+\_\+\+D\+O\+WN}
+ \}\begin{DoxyCompactList}\small\item\em P\+O\+RT pull mode settings. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group___h_p_l_gaccc7d029df9e5a96151a68e64f4be7e2}\label{group___h_p_l_gaccc7d029df9e5a96151a68e64f4be7e2}} 
+enum \hyperlink{group___h_p_l_gaccc7d029df9e5a96151a68e64f4be7e2}{gpio\+\_\+direction} \{ {\bfseries G\+P\+I\+O\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+O\+FF}, 
+{\bfseries G\+P\+I\+O\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+IN}, 
+{\bfseries G\+P\+I\+O\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+O\+UT}
+ \}\begin{DoxyCompactList}\small\item\em P\+O\+RT direction settins. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}\label{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}} 
+enum \hyperlink{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}{gpio\+\_\+port} \{ \newline
+{\bfseries G\+P\+I\+O\+\_\+\+P\+O\+R\+TA}, 
+{\bfseries G\+P\+I\+O\+\_\+\+P\+O\+R\+TB}, 
+{\bfseries G\+P\+I\+O\+\_\+\+P\+O\+R\+TC}, 
+{\bfseries G\+P\+I\+O\+\_\+\+P\+O\+R\+TD}, 
+\newline
+{\bfseries G\+P\+I\+O\+\_\+\+P\+O\+R\+TE}
+ \}\begin{DoxyCompactList}\small\item\em P\+O\+RT group abstraction. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group___h_p_l_gaa279abe5a858ccbaea89be01192a2d6c}\label{group___h_p_l_gaa279abe5a858ccbaea89be01192a2d6c}} 
+enum \hyperlink{group___h_p_l_gaa279abe5a858ccbaea89be01192a2d6c}{\+\_\+pwm\+\_\+callback\+\_\+type} \{ {\bfseries P\+W\+M\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+CB}, 
+{\bfseries P\+W\+M\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+CB}
+ \}\begin{DoxyCompactList}\small\item\em P\+WM callback types. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group___h_p_l_ga9066b7b3f20c4514ad24dcbff8fa3898}{reset\+\_\+reason} \{ \newline
+{\bfseries R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+S\+O\+N\+\_\+\+P\+OR} = 1, 
+{\bfseries R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+S\+O\+N\+\_\+\+B\+O\+D12} = 2, 
+{\bfseries R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+S\+O\+N\+\_\+\+B\+O\+D33} = 4, 
+{\bfseries R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+S\+O\+N\+\_\+\+E\+XT} = 8, 
+\newline
+{\bfseries R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+S\+O\+N\+\_\+\+W\+DT} = 16, 
+{\bfseries R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+S\+O\+N\+\_\+\+S\+Y\+ST} = 32, 
+{\bfseries R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+S\+O\+N\+\_\+\+B\+A\+C\+K\+UP} = 64
+ \}\begin{DoxyCompactList}\small\item\em Reset reason enumeration. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group___h_p_l_ga59141b5eb86f4d53f17bbeab1d7c83e7}\label{group___h_p_l_ga59141b5eb86f4d53f17bbeab1d7c83e7}} 
+enum \hyperlink{group___h_p_l_ga59141b5eb86f4d53f17bbeab1d7c83e7}{usart\+\_\+baud\+\_\+rate\+\_\+mode} \{ {\bfseries U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+R\+A\+T\+E\+\_\+\+A\+S\+Y\+N\+C\+H\+\_\+\+A\+R\+I\+T\+H\+M\+E\+T\+IC}, 
+{\bfseries U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+R\+A\+T\+E\+\_\+\+A\+S\+Y\+N\+C\+H\+\_\+\+F\+R\+A\+C\+T\+I\+O\+N\+AL}, 
+{\bfseries U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+R\+A\+T\+E\+\_\+\+S\+Y\+N\+CH}
+ \}\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT baud rate mode. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group___h_p_l_ga426849bbd9655cec091101ebc9123eb4}\label{group___h_p_l_ga426849bbd9655cec091101ebc9123eb4}} 
+enum \hyperlink{group___h_p_l_ga426849bbd9655cec091101ebc9123eb4}{usart\+\_\+data\+\_\+order} \{ {\bfseries U\+S\+A\+R\+T\+\_\+\+D\+A\+T\+A\+\_\+\+O\+R\+D\+E\+R\+\_\+\+M\+SB} = 0, 
+{\bfseries U\+S\+A\+R\+T\+\_\+\+D\+A\+T\+A\+\_\+\+O\+R\+D\+E\+R\+\_\+\+L\+SB} = 1
+ \}\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT data order. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group___h_p_l_ga1c465965478e0f6908a4c99d4f3ad20f}\label{group___h_p_l_ga1c465965478e0f6908a4c99d4f3ad20f}} 
+enum \hyperlink{group___h_p_l_ga1c465965478e0f6908a4c99d4f3ad20f}{usart\+\_\+mode} \{ {\bfseries U\+S\+A\+R\+T\+\_\+\+M\+O\+D\+E\+\_\+\+A\+S\+Y\+N\+C\+H\+R\+O\+N\+O\+US} = 0, 
+{\bfseries U\+S\+A\+R\+T\+\_\+\+M\+O\+D\+E\+\_\+\+S\+Y\+N\+C\+H\+R\+O\+N\+O\+US} = 1
+ \}\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT mode. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group___h_p_l_ga867cc5f0ea7d3bf651d68f0046cf6f41}\label{group___h_p_l_ga867cc5f0ea7d3bf651d68f0046cf6f41}} 
+enum \hyperlink{group___h_p_l_ga867cc5f0ea7d3bf651d68f0046cf6f41}{usart\+\_\+parity} \{ \newline
+{\bfseries U\+S\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+E\+V\+EN} = 0, 
+{\bfseries U\+S\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+O\+DD} = 1, 
+{\bfseries U\+S\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+N\+O\+NE} = 2, 
+{\bfseries U\+S\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+S\+P\+A\+CE} = 3, 
+\newline
+{\bfseries U\+S\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+M\+A\+RK} = 4
+ \}\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT parity. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group___h_p_l_ga88311517c5168c29a681604a8a33b06e}\label{group___h_p_l_ga88311517c5168c29a681604a8a33b06e}} 
+enum \hyperlink{group___h_p_l_ga88311517c5168c29a681604a8a33b06e}{usart\+\_\+stop\+\_\+bits} \{ {\bfseries U\+S\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+\+O\+NE} = 0, 
+{\bfseries U\+S\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+\+T\+WO} = 1, 
+{\bfseries U\+S\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+\+O\+N\+E\+\_\+\+P\+\_\+\+F\+I\+VE} = 2
+ \}\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT stop bits mode. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group___h_p_l_ga631ce7b4f60dccd392e6d6ef7d3cd4e2}\label{group___h_p_l_ga631ce7b4f60dccd392e6d6ef7d3cd4e2}} 
+enum \hyperlink{group___h_p_l_ga631ce7b4f60dccd392e6d6ef7d3cd4e2}{usart\+\_\+character\+\_\+size} \{ \newline
+{\bfseries U\+S\+A\+R\+T\+\_\+\+C\+H\+A\+R\+A\+C\+T\+E\+R\+\_\+\+S\+I\+Z\+E\+\_\+8\+B\+I\+TS} = 0, 
+{\bfseries U\+S\+A\+R\+T\+\_\+\+C\+H\+A\+R\+A\+C\+T\+E\+R\+\_\+\+S\+I\+Z\+E\+\_\+9\+B\+I\+TS} = 1, 
+{\bfseries U\+S\+A\+R\+T\+\_\+\+C\+H\+A\+R\+A\+C\+T\+E\+R\+\_\+\+S\+I\+Z\+E\+\_\+5\+B\+I\+TS} = 5, 
+{\bfseries U\+S\+A\+R\+T\+\_\+\+C\+H\+A\+R\+A\+C\+T\+E\+R\+\_\+\+S\+I\+Z\+E\+\_\+6\+B\+I\+TS} = 6, 
+\newline
+{\bfseries U\+S\+A\+R\+T\+\_\+\+C\+H\+A\+R\+A\+C\+T\+E\+R\+\_\+\+S\+I\+Z\+E\+\_\+7\+B\+I\+TS} = 7
+ \}\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT character size. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group___h_p_l_gace00dc77ac02c91f8bf35551b484927c}\label{group___h_p_l_gace00dc77ac02c91f8bf35551b484927c}} 
+enum \hyperlink{group___h_p_l_gace00dc77ac02c91f8bf35551b484927c}{\+\_\+usart\+\_\+async\+\_\+callback\+\_\+type} \{ {\bfseries U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+B\+Y\+T\+E\+\_\+\+S\+E\+NT}, 
+{\bfseries U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+R\+X\+\_\+\+D\+O\+NE}, 
+{\bfseries U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+T\+X\+\_\+\+D\+O\+NE}, 
+{\bfseries U\+S\+A\+R\+T\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+E\+R\+R\+OR}
+ \}\begin{DoxyCompactList}\small\item\em U\+S\+A\+RT callback types. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group___h_p_l_ga80907744cae62409ce0764e1d2ade4a6}{\+\_\+dma\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize D\+MA. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group___h_p_l_ga2a40fb892a927cef99863e1f4ca71f85}{\+\_\+dma\+\_\+set\+\_\+destination\+\_\+address} (const uint8\+\_\+t channel, const void $\ast$const dst)
+\begin{DoxyCompactList}\small\item\em Set destination address. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group___h_p_l_gae86b412fa86727c686496e63dac65a52}{\+\_\+dma\+\_\+set\+\_\+source\+\_\+address} (const uint8\+\_\+t channel, const void $\ast$const src)
+\begin{DoxyCompactList}\small\item\em Set source address. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group___h_p_l_ga72844b40ebb8b4d69ec49a218389a9e3}{\+\_\+dma\+\_\+srcinc\+\_\+enable} (const uint8\+\_\+t channel, const bool enable)
+\begin{DoxyCompactList}\small\item\em Enable/disable source address incrementation during D\+MA transaction. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group___h_p_l_gac6ccb282c608691f7cb8ec2350677fbf}{\+\_\+dma\+\_\+set\+\_\+data\+\_\+amount} (const uint8\+\_\+t channel, const uint32\+\_\+t amount)
+\begin{DoxyCompactList}\small\item\em Set the amount of data to be transfered per transaction. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group___h_p_l_ga274dfd4667fa2dedb9d550b4f92189d8}{\+\_\+dma\+\_\+enable\+\_\+transaction} (const uint8\+\_\+t channel, const bool software\+\_\+trigger)
+\begin{DoxyCompactList}\small\item\em Trigger D\+MA transaction on the given channel. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group___h_p_l_ga651aecc566b4d05e988791c85e2efa99}{\+\_\+dma\+\_\+get\+\_\+channel\+\_\+resource} (struct \hyperlink{struct__dma__resource}{\+\_\+dma\+\_\+resource} $\ast$$\ast$resource, const uint8\+\_\+t channel)
+\begin{DoxyCompactList}\small\item\em Retrieves D\+MA resource structure. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga2b1a1a06af556aa36746d0aada5c6525}{\+\_\+dma\+\_\+set\+\_\+irq\+\_\+state} (const uint8\+\_\+t channel, const enum \hyperlink{group___h_p_l_gaf65002742527ebb1bf4157229990d465}{\+\_\+dma\+\_\+callback\+\_\+type} type, const bool state)
+\begin{DoxyCompactList}\small\item\em Enable/disable D\+MA interrupt. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group___h_p_l_ga15351abaf44430845341bb1da4101792}{\+\_\+pwm\+\_\+init} (struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize TC. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga0c2822fd73d42097e88ed03c54338f0f}{\+\_\+pwm\+\_\+deinit} (struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Deinitialize TC. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___h_p_l_ga2e9db8f70af92197ac77967d49436aae}{\+\_\+pwm\+\_\+get\+\_\+hardware\+\_\+offset} (const struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve offset of the given tc hardware instance. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga784626e8777e650b2904f9a650d128eb}{\+\_\+pwm\+\_\+enable} (struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Start hardware pwm. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gaaf3c1fc89c862522d17ce40f1e5216ce}{\+\_\+pwm\+\_\+disable} (struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Stop hardware pwm. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gab1dc42dd879185801f516f9bedb00d05}{\+\_\+pwm\+\_\+set\+\_\+param} (struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device, const \hyperlink{group___h_p_l_ga54b3c18a071fea0c56652e887810b3f6}{pwm\+\_\+period\+\_\+t} period, const \hyperlink{group___h_p_l_ga54b3c18a071fea0c56652e887810b3f6}{pwm\+\_\+period\+\_\+t} duty\+\_\+cycle)
+\begin{DoxyCompactList}\small\item\em Set pwm parameter. \end{DoxyCompactList}\item 
+bool \hyperlink{group___h_p_l_ga2aecb7ebd28cc6b5979cbac28d626418}{\+\_\+pwm\+\_\+is\+\_\+enabled} (const struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if pwm is working. \end{DoxyCompactList}\item 
+\hyperlink{group___h_p_l_ga54b3c18a071fea0c56652e887810b3f6}{pwm\+\_\+period\+\_\+t} \hyperlink{group___h_p_l_ga2e95a6e02d2d3f85622820ee8376fa93}{\+\_\+pwm\+\_\+get\+\_\+period} (const struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Get pwm waveform period value. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___h_p_l_ga4a94f4b8189fed59cfa1190674f08740}{\+\_\+pwm\+\_\+get\+\_\+duty} (const struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Get pwm waveform duty cycle value. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga583710860d0b672db85bada1acc07dc4}{\+\_\+pwm\+\_\+set\+\_\+irq\+\_\+state} (struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_gaa279abe5a858ccbaea89be01192a2d6c}{\+\_\+pwm\+\_\+callback\+\_\+type} type, const bool disable)
+\begin{DoxyCompactList}\small\item\em Enable/disable P\+WM interrupt. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group___h_p_l_gade39b65e851877482435cfb3789724a8}{\+\_\+timer\+\_\+init} (struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize T\+CC. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gac9b7787b4e39ba73070712a897e3198e}{\+\_\+timer\+\_\+deinit} (struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Deinitialize T\+CC. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga29f3fa3f07ba0428641f4db03b5bbee0}{\+\_\+timer\+\_\+start} (struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Start hardware timer. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gaf20437ff953c5533299bd9f7d4fabfe4}{\+\_\+timer\+\_\+stop} (struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Stop hardware timer. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gabca60e7eaef3b0c209d68f5581609a4a}{\+\_\+timer\+\_\+set\+\_\+period} (struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device, const uint32\+\_\+t clock\+\_\+cycles)
+\begin{DoxyCompactList}\small\item\em Set timer period. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___h_p_l_ga7dcd9a3f656643075605cbdd19bb1dc3}{\+\_\+timer\+\_\+get\+\_\+period} (const struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve timer period. \end{DoxyCompactList}\item 
+bool \hyperlink{group___h_p_l_ga32ec962f2bdeb1c15eca8e38e7a88de2}{\+\_\+timer\+\_\+is\+\_\+started} (const struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if timer is running. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga7689280886559ce8d6dd0514b2654146}{\+\_\+timer\+\_\+set\+\_\+irq} (struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Set timer I\+RQ. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___h_p_l_gac208a67b3bcd677808f8e933b14cfc2b}\label{group___h_p_l_gac208a67b3bcd677808f8e933b14cfc2b}} 
+void($\ast$ {\bfseries \+\_\+dma\+\_\+callbacks\+::transfer\+\_\+done} )(struct \hyperlink{struct__dma__resource}{\+\_\+dma\+\_\+resource} $\ast$resource)
+\item 
+\mbox{\Hypertarget{group___h_p_l_gaad4da2e79be4a592b1cddfd24b4a37b2}\label{group___h_p_l_gaad4da2e79be4a592b1cddfd24b4a37b2}} 
+void($\ast$ {\bfseries \+\_\+dma\+\_\+callbacks\+::error} )(struct \hyperlink{struct__dma__resource}{\+\_\+dma\+\_\+resource} $\ast$resource)
+\item 
+\mbox{\Hypertarget{group___h_p_l_gaab9927c3b8cdb168642916bd3e984a83}\label{group___h_p_l_gaab9927c3b8cdb168642916bd3e984a83}} 
+struct \hyperlink{struct__dma__callbacks}{\+\_\+dma\+\_\+callbacks} {\bfseries \+\_\+dma\+\_\+resource\+::dma\+\_\+cb}
+\item 
+\mbox{\Hypertarget{group___h_p_l_ga2bc48d682ddf3001d31bef997b51a2ea}\label{group___h_p_l_ga2bc48d682ddf3001d31bef997b51a2ea}} 
+void $\ast$ {\bfseries \+\_\+dma\+\_\+resource\+::back}
+\end{DoxyCompactItemize}
+\subsection*{H\+PL functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___h_p_l_ga4689ea1d17db0a91e3db670687bfe640}{\+\_\+delay\+\_\+init} (void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize delay functionality. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___h_p_l_gacdb903e26206a1b890c9465e20455aef}{\+\_\+get\+\_\+cycles\+\_\+for\+\_\+us} (const uint16\+\_\+t us)
+\begin{DoxyCompactList}\small\item\em Retrieve the amount of cycles to delay for the given amount of us. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___h_p_l_gabf15f09c56b3ef75a3dbf7073092c51f}{\+\_\+get\+\_\+cycles\+\_\+for\+\_\+ms} (const uint16\+\_\+t ms)
+\begin{DoxyCompactList}\small\item\em Retrieve the amount of cycles to delay for the given amount of ms. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gaa9e7b0c5bb246838e100046abf186bb8}{\+\_\+delay\+\_\+cycles} (void $\ast$const hw, uint32\+\_\+t cycles)
+\begin{DoxyCompactList}\small\item\em Delay loop to delay n number of cycles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{H\+PL functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___h_p_l_ga6e226919d4a3ee84599b55a32597e284}{\+\_\+gpio\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Port initialization function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{H\+PL functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___h_p_l_ga11bde7accfa853194b32dae4f27bad40}{\+\_\+sysctrl\+\_\+init\+\_\+sources} (void)
+\begin{DoxyCompactList}\small\item\em Initializes clock sources. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga0e9b9fbf16506f0f6ad8e8b1aa87dc73}{\+\_\+pm\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes Power Manager. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga87e8c45b05aee8f3b453630134d3483d}{\+\_\+gclk\+\_\+init\+\_\+generators} (void)
+\begin{DoxyCompactList}\small\item\em Initialize generators. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___h_p_l_gaab304aa890beb23e3311aaa2c0def527}\label{group___h_p_l_gaab304aa890beb23e3311aaa2c0def527}} 
+void \hyperlink{group___h_p_l_gaab304aa890beb23e3311aaa2c0def527}{\+\_\+osc32kctrl\+\_\+init\+\_\+sources} (void)
+\begin{DoxyCompactList}\small\item\em Initialize 32 k\+Hz clock sources. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___h_p_l_gaee0105b1dbc07a2ca23586aa95f49cc7}\label{group___h_p_l_gaee0105b1dbc07a2ca23586aa95f49cc7}} 
+void \hyperlink{group___h_p_l_gaee0105b1dbc07a2ca23586aa95f49cc7}{\+\_\+oscctrl\+\_\+init\+\_\+sources} (void)
+\begin{DoxyCompactList}\small\item\em Initialize clock sources. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___h_p_l_ga3e5e49081818470968093b6e3597ab5f}\label{group___h_p_l_ga3e5e49081818470968093b6e3597ab5f}} 
+void \hyperlink{group___h_p_l_ga3e5e49081818470968093b6e3597ab5f}{\+\_\+sysctrl\+\_\+init\+\_\+referenced\+\_\+generators} (void)
+\begin{DoxyCompactList}\small\item\em Initialize clock sources that need input reference clocks. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___h_p_l_ga2e4746bc23999fe1dc7c02aa4e167bfb}\label{group___h_p_l_ga2e4746bc23999fe1dc7c02aa4e167bfb}} 
+void \hyperlink{group___h_p_l_ga2e4746bc23999fe1dc7c02aa4e167bfb}{\+\_\+oscctrl\+\_\+init\+\_\+referenced\+\_\+generators} (void)
+\begin{DoxyCompactList}\small\item\em Initialize clock sources that need input reference clocks. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___h_p_l_ga840b5c5290dd94e858db4d89259ba3f4}\label{group___h_p_l_ga840b5c5290dd94e858db4d89259ba3f4}} 
+void \hyperlink{group___h_p_l_ga840b5c5290dd94e858db4d89259ba3f4}{\+\_\+mclk\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize master clock generator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___h_p_l_ga3dd85007c9fdeed2ffe1166a33dd6519}\label{group___h_p_l_ga3dd85007c9fdeed2ffe1166a33dd6519}} 
+void \hyperlink{group___h_p_l_ga3dd85007c9fdeed2ffe1166a33dd6519}{\+\_\+lpmcu\+\_\+misc\+\_\+regs\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize clock generator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___h_p_l_ga580e99e942064901ed0f02f5d8789c7a}\label{group___h_p_l_ga580e99e942064901ed0f02f5d8789c7a}} 
+void \hyperlink{group___h_p_l_ga580e99e942064901ed0f02f5d8789c7a}{\+\_\+pmc\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize clock generator. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga1668b7fc690ec56e1f3d54d9f3b8e5f2}{\+\_\+set\+\_\+performance\+\_\+level} (const uint8\+\_\+t level)
+\begin{DoxyCompactList}\small\item\em Set performance level. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gac10942d1aec3f0ce14117119db5e9555}{\+\_\+init\+\_\+chip} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the chip. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{H\+PL functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{group___h_p_l_ga082e8d19d78ab2cf2f63ded8530c7852}{\+\_\+irq\+\_\+get\+\_\+current} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve current I\+RQ number. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gae6a80cff8a450795dc3f2d6df1a19464}{\+\_\+irq\+\_\+disable} (uint8\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Disable the given I\+RQ. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga7720726f19dfdda1561a042483c97a58}{\+\_\+irq\+\_\+set} (uint8\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Set the given I\+RQ. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga80f1b1a044a8773e23b38517296620b4}{\+\_\+irq\+\_\+clear} (uint8\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Clear the given I\+RQ. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gac8b7aa49ad81aecd34603b4dc23dd143}{\+\_\+irq\+\_\+enable} (uint8\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Enable the given I\+RQ. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga1ee85f2f8227e335c654b9085e9b7d5c}{\+\_\+irq\+\_\+register} (const uint8\+\_\+t number, struct \hyperlink{struct__irq__descriptor}{\+\_\+irq\+\_\+descriptor} $\ast$const irq)
+\begin{DoxyCompactList}\small\item\em Register I\+RQ handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{H\+PL functions}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group___h_p_l_ga9066b7b3f20c4514ad24dcbff8fa3898}{reset\+\_\+reason} \hyperlink{group___h_p_l_gab7e1d30a2aa0a64c175ce3ce373b3c4f}{\+\_\+get\+\_\+reset\+\_\+reason} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve the reset reason. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___h_p_l_gaf1c17c7797e22fd860d303deda80e17c}\label{group___h_p_l_gaf1c17c7797e22fd860d303deda80e17c}} 
+void \hyperlink{group___h_p_l_gaf1c17c7797e22fd860d303deda80e17c}{\+\_\+reset\+\_\+mcu} (void)
+\begin{DoxyCompactList}\small\item\em Reset M\+CU. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{H\+PL functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group___h_p_l_ga3e27d1d2dd8b2515a6724be9b34388f1}{\+\_\+set\+\_\+sleep\+\_\+mode} (const uint8\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Set the sleep mode for the device. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___h_p_l_ga8977ae60a1c30b8c2216f8f2a9c59b5e}\label{group___h_p_l_ga8977ae60a1c30b8c2216f8f2a9c59b5e}} 
+void \hyperlink{group___h_p_l_ga8977ae60a1c30b8c2216f8f2a9c59b5e}{\+\_\+go\+\_\+to\+\_\+sleep} (void)
+\begin{DoxyCompactList}\small\item\em Put M\+CU to sleep. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{H\+PL functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___h_p_l_gafa42a76bae0892be69f99fad9ad2f312}{\+\_\+system\+\_\+time\+\_\+init} (void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize system time module. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga7bd979fd9280b6f1d630f2afa36aa3e5}{\+\_\+system\+\_\+time\+\_\+deinit} (void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Deinitialize system time module. \end{DoxyCompactList}\item 
+\hyperlink{group___h_p_l_ga5885ba48297c95f5c8a108cfa02e6e55}{system\+\_\+time\+\_\+t} \hyperlink{group___h_p_l_gaef21251348cfac8ea881d7927a678fc7}{\+\_\+system\+\_\+time\+\_\+get} (const void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Get system time. \end{DoxyCompactList}\item 
+\hyperlink{group___h_p_l_ga5885ba48297c95f5c8a108cfa02e6e55}{system\+\_\+time\+\_\+t} \hyperlink{group___h_p_l_gac4972d67e3648ca8a51181ce8fc6e616}{\+\_\+system\+\_\+time\+\_\+get\+\_\+max\+\_\+time\+\_\+value} (const void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Get maximum possible system time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{H\+PL functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group___h_p_l_ga11745e0bd0c9d636afbefae8e209665e}{\+\_\+usart\+\_\+async\+\_\+init} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize asynchronous U\+S\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga57e2ef9f6ec11c53a9d88bdb7a82aac4}{\+\_\+usart\+\_\+async\+\_\+deinit} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Deinitialize U\+S\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga86c4101798d9dbc584f1e56615140d6f}{\+\_\+usart\+\_\+async\+\_\+enable} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Enable usart module. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gadb6751e5c270eb88eb754f45e7b8a91f}{\+\_\+usart\+\_\+async\+\_\+disable} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Disable usart module. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{group___h_p_l_gab834a3310b05b1118ac7cf5ad90835ba}{\+\_\+usart\+\_\+async\+\_\+calculate\+\_\+baud\+\_\+rate} (const uint32\+\_\+t baud, const uint32\+\_\+t clock\+\_\+rate, const uint8\+\_\+t samples, const enum \hyperlink{group___h_p_l_ga59141b5eb86f4d53f17bbeab1d7c83e7}{usart\+\_\+baud\+\_\+rate\+\_\+mode} mode, const uint8\+\_\+t fraction)
+\begin{DoxyCompactList}\small\item\em Calculate baud rate register value. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gab3211a57f9d6f2e355db5b67ce3fe905}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+baud\+\_\+rate} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const uint32\+\_\+t baud\+\_\+rate)
+\begin{DoxyCompactList}\small\item\em Set baud rate. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga8f29c61bfbc9298ba0e25be2980ddd15}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+data\+\_\+order} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga426849bbd9655cec091101ebc9123eb4}{usart\+\_\+data\+\_\+order} order)
+\begin{DoxyCompactList}\small\item\em Set data order. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga90f1288d1ba0ab800801db3124f6a1cc}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+mode} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga1c465965478e0f6908a4c99d4f3ad20f}{usart\+\_\+mode} mode)
+\begin{DoxyCompactList}\small\item\em Set mode. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga739cdfde316390a089c38355bc4f596e}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+parity} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga867cc5f0ea7d3bf651d68f0046cf6f41}{usart\+\_\+parity} parity)
+\begin{DoxyCompactList}\small\item\em Set parity. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga7f2ef73e4b9da5be12fc0eabb97ab67b}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+stop\+\_\+bits} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga88311517c5168c29a681604a8a33b06e}{usart\+\_\+stop\+\_\+bits} stop\+\_\+bits)
+\begin{DoxyCompactList}\small\item\em Set stop bits mode. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gaf834af5cc0738976ddbc200901aef105}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+character\+\_\+size} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga631ce7b4f60dccd392e6d6ef7d3cd4e2}{usart\+\_\+character\+\_\+size} size)
+\begin{DoxyCompactList}\small\item\em Set character size. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___h_p_l_ga09d708dc23dacf358d3de8a3a0545c1a}{\+\_\+usart\+\_\+async\+\_\+get\+\_\+status} (const struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve usart status. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga3a2887cd1710eaad2df0e66b9e830faa}{\+\_\+usart\+\_\+async\+\_\+write\+\_\+byte} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Write a byte to the given U\+S\+A\+RT instance. \end{DoxyCompactList}\item 
+bool \hyperlink{group___h_p_l_gaf96fbe9e0e063f4ae332451b7a540e2c}{\+\_\+usart\+\_\+async\+\_\+is\+\_\+byte\+\_\+sent} (const struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if U\+S\+A\+RT is ready to send next byte. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gafdf581028b78744fccccae79d45a2078}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+flow\+\_\+control\+\_\+state} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} state)
+\begin{DoxyCompactList}\small\item\em Set the state of flow control pins. \end{DoxyCompactList}\item 
+union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} \hyperlink{group___h_p_l_gaa9850f9d97cb87f80fa615e95330ce35}{\+\_\+usart\+\_\+async\+\_\+get\+\_\+flow\+\_\+control\+\_\+state} (const struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve the state of flow control pins. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga5dcb14840b2011da3a1d0f774dafa28d}{\+\_\+usart\+\_\+async\+\_\+enable\+\_\+byte\+\_\+sent\+\_\+irq} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Enable data register empty interrupt. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga89bf3d02a7a3cca261900906ffd9ca76}{\+\_\+usart\+\_\+async\+\_\+enable\+\_\+tx\+\_\+done\+\_\+irq} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Enable transmission complete interrupt. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___h_p_l_ga378f2b4e0a90e5f5e354da00b3e6e531}{\+\_\+usart\+\_\+async\+\_\+get\+\_\+hardware\+\_\+index} (const struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve ordinal number of the given U\+S\+A\+RT hardware instance. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gadd7a2a78a76c6286f474bdce333c4904}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+irq\+\_\+state} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_gace00dc77ac02c91f8bf35551b484927c}{\+\_\+usart\+\_\+async\+\_\+callback\+\_\+type} type, const bool state)
+\begin{DoxyCompactList}\small\item\em Enable/disable U\+S\+A\+RT interrupt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{H\+PL functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group___h_p_l_gad1cc7b8e72fd67fdeec8062c802eb25a}{\+\_\+usart\+\_\+sync\+\_\+init} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize synchronous U\+S\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gac046761a56aaedeba5acad135cab707c}{\+\_\+usart\+\_\+sync\+\_\+deinit} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Deinitialize U\+S\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga5ca07057bde212b46f6547e5bdb876de}{\+\_\+usart\+\_\+sync\+\_\+enable} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Enable usart module. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gac021f29c77d8a9bfabfdd7433dbbb024}{\+\_\+usart\+\_\+sync\+\_\+disable} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Disable usart module. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{group___h_p_l_ga0f2e4f3338270295eea1d4e1b00bfa1e}{\+\_\+usart\+\_\+sync\+\_\+calculate\+\_\+baud\+\_\+rate} (const uint32\+\_\+t baud, const uint32\+\_\+t clock\+\_\+rate, const uint8\+\_\+t samples, const enum \hyperlink{group___h_p_l_ga59141b5eb86f4d53f17bbeab1d7c83e7}{usart\+\_\+baud\+\_\+rate\+\_\+mode} mode, const uint8\+\_\+t fraction)
+\begin{DoxyCompactList}\small\item\em Calculate baud rate register value. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga882c8cecf50eb1276401d6874956b903}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+baud\+\_\+rate} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const uint32\+\_\+t baud\+\_\+rate)
+\begin{DoxyCompactList}\small\item\em Set baud rate. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga1b30e54d42d94ab59067e121d286d47a}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+data\+\_\+order} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga426849bbd9655cec091101ebc9123eb4}{usart\+\_\+data\+\_\+order} order)
+\begin{DoxyCompactList}\small\item\em Set data order. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga2dd82ebe0069e4c61fda94ac0dda1a63}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+mode} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga1c465965478e0f6908a4c99d4f3ad20f}{usart\+\_\+mode} mode)
+\begin{DoxyCompactList}\small\item\em Set mode. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gaee0a2babdf7b777fa4754028c92fc2e8}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+parity} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga867cc5f0ea7d3bf651d68f0046cf6f41}{usart\+\_\+parity} parity)
+\begin{DoxyCompactList}\small\item\em Set parity. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga93c7de4ab355c189e306288d21642ff3}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+stop\+\_\+bits} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga88311517c5168c29a681604a8a33b06e}{usart\+\_\+stop\+\_\+bits} stop\+\_\+bits)
+\begin{DoxyCompactList}\small\item\em Set stop bits mode. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga45ebffe94571d266e42b3dd882ad559d}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+character\+\_\+size} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga631ce7b4f60dccd392e6d6ef7d3cd4e2}{usart\+\_\+character\+\_\+size} size)
+\begin{DoxyCompactList}\small\item\em Set character size. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___h_p_l_ga512c769b924d59433542bf347980334b}{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+status} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve usart status. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga6f9cc0e2020d49845bef97301bc692e0}{\+\_\+usart\+\_\+sync\+\_\+write\+\_\+byte} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Write a byte to the given U\+S\+A\+RT instance. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___h_p_l_gad6e42aaa92499103016d605362e35d97}{\+\_\+usart\+\_\+sync\+\_\+read\+\_\+byte} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Read a byte from the given U\+S\+A\+RT instance. \end{DoxyCompactList}\item 
+bool \hyperlink{group___h_p_l_ga8bad9999c03b728f47848b2337393ec4}{\+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+sent} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if U\+S\+A\+RT is ready to send next byte. \end{DoxyCompactList}\item 
+bool \hyperlink{group___h_p_l_ga5bf04a89be94430de57acf53f9b35dd2}{\+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+received} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if there is data received by U\+S\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gae43bb6755eb8c462a9884e6cdca602aa}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+flow\+\_\+control\+\_\+state} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} state)
+\begin{DoxyCompactList}\small\item\em Set the state of flow control pins. \end{DoxyCompactList}\item 
+union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} \hyperlink{group___h_p_l_ga5b6662f283d7a2791c7eed77635e9238}{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+flow\+\_\+control\+\_\+state} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve the state of flow control pins. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___h_p_l_ga8fd6539ded0699161df00f23ba6580aa}{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+hardware\+\_\+index} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve ordinal number of the given U\+S\+A\+RT hardware instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hypertarget{group___h_p_l_hpl_core_rev}{}\subsection{Revision History}\label{group___h_p_l_hpl_core_rev}
+
+\begin{DoxyItemize}
+\item v1.\+0.\+0 Initial Release
+\end{DoxyItemize}\hypertarget{group___h_p_l_hpl_delay_rev}{}\subsection{Revision History}\label{group___h_p_l_hpl_delay_rev}
+
+\begin{DoxyItemize}
+\item v1.\+0.\+0 Initial Release
+\end{DoxyItemize}\hypertarget{group___h_p_l_hpl_dma_rev}{}\subsection{Revision History}\label{group___h_p_l_hpl_dma_rev}
+
+\begin{DoxyItemize}
+\item v1.\+0.\+0 Initial Release
+\end{DoxyItemize}\hypertarget{group___h_p_l_hpl_port_rev}{}\subsection{Revision History}\label{group___h_p_l_hpl_port_rev}
+
+\begin{DoxyItemize}
+\item v1.\+0.\+0 Initial Release
+\end{DoxyItemize}\hypertarget{group___h_p_l_hpl_init_rev}{}\subsection{Revision History}\label{group___h_p_l_hpl_init_rev}
+
+\begin{DoxyItemize}
+\item v1.\+0.\+0 Initial Release
+\end{DoxyItemize}\hypertarget{group___h_p_l_hpl_irq_rev}{}\subsection{Revision History}\label{group___h_p_l_hpl_irq_rev}
+
+\begin{DoxyItemize}
+\item v1.\+0.\+0 Initial Release
+\end{DoxyItemize}\hypertarget{group___h_p_l_hpl_pwm_rev}{}\subsection{Revision History}\label{group___h_p_l_hpl_pwm_rev}
+
+\begin{DoxyItemize}
+\item v1.\+0.\+0 Initial Release
+\end{DoxyItemize}\hypertarget{group___h_p_l_hpl_reset_rev}{}\subsection{Revision History}\label{group___h_p_l_hpl_reset_rev}
+
+\begin{DoxyItemize}
+\item v1.\+0.\+0 Initial Release
+\end{DoxyItemize}\hypertarget{group___h_p_l_hpl_sleep_rev}{}\subsection{Revision History}\label{group___h_p_l_hpl_sleep_rev}
+
+\begin{DoxyItemize}
+\item v1.\+0.\+0 Initial Release
+\end{DoxyItemize}\hypertarget{group___h_p_l_hpl_time_measure_rev}{}\subsection{Revision History}\label{group___h_p_l_hpl_time_measure_rev}
+
+\begin{DoxyItemize}
+\item v1.\+0.\+0 Initial Release
+\end{DoxyItemize}\hypertarget{group___h_p_l_hpl_timer_rev}{}\subsection{Revision History}\label{group___h_p_l_hpl_timer_rev}
+
+\begin{DoxyItemize}
+\item v1.\+0.\+0 Initial Release
+\end{DoxyItemize}\hypertarget{group___h_p_l_hpl_usart_sync_rev}{}\subsection{Revision History}\label{group___h_p_l_hpl_usart_sync_rev}
+
+\begin{DoxyItemize}
+\item v1.\+0.\+0 Initial Release
+\end{DoxyItemize}\hypertarget{group___h_p_l_hpl_usart_rev}{}\subsection{Revision History}\label{group___h_p_l_hpl_usart_rev}
+
+\begin{DoxyItemize}
+\item v1.\+0.\+0 Initial Release 
+\end{DoxyItemize}
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group___h_p_l_ga9066b7b3f20c4514ad24dcbff8fa3898}\label{group___h_p_l_ga9066b7b3f20c4514ad24dcbff8fa3898}} 
+\index{Core@{Core}!reset\+\_\+reason@{reset\+\_\+reason}}
+\index{reset\+\_\+reason@{reset\+\_\+reason}!Core@{Core}}
+\subsubsection{\texorpdfstring{reset\+\_\+reason}{reset\_reason}}
+{\footnotesize\ttfamily enum \hyperlink{group___h_p_l_ga9066b7b3f20c4514ad24dcbff8fa3898}{reset\+\_\+reason}}
+
+
+
+Reset reason enumeration. 
+
+The list of possible reset reasons. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group___h_p_l_gaa9e7b0c5bb246838e100046abf186bb8}\label{group___h_p_l_gaa9e7b0c5bb246838e100046abf186bb8}} 
+\index{Core@{Core}!\+\_\+delay\+\_\+cycles@{\+\_\+delay\+\_\+cycles}}
+\index{\+\_\+delay\+\_\+cycles@{\+\_\+delay\+\_\+cycles}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+delay\+\_\+cycles()}{\_delay\_cycles()}}
+{\footnotesize\ttfamily void \+\_\+delay\+\_\+cycles (\begin{DoxyParamCaption}\item[{void $\ast$const}]{hw,  }\item[{uint32\+\_\+t}]{cycles }\end{DoxyParamCaption})}
+
+
+
+Delay loop to delay n number of cycles. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hw} & The pointer to hardware instance \\
+\hline
+\mbox{\tt in}  & {\em cycles} & The amount of cycles to delay for \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_ga4689ea1d17db0a91e3db670687bfe640}\label{group___h_p_l_ga4689ea1d17db0a91e3db670687bfe640}} 
+\index{Core@{Core}!\+\_\+delay\+\_\+init@{\+\_\+delay\+\_\+init}}
+\index{\+\_\+delay\+\_\+init@{\+\_\+delay\+\_\+init}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+delay\+\_\+init()}{\_delay\_init()}}
+{\footnotesize\ttfamily void \+\_\+delay\+\_\+init (\begin{DoxyParamCaption}\item[{void $\ast$const}]{hw }\end{DoxyParamCaption})}
+
+
+
+Initialize delay functionality. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hw} & The pointer to hardware instance \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_ga274dfd4667fa2dedb9d550b4f92189d8}\label{group___h_p_l_ga274dfd4667fa2dedb9d550b4f92189d8}} 
+\index{Core@{Core}!\+\_\+dma\+\_\+enable\+\_\+transaction@{\+\_\+dma\+\_\+enable\+\_\+transaction}}
+\index{\+\_\+dma\+\_\+enable\+\_\+transaction@{\+\_\+dma\+\_\+enable\+\_\+transaction}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+dma\+\_\+enable\+\_\+transaction()}{\_dma\_enable\_transaction()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+dma\+\_\+enable\+\_\+transaction (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{channel,  }\item[{const bool}]{software\+\_\+trigger }\end{DoxyParamCaption})}
+
+
+
+Trigger D\+MA transaction on the given channel. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em channel} & D\+MA channel to trigger transaction on\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status of operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_ga651aecc566b4d05e988791c85e2efa99}\label{group___h_p_l_ga651aecc566b4d05e988791c85e2efa99}} 
+\index{Core@{Core}!\+\_\+dma\+\_\+get\+\_\+channel\+\_\+resource@{\+\_\+dma\+\_\+get\+\_\+channel\+\_\+resource}}
+\index{\+\_\+dma\+\_\+get\+\_\+channel\+\_\+resource@{\+\_\+dma\+\_\+get\+\_\+channel\+\_\+resource}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+dma\+\_\+get\+\_\+channel\+\_\+resource()}{\_dma\_get\_channel\_resource()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+dma\+\_\+get\+\_\+channel\+\_\+resource (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__dma__resource}{\+\_\+dma\+\_\+resource} $\ast$$\ast$}]{resource,  }\item[{const uint8\+\_\+t}]{channel }\end{DoxyParamCaption})}
+
+
+
+Retrieves D\+MA resource structure. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em resource} & The resource to be retrieved \\
+\hline
+\mbox{\tt in}  & {\em channel} & D\+MA channel to retrieve structure for\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status of operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_ga80907744cae62409ce0764e1d2ade4a6}\label{group___h_p_l_ga80907744cae62409ce0764e1d2ade4a6}} 
+\index{Core@{Core}!\+\_\+dma\+\_\+init@{\+\_\+dma\+\_\+init}}
+\index{\+\_\+dma\+\_\+init@{\+\_\+dma\+\_\+init}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+dma\+\_\+init()}{\_dma\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+dma\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialize D\+MA. 
+
+This function does low level D\+MA configuration.
+
+\begin{DoxyReturn}{Returns}
+initialize status 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_gac6ccb282c608691f7cb8ec2350677fbf}\label{group___h_p_l_gac6ccb282c608691f7cb8ec2350677fbf}} 
+\index{Core@{Core}!\+\_\+dma\+\_\+set\+\_\+data\+\_\+amount@{\+\_\+dma\+\_\+set\+\_\+data\+\_\+amount}}
+\index{\+\_\+dma\+\_\+set\+\_\+data\+\_\+amount@{\+\_\+dma\+\_\+set\+\_\+data\+\_\+amount}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+dma\+\_\+set\+\_\+data\+\_\+amount()}{\_dma\_set\_data\_amount()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+dma\+\_\+set\+\_\+data\+\_\+amount (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{channel,  }\item[{const uint32\+\_\+t}]{amount }\end{DoxyParamCaption})}
+
+
+
+Set the amount of data to be transfered per transaction. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em channel} & D\+MA channel to set data amount for \\
+\hline
+\mbox{\tt in}  & {\em amount} & Data amount\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status of operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_ga2a40fb892a927cef99863e1f4ca71f85}\label{group___h_p_l_ga2a40fb892a927cef99863e1f4ca71f85}} 
+\index{Core@{Core}!\+\_\+dma\+\_\+set\+\_\+destination\+\_\+address@{\+\_\+dma\+\_\+set\+\_\+destination\+\_\+address}}
+\index{\+\_\+dma\+\_\+set\+\_\+destination\+\_\+address@{\+\_\+dma\+\_\+set\+\_\+destination\+\_\+address}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+dma\+\_\+set\+\_\+destination\+\_\+address()}{\_dma\_set\_destination\_address()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+dma\+\_\+set\+\_\+destination\+\_\+address (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{channel,  }\item[{const void $\ast$const}]{dst }\end{DoxyParamCaption})}
+
+
+
+Set destination address. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em channel} & D\+MA channel to set destination address for \\
+\hline
+\mbox{\tt in}  & {\em dst} & Destination address\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+setting status 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_ga2b1a1a06af556aa36746d0aada5c6525}\label{group___h_p_l_ga2b1a1a06af556aa36746d0aada5c6525}} 
+\index{Core@{Core}!\+\_\+dma\+\_\+set\+\_\+irq\+\_\+state@{\+\_\+dma\+\_\+set\+\_\+irq\+\_\+state}}
+\index{\+\_\+dma\+\_\+set\+\_\+irq\+\_\+state@{\+\_\+dma\+\_\+set\+\_\+irq\+\_\+state}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+dma\+\_\+set\+\_\+irq\+\_\+state()}{\_dma\_set\_irq\_state()}}
+{\footnotesize\ttfamily void \+\_\+dma\+\_\+set\+\_\+irq\+\_\+state (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{channel,  }\item[{const enum \hyperlink{group___h_p_l_gaf65002742527ebb1bf4157229990d465}{\+\_\+dma\+\_\+callback\+\_\+type}}]{type,  }\item[{const bool}]{state }\end{DoxyParamCaption})}
+
+
+
+Enable/disable D\+MA interrupt. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em channel} & D\+MA channel to enable/disable interrupt for \\
+\hline
+\mbox{\tt in}  & {\em type} & The type of interrupt to disable/enable if applicable \\
+\hline
+\mbox{\tt in}  & {\em state} & Enable or disable \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_gae86b412fa86727c686496e63dac65a52}\label{group___h_p_l_gae86b412fa86727c686496e63dac65a52}} 
+\index{Core@{Core}!\+\_\+dma\+\_\+set\+\_\+source\+\_\+address@{\+\_\+dma\+\_\+set\+\_\+source\+\_\+address}}
+\index{\+\_\+dma\+\_\+set\+\_\+source\+\_\+address@{\+\_\+dma\+\_\+set\+\_\+source\+\_\+address}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+dma\+\_\+set\+\_\+source\+\_\+address()}{\_dma\_set\_source\_address()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+dma\+\_\+set\+\_\+source\+\_\+address (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{channel,  }\item[{const void $\ast$const}]{src }\end{DoxyParamCaption})}
+
+
+
+Set source address. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em channel} & D\+MA channel to set source address for \\
+\hline
+\mbox{\tt in}  & {\em src} & Source address\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+setting status 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_ga72844b40ebb8b4d69ec49a218389a9e3}\label{group___h_p_l_ga72844b40ebb8b4d69ec49a218389a9e3}} 
+\index{Core@{Core}!\+\_\+dma\+\_\+srcinc\+\_\+enable@{\+\_\+dma\+\_\+srcinc\+\_\+enable}}
+\index{\+\_\+dma\+\_\+srcinc\+\_\+enable@{\+\_\+dma\+\_\+srcinc\+\_\+enable}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+dma\+\_\+srcinc\+\_\+enable()}{\_dma\_srcinc\_enable()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+dma\+\_\+srcinc\+\_\+enable (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{channel,  }\item[{const bool}]{enable }\end{DoxyParamCaption})}
+
+
+
+Enable/disable source address incrementation during D\+MA transaction. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em channel} & D\+MA channel to set source address for \\
+\hline
+\mbox{\tt in}  & {\em enable} & True to enable, false to disable\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status of operation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_ga87e8c45b05aee8f3b453630134d3483d}\label{group___h_p_l_ga87e8c45b05aee8f3b453630134d3483d}} 
+\index{Core@{Core}!\+\_\+gclk\+\_\+init\+\_\+generators@{\+\_\+gclk\+\_\+init\+\_\+generators}}
+\index{\+\_\+gclk\+\_\+init\+\_\+generators@{\+\_\+gclk\+\_\+init\+\_\+generators}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+gclk\+\_\+init\+\_\+generators()}{\_gclk\_init\_generators()}}
+{\footnotesize\ttfamily void \+\_\+gclk\+\_\+init\+\_\+generators (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialize generators. 
+
+Initialize generators. \mbox{\Hypertarget{group___h_p_l_gabf15f09c56b3ef75a3dbf7073092c51f}\label{group___h_p_l_gabf15f09c56b3ef75a3dbf7073092c51f}} 
+\index{Core@{Core}!\+\_\+get\+\_\+cycles\+\_\+for\+\_\+ms@{\+\_\+get\+\_\+cycles\+\_\+for\+\_\+ms}}
+\index{\+\_\+get\+\_\+cycles\+\_\+for\+\_\+ms@{\+\_\+get\+\_\+cycles\+\_\+for\+\_\+ms}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+get\+\_\+cycles\+\_\+for\+\_\+ms()}{\_get\_cycles\_for\_ms()}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+get\+\_\+cycles\+\_\+for\+\_\+ms (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t}]{ms }\end{DoxyParamCaption})}
+
+
+
+Retrieve the amount of cycles to delay for the given amount of ms. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ms} & The amount of ms to delay for\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The amount of cycles 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_gacdb903e26206a1b890c9465e20455aef}\label{group___h_p_l_gacdb903e26206a1b890c9465e20455aef}} 
+\index{Core@{Core}!\+\_\+get\+\_\+cycles\+\_\+for\+\_\+us@{\+\_\+get\+\_\+cycles\+\_\+for\+\_\+us}}
+\index{\+\_\+get\+\_\+cycles\+\_\+for\+\_\+us@{\+\_\+get\+\_\+cycles\+\_\+for\+\_\+us}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+get\+\_\+cycles\+\_\+for\+\_\+us()}{\_get\_cycles\_for\_us()}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+get\+\_\+cycles\+\_\+for\+\_\+us (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t}]{us }\end{DoxyParamCaption})}
+
+
+
+Retrieve the amount of cycles to delay for the given amount of us. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em us} & The amount of us to delay for\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The amount of cycles 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_gab7e1d30a2aa0a64c175ce3ce373b3c4f}\label{group___h_p_l_gab7e1d30a2aa0a64c175ce3ce373b3c4f}} 
+\index{Core@{Core}!\+\_\+get\+\_\+reset\+\_\+reason@{\+\_\+get\+\_\+reset\+\_\+reason}}
+\index{\+\_\+get\+\_\+reset\+\_\+reason@{\+\_\+get\+\_\+reset\+\_\+reason}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+get\+\_\+reset\+\_\+reason()}{\_get\_reset\_reason()}}
+{\footnotesize\ttfamily enum \hyperlink{group___h_p_l_ga9066b7b3f20c4514ad24dcbff8fa3898}{reset\+\_\+reason} \+\_\+get\+\_\+reset\+\_\+reason (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve the reset reason. 
+
+Retrieves the reset reason of the last M\+CU reset.
+
+\begin{DoxyReturn}{Returns}
+An enum value indicating the reason of the last reset. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_ga6e226919d4a3ee84599b55a32597e284}\label{group___h_p_l_ga6e226919d4a3ee84599b55a32597e284}} 
+\index{Core@{Core}!\+\_\+gpio\+\_\+init@{\+\_\+gpio\+\_\+init}}
+\index{\+\_\+gpio\+\_\+init@{\+\_\+gpio\+\_\+init}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+gpio\+\_\+init()}{\_gpio\_init()}}
+{\footnotesize\ttfamily void \+\_\+gpio\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Port initialization function. 
+
+Port initialization function should setup the port module based on a static configuration file, this function should normally not be called directly, but is a part of hal\+\_\+init() \mbox{\Hypertarget{group___h_p_l_gac10942d1aec3f0ce14117119db5e9555}\label{group___h_p_l_gac10942d1aec3f0ce14117119db5e9555}} 
+\index{Core@{Core}!\+\_\+init\+\_\+chip@{\+\_\+init\+\_\+chip}}
+\index{\+\_\+init\+\_\+chip@{\+\_\+init\+\_\+chip}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+init\+\_\+chip()}{\_init\_chip()}}
+{\footnotesize\ttfamily void \+\_\+init\+\_\+chip (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialize the chip. 
+
+Initialize the chip. \mbox{\Hypertarget{group___h_p_l_ga80f1b1a044a8773e23b38517296620b4}\label{group___h_p_l_ga80f1b1a044a8773e23b38517296620b4}} 
+\index{Core@{Core}!\+\_\+irq\+\_\+clear@{\+\_\+irq\+\_\+clear}}
+\index{\+\_\+irq\+\_\+clear@{\+\_\+irq\+\_\+clear}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+irq\+\_\+clear()}{\_irq\_clear()}}
+{\footnotesize\ttfamily void \+\_\+irq\+\_\+clear (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+Clear the given I\+RQ. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The number of I\+RQ to clear \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_gae6a80cff8a450795dc3f2d6df1a19464}\label{group___h_p_l_gae6a80cff8a450795dc3f2d6df1a19464}} 
+\index{Core@{Core}!\+\_\+irq\+\_\+disable@{\+\_\+irq\+\_\+disable}}
+\index{\+\_\+irq\+\_\+disable@{\+\_\+irq\+\_\+disable}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+irq\+\_\+disable()}{\_irq\_disable()}}
+{\footnotesize\ttfamily void \+\_\+irq\+\_\+disable (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+Disable the given I\+RQ. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The number of I\+RQ to disable \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_gac8b7aa49ad81aecd34603b4dc23dd143}\label{group___h_p_l_gac8b7aa49ad81aecd34603b4dc23dd143}} 
+\index{Core@{Core}!\+\_\+irq\+\_\+enable@{\+\_\+irq\+\_\+enable}}
+\index{\+\_\+irq\+\_\+enable@{\+\_\+irq\+\_\+enable}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+irq\+\_\+enable()}{\_irq\_enable()}}
+{\footnotesize\ttfamily void \+\_\+irq\+\_\+enable (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+Enable the given I\+RQ. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The number of I\+RQ to enable \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_ga082e8d19d78ab2cf2f63ded8530c7852}\label{group___h_p_l_ga082e8d19d78ab2cf2f63ded8530c7852}} 
+\index{Core@{Core}!\+\_\+irq\+\_\+get\+\_\+current@{\+\_\+irq\+\_\+get\+\_\+current}}
+\index{\+\_\+irq\+\_\+get\+\_\+current@{\+\_\+irq\+\_\+get\+\_\+current}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+irq\+\_\+get\+\_\+current()}{\_irq\_get\_current()}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+irq\+\_\+get\+\_\+current (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve current I\+RQ number. 
+
+\begin{DoxyReturn}{Returns}
+The current I\+RQ number 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_ga1ee85f2f8227e335c654b9085e9b7d5c}\label{group___h_p_l_ga1ee85f2f8227e335c654b9085e9b7d5c}} 
+\index{Core@{Core}!\+\_\+irq\+\_\+register@{\+\_\+irq\+\_\+register}}
+\index{\+\_\+irq\+\_\+register@{\+\_\+irq\+\_\+register}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+irq\+\_\+register()}{\_irq\_register()}}
+{\footnotesize\ttfamily void \+\_\+irq\+\_\+register (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{number,  }\item[{struct \hyperlink{struct__irq__descriptor}{\+\_\+irq\+\_\+descriptor} $\ast$const}]{irq }\end{DoxyParamCaption})}
+
+
+
+Register I\+RQ handler. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em number} & The number registered I\+RQ \\
+\hline
+\mbox{\tt in}  & {\em irq} & The pointer to irq handler to register\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of I\+RQ handler registering 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em -\/1} & Passed parameters were invalid \\
+\hline
+{\em 0} & The registering is completed successfully \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_p_l_ga7720726f19dfdda1561a042483c97a58}\label{group___h_p_l_ga7720726f19dfdda1561a042483c97a58}} 
+\index{Core@{Core}!\+\_\+irq\+\_\+set@{\+\_\+irq\+\_\+set}}
+\index{\+\_\+irq\+\_\+set@{\+\_\+irq\+\_\+set}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+irq\+\_\+set()}{\_irq\_set()}}
+{\footnotesize\ttfamily void \+\_\+irq\+\_\+set (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+Set the given I\+RQ. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The number of I\+RQ to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_ga0e9b9fbf16506f0f6ad8e8b1aa87dc73}\label{group___h_p_l_ga0e9b9fbf16506f0f6ad8e8b1aa87dc73}} 
+\index{Core@{Core}!\+\_\+pm\+\_\+init@{\+\_\+pm\+\_\+init}}
+\index{\+\_\+pm\+\_\+init@{\+\_\+pm\+\_\+init}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+pm\+\_\+init()}{\_pm\_init()}}
+{\footnotesize\ttfamily void \+\_\+pm\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initializes Power Manager. 
+
+Initializes Power Manager. \mbox{\Hypertarget{group___h_p_l_ga0c2822fd73d42097e88ed03c54338f0f}\label{group___h_p_l_ga0c2822fd73d42097e88ed03c54338f0f}} 
+\index{Core@{Core}!\+\_\+pwm\+\_\+deinit@{\+\_\+pwm\+\_\+deinit}}
+\index{\+\_\+pwm\+\_\+deinit@{\+\_\+pwm\+\_\+deinit}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+pwm\+\_\+deinit()}{\_pwm\_deinit()}}
+{\footnotesize\ttfamily void \+\_\+pwm\+\_\+deinit (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Deinitialize TC. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to P\+WM device instance \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_gaaf3c1fc89c862522d17ce40f1e5216ce}\label{group___h_p_l_gaaf3c1fc89c862522d17ce40f1e5216ce}} 
+\index{Core@{Core}!\+\_\+pwm\+\_\+disable@{\+\_\+pwm\+\_\+disable}}
+\index{\+\_\+pwm\+\_\+disable@{\+\_\+pwm\+\_\+disable}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+pwm\+\_\+disable()}{\_pwm\_disable()}}
+{\footnotesize\ttfamily void \+\_\+pwm\+\_\+disable (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Stop hardware pwm. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to P\+WM device instance \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_ga784626e8777e650b2904f9a650d128eb}\label{group___h_p_l_ga784626e8777e650b2904f9a650d128eb}} 
+\index{Core@{Core}!\+\_\+pwm\+\_\+enable@{\+\_\+pwm\+\_\+enable}}
+\index{\+\_\+pwm\+\_\+enable@{\+\_\+pwm\+\_\+enable}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+pwm\+\_\+enable()}{\_pwm\_enable()}}
+{\footnotesize\ttfamily void \+\_\+pwm\+\_\+enable (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Start hardware pwm. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to P\+WM device instance \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_ga4a94f4b8189fed59cfa1190674f08740}\label{group___h_p_l_ga4a94f4b8189fed59cfa1190674f08740}} 
+\index{Core@{Core}!\+\_\+pwm\+\_\+get\+\_\+duty@{\+\_\+pwm\+\_\+get\+\_\+duty}}
+\index{\+\_\+pwm\+\_\+get\+\_\+duty@{\+\_\+pwm\+\_\+get\+\_\+duty}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+pwm\+\_\+get\+\_\+duty()}{\_pwm\_get\_duty()}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+pwm\+\_\+get\+\_\+duty (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Get pwm waveform duty cycle value. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to P\+WM device instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Duty cycle value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_ga2e9db8f70af92197ac77967d49436aae}\label{group___h_p_l_ga2e9db8f70af92197ac77967d49436aae}} 
+\index{Core@{Core}!\+\_\+pwm\+\_\+get\+\_\+hardware\+\_\+offset@{\+\_\+pwm\+\_\+get\+\_\+hardware\+\_\+offset}}
+\index{\+\_\+pwm\+\_\+get\+\_\+hardware\+\_\+offset@{\+\_\+pwm\+\_\+get\+\_\+hardware\+\_\+offset}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+pwm\+\_\+get\+\_\+hardware\+\_\+offset()}{\_pwm\_get\_hardware\_offset()}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+pwm\+\_\+get\+\_\+hardware\+\_\+offset (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Retrieve offset of the given tc hardware instance. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to P\+WM device instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The offset of the given tc hardware instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_ga2e95a6e02d2d3f85622820ee8376fa93}\label{group___h_p_l_ga2e95a6e02d2d3f85622820ee8376fa93}} 
+\index{Core@{Core}!\+\_\+pwm\+\_\+get\+\_\+period@{\+\_\+pwm\+\_\+get\+\_\+period}}
+\index{\+\_\+pwm\+\_\+get\+\_\+period@{\+\_\+pwm\+\_\+get\+\_\+period}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+pwm\+\_\+get\+\_\+period()}{\_pwm\_get\_period()}}
+{\footnotesize\ttfamily \hyperlink{group___h_p_l_ga54b3c18a071fea0c56652e887810b3f6}{pwm\+\_\+period\+\_\+t} \+\_\+pwm\+\_\+get\+\_\+period (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Get pwm waveform period value. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to P\+WM device instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Period value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_ga15351abaf44430845341bb1da4101792}\label{group___h_p_l_ga15351abaf44430845341bb1da4101792}} 
+\index{Core@{Core}!\+\_\+pwm\+\_\+init@{\+\_\+pwm\+\_\+init}}
+\index{\+\_\+pwm\+\_\+init@{\+\_\+pwm\+\_\+init}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+pwm\+\_\+init()}{\_pwm\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+pwm\+\_\+init (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const}]{device,  }\item[{void $\ast$const}]{hw }\end{DoxyParamCaption})}
+
+
+
+Initialize TC. 
+
+This function does low level TC configuration.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to P\+WM device instance \\
+\hline
+\mbox{\tt in}  & {\em hw} & The pointer to hardware instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Initialization status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_ga2aecb7ebd28cc6b5979cbac28d626418}\label{group___h_p_l_ga2aecb7ebd28cc6b5979cbac28d626418}} 
+\index{Core@{Core}!\+\_\+pwm\+\_\+is\+\_\+enabled@{\+\_\+pwm\+\_\+is\+\_\+enabled}}
+\index{\+\_\+pwm\+\_\+is\+\_\+enabled@{\+\_\+pwm\+\_\+is\+\_\+enabled}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+pwm\+\_\+is\+\_\+enabled()}{\_pwm\_is\_enabled()}}
+{\footnotesize\ttfamily bool \+\_\+pwm\+\_\+is\+\_\+enabled (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Check if pwm is working. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to P\+WM device instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Check status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & The given pwm is working \\
+\hline
+{\em false} & The given pwm is not working \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_p_l_ga583710860d0b672db85bada1acc07dc4}\label{group___h_p_l_ga583710860d0b672db85bada1acc07dc4}} 
+\index{Core@{Core}!\+\_\+pwm\+\_\+set\+\_\+irq\+\_\+state@{\+\_\+pwm\+\_\+set\+\_\+irq\+\_\+state}}
+\index{\+\_\+pwm\+\_\+set\+\_\+irq\+\_\+state@{\+\_\+pwm\+\_\+set\+\_\+irq\+\_\+state}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+pwm\+\_\+set\+\_\+irq\+\_\+state()}{\_pwm\_set\_irq\_state()}}
+{\footnotesize\ttfamily void \+\_\+pwm\+\_\+set\+\_\+irq\+\_\+state (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const}]{device,  }\item[{const enum \hyperlink{group___h_p_l_gaa279abe5a858ccbaea89be01192a2d6c}{\+\_\+pwm\+\_\+callback\+\_\+type}}]{type,  }\item[{const bool}]{disable }\end{DoxyParamCaption})}
+
+
+
+Enable/disable P\+WM interrupt. 
+
+param\mbox{[}in\mbox{]} device The pointer to P\+WM device instance param\mbox{[}in\mbox{]} type The type of interrupt to disable/enable if applicable param\mbox{[}in\mbox{]} disable Enable or disable \mbox{\Hypertarget{group___h_p_l_gab1dc42dd879185801f516f9bedb00d05}\label{group___h_p_l_gab1dc42dd879185801f516f9bedb00d05}} 
+\index{Core@{Core}!\+\_\+pwm\+\_\+set\+\_\+param@{\+\_\+pwm\+\_\+set\+\_\+param}}
+\index{\+\_\+pwm\+\_\+set\+\_\+param@{\+\_\+pwm\+\_\+set\+\_\+param}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+pwm\+\_\+set\+\_\+param()}{\_pwm\_set\_param()}}
+{\footnotesize\ttfamily void \+\_\+pwm\+\_\+set\+\_\+param (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const}]{device,  }\item[{const \hyperlink{group___h_p_l_ga54b3c18a071fea0c56652e887810b3f6}{pwm\+\_\+period\+\_\+t}}]{period,  }\item[{const \hyperlink{group___h_p_l_ga54b3c18a071fea0c56652e887810b3f6}{pwm\+\_\+period\+\_\+t}}]{duty\+\_\+cycle }\end{DoxyParamCaption})}
+
+
+
+Set pwm parameter. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to P\+WM device instance \\
+\hline
+\mbox{\tt in}  & {\em period} & Total period of one P\+WM cycle. \\
+\hline
+\mbox{\tt in}  & {\em duty\+\_\+cycle} & Period of P\+WM first half during one cycle. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_ga1668b7fc690ec56e1f3d54d9f3b8e5f2}\label{group___h_p_l_ga1668b7fc690ec56e1f3d54d9f3b8e5f2}} 
+\index{Core@{Core}!\+\_\+set\+\_\+performance\+\_\+level@{\+\_\+set\+\_\+performance\+\_\+level}}
+\index{\+\_\+set\+\_\+performance\+\_\+level@{\+\_\+set\+\_\+performance\+\_\+level}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+set\+\_\+performance\+\_\+level()}{\_set\_performance\_level()}}
+{\footnotesize\ttfamily void \+\_\+set\+\_\+performance\+\_\+level (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{level }\end{DoxyParamCaption})}
+
+
+
+Set performance level. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em level} & The performance level to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_ga3e27d1d2dd8b2515a6724be9b34388f1}\label{group___h_p_l_ga3e27d1d2dd8b2515a6724be9b34388f1}} 
+\index{Core@{Core}!\+\_\+set\+\_\+sleep\+\_\+mode@{\+\_\+set\+\_\+sleep\+\_\+mode}}
+\index{\+\_\+set\+\_\+sleep\+\_\+mode@{\+\_\+set\+\_\+sleep\+\_\+mode}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+set\+\_\+sleep\+\_\+mode()}{\_set\_sleep\_mode()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+set\+\_\+sleep\+\_\+mode (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+
+
+Set the sleep mode for the device. 
+
+This function sets the sleep mode for the device. For an overview of which systems are disabled in sleep for the different sleep modes see datasheet.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em mode} & Sleep mode to use\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the status of a sleep request 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em -\/1} & The requested sleep mode was invalid \\
+\hline
+{\em 0} & The operation completed successfully, sleep mode is set \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_p_l_ga11bde7accfa853194b32dae4f27bad40}\label{group___h_p_l_ga11bde7accfa853194b32dae4f27bad40}} 
+\index{Core@{Core}!\+\_\+sysctrl\+\_\+init\+\_\+sources@{\+\_\+sysctrl\+\_\+init\+\_\+sources}}
+\index{\+\_\+sysctrl\+\_\+init\+\_\+sources@{\+\_\+sysctrl\+\_\+init\+\_\+sources}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+sysctrl\+\_\+init\+\_\+sources()}{\_sysctrl\_init\_sources()}}
+{\footnotesize\ttfamily void \+\_\+sysctrl\+\_\+init\+\_\+sources (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initializes clock sources. 
+
+Initializes clock sources.
+
+All G\+C\+LK generators are running when this function returns. \mbox{\Hypertarget{group___h_p_l_ga7bd979fd9280b6f1d630f2afa36aa3e5}\label{group___h_p_l_ga7bd979fd9280b6f1d630f2afa36aa3e5}} 
+\index{Core@{Core}!\+\_\+system\+\_\+time\+\_\+deinit@{\+\_\+system\+\_\+time\+\_\+deinit}}
+\index{\+\_\+system\+\_\+time\+\_\+deinit@{\+\_\+system\+\_\+time\+\_\+deinit}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+system\+\_\+time\+\_\+deinit()}{\_system\_time\_deinit()}}
+{\footnotesize\ttfamily void \+\_\+system\+\_\+time\+\_\+deinit (\begin{DoxyParamCaption}\item[{void $\ast$const}]{hw }\end{DoxyParamCaption})}
+
+
+
+Deinitialize system time module. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hw} & The pointer to hardware instance to initialize\\
+\hline
+\end{DoxyParams}
+Deinitialize system time module. \mbox{\Hypertarget{group___h_p_l_gaef21251348cfac8ea881d7927a678fc7}\label{group___h_p_l_gaef21251348cfac8ea881d7927a678fc7}} 
+\index{Core@{Core}!\+\_\+system\+\_\+time\+\_\+get@{\+\_\+system\+\_\+time\+\_\+get}}
+\index{\+\_\+system\+\_\+time\+\_\+get@{\+\_\+system\+\_\+time\+\_\+get}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+system\+\_\+time\+\_\+get()}{\_system\_time\_get()}}
+{\footnotesize\ttfamily \hyperlink{group___h_p_l_ga5885ba48297c95f5c8a108cfa02e6e55}{system\+\_\+time\+\_\+t} \+\_\+system\+\_\+time\+\_\+get (\begin{DoxyParamCaption}\item[{const void $\ast$const}]{hw }\end{DoxyParamCaption})}
+
+
+
+Get system time. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hw} & The pointer to hardware instance to initialize \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_gac4972d67e3648ca8a51181ce8fc6e616}\label{group___h_p_l_gac4972d67e3648ca8a51181ce8fc6e616}} 
+\index{Core@{Core}!\+\_\+system\+\_\+time\+\_\+get\+\_\+max\+\_\+time\+\_\+value@{\+\_\+system\+\_\+time\+\_\+get\+\_\+max\+\_\+time\+\_\+value}}
+\index{\+\_\+system\+\_\+time\+\_\+get\+\_\+max\+\_\+time\+\_\+value@{\+\_\+system\+\_\+time\+\_\+get\+\_\+max\+\_\+time\+\_\+value}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+system\+\_\+time\+\_\+get\+\_\+max\+\_\+time\+\_\+value()}{\_system\_time\_get\_max\_time\_value()}}
+{\footnotesize\ttfamily \hyperlink{group___h_p_l_ga5885ba48297c95f5c8a108cfa02e6e55}{system\+\_\+time\+\_\+t} \+\_\+system\+\_\+time\+\_\+get\+\_\+max\+\_\+time\+\_\+value (\begin{DoxyParamCaption}\item[{const void $\ast$const}]{hw }\end{DoxyParamCaption})}
+
+
+
+Get maximum possible system time. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hw} & The pointer to hardware instance to initialize \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_gafa42a76bae0892be69f99fad9ad2f312}\label{group___h_p_l_gafa42a76bae0892be69f99fad9ad2f312}} 
+\index{Core@{Core}!\+\_\+system\+\_\+time\+\_\+init@{\+\_\+system\+\_\+time\+\_\+init}}
+\index{\+\_\+system\+\_\+time\+\_\+init@{\+\_\+system\+\_\+time\+\_\+init}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+system\+\_\+time\+\_\+init()}{\_system\_time\_init()}}
+{\footnotesize\ttfamily void \+\_\+system\+\_\+time\+\_\+init (\begin{DoxyParamCaption}\item[{void $\ast$const}]{hw }\end{DoxyParamCaption})}
+
+
+
+Initialize system time module. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em hw} & The pointer to hardware instance to initialize \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_gac9b7787b4e39ba73070712a897e3198e}\label{group___h_p_l_gac9b7787b4e39ba73070712a897e3198e}} 
+\index{Core@{Core}!\+\_\+timer\+\_\+deinit@{\+\_\+timer\+\_\+deinit}}
+\index{\+\_\+timer\+\_\+deinit@{\+\_\+timer\+\_\+deinit}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+timer\+\_\+deinit()}{\_timer\_deinit()}}
+{\footnotesize\ttfamily void \+\_\+timer\+\_\+deinit (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Deinitialize T\+CC. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to timer device instance\\
+\hline
+\end{DoxyParams}
+Deinitialize T\+CC. \mbox{\Hypertarget{group___h_p_l_ga7dcd9a3f656643075605cbdd19bb1dc3}\label{group___h_p_l_ga7dcd9a3f656643075605cbdd19bb1dc3}} 
+\index{Core@{Core}!\+\_\+timer\+\_\+get\+\_\+period@{\+\_\+timer\+\_\+get\+\_\+period}}
+\index{\+\_\+timer\+\_\+get\+\_\+period@{\+\_\+timer\+\_\+get\+\_\+period}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+timer\+\_\+get\+\_\+period()}{\_timer\_get\_period()}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+timer\+\_\+get\+\_\+period (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Retrieve timer period. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to timer device instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Timer period 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_gade39b65e851877482435cfb3789724a8}\label{group___h_p_l_gade39b65e851877482435cfb3789724a8}} 
+\index{Core@{Core}!\+\_\+timer\+\_\+init@{\+\_\+timer\+\_\+init}}
+\index{\+\_\+timer\+\_\+init@{\+\_\+timer\+\_\+init}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+timer\+\_\+init()}{\_timer\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+timer\+\_\+init (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const}]{device,  }\item[{void $\ast$const}]{hw }\end{DoxyParamCaption})}
+
+
+
+Initialize T\+CC. 
+
+This function does low level T\+CC configuration.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to timer device instance \\
+\hline
+\mbox{\tt in}  & {\em hw} & The pointer to hardware instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Initialization status.
+\end{DoxyReturn}
+Initialize T\+CC. \mbox{\Hypertarget{group___h_p_l_ga32ec962f2bdeb1c15eca8e38e7a88de2}\label{group___h_p_l_ga32ec962f2bdeb1c15eca8e38e7a88de2}} 
+\index{Core@{Core}!\+\_\+timer\+\_\+is\+\_\+started@{\+\_\+timer\+\_\+is\+\_\+started}}
+\index{\+\_\+timer\+\_\+is\+\_\+started@{\+\_\+timer\+\_\+is\+\_\+started}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+timer\+\_\+is\+\_\+started()}{\_timer\_is\_started()}}
+{\footnotesize\ttfamily bool \+\_\+timer\+\_\+is\+\_\+started (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Check if timer is running. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to timer device instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Check status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & The given timer is running \\
+\hline
+{\em false} & The given timer is not running \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_p_l_ga7689280886559ce8d6dd0514b2654146}\label{group___h_p_l_ga7689280886559ce8d6dd0514b2654146}} 
+\index{Core@{Core}!\+\_\+timer\+\_\+set\+\_\+irq@{\+\_\+timer\+\_\+set\+\_\+irq}}
+\index{\+\_\+timer\+\_\+set\+\_\+irq@{\+\_\+timer\+\_\+set\+\_\+irq}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+timer\+\_\+set\+\_\+irq()}{\_timer\_set\_irq()}}
+{\footnotesize\ttfamily void \+\_\+timer\+\_\+set\+\_\+irq (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Set timer I\+RQ. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to timer device instance\\
+\hline
+\mbox{\tt in}  & {\em hw} & The pointer to hardware instance \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_gabca60e7eaef3b0c209d68f5581609a4a}\label{group___h_p_l_gabca60e7eaef3b0c209d68f5581609a4a}} 
+\index{Core@{Core}!\+\_\+timer\+\_\+set\+\_\+period@{\+\_\+timer\+\_\+set\+\_\+period}}
+\index{\+\_\+timer\+\_\+set\+\_\+period@{\+\_\+timer\+\_\+set\+\_\+period}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+timer\+\_\+set\+\_\+period()}{\_timer\_set\_period()}}
+{\footnotesize\ttfamily void \+\_\+timer\+\_\+set\+\_\+period (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const}]{device,  }\item[{const uint32\+\_\+t}]{clock\+\_\+cycles }\end{DoxyParamCaption})}
+
+
+
+Set timer period. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to timer device instance \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_ga29f3fa3f07ba0428641f4db03b5bbee0}\label{group___h_p_l_ga29f3fa3f07ba0428641f4db03b5bbee0}} 
+\index{Core@{Core}!\+\_\+timer\+\_\+start@{\+\_\+timer\+\_\+start}}
+\index{\+\_\+timer\+\_\+start@{\+\_\+timer\+\_\+start}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+timer\+\_\+start()}{\_timer\_start()}}
+{\footnotesize\ttfamily void \+\_\+timer\+\_\+start (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Start hardware timer. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to timer device instance \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_gaf20437ff953c5533299bd9f7d4fabfe4}\label{group___h_p_l_gaf20437ff953c5533299bd9f7d4fabfe4}} 
+\index{Core@{Core}!\+\_\+timer\+\_\+stop@{\+\_\+timer\+\_\+stop}}
+\index{\+\_\+timer\+\_\+stop@{\+\_\+timer\+\_\+stop}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+timer\+\_\+stop()}{\_timer\_stop()}}
+{\footnotesize\ttfamily void \+\_\+timer\+\_\+stop (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Stop hardware timer. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to timer device instance \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_gab834a3310b05b1118ac7cf5ad90835ba}\label{group___h_p_l_gab834a3310b05b1118ac7cf5ad90835ba}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+calculate\+\_\+baud\+\_\+rate@{\+\_\+usart\+\_\+async\+\_\+calculate\+\_\+baud\+\_\+rate}}
+\index{\+\_\+usart\+\_\+async\+\_\+calculate\+\_\+baud\+\_\+rate@{\+\_\+usart\+\_\+async\+\_\+calculate\+\_\+baud\+\_\+rate}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+calculate\+\_\+baud\+\_\+rate()}{\_usart\_async\_calculate\_baud\_rate()}}
+{\footnotesize\ttfamily uint16\+\_\+t \+\_\+usart\+\_\+async\+\_\+calculate\+\_\+baud\+\_\+rate (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{baud,  }\item[{const uint32\+\_\+t}]{clock\+\_\+rate,  }\item[{const uint8\+\_\+t}]{samples,  }\item[{const enum \hyperlink{group___h_p_l_ga59141b5eb86f4d53f17bbeab1d7c83e7}{usart\+\_\+baud\+\_\+rate\+\_\+mode}}]{mode,  }\item[{const uint8\+\_\+t}]{fraction }\end{DoxyParamCaption})}
+
+
+
+Calculate baud rate register value. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em baud} & Required baud rate \\
+\hline
+\mbox{\tt in}  & {\em clock\+\_\+rate} & clock frequency \\
+\hline
+\mbox{\tt in}  & {\em samples} & The number of samples \\
+\hline
+\mbox{\tt in}  & {\em mode} & U\+S\+A\+RT mode \\
+\hline
+\mbox{\tt in}  & {\em fraction} & A fraction value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Calculated baud rate register value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_ga57e2ef9f6ec11c53a9d88bdb7a82aac4}\label{group___h_p_l_ga57e2ef9f6ec11c53a9d88bdb7a82aac4}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+deinit@{\+\_\+usart\+\_\+async\+\_\+deinit}}
+\index{\+\_\+usart\+\_\+async\+\_\+deinit@{\+\_\+usart\+\_\+async\+\_\+deinit}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+deinit()}{\_usart\_async\_deinit()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+async\+\_\+deinit (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Deinitialize U\+S\+A\+RT. 
+
+This function closes the given U\+S\+A\+RT by disabling its clock.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance\\
+\hline
+\end{DoxyParams}
+Deinitialize U\+S\+A\+RT. \mbox{\Hypertarget{group___h_p_l_gadb6751e5c270eb88eb754f45e7b8a91f}\label{group___h_p_l_gadb6751e5c270eb88eb754f45e7b8a91f}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+disable@{\+\_\+usart\+\_\+async\+\_\+disable}}
+\index{\+\_\+usart\+\_\+async\+\_\+disable@{\+\_\+usart\+\_\+async\+\_\+disable}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+disable()}{\_usart\_async\_disable()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+async\+\_\+disable (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Disable usart module. 
+
+This function will disable the usart module
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance\\
+\hline
+\end{DoxyParams}
+Disable usart module. \mbox{\Hypertarget{group___h_p_l_ga86c4101798d9dbc584f1e56615140d6f}\label{group___h_p_l_ga86c4101798d9dbc584f1e56615140d6f}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+enable@{\+\_\+usart\+\_\+async\+\_\+enable}}
+\index{\+\_\+usart\+\_\+async\+\_\+enable@{\+\_\+usart\+\_\+async\+\_\+enable}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+enable()}{\_usart\_async\_enable()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+async\+\_\+enable (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Enable usart module. 
+
+This function will enable the usart module
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance\\
+\hline
+\end{DoxyParams}
+Enable usart module. \mbox{\Hypertarget{group___h_p_l_ga5dcb14840b2011da3a1d0f774dafa28d}\label{group___h_p_l_ga5dcb14840b2011da3a1d0f774dafa28d}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+enable\+\_\+byte\+\_\+sent\+\_\+irq@{\+\_\+usart\+\_\+async\+\_\+enable\+\_\+byte\+\_\+sent\+\_\+irq}}
+\index{\+\_\+usart\+\_\+async\+\_\+enable\+\_\+byte\+\_\+sent\+\_\+irq@{\+\_\+usart\+\_\+async\+\_\+enable\+\_\+byte\+\_\+sent\+\_\+irq}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+enable\+\_\+byte\+\_\+sent\+\_\+irq()}{\_usart\_async\_enable\_byte\_sent\_irq()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+async\+\_\+enable\+\_\+byte\+\_\+sent\+\_\+irq (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Enable data register empty interrupt. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_ga89bf3d02a7a3cca261900906ffd9ca76}\label{group___h_p_l_ga89bf3d02a7a3cca261900906ffd9ca76}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+enable\+\_\+tx\+\_\+done\+\_\+irq@{\+\_\+usart\+\_\+async\+\_\+enable\+\_\+tx\+\_\+done\+\_\+irq}}
+\index{\+\_\+usart\+\_\+async\+\_\+enable\+\_\+tx\+\_\+done\+\_\+irq@{\+\_\+usart\+\_\+async\+\_\+enable\+\_\+tx\+\_\+done\+\_\+irq}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+enable\+\_\+tx\+\_\+done\+\_\+irq()}{\_usart\_async\_enable\_tx\_done\_irq()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+async\+\_\+enable\+\_\+tx\+\_\+done\+\_\+irq (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Enable transmission complete interrupt. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_gaa9850f9d97cb87f80fa615e95330ce35}\label{group___h_p_l_gaa9850f9d97cb87f80fa615e95330ce35}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+get\+\_\+flow\+\_\+control\+\_\+state@{\+\_\+usart\+\_\+async\+\_\+get\+\_\+flow\+\_\+control\+\_\+state}}
+\index{\+\_\+usart\+\_\+async\+\_\+get\+\_\+flow\+\_\+control\+\_\+state@{\+\_\+usart\+\_\+async\+\_\+get\+\_\+flow\+\_\+control\+\_\+state}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+get\+\_\+flow\+\_\+control\+\_\+state()}{\_usart\_async\_get\_flow\_control\_state()}}
+{\footnotesize\ttfamily union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} \+\_\+usart\+\_\+async\+\_\+get\+\_\+flow\+\_\+control\+\_\+state (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Retrieve the state of flow control pins. 
+
+This function retrieves the of flow control pins.
+
+\begin{DoxyReturn}{Returns}
+U\+S\+A\+R\+T\+\_\+\+F\+L\+O\+W\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+S\+T\+A\+T\+E\+\_\+\+U\+N\+A\+V\+A\+I\+L\+A\+B\+LE. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_ga378f2b4e0a90e5f5e354da00b3e6e531}\label{group___h_p_l_ga378f2b4e0a90e5f5e354da00b3e6e531}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+get\+\_\+hardware\+\_\+index@{\+\_\+usart\+\_\+async\+\_\+get\+\_\+hardware\+\_\+index}}
+\index{\+\_\+usart\+\_\+async\+\_\+get\+\_\+hardware\+\_\+index@{\+\_\+usart\+\_\+async\+\_\+get\+\_\+hardware\+\_\+index}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+get\+\_\+hardware\+\_\+index()}{\_usart\_async\_get\_hardware\_index()}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+usart\+\_\+async\+\_\+get\+\_\+hardware\+\_\+index (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Retrieve ordinal number of the given U\+S\+A\+RT hardware instance. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ordinal number of the given U\+S\+A\+RT hardware instance
+\end{DoxyReturn}
+Retrieve ordinal number of the given U\+S\+A\+RT hardware instance. \mbox{\Hypertarget{group___h_p_l_ga09d708dc23dacf358d3de8a3a0545c1a}\label{group___h_p_l_ga09d708dc23dacf358d3de8a3a0545c1a}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+get\+\_\+status@{\+\_\+usart\+\_\+async\+\_\+get\+\_\+status}}
+\index{\+\_\+usart\+\_\+async\+\_\+get\+\_\+status@{\+\_\+usart\+\_\+async\+\_\+get\+\_\+status}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+get\+\_\+status()}{\_usart\_async\_get\_status()}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+usart\+\_\+async\+\_\+get\+\_\+status (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Retrieve usart status. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance\\
+\hline
+\end{DoxyParams}
+Retrieve usart status. \mbox{\Hypertarget{group___h_p_l_ga11745e0bd0c9d636afbefae8e209665e}\label{group___h_p_l_ga11745e0bd0c9d636afbefae8e209665e}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+init@{\+\_\+usart\+\_\+async\+\_\+init}}
+\index{\+\_\+usart\+\_\+async\+\_\+init@{\+\_\+usart\+\_\+async\+\_\+init}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+init()}{\_usart\_async\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usart\+\_\+async\+\_\+init (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const}]{device,  }\item[{void $\ast$const}]{hw }\end{DoxyParamCaption})}
+
+
+
+Initialize asynchronous U\+S\+A\+RT. 
+
+This function does low level U\+S\+A\+RT configuration.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\mbox{\tt in}  & {\em hw} & The pointer to hardware instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Initialization status
+\end{DoxyReturn}
+Initialize asynchronous U\+S\+A\+RT. \mbox{\Hypertarget{group___h_p_l_gaf96fbe9e0e063f4ae332451b7a540e2c}\label{group___h_p_l_gaf96fbe9e0e063f4ae332451b7a540e2c}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+is\+\_\+byte\+\_\+sent@{\+\_\+usart\+\_\+async\+\_\+is\+\_\+byte\+\_\+sent}}
+\index{\+\_\+usart\+\_\+async\+\_\+is\+\_\+byte\+\_\+sent@{\+\_\+usart\+\_\+async\+\_\+is\+\_\+byte\+\_\+sent}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+is\+\_\+byte\+\_\+sent()}{\_usart\_async\_is\_byte\_sent()}}
+{\footnotesize\ttfamily bool \+\_\+usart\+\_\+async\+\_\+is\+\_\+byte\+\_\+sent (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Check if U\+S\+A\+RT is ready to send next byte. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status of the ready check. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & if the U\+S\+A\+RT is ready to send next byte \\
+\hline
+{\em false} & if the U\+S\+A\+RT is not ready to send next byte \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_p_l_gab3211a57f9d6f2e355db5b67ce3fe905}\label{group___h_p_l_gab3211a57f9d6f2e355db5b67ce3fe905}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+set\+\_\+baud\+\_\+rate@{\+\_\+usart\+\_\+async\+\_\+set\+\_\+baud\+\_\+rate}}
+\index{\+\_\+usart\+\_\+async\+\_\+set\+\_\+baud\+\_\+rate@{\+\_\+usart\+\_\+async\+\_\+set\+\_\+baud\+\_\+rate}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+set\+\_\+baud\+\_\+rate()}{\_usart\_async\_set\_baud\_rate()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+async\+\_\+set\+\_\+baud\+\_\+rate (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const}]{device,  }\item[{const uint32\+\_\+t}]{baud\+\_\+rate }\end{DoxyParamCaption})}
+
+
+
+Set baud rate. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\mbox{\tt in}  & {\em baud\+\_\+rate} & A baud rate to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_gaf834af5cc0738976ddbc200901aef105}\label{group___h_p_l_gaf834af5cc0738976ddbc200901aef105}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+set\+\_\+character\+\_\+size@{\+\_\+usart\+\_\+async\+\_\+set\+\_\+character\+\_\+size}}
+\index{\+\_\+usart\+\_\+async\+\_\+set\+\_\+character\+\_\+size@{\+\_\+usart\+\_\+async\+\_\+set\+\_\+character\+\_\+size}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+set\+\_\+character\+\_\+size()}{\_usart\_async\_set\_character\_size()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+async\+\_\+set\+\_\+character\+\_\+size (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const}]{device,  }\item[{const enum \hyperlink{group___h_p_l_ga631ce7b4f60dccd392e6d6ef7d3cd4e2}{usart\+\_\+character\+\_\+size}}]{size }\end{DoxyParamCaption})}
+
+
+
+Set character size. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\mbox{\tt in}  & {\em size} & A character size to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_ga8f29c61bfbc9298ba0e25be2980ddd15}\label{group___h_p_l_ga8f29c61bfbc9298ba0e25be2980ddd15}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+set\+\_\+data\+\_\+order@{\+\_\+usart\+\_\+async\+\_\+set\+\_\+data\+\_\+order}}
+\index{\+\_\+usart\+\_\+async\+\_\+set\+\_\+data\+\_\+order@{\+\_\+usart\+\_\+async\+\_\+set\+\_\+data\+\_\+order}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+set\+\_\+data\+\_\+order()}{\_usart\_async\_set\_data\_order()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+async\+\_\+set\+\_\+data\+\_\+order (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const}]{device,  }\item[{const enum \hyperlink{group___h_p_l_ga426849bbd9655cec091101ebc9123eb4}{usart\+\_\+data\+\_\+order}}]{order }\end{DoxyParamCaption})}
+
+
+
+Set data order. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\mbox{\tt in}  & {\em order} & A data order to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_gafdf581028b78744fccccae79d45a2078}\label{group___h_p_l_gafdf581028b78744fccccae79d45a2078}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+set\+\_\+flow\+\_\+control\+\_\+state@{\+\_\+usart\+\_\+async\+\_\+set\+\_\+flow\+\_\+control\+\_\+state}}
+\index{\+\_\+usart\+\_\+async\+\_\+set\+\_\+flow\+\_\+control\+\_\+state@{\+\_\+usart\+\_\+async\+\_\+set\+\_\+flow\+\_\+control\+\_\+state}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+set\+\_\+flow\+\_\+control\+\_\+state()}{\_usart\_async\_set\_flow\_control\_state()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+async\+\_\+set\+\_\+flow\+\_\+control\+\_\+state (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const}]{device,  }\item[{const union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state}}]{state }\end{DoxyParamCaption})}
+
+
+
+Set the state of flow control pins. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\mbox{\tt in}  & {\em state} & -\/ A state of flow control pins to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_gadd7a2a78a76c6286f474bdce333c4904}\label{group___h_p_l_gadd7a2a78a76c6286f474bdce333c4904}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+set\+\_\+irq\+\_\+state@{\+\_\+usart\+\_\+async\+\_\+set\+\_\+irq\+\_\+state}}
+\index{\+\_\+usart\+\_\+async\+\_\+set\+\_\+irq\+\_\+state@{\+\_\+usart\+\_\+async\+\_\+set\+\_\+irq\+\_\+state}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+set\+\_\+irq\+\_\+state()}{\_usart\_async\_set\_irq\_state()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+async\+\_\+set\+\_\+irq\+\_\+state (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const}]{device,  }\item[{const enum \hyperlink{group___h_p_l_gace00dc77ac02c91f8bf35551b484927c}{\+\_\+usart\+\_\+async\+\_\+callback\+\_\+type}}]{type,  }\item[{const bool}]{state }\end{DoxyParamCaption})}
+
+
+
+Enable/disable U\+S\+A\+RT interrupt. 
+
+param\mbox{[}in\mbox{]} device The pointer to U\+S\+A\+RT device instance param\mbox{[}in\mbox{]} type The type of interrupt to disable/enable if applicable param\mbox{[}in\mbox{]} state Enable or disable \mbox{\Hypertarget{group___h_p_l_ga90f1288d1ba0ab800801db3124f6a1cc}\label{group___h_p_l_ga90f1288d1ba0ab800801db3124f6a1cc}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+set\+\_\+mode@{\+\_\+usart\+\_\+async\+\_\+set\+\_\+mode}}
+\index{\+\_\+usart\+\_\+async\+\_\+set\+\_\+mode@{\+\_\+usart\+\_\+async\+\_\+set\+\_\+mode}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+set\+\_\+mode()}{\_usart\_async\_set\_mode()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+async\+\_\+set\+\_\+mode (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const}]{device,  }\item[{const enum \hyperlink{group___h_p_l_ga1c465965478e0f6908a4c99d4f3ad20f}{usart\+\_\+mode}}]{mode }\end{DoxyParamCaption})}
+
+
+
+Set mode. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\mbox{\tt in}  & {\em mode} & A mode to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_ga739cdfde316390a089c38355bc4f596e}\label{group___h_p_l_ga739cdfde316390a089c38355bc4f596e}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+set\+\_\+parity@{\+\_\+usart\+\_\+async\+\_\+set\+\_\+parity}}
+\index{\+\_\+usart\+\_\+async\+\_\+set\+\_\+parity@{\+\_\+usart\+\_\+async\+\_\+set\+\_\+parity}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+set\+\_\+parity()}{\_usart\_async\_set\_parity()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+async\+\_\+set\+\_\+parity (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const}]{device,  }\item[{const enum \hyperlink{group___h_p_l_ga867cc5f0ea7d3bf651d68f0046cf6f41}{usart\+\_\+parity}}]{parity }\end{DoxyParamCaption})}
+
+
+
+Set parity. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\mbox{\tt in}  & {\em parity} & A parity to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_ga7f2ef73e4b9da5be12fc0eabb97ab67b}\label{group___h_p_l_ga7f2ef73e4b9da5be12fc0eabb97ab67b}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+set\+\_\+stop\+\_\+bits@{\+\_\+usart\+\_\+async\+\_\+set\+\_\+stop\+\_\+bits}}
+\index{\+\_\+usart\+\_\+async\+\_\+set\+\_\+stop\+\_\+bits@{\+\_\+usart\+\_\+async\+\_\+set\+\_\+stop\+\_\+bits}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+set\+\_\+stop\+\_\+bits()}{\_usart\_async\_set\_stop\_bits()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+async\+\_\+set\+\_\+stop\+\_\+bits (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const}]{device,  }\item[{const enum \hyperlink{group___h_p_l_ga88311517c5168c29a681604a8a33b06e}{usart\+\_\+stop\+\_\+bits}}]{stop\+\_\+bits }\end{DoxyParamCaption})}
+
+
+
+Set stop bits mode. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\mbox{\tt in}  & {\em stop\+\_\+bits} & A stop bits mode to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_ga3a2887cd1710eaad2df0e66b9e830faa}\label{group___h_p_l_ga3a2887cd1710eaad2df0e66b9e830faa}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+async\+\_\+write\+\_\+byte@{\+\_\+usart\+\_\+async\+\_\+write\+\_\+byte}}
+\index{\+\_\+usart\+\_\+async\+\_\+write\+\_\+byte@{\+\_\+usart\+\_\+async\+\_\+write\+\_\+byte}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+async\+\_\+write\+\_\+byte()}{\_usart\_async\_write\_byte()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+async\+\_\+write\+\_\+byte (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const}]{device,  }\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+Write a byte to the given U\+S\+A\+RT instance. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\mbox{\tt in}  & {\em data} & Data to write\\
+\hline
+\end{DoxyParams}
+Write a byte to the given U\+S\+A\+RT instance. \mbox{\Hypertarget{group___h_p_l_ga0f2e4f3338270295eea1d4e1b00bfa1e}\label{group___h_p_l_ga0f2e4f3338270295eea1d4e1b00bfa1e}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+calculate\+\_\+baud\+\_\+rate@{\+\_\+usart\+\_\+sync\+\_\+calculate\+\_\+baud\+\_\+rate}}
+\index{\+\_\+usart\+\_\+sync\+\_\+calculate\+\_\+baud\+\_\+rate@{\+\_\+usart\+\_\+sync\+\_\+calculate\+\_\+baud\+\_\+rate}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+calculate\+\_\+baud\+\_\+rate()}{\_usart\_sync\_calculate\_baud\_rate()}}
+{\footnotesize\ttfamily uint16\+\_\+t \+\_\+usart\+\_\+sync\+\_\+calculate\+\_\+baud\+\_\+rate (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{baud,  }\item[{const uint32\+\_\+t}]{clock\+\_\+rate,  }\item[{const uint8\+\_\+t}]{samples,  }\item[{const enum \hyperlink{group___h_p_l_ga59141b5eb86f4d53f17bbeab1d7c83e7}{usart\+\_\+baud\+\_\+rate\+\_\+mode}}]{mode,  }\item[{const uint8\+\_\+t}]{fraction }\end{DoxyParamCaption})}
+
+
+
+Calculate baud rate register value. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em baud} & Required baud rate \\
+\hline
+\mbox{\tt in}  & {\em clock\+\_\+rate} & clock frequency \\
+\hline
+\mbox{\tt in}  & {\em samples} & The number of samples \\
+\hline
+\mbox{\tt in}  & {\em mode} & U\+S\+A\+RT mode \\
+\hline
+\mbox{\tt in}  & {\em fraction} & A fraction value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Calculated baud rate register value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_gac046761a56aaedeba5acad135cab707c}\label{group___h_p_l_gac046761a56aaedeba5acad135cab707c}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+deinit@{\+\_\+usart\+\_\+sync\+\_\+deinit}}
+\index{\+\_\+usart\+\_\+sync\+\_\+deinit@{\+\_\+usart\+\_\+sync\+\_\+deinit}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+deinit()}{\_usart\_sync\_deinit()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+sync\+\_\+deinit (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Deinitialize U\+S\+A\+RT. 
+
+This function closes the given U\+S\+A\+RT by disabling its clock.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance\\
+\hline
+\end{DoxyParams}
+Deinitialize U\+S\+A\+RT. \mbox{\Hypertarget{group___h_p_l_gac021f29c77d8a9bfabfdd7433dbbb024}\label{group___h_p_l_gac021f29c77d8a9bfabfdd7433dbbb024}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+disable@{\+\_\+usart\+\_\+sync\+\_\+disable}}
+\index{\+\_\+usart\+\_\+sync\+\_\+disable@{\+\_\+usart\+\_\+sync\+\_\+disable}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+disable()}{\_usart\_sync\_disable()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+sync\+\_\+disable (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Disable usart module. 
+
+This function will disable the usart module
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance\\
+\hline
+\end{DoxyParams}
+Disable usart module. \mbox{\Hypertarget{group___h_p_l_ga5ca07057bde212b46f6547e5bdb876de}\label{group___h_p_l_ga5ca07057bde212b46f6547e5bdb876de}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+enable@{\+\_\+usart\+\_\+sync\+\_\+enable}}
+\index{\+\_\+usart\+\_\+sync\+\_\+enable@{\+\_\+usart\+\_\+sync\+\_\+enable}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+enable()}{\_usart\_sync\_enable()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+sync\+\_\+enable (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Enable usart module. 
+
+This function will enable the usart module
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance\\
+\hline
+\end{DoxyParams}
+Enable usart module. \mbox{\Hypertarget{group___h_p_l_ga5b6662f283d7a2791c7eed77635e9238}\label{group___h_p_l_ga5b6662f283d7a2791c7eed77635e9238}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+get\+\_\+flow\+\_\+control\+\_\+state@{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+flow\+\_\+control\+\_\+state}}
+\index{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+flow\+\_\+control\+\_\+state@{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+flow\+\_\+control\+\_\+state}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+flow\+\_\+control\+\_\+state()}{\_usart\_sync\_get\_flow\_control\_state()}}
+{\footnotesize\ttfamily union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} \+\_\+usart\+\_\+sync\+\_\+get\+\_\+flow\+\_\+control\+\_\+state (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Retrieve the state of flow control pins. 
+
+This function retrieves the of flow control pins.
+
+\begin{DoxyReturn}{Returns}
+U\+S\+A\+R\+T\+\_\+\+F\+L\+O\+W\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+S\+T\+A\+T\+E\+\_\+\+U\+N\+A\+V\+A\+I\+L\+A\+B\+LE. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___h_p_l_ga8fd6539ded0699161df00f23ba6580aa}\label{group___h_p_l_ga8fd6539ded0699161df00f23ba6580aa}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+get\+\_\+hardware\+\_\+index@{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+hardware\+\_\+index}}
+\index{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+hardware\+\_\+index@{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+hardware\+\_\+index}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+hardware\+\_\+index()}{\_usart\_sync\_get\_hardware\_index()}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+usart\+\_\+sync\+\_\+get\+\_\+hardware\+\_\+index (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Retrieve ordinal number of the given U\+S\+A\+RT hardware instance. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ordinal number of the given U\+S\+A\+RT hardware instance
+\end{DoxyReturn}
+Retrieve ordinal number of the given U\+S\+A\+RT hardware instance. \mbox{\Hypertarget{group___h_p_l_ga512c769b924d59433542bf347980334b}\label{group___h_p_l_ga512c769b924d59433542bf347980334b}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+get\+\_\+status@{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+status}}
+\index{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+status@{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+status}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+status()}{\_usart\_sync\_get\_status()}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+usart\+\_\+sync\+\_\+get\+\_\+status (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Retrieve usart status. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance\\
+\hline
+\end{DoxyParams}
+Retrieve usart status. \mbox{\Hypertarget{group___h_p_l_gad1cc7b8e72fd67fdeec8062c802eb25a}\label{group___h_p_l_gad1cc7b8e72fd67fdeec8062c802eb25a}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+init@{\+\_\+usart\+\_\+sync\+\_\+init}}
+\index{\+\_\+usart\+\_\+sync\+\_\+init@{\+\_\+usart\+\_\+sync\+\_\+init}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+init()}{\_usart\_sync\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usart\+\_\+sync\+\_\+init (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const}]{device,  }\item[{void $\ast$const}]{hw }\end{DoxyParamCaption})}
+
+
+
+Initialize synchronous U\+S\+A\+RT. 
+
+This function does low level U\+S\+A\+RT configuration.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\mbox{\tt in}  & {\em hw} & The pointer to hardware instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Initialization status
+\end{DoxyReturn}
+Initialize synchronous U\+S\+A\+RT. \mbox{\Hypertarget{group___h_p_l_ga5bf04a89be94430de57acf53f9b35dd2}\label{group___h_p_l_ga5bf04a89be94430de57acf53f9b35dd2}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+received@{\+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+received}}
+\index{\+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+received@{\+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+received}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+received()}{\_usart\_sync\_is\_byte\_received()}}
+{\footnotesize\ttfamily bool \+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+received (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Check if there is data received by U\+S\+A\+RT. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status of the data received check. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & if the U\+S\+A\+RT has received a byte \\
+\hline
+{\em false} & if the U\+S\+A\+RT has not received a byte \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_p_l_ga8bad9999c03b728f47848b2337393ec4}\label{group___h_p_l_ga8bad9999c03b728f47848b2337393ec4}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+sent@{\+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+sent}}
+\index{\+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+sent@{\+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+sent}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+sent()}{\_usart\_sync\_is\_byte\_sent()}}
+{\footnotesize\ttfamily bool \+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+sent (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Check if U\+S\+A\+RT is ready to send next byte. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status of the ready check. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & if the U\+S\+A\+RT is ready to send next byte \\
+\hline
+{\em false} & if the U\+S\+A\+RT is not ready to send next byte \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_p_l_gad6e42aaa92499103016d605362e35d97}\label{group___h_p_l_gad6e42aaa92499103016d605362e35d97}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+read\+\_\+byte@{\+\_\+usart\+\_\+sync\+\_\+read\+\_\+byte}}
+\index{\+\_\+usart\+\_\+sync\+\_\+read\+\_\+byte@{\+\_\+usart\+\_\+sync\+\_\+read\+\_\+byte}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+read\+\_\+byte()}{\_usart\_sync\_read\_byte()}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+usart\+\_\+sync\+\_\+read\+\_\+byte (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Read a byte from the given U\+S\+A\+RT instance. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\mbox{\tt in}  & {\em data} & Data to write\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Data received via U\+S\+A\+RT interface.
+\end{DoxyReturn}
+Read a byte from the given U\+S\+A\+RT instance. \mbox{\Hypertarget{group___h_p_l_ga882c8cecf50eb1276401d6874956b903}\label{group___h_p_l_ga882c8cecf50eb1276401d6874956b903}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+set\+\_\+baud\+\_\+rate@{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+baud\+\_\+rate}}
+\index{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+baud\+\_\+rate@{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+baud\+\_\+rate}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+baud\+\_\+rate()}{\_usart\_sync\_set\_baud\_rate()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+sync\+\_\+set\+\_\+baud\+\_\+rate (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const}]{device,  }\item[{const uint32\+\_\+t}]{baud\+\_\+rate }\end{DoxyParamCaption})}
+
+
+
+Set baud rate. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\mbox{\tt in}  & {\em baud\+\_\+rate} & A baud rate to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_ga45ebffe94571d266e42b3dd882ad559d}\label{group___h_p_l_ga45ebffe94571d266e42b3dd882ad559d}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+set\+\_\+character\+\_\+size@{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+character\+\_\+size}}
+\index{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+character\+\_\+size@{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+character\+\_\+size}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+character\+\_\+size()}{\_usart\_sync\_set\_character\_size()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+sync\+\_\+set\+\_\+character\+\_\+size (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const}]{device,  }\item[{const enum \hyperlink{group___h_p_l_ga631ce7b4f60dccd392e6d6ef7d3cd4e2}{usart\+\_\+character\+\_\+size}}]{size }\end{DoxyParamCaption})}
+
+
+
+Set character size. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\mbox{\tt in}  & {\em size} & A character size to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_ga1b30e54d42d94ab59067e121d286d47a}\label{group___h_p_l_ga1b30e54d42d94ab59067e121d286d47a}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+set\+\_\+data\+\_\+order@{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+data\+\_\+order}}
+\index{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+data\+\_\+order@{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+data\+\_\+order}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+data\+\_\+order()}{\_usart\_sync\_set\_data\_order()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+sync\+\_\+set\+\_\+data\+\_\+order (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const}]{device,  }\item[{const enum \hyperlink{group___h_p_l_ga426849bbd9655cec091101ebc9123eb4}{usart\+\_\+data\+\_\+order}}]{order }\end{DoxyParamCaption})}
+
+
+
+Set data order. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\mbox{\tt in}  & {\em order} & A data order to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_gae43bb6755eb8c462a9884e6cdca602aa}\label{group___h_p_l_gae43bb6755eb8c462a9884e6cdca602aa}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+set\+\_\+flow\+\_\+control\+\_\+state@{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+flow\+\_\+control\+\_\+state}}
+\index{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+flow\+\_\+control\+\_\+state@{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+flow\+\_\+control\+\_\+state}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+flow\+\_\+control\+\_\+state()}{\_usart\_sync\_set\_flow\_control\_state()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+sync\+\_\+set\+\_\+flow\+\_\+control\+\_\+state (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const}]{device,  }\item[{const union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state}}]{state }\end{DoxyParamCaption})}
+
+
+
+Set the state of flow control pins. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\mbox{\tt in}  & {\em state} & -\/ A state of flow control pins to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_ga2dd82ebe0069e4c61fda94ac0dda1a63}\label{group___h_p_l_ga2dd82ebe0069e4c61fda94ac0dda1a63}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+set\+\_\+mode@{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+mode}}
+\index{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+mode@{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+mode}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+mode()}{\_usart\_sync\_set\_mode()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+sync\+\_\+set\+\_\+mode (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const}]{device,  }\item[{const enum \hyperlink{group___h_p_l_ga1c465965478e0f6908a4c99d4f3ad20f}{usart\+\_\+mode}}]{mode }\end{DoxyParamCaption})}
+
+
+
+Set mode. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\mbox{\tt in}  & {\em mode} & A mode to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_gaee0a2babdf7b777fa4754028c92fc2e8}\label{group___h_p_l_gaee0a2babdf7b777fa4754028c92fc2e8}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+set\+\_\+parity@{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+parity}}
+\index{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+parity@{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+parity}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+parity()}{\_usart\_sync\_set\_parity()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+sync\+\_\+set\+\_\+parity (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const}]{device,  }\item[{const enum \hyperlink{group___h_p_l_ga867cc5f0ea7d3bf651d68f0046cf6f41}{usart\+\_\+parity}}]{parity }\end{DoxyParamCaption})}
+
+
+
+Set parity. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\mbox{\tt in}  & {\em parity} & A parity to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_ga93c7de4ab355c189e306288d21642ff3}\label{group___h_p_l_ga93c7de4ab355c189e306288d21642ff3}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+set\+\_\+stop\+\_\+bits@{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+stop\+\_\+bits}}
+\index{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+stop\+\_\+bits@{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+stop\+\_\+bits}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+stop\+\_\+bits()}{\_usart\_sync\_set\_stop\_bits()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+sync\+\_\+set\+\_\+stop\+\_\+bits (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const}]{device,  }\item[{const enum \hyperlink{group___h_p_l_ga88311517c5168c29a681604a8a33b06e}{usart\+\_\+stop\+\_\+bits}}]{stop\+\_\+bits }\end{DoxyParamCaption})}
+
+
+
+Set stop bits mode. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\mbox{\tt in}  & {\em stop\+\_\+bits} & A stop bits mode to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___h_p_l_ga6f9cc0e2020d49845bef97301bc692e0}\label{group___h_p_l_ga6f9cc0e2020d49845bef97301bc692e0}} 
+\index{Core@{Core}!\+\_\+usart\+\_\+sync\+\_\+write\+\_\+byte@{\+\_\+usart\+\_\+sync\+\_\+write\+\_\+byte}}
+\index{\+\_\+usart\+\_\+sync\+\_\+write\+\_\+byte@{\+\_\+usart\+\_\+sync\+\_\+write\+\_\+byte}!Core@{Core}}
+\subsubsection{\texorpdfstring{\+\_\+usart\+\_\+sync\+\_\+write\+\_\+byte()}{\_usart\_sync\_write\_byte()}}
+{\footnotesize\ttfamily void \+\_\+usart\+\_\+sync\+\_\+write\+\_\+byte (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const}]{device,  }\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+Write a byte to the given U\+S\+A\+RT instance. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to U\+S\+A\+RT device instance \\
+\hline
+\mbox{\tt in}  & {\em data} & Data to write\\
+\hline
+\end{DoxyParams}
+Write a byte to the given U\+S\+A\+RT instance. 

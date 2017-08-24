@@ -1,0 +1,40 @@
+\hypertarget{structusb__d__ep__callbacks}{}\section{usb\+\_\+d\+\_\+ep\+\_\+callbacks Struct Reference}
+\label{structusb__d__ep__callbacks}\index{usb\+\_\+d\+\_\+ep\+\_\+callbacks@{usb\+\_\+d\+\_\+ep\+\_\+callbacks}}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__doc__driver__hal__usb__device_ga9b29643c53a553c9b458a251bac3599a}{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+setup\+\_\+t} \hyperlink{structusb__d__ep__callbacks_a9cd74e1e1e8789bb7777b564c6f90201}{req}
+\item 
+\hyperlink{group__doc__driver__hal__usb__device_gacde84eacf3bd41ee46d38bbb8569021b}{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+more\+\_\+t} \hyperlink{structusb__d__ep__callbacks_ac904bac306caadd1432561b1a99a306f}{more}
+\item 
+\hyperlink{group__doc__driver__hal__usb__device_gae62eea86879f5c1995f1ca99f095e7ab}{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+xfer\+\_\+t} \hyperlink{structusb__d__ep__callbacks_ab92a8b2dffd65936e30a1a7ab8471ec5}{xfer}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Endpoint callbacks for data transfer. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structusb__d__ep__callbacks_ac904bac306caadd1432561b1a99a306f}\label{structusb__d__ep__callbacks_ac904bac306caadd1432561b1a99a306f}} 
+\index{usb\+\_\+d\+\_\+ep\+\_\+callbacks@{usb\+\_\+d\+\_\+ep\+\_\+callbacks}!more@{more}}
+\index{more@{more}!usb\+\_\+d\+\_\+ep\+\_\+callbacks@{usb\+\_\+d\+\_\+ep\+\_\+callbacks}}
+\subsubsection{\texorpdfstring{more}{more}}
+{\footnotesize\ttfamily \hyperlink{group__doc__driver__hal__usb__device_gacde84eacf3bd41ee46d38bbb8569021b}{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+more\+\_\+t} usb\+\_\+d\+\_\+ep\+\_\+callbacks\+::more}
+
+Callback invoked when buffer is done, but last packet is full size packet without Z\+LP. Return {\ttfamily true} if new transfer has been submitted. \mbox{\Hypertarget{structusb__d__ep__callbacks_a9cd74e1e1e8789bb7777b564c6f90201}\label{structusb__d__ep__callbacks_a9cd74e1e1e8789bb7777b564c6f90201}} 
+\index{usb\+\_\+d\+\_\+ep\+\_\+callbacks@{usb\+\_\+d\+\_\+ep\+\_\+callbacks}!req@{req}}
+\index{req@{req}!usb\+\_\+d\+\_\+ep\+\_\+callbacks@{usb\+\_\+d\+\_\+ep\+\_\+callbacks}}
+\subsubsection{\texorpdfstring{req}{req}}
+{\footnotesize\ttfamily \hyperlink{group__doc__driver__hal__usb__device_ga9b29643c53a553c9b458a251bac3599a}{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+setup\+\_\+t} usb\+\_\+d\+\_\+ep\+\_\+callbacks\+::req}
+
+Callback that is invoked when setup packet is received. \mbox{\Hypertarget{structusb__d__ep__callbacks_ab92a8b2dffd65936e30a1a7ab8471ec5}\label{structusb__d__ep__callbacks_ab92a8b2dffd65936e30a1a7ab8471ec5}} 
+\index{usb\+\_\+d\+\_\+ep\+\_\+callbacks@{usb\+\_\+d\+\_\+ep\+\_\+callbacks}!xfer@{xfer}}
+\index{xfer@{xfer}!usb\+\_\+d\+\_\+ep\+\_\+callbacks@{usb\+\_\+d\+\_\+ep\+\_\+callbacks}}
+\subsubsection{\texorpdfstring{xfer}{xfer}}
+{\footnotesize\ttfamily \hyperlink{group__doc__driver__hal__usb__device_gae62eea86879f5c1995f1ca99f095e7ab}{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+xfer\+\_\+t} usb\+\_\+d\+\_\+ep\+\_\+callbacks\+::xfer}
+
+Callback invoked when transfer is finished/halted/aborted or error occurs. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+hal/src/\hyperlink{hal__usb__device_8c}{hal\+\_\+usb\+\_\+device.\+c}\end{DoxyCompactItemize}

@@ -140,8 +140,8 @@
 #define CONF_GCLK_SERCOM2_SLOW_FREQUENCY 1000000
 #endif
 
-// <y> USB Clock Source
-// <id> usb_gclk_selection
+// <y> TC Clock Source
+// <id> tc_gclk_selection
 
 // <GCLK_CLKCTRL_GEN_GCLK0_Val"> Generic clock generator 0
 
@@ -159,17 +159,17 @@
 
 // <GCLK_CLKCTRL_GEN_GCLK7_Val"> Generic clock generator 7
 
-// <i> Select the clock source for USB.
-#ifndef CONF_GCLK_USB_SRC
-#define CONF_GCLK_USB_SRC GCLK_CLKCTRL_GEN_GCLK0_Val
+// <i> Select the clock source for TC.
+#ifndef CONF_GCLK_TC3_SRC
+#define CONF_GCLK_TC3_SRC GCLK_CLKCTRL_GEN_GCLK2_Val
 #endif
 
 /**
- * \def CONF_GCLK_USB_FREQUENCY
- * \brief USB's Clock frequency
+ * \def CONF_GCLK_TC3_FREQUENCY
+ * \brief TC3's Clock frequency
  */
-#ifndef CONF_GCLK_USB_FREQUENCY
-#define CONF_GCLK_USB_FREQUENCY 48000000
+#ifndef CONF_GCLK_TC3_FREQUENCY
+#define CONF_GCLK_TC3_FREQUENCY 1000000
 #endif
 
 // <<< end of configuration section >>>

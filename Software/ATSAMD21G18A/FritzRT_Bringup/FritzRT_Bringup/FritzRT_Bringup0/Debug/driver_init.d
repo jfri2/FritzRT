@@ -94,9 +94,10 @@ driver_init.d driver_init.o: .././driver_init.c .././driver_init.h \
  ../hal/include/hpl_spi.h ../hal/utils/include/utils.h \
  ../hal/include/hpl_spi_sync.h ../hal/include/hal_usart_sync.h \
  ../hal/include/hal_io.h ../hal/include/hpl_usart_sync.h \
- ../hal/include/hpl_usart.h ../hal/include/hal_usb_device.h \
- ../hal/include/hpl_usb_device.h ../hal/include/hpl_usb.h \
- ../Config/hpl_usb_config.h ../Config/peripheral_clk_config.h \
+ ../hal/include/hpl_usart.h ../hal/include/hal_timer.h \
+ ../hal/utils/include/utils_list.h ../hal/include/hpl_timer.h \
+ ../hpl/tc/hpl_tc_base.h ../hal/include/hpl_pwm.h \
+ ../hal/include/hpl_irq.h ../Config/peripheral_clk_config.h \
  ../hpl/gclk/hpl_gclk_base.h ../hpl/pm/hpl_pm_base.h
 
 .././driver_init.h:
@@ -349,13 +350,17 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAMD21_DFP\1.2.276\samd21a
 
 ../hal/include/hpl_usart.h:
 
-../hal/include/hal_usb_device.h:
+../hal/include/hal_timer.h:
 
-../hal/include/hpl_usb_device.h:
+../hal/utils/include/utils_list.h:
 
-../hal/include/hpl_usb.h:
+../hal/include/hpl_timer.h:
 
-../Config/hpl_usb_config.h:
+../hpl/tc/hpl_tc_base.h:
+
+../hal/include/hpl_pwm.h:
+
+../hal/include/hpl_irq.h:
 
 ../Config/peripheral_clk_config.h:
 

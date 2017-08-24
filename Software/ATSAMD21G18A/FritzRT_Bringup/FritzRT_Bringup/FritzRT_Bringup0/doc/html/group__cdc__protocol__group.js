@@ -1,0 +1,68 @@
+var group__cdc__protocol__group =
+[
+    [ "usb_cdc_hdr_desc", "structusb__cdc__hdr__desc.html", [
+      [ "bcdCDC", "structusb__cdc__hdr__desc.html#a3d3f9746660f6926b6695bc73d31b908", null ],
+      [ "bDescriptorSubtype", "structusb__cdc__hdr__desc.html#af551db6e8054f1e1cc5c8d6c8d009a14", null ],
+      [ "bDescriptorType", "structusb__cdc__hdr__desc.html#a20060c88108eae0c34628a5fd8b7fa06", null ],
+      [ "bFunctionLength", "structusb__cdc__hdr__desc.html#a7493647cf2bdade9dc92bfc4310ee53a", null ]
+    ] ],
+    [ "usb_cdc_call_mgmt_desc", "structusb__cdc__call__mgmt__desc.html", [
+      [ "bDataInterface", "structusb__cdc__call__mgmt__desc.html#ab84bd02aeb894a991c154c99d56cf733", null ],
+      [ "bDescriptorSubtype", "structusb__cdc__call__mgmt__desc.html#a9016d5a06d3f9ef19b357a5742b044bd", null ],
+      [ "bDescriptorType", "structusb__cdc__call__mgmt__desc.html#acb83d0c1a242cac31346b572d0a0d5f3", null ],
+      [ "bFunctionLength", "structusb__cdc__call__mgmt__desc.html#a90dcd3c7f9512e1817d8fddcbc9b5a9d", null ],
+      [ "bmCapabilities", "structusb__cdc__call__mgmt__desc.html#a8307506ebd43577ede63f2cdb6a471cd", null ]
+    ] ],
+    [ "usb_cdc_acm_desc", "structusb__cdc__acm__desc.html", [
+      [ "bDescriptorSubtype", "structusb__cdc__acm__desc.html#aba54e9cf6a941870ca1810ce4f39465b", null ],
+      [ "bDescriptorType", "structusb__cdc__acm__desc.html#aa86418c5a633783e4c8f3af866d09d00", null ],
+      [ "bFunctionLength", "structusb__cdc__acm__desc.html#a035fc7ee5ee746794256d7fd8de0ab3a", null ],
+      [ "bmCapabilities", "structusb__cdc__acm__desc.html#a175b77082a65c2232cc5650d720b86f4", null ]
+    ] ],
+    [ "usb_cdc_union_desc", "structusb__cdc__union__desc.html", [
+      [ "bDescriptorSubtype", "structusb__cdc__union__desc.html#af72c664dd03ce74dd62f52bea6237748", null ],
+      [ "bDescriptorType", "structusb__cdc__union__desc.html#ae1173e2e000d0efd10a14bdeb5fb7219", null ],
+      [ "bFunctionLength", "structusb__cdc__union__desc.html#ac3314cfd2a15e4b92abe41531306f1e4", null ],
+      [ "bMasterInterface", "structusb__cdc__union__desc.html#adaf215cfbac3c5eb8936346dac98908e", null ],
+      [ "bSlaveInterface0", "structusb__cdc__union__desc.html#a924c70bb7709dd8dd5a2196b2d97fc95", null ]
+    ] ],
+    [ "CDC_ACM_SUPPORT_FEATURE_REQUESTS", "group__cdc__protocol__group.html#gab1dab8b998f3a80f796edaf74567d4a7", null ],
+    [ "CDC_ACM_SUPPORT_LINE_REQUESTS", "group__cdc__protocol__group.html#gacba280f60d9dacf049a41a6711b1e9b2", null ],
+    [ "CDC_ACM_SUPPORT_NOTIFY_REQUESTS", "group__cdc__protocol__group.html#gac7cc3782b884395213a99ffae74b159f", null ],
+    [ "CDC_ACM_SUPPORT_SENDBREAK_REQUESTS", "group__cdc__protocol__group.html#ga5e20369c655ed417fb699944b064ebdc", null ],
+    [ "CDC_CALL_MGMT_OVER_DCI", "group__cdc__protocol__group.html#ga84beb2dffd6b294aed339d1dcf4dadf2", null ],
+    [ "CDC_CALL_MGMT_SUPPORTED", "group__cdc__protocol__group.html#gadba5c50400705310683bce4604525634", null ],
+    [ "CDC_CLASS_COMM", "group__cdc__protocol__group.html#gaf3d488254ba4df34163f9938fe515746", null ],
+    [ "CDC_CLASS_DATA", "group__cdc__protocol__group.html#ga799bb47bad1d048e420886c575835eb4", null ],
+    [ "CDC_CLASS_DEVICE", "group__cdc__protocol__group.html#ga4c62892f7e7d3aeba3909c2687ce8a44", null ],
+    [ "CDC_CS_ENDPOINT", "group__cdc__protocol__group.html#gae07e10978a48ff63df33c3aeedf84c3a", null ],
+    [ "CDC_CS_INTERFACE", "group__cdc__protocol__group.html#gafe0ca40b5aacc5c750f952af952583d2", null ],
+    [ "CDC_PROTOCOL_CAPI20", "group__cdc__protocol__group.html#ga4ae176ca7b4078cfc2506faff308d049", null ],
+    [ "CDC_PROTOCOL_HDLC", "group__cdc__protocol__group.html#gaf4adc6afe3a8d15272d6063942fe1b1d", null ],
+    [ "CDC_PROTOCOL_HOST", "group__cdc__protocol__group.html#gae3fb87c639e467c9e9a1cab674a53463", null ],
+    [ "CDC_PROTOCOL_I430", "group__cdc__protocol__group.html#ga34f6a52b0c21cc0df8558a89ab6244aa", null ],
+    [ "CDC_PROTOCOL_PUFD", "group__cdc__protocol__group.html#gaa4704c0876c47f0fc9b4e1e2812a746c", null ],
+    [ "CDC_PROTOCOL_Q921", "group__cdc__protocol__group.html#gab4efd3c7d98b5d12bf01238259a50707", null ],
+    [ "CDC_PROTOCOL_Q921M", "group__cdc__protocol__group.html#ga304da80f158210479728ae1158f48498", null ],
+    [ "CDC_PROTOCOL_Q921TM", "group__cdc__protocol__group.html#ga4a1fc0e0435a322372f24b797bdccbc6", null ],
+    [ "CDC_PROTOCOL_Q931", "group__cdc__protocol__group.html#ga0083ef9581e965b89b52d55bf315e419", null ],
+    [ "CDC_PROTOCOL_TRANS", "group__cdc__protocol__group.html#ga23a4cfd8c12e8d75a57bda51845abc0a", null ],
+    [ "CDC_PROTOCOL_V120", "group__cdc__protocol__group.html#ga208090ddb75268f1f49e8e815400b6e3", null ],
+    [ "CDC_PROTOCOL_V25TER", "group__cdc__protocol__group.html#ga987e4a1ebce34edcea106094d6241032", null ],
+    [ "CDC_PROTOCOL_V42BIS", "group__cdc__protocol__group.html#ga230095dec563e53ab1231c981ee9d05f", null ],
+    [ "CDC_SCS_ACM", "group__cdc__protocol__group.html#gac06eb7a8f7ac43f6be353cc8cc5f8ce8", null ],
+    [ "CDC_SCS_CALL_MGMT", "group__cdc__protocol__group.html#gaeda25d7337f810f2bd205b579510ebd4", null ],
+    [ "CDC_SCS_HEADER", "group__cdc__protocol__group.html#gafb7ba01e68938e255cfb6727c5a02f23", null ],
+    [ "CDC_SCS_UNION", "group__cdc__protocol__group.html#ga27581d98e9052d843b2f4767f7d39110", null ],
+    [ "CDC_SUBCLASS_ACM", "group__cdc__protocol__group.html#gacce3aedc4473cc5526efc16448b89221", null ],
+    [ "CDC_SUBCLASS_ATM", "group__cdc__protocol__group.html#gaf1a7d3d1e1dd78003500d6fccd205461", null ],
+    [ "CDC_SUBCLASS_CCM", "group__cdc__protocol__group.html#gac03be4247341651b8a14fa4c57955bca", null ],
+    [ "CDC_SUBCLASS_DLCM", "group__cdc__protocol__group.html#ga9d555a2c20cdda9166df1f1a0deb2fe6", null ],
+    [ "CDC_SUBCLASS_ETH", "group__cdc__protocol__group.html#gaa5ab06b184069e6a8692c6e82b2595b3", null ],
+    [ "CDC_SUBCLASS_MCCM", "group__cdc__protocol__group.html#ga279c0e93e9cf1c328e9551e62ebdc342", null ],
+    [ "CDC_SUBCLASS_TCM", "group__cdc__protocol__group.html#ga8e66107828e9b10a8b37823cb4436209", null ],
+    [ "usb_cdc_acm_desc_t", "group__cdc__protocol__group.html#ga3c0e7058e94628e8a4c9782b741f7dbb", null ],
+    [ "usb_cdc_call_mgmt_desc_t", "group__cdc__protocol__group.html#ga6999f792e477f13f5a89351f956ca372", null ],
+    [ "usb_cdc_hdr_desc_t", "group__cdc__protocol__group.html#ga12d62552fff01851269b3cf927a3982e", null ],
+    [ "usb_cdc_union_desc_t", "group__cdc__protocol__group.html#gadd60e7e0096730f029d68b36a6389085", null ]
+];

@@ -1,0 +1,52 @@
+\hypertarget{structusb__cdc__notify__msg}{}\section{usb\+\_\+cdc\+\_\+notify\+\_\+msg Struct Reference}
+\label{structusb__cdc__notify__msg}\index{usb\+\_\+cdc\+\_\+notify\+\_\+msg@{usb\+\_\+cdc\+\_\+notify\+\_\+msg}}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structusb__cdc__notify__msg_a601ccc8373a6dea319cf1bb845e21343}\label{structusb__cdc__notify__msg_a601ccc8373a6dea319cf1bb845e21343}} 
+uint8\+\_\+t {\bfseries bm\+Request\+Type}
+\item 
+\mbox{\Hypertarget{structusb__cdc__notify__msg_ace9fd530fbac2d238a4bd4a177781de9}\label{structusb__cdc__notify__msg_ace9fd530fbac2d238a4bd4a177781de9}} 
+uint8\+\_\+t {\bfseries b\+Notification}
+\item 
+\mbox{\Hypertarget{structusb__cdc__notify__msg_ad1777e4f4a1c52780504ee93a7f58f66}\label{structusb__cdc__notify__msg_ad1777e4f4a1c52780504ee93a7f58f66}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>le16\_t {\bfseries wValue}\\
+\>struct \{\\
+\>\>uint8\_t {\bfseries low}\\
+\>\>uint8\_t {\bfseries high}\\
+\>\} {\bfseries wValueBytes}\\
+\}; \\
+
+\end{tabbing}\item 
+\mbox{\Hypertarget{structusb__cdc__notify__msg_a62ce47a20fb7cc7400ceda7377440c4a}\label{structusb__cdc__notify__msg_a62ce47a20fb7cc7400ceda7377440c4a}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>le16\_t {\bfseries wIndex}\\
+\>struct \{\\
+\>\>uint8\_t {\bfseries low}\\
+\>\>uint8\_t {\bfseries high}\\
+\>\} {\bfseries wIndexBytes}\\
+\}; \\
+
+\end{tabbing}\item 
+\mbox{\Hypertarget{structusb__cdc__notify__msg_a55187e00b1d8baed5b85875321e69d29}\label{structusb__cdc__notify__msg_a55187e00b1d8baed5b85875321e69d29}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>le16\_t {\bfseries wLength}\\
+\>struct \{\\
+\>\>uint8\_t {\bfseries low}\\
+\>\>uint8\_t {\bfseries high}\\
+\>\} {\bfseries wLengthBytes}\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+usb/class/cdc/\hyperlink{usb__protocol__cdc_8h}{usb\+\_\+protocol\+\_\+cdc.\+h}\end{DoxyCompactItemize}

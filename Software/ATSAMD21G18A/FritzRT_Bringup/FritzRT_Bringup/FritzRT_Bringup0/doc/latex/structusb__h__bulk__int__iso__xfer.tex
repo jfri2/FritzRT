@@ -1,0 +1,73 @@
+\hypertarget{structusb__h__bulk__int__iso__xfer}{}\section{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer Struct Reference}
+\label{structusb__h__bulk__int__iso__xfer}\index{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer@{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer}}
+
+
+Transfer descriptor for bulk / interrupt / iso transfer.  
+
+
+
+
+{\ttfamily \#include $<$hpl\+\_\+usb\+\_\+host.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{structusb__h__bulk__int__iso__xfer_a7590b4990716b8eed87caa68e6326c9d}{size}
+\item 
+uint32\+\_\+t \hyperlink{structusb__h__bulk__int__iso__xfer_ae4c487e94a10021d3949a4bae473b14f}{count}
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{structusb__h__bulk__int__iso__xfer_a2cd40e9acd33e63196293e729b0cc1d9}{data}
+\item 
+uint16\+\_\+t \hyperlink{structusb__h__bulk__int__iso__xfer_a53c976fbf878f90360f4578bb8115586}{reserved} \mbox{[}3\mbox{]}
+\item 
+uint8\+\_\+t \hyperlink{structusb__h__bulk__int__iso__xfer_aa3c8909b83fbdcdcbea100f9a0e02869}{state}
+\item 
+int8\+\_\+t \hyperlink{structusb__h__bulk__int__iso__xfer_ae8a38b9a45fbbdde1cf6ebcc82c255db}{status}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Transfer descriptor for bulk / interrupt / iso transfer. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structusb__h__bulk__int__iso__xfer_ae4c487e94a10021d3949a4bae473b14f}\label{structusb__h__bulk__int__iso__xfer_ae4c487e94a10021d3949a4bae473b14f}} 
+\index{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer@{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer}!count@{count}}
+\index{count@{count}!usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer@{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer}}
+\subsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily uint32\+\_\+t usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer\+::count}
+
+Transfer count \mbox{\Hypertarget{structusb__h__bulk__int__iso__xfer_a2cd40e9acd33e63196293e729b0cc1d9}\label{structusb__h__bulk__int__iso__xfer_a2cd40e9acd33e63196293e729b0cc1d9}} 
+\index{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer@{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer}!data@{data}}
+\index{data@{data}!usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer@{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer}}
+\subsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer\+::data}
+
+Pointer to transfer data \mbox{\Hypertarget{structusb__h__bulk__int__iso__xfer_a53c976fbf878f90360f4578bb8115586}\label{structusb__h__bulk__int__iso__xfer_a53c976fbf878f90360f4578bb8115586}} 
+\index{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer@{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer}!reserved@{reserved}}
+\index{reserved@{reserved}!usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer@{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer}}
+\subsubsection{\texorpdfstring{reserved}{reserved}}
+{\footnotesize\ttfamily uint16\+\_\+t usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer\+::reserved\mbox{[}3\mbox{]}}
+
+Reserved \mbox{\Hypertarget{structusb__h__bulk__int__iso__xfer_a7590b4990716b8eed87caa68e6326c9d}\label{structusb__h__bulk__int__iso__xfer_a7590b4990716b8eed87caa68e6326c9d}} 
+\index{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer@{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer}!size@{size}}
+\index{size@{size}!usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer@{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer}}
+\subsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily uint32\+\_\+t usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer\+::size}
+
+Expected transfer size \mbox{\Hypertarget{structusb__h__bulk__int__iso__xfer_aa3c8909b83fbdcdcbea100f9a0e02869}\label{structusb__h__bulk__int__iso__xfer_aa3c8909b83fbdcdcbea100f9a0e02869}} 
+\index{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer@{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer}!state@{state}}
+\index{state@{state}!usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer@{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer}}
+\subsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer\+::state}
+
+Transfer state \mbox{\Hypertarget{structusb__h__bulk__int__iso__xfer_ae8a38b9a45fbbdde1cf6ebcc82c255db}\label{structusb__h__bulk__int__iso__xfer_ae8a38b9a45fbbdde1cf6ebcc82c255db}} 
+\index{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer@{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer}!status@{status}}
+\index{status@{status}!usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer@{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer}}
+\subsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily int8\+\_\+t usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer\+::status}
+
+Last transfer status 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+hal/include/\hyperlink{hpl__usb__host_8h}{hpl\+\_\+usb\+\_\+host.\+h}\end{DoxyCompactItemize}

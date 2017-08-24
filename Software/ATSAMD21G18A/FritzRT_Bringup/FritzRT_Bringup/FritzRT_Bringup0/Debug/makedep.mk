@@ -4,7 +4,7 @@
 
 app\app.c
 
-app\drivers\sx1238.c
+app\drivers\sx1238_hal.c
 
 atmel_start.c
 
@@ -30,9 +30,9 @@ hal\src\hal_sleep.c
 
 hal\src\hal_spi_m_sync.c
 
-hal\src\hal_usart_sync.c
+hal\src\hal_timer.c
 
-hal\src\hal_usb_device.c
+hal\src\hal_usart_sync.c
 
 hal\utils\src\utils_assert.c
 
@@ -58,7 +58,7 @@ hpl\sysctrl\hpl_sysctrl.c
 
 hpl\systick\hpl_systick.c
 
-hpl\usb\hpl_usb.c
+hpl\tc\hpl_tc.c
 
 main.c
 

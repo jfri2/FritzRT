@@ -1,0 +1,214 @@
+\hypertarget{usb__atmel_8h}{}\section{usb/usb\+\_\+atmel.h File Reference}
+\label{usb__atmel_8h}\index{usb/usb\+\_\+atmel.\+h@{usb/usb\+\_\+atmel.\+h}}
+
+
+All U\+SB V\+I\+Ds and P\+I\+Ds from Atmel U\+SB applications.  
+
+
+\subsection*{Macros}
+\begin{Indent}\textbf{ Vendor Identifier assigned by U\+SB org to A\+T\+M\+EL}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+V\+I\+D\+\_\+\+A\+T\+M\+EL}~0x03\+EB
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ The range from 2000h to 20\+F\+Fh is reserved to the old P\+ID for C51, M\+E\+GA, and others.}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+M\+E\+G\+A\+\_\+\+H\+I\+D\+G\+E\+N\+E\+R\+IC}~0x2013
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+M\+E\+G\+A\+\_\+\+H\+I\+D\+K\+E\+Y\+B\+O\+A\+RD}~0x2017
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+M\+E\+G\+A\+\_\+\+C\+DC}~0x2018
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+M\+E\+G\+A\+\_\+\+A\+U\+D\+I\+O\+\_\+\+IN}~0x2019
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+M\+E\+G\+A\+\_\+\+MS}~0x201A
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+M\+E\+G\+A\+\_\+\+A\+U\+D\+I\+O\+\_\+\+I\+N\+\_\+\+O\+UT}~0x201B
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+M\+E\+G\+A\+\_\+\+H\+I\+D\+M\+O\+U\+SE}~0x201C
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+M\+E\+G\+A\+\_\+\+H\+I\+D\+M\+O\+U\+S\+E\+\_\+\+C\+E\+R\+T\+I\+F\+\_\+\+U4}~0x201D
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+M\+E\+G\+A\+\_\+\+C\+D\+C\+\_\+\+M\+U\+L\+TI}~0x201E
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+M\+E\+G\+A\+\_\+\+M\+S\+\_\+\+H\+I\+D\+M\+S\+\_\+\+H\+I\+D\+\_\+\+U\+S\+B\+K\+EY}~0x2022
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+M\+E\+G\+A\+\_\+\+M\+S\+\_\+\+H\+I\+D\+M\+S\+\_\+\+H\+I\+D\+\_\+\+S\+T\+K525}~0x2023
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+M\+E\+G\+A\+\_\+\+M\+S\+\_\+2}~0x2029
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+M\+E\+G\+A\+\_\+\+M\+S\+\_\+\+H\+I\+D\+MS}~0x202A
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+M\+E\+G\+A\+\_\+\+M\+S\+\_\+3}~0x2032
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+M\+E\+G\+A\+\_\+\+L\+I\+B\+U\+SB}~0x2050
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ The range 2100h to 21\+F\+Fh is reserved to P\+I\+Ds for A\+VR Tools.}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+X\+P\+L\+A\+I\+N\+ED}~0x2122
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+X\+M\+E\+G\+A\+\_\+\+U\+S\+B\+\_\+\+Z\+I\+G\+B\+I\+T\+\_\+2\+\_\+4\+G\+HZ}~0x214A
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+X\+M\+E\+G\+A\+\_\+\+U\+S\+B\+\_\+\+Z\+I\+G\+B\+I\+T\+\_\+\+S\+U\+B\+G\+HZ}~0x214B
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ The range 2300h to 23\+F\+Fh is reserved to P\+I\+Ds for demo from A\+S\+F1.7=$>$}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+U\+C3\+\_\+\+E\+N\+UM}~0x2300
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+U\+C3\+\_\+\+MS}~0x2301
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+U\+C3\+\_\+\+M\+S\+\_\+\+S\+D\+R\+A\+M\+\_\+\+L\+O\+A\+D\+ER}~0x2302
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+U\+C3\+\_\+\+E\+V\+K1100\+\_\+\+C\+T\+R\+L\+P\+A\+N\+EL}~0x2303
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+U\+C3\+\_\+\+H\+ID}~0x2304
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+U\+C3\+\_\+\+E\+V\+K1101\+\_\+\+C\+T\+R\+L\+P\+A\+N\+E\+L\+\_\+\+H\+ID}~0x2305
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+U\+C3\+\_\+\+E\+V\+K1101\+\_\+\+C\+T\+R\+L\+P\+A\+N\+E\+L\+\_\+\+H\+I\+D\+\_\+\+MS}~0x2306
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+U\+C3\+\_\+\+C\+DC}~0x2307
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+U\+C3\+\_\+\+A\+U\+D\+I\+O\+\_\+\+M\+I\+C\+RO}~0x2308
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+U\+C3\+\_\+\+C\+D\+C\+\_\+\+D\+E\+B\+UG}~0x2310
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+U\+C3\+\_\+\+A\+U\+D\+I\+O\+\_\+\+S\+P\+E\+A\+K\+E\+R\+\_\+\+M\+I\+C\+RO}~0x2311
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+U\+C3\+\_\+\+C\+D\+C\+\_\+\+M\+SC}~0x2312
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ The range 2400h to 24\+F\+Fh is reserved to P\+I\+Ds for A\+SF applications}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+A\+S\+F\+\_\+\+H\+I\+D\+M\+O\+U\+SE}~0x2400
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+A\+S\+F\+\_\+\+H\+I\+D\+K\+E\+Y\+B\+O\+A\+RD}~0x2401
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+A\+S\+F\+\_\+\+H\+I\+D\+G\+E\+N\+E\+R\+IC}~0x2402
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+A\+S\+F\+\_\+\+M\+SC}~0x2403
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+A\+S\+F\+\_\+\+C\+DC}~0x2404
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+A\+S\+F\+\_\+\+P\+H\+DC}~0x2405
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+A\+S\+F\+\_\+\+H\+I\+D\+M\+T\+O\+U\+CH}~0x2406
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+A\+S\+F\+\_\+\+M\+S\+C\+\_\+\+H\+I\+D\+M\+O\+U\+SE}~0x2420
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+A\+S\+F\+\_\+\+M\+S\+C\+\_\+\+H\+I\+D\+S\+\_\+\+C\+DC}~0x2421
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+A\+S\+F\+\_\+\+M\+S\+C\+\_\+\+H\+I\+D\+K\+E\+Y\+B\+O\+A\+RD}~0x2422
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+A\+S\+F\+\_\+\+V\+E\+N\+D\+O\+R\+\_\+\+C\+L\+A\+SS}~0x2423
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+A\+S\+F\+\_\+\+M\+S\+C\+\_\+\+C\+DC}~0x2424
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+A\+S\+F\+\_\+\+T\+W\+O\+\_\+\+C\+DC}~0x2425
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+A\+S\+F\+\_\+\+S\+E\+V\+E\+N\+\_\+\+C\+DC}~0x2426
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+A\+S\+F\+\_\+\+X\+P\+L\+A\+I\+N\+\_\+\+B\+C\+\_\+\+P\+O\+W\+E\+R\+O\+N\+LY}~0x2430
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+A\+S\+F\+\_\+\+X\+P\+L\+A\+I\+N\+\_\+\+B\+C\+\_\+\+T\+E\+R\+M\+I\+N\+AL}~0x2431
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+A\+S\+F\+\_\+\+X\+P\+L\+A\+I\+N\+\_\+\+B\+C\+\_\+\+T\+O\+U\+CH}~0x2432
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+A\+S\+F\+\_\+\+A\+U\+D\+I\+O\+\_\+\+S\+P\+E\+A\+K\+ER}~0x2433
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+A\+S\+F\+\_\+\+X\+M\+E\+G\+A\+\_\+\+B1\+\_\+\+X\+P\+L\+A\+I\+N\+ED}~0x2434
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ The range 2\+F00h to 2\+F\+F\+Fh is reserved to official P\+I\+Ds for A\+VR bootloaders}\par
+{\em Note, !!!! don\textquotesingle{}t use this range for demos or examples !!!! }\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A64\+C3}~0x2\+F\+D6
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A128\+C3}~0x2\+F\+D7
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A16\+C4}~0x2\+F\+D8
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A32\+C4}~0x2\+F\+D9
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A256\+C3}~0x2\+F\+DA
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A384\+C3}~0x2\+F\+DB
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+U\+C\+L3\+\_\+\+L4}~0x2\+F\+DC
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A64\+A4U}~0x2\+F\+DD
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A128\+A4U}~0x2\+F\+DE
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A64\+B3}~0x2\+F\+DF
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A128\+B3}~0x2\+F\+E0
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A64\+B1}~0x2\+F\+E1
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A256\+A3\+BU}~0x2\+F\+E2
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A16\+A4U}~0x2\+F\+E3
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A32\+A4U}~0x2\+F\+E4
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A64\+A3U}~0x2\+F\+E5
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A128\+A3U}~0x2\+F\+E6
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A192\+A3U}~0x2\+F\+E7
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A64\+A1U}~0x2\+F\+E8
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+U\+C3D}~0x2\+F\+E9
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A128\+B1}~0x2\+F\+EA
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T32\+U\+C3C}~0x2\+F\+EB
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A256\+A3U}~0x2\+F\+EC
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+X\+M\+E\+G\+A128\+A1U}~0x2\+F\+ED
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+M\+E\+G\+A8\+U2}~0x2\+F\+EE
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+M\+E\+G\+A16\+U2}~0x2\+F\+EF
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+M\+E\+G\+A32\+U2}~0x2\+F\+F0
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T32\+U\+C3\+A3}~0x2\+F\+F1
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+M\+E\+G\+A32\+U6}~0x2\+F\+F2
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+M\+E\+G\+A16\+U4}~0x2\+F\+F3
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T\+M\+E\+G\+A32\+U4}~0x2\+F\+F4
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T32\+A\+P7200}~0x2\+F\+F5
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T32\+U\+C3B}~0x2\+F\+F6
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T90\+U\+S\+B82}~0x2\+F\+F7
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T32\+U\+C3A}~0x2\+F\+F8
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T90\+U\+S\+B64}~0x2\+F\+F9
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T90\+U\+S\+B162}~0x2\+F\+FA
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+I\+D\+\_\+\+A\+T\+M\+E\+L\+\_\+\+D\+F\+U\+\_\+\+A\+T90\+U\+S\+B128}~0x2\+F\+FB
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Detailed Description}
+All U\+SB V\+I\+Ds and P\+I\+Ds from Atmel U\+SB applications. 
+
+Copyright (c) 2015 Atmel Corporation. All rights reserved.

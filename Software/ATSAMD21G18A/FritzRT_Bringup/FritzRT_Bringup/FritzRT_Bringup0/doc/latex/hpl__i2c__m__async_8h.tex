@@ -1,0 +1,383 @@
+\hypertarget{hpl__i2c__m__async_8h}{}\section{hal/include/hpl\+\_\+i2c\+\_\+m\+\_\+async.h File Reference}
+\label{hpl__i2c__m__async_8h}\index{hal/include/hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hal/include/hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}}
+
+
+I2C Master Hardware Proxy Layer(\+H\+P\+L) declaration.  
+
+
+{\ttfamily \#include \char`\"{}hpl\+\_\+i2c\+\_\+m\+\_\+sync.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hpl\+\_\+irq.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__i2c__m__async__callback}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+callback}
+\begin{DoxyCompactList}\small\item\em i2c callback pointers structure \end{DoxyCompactList}\item 
+struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device}
+\begin{DoxyCompactList}\small\item\em i2c device structure \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hpl__i2c__m__async_8h_a301d845ecb6024ac8f2fd5ec8a526dbc}\label{hpl__i2c__m__async_8h_a301d845ecb6024ac8f2fd5ec8a526dbc}} 
+typedef void($\ast$ {\bfseries \+\_\+i2c\+\_\+complete\+\_\+cb\+\_\+t}) (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$i2c\+\_\+dev)
+\item 
+\mbox{\Hypertarget{hpl__i2c__m__async_8h_a72318abc96f5c1cacd2aa29ed5f43ab0}\label{hpl__i2c__m__async_8h_a72318abc96f5c1cacd2aa29ed5f43ab0}} 
+typedef void($\ast$ {\bfseries \+\_\+i2c\+\_\+error\+\_\+cb\+\_\+t}) (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$i2c\+\_\+dev, int32\+\_\+t errcode)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hpl__i2c__m__async_8h_a8015235df10b8dc8615e9d4776e71263}\label{hpl__i2c__m__async_8h_a8015235df10b8dc8615e9d4776e71263}} 
+enum \hyperlink{hpl__i2c__m__async_8h_a8015235df10b8dc8615e9d4776e71263}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+callback\+\_\+type} \{ {\bfseries I2\+C\+\_\+\+M\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+E\+R\+R\+OR}, 
+{\bfseries I2\+C\+\_\+\+M\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+T\+X\+\_\+\+C\+O\+M\+P\+L\+E\+TE}, 
+{\bfseries I2\+C\+\_\+\+M\+\_\+\+A\+S\+Y\+N\+C\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+R\+X\+\_\+\+C\+O\+M\+P\+L\+E\+TE}
+ \}\begin{DoxyCompactList}\small\item\em i2c master callback names \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{Indent}\textbf{ H\+PL functions}\par
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{hpl__i2c__m__async_8h_afd0a3ee0349da0644884cf0c0155dc87}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+init} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const i2c\+\_\+dev, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize I2C in interrupt mode. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__i2c__m__async_8h_a5d7f588b55855fca57f5919067dff4fc}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+deinit} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const i2c\+\_\+dev)
+\begin{DoxyCompactList}\small\item\em Deinitialize I2C in interrupt mode. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__i2c__m__async_8h_af643af29e58fe905941f1fc1d036cf97}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+enable} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const i2c\+\_\+dev)
+\begin{DoxyCompactList}\small\item\em Enable I2C module. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__i2c__m__async_8h_ac0536eab02a287ec63a82d820d6b7cce}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+disable} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const i2c\+\_\+dev)
+\begin{DoxyCompactList}\small\item\em Disable I2C module. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__i2c__m__async_8h_a18b4a5411dd82375e069092356b8add0}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+transfer} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const i2c\+\_\+dev, struct \hyperlink{struct__i2c__m__msg}{\+\_\+i2c\+\_\+m\+\_\+msg} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Transfer data by I2C. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__i2c__m__async_8h_af9f59e910cd5d10672489aa6bfd6289d}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+baudrate} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const i2c\+\_\+dev, uint32\+\_\+t clkrate, uint32\+\_\+t baudrate)
+\begin{DoxyCompactList}\small\item\em Set baud rate of I2C. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__i2c__m__async_8h_ae8c8e1bbe9d329dd0f7abfb1f4195bbf}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+register\+\_\+callback} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$i2c\+\_\+dev, enum \hyperlink{hpl__i2c__m__async_8h_a8015235df10b8dc8615e9d4776e71263}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+callback\+\_\+type} cb\+\_\+type, \hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR} func)
+\begin{DoxyCompactList}\small\item\em Register callback to I2C. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__i2c__m__async_8h_a46050c43603c9fa9decb10cf6a6c0472}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+send\+\_\+stop} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const i2c\+\_\+dev)
+\begin{DoxyCompactList}\small\item\em Generate stop condition on the I2C bus. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__i2c__m__async_8h_ac613796e97851c275412dbcf14c360fb}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+get\+\_\+bytes\+\_\+left} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const i2c\+\_\+dev)
+\begin{DoxyCompactList}\small\item\em Returns the number of bytes left or not used in the I2C message buffer. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__i2c__m__async_8h_ab4c1447a0ec609a4b61d90fd9f966d60}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{hpl__i2c__m__async_8h_a8015235df10b8dc8615e9d4776e71263}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+callback\+\_\+type} type, const bool state)
+\begin{DoxyCompactList}\small\item\em Enable/disable I2C master interrupt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Detailed Description}
+I2C Master Hardware Proxy Layer(\+H\+P\+L) declaration. 
+
+Copyright (C) 2015 Atmel Corporation. All rights reserved.
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{hpl__i2c__m__async_8h_a5d7f588b55855fca57f5919067dff4fc}\label{hpl__i2c__m__async_8h_a5d7f588b55855fca57f5919067dff4fc}} 
+\index{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+deinit@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+deinit}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+deinit@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+deinit}!hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+deinit()}{\_i2c\_m\_async\_deinit()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+async\+\_\+deinit (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const}]{i2c\+\_\+dev }\end{DoxyParamCaption})}
+
+
+
+Deinitialize I2C in interrupt mode. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 for success and negative value for error
+\end{DoxyReturn}
+Deinitialize I2C in interrupt mode.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__i2c__m__async_8h_ac0536eab02a287ec63a82d820d6b7cce}\label{hpl__i2c__m__async_8h_ac0536eab02a287ec63a82d820d6b7cce}} 
+\index{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+disable@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+disable}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+disable@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+disable}!hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+disable()}{\_i2c\_m\_async\_disable()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+async\+\_\+disable (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const}]{i2c\+\_\+dev }\end{DoxyParamCaption})}
+
+
+
+Disable I2C module. 
+
+This function does low level I2C disable.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 for success and negative value for error
+\end{DoxyReturn}
+Disable I2C module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__i2c__m__async_8h_af643af29e58fe905941f1fc1d036cf97}\label{hpl__i2c__m__async_8h_af643af29e58fe905941f1fc1d036cf97}} 
+\index{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+enable@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+enable}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+enable@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+enable}!hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+enable()}{\_i2c\_m\_async\_enable()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+async\+\_\+enable (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const}]{i2c\+\_\+dev }\end{DoxyParamCaption})}
+
+
+
+Enable I2C module. 
+
+This function does low level I2C enable.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 for success and negative value for error
+\end{DoxyReturn}
+Enable I2C module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__i2c__m__async_8h_ac613796e97851c275412dbcf14c360fb}\label{hpl__i2c__m__async_8h_ac613796e97851c275412dbcf14c360fb}} 
+\index{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+get\+\_\+bytes\+\_\+left@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+get\+\_\+bytes\+\_\+left}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+get\+\_\+bytes\+\_\+left@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+get\+\_\+bytes\+\_\+left}!hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+get\+\_\+bytes\+\_\+left()}{\_i2c\_m\_async\_get\_bytes\_left()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+async\+\_\+get\+\_\+bytes\+\_\+left (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const}]{i2c\+\_\+dev }\end{DoxyParamCaption})}
+
+
+
+Returns the number of bytes left or not used in the I2C message buffer. 
+
+This function will return the number of bytes left (not written to the bus) or still free (not received from the bus) in the message buffer, depending on direction of transmission.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+m\+\_\+async\+\_\+descriptor} & An i2c descriptor which is used to communicate through I2C\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of bytes or error code 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em $>$0} & Positive number indicating bytes left \\
+\hline
+{\em 0} & Buffer is full/empty depending on direction \\
+\hline
+{\em $<$0} & Error code\\
+\hline
+\end{DoxyRetVals}
+Returns the number of bytes left or not used in the I2C message buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i2c\+\_\+dev} & Pointer to i2c master device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Bytes left in buffer 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em =$>$0} & Bytes left in buffer \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__i2c__m__async_8h_afd0a3ee0349da0644884cf0c0155dc87}\label{hpl__i2c__m__async_8h_afd0a3ee0349da0644884cf0c0155dc87}} 
+\index{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+init@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+init}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+init@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+init}!hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+init()}{\_i2c\_m\_async\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+async\+\_\+init (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const}]{i2c\+\_\+dev,  }\item[{void $\ast$const}]{hw }\end{DoxyParamCaption})}
+
+
+
+Initialize I2C in interrupt mode. 
+
+This function does low level I2C configuration.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c interrupt device structure \\
+\hline
+\mbox{\tt in}  & {\em hw} & The pointer to hardware instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 for success and negative value for error
+\end{DoxyReturn}
+Initialize I2C in interrupt mode.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__i2c__m__async_8h_ae8c8e1bbe9d329dd0f7abfb1f4195bbf}\label{hpl__i2c__m__async_8h_ae8c8e1bbe9d329dd0f7abfb1f4195bbf}} 
+\index{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+register\+\_\+callback@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+register\+\_\+callback}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+register\+\_\+callback@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+register\+\_\+callback}!hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+register\+\_\+callback()}{\_i2c\_m\_async\_register\_callback()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+async\+\_\+register\+\_\+callback (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const}]{i2c\+\_\+dev,  }\item[{enum \hyperlink{hpl__i2c__m__async_8h_a8015235df10b8dc8615e9d4776e71263}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+callback\+\_\+type}}]{type,  }\item[{\hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR}}]{func }\end{DoxyParamCaption})}
+
+
+
+Register callback to I2C. 
+
+This function does low level I2C callback register.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device structure \\
+\hline
+\mbox{\tt in}  & {\em cb\+\_\+type} & The callback type request \\
+\hline
+\mbox{\tt in}  & {\em func} & The callback function pointer\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 for success and negative value for error
+\end{DoxyReturn}
+Register callback to I2C.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to master i2c device \\
+\hline
+\mbox{\tt in}  & {\em type} & The callback type \\
+\hline
+\mbox{\tt in}  & {\em func} & The callback function pointer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__i2c__m__async_8h_a46050c43603c9fa9decb10cf6a6c0472}\label{hpl__i2c__m__async_8h_a46050c43603c9fa9decb10cf6a6c0472}} 
+\index{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+send\+\_\+stop@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+send\+\_\+stop}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+send\+\_\+stop@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+send\+\_\+stop}!hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+send\+\_\+stop()}{\_i2c\_m\_async\_send\_stop()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+async\+\_\+send\+\_\+stop (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const}]{i2c\+\_\+dev }\end{DoxyParamCaption})}
+
+
+
+Generate stop condition on the I2C bus. 
+
+This function will generate a stop condition on the I2C bus
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+m\+\_\+async\+\_\+descriptor} & An i2c descriptor which is used to communicate through I2C\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Operation executed successfully \\
+\hline
+{\em $<$0} & Operation failed\\
+\hline
+\end{DoxyRetVals}
+Generate stop condition on the I2C bus.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i2c\+\_\+dev} & Pointer to master i2c device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em I2\+C\+\_\+\+OK} & Operation was successfull \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__i2c__m__async_8h_af9f59e910cd5d10672489aa6bfd6289d}\label{hpl__i2c__m__async_8h_af9f59e910cd5d10672489aa6bfd6289d}} 
+\index{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+baudrate@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+baudrate}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+baudrate@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+baudrate}!hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+baudrate()}{\_i2c\_m\_async\_set\_baudrate()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+baudrate (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const}]{i2c\+\_\+dev,  }\item[{uint32\+\_\+t}]{clkrate,  }\item[{uint32\+\_\+t}]{baudrate }\end{DoxyParamCaption})}
+
+
+
+Set baud rate of I2C. 
+
+This function does low level I2C set baud rate.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device structure \\
+\hline
+\mbox{\tt in}  & {\em clkrate} & The clock rate(\+K\+Hz) input to i2c module \\
+\hline
+\mbox{\tt in}  & {\em baudrate} & The demand baud rate(\+K\+Hz) of i2c module\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 for success and negative value for error
+\end{DoxyReturn}
+Set baud rate of I2C.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device \\
+\hline
+\mbox{\tt in}  & {\em clkrate} & The clock rate of i2c master, in K\+Hz \\
+\hline
+\mbox{\tt in}  & {\em baudrate} & The baud rate desired for i2c master, in K\+Hz \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__i2c__m__async_8h_ab4c1447a0ec609a4b61d90fd9f966d60}\label{hpl__i2c__m__async_8h_ab4c1447a0ec609a4b61d90fd9f966d60}} 
+\index{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state}!hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state()}{\_i2c\_m\_async\_set\_irq\_state()}}
+{\footnotesize\ttfamily void \+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const}]{device,  }\item[{const enum \hyperlink{hpl__i2c__m__async_8h_a8015235df10b8dc8615e9d4776e71263}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+callback\+\_\+type}}]{type,  }\item[{const bool}]{state }\end{DoxyParamCaption})}
+
+
+
+Enable/disable I2C master interrupt. 
+
+param\mbox{[}in\mbox{]} device The pointer to I2C master device instance param\mbox{[}in\mbox{]} type The type of interrupt to disable/enable if applicable param\mbox{[}in\mbox{]} state Enable or disable \mbox{\Hypertarget{hpl__i2c__m__async_8h_a18b4a5411dd82375e069092356b8add0}\label{hpl__i2c__m__async_8h_a18b4a5411dd82375e069092356b8add0}} 
+\index{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+transfer@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+transfer}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+transfer@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+transfer}!hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h@{hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+transfer()}{\_i2c\_m\_async\_transfer()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+async\+\_\+transfer (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$}]{i2c\+\_\+dev,  }\item[{struct \hyperlink{struct__i2c__m__msg}{\+\_\+i2c\+\_\+m\+\_\+msg} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Transfer data by I2C. 
+
+This function does low level I2C data transfer.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device structure \\
+\hline
+\mbox{\tt in}  & {\em msg} & The pointer to i2c msg structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 for success and negative value for error
+\end{DoxyReturn}
+Transfer data by I2C.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device \\
+\hline
+\mbox{\tt in}  & {\em msg} & The pointer to i2c message\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Transfer status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Transfer success \\
+\hline
+{\em $<$0} & Transfer fail, return the error code \\
+\hline
+\end{DoxyRetVals}

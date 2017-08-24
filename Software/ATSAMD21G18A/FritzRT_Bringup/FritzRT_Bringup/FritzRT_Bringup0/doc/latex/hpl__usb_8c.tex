@@ -1,0 +1,1137 @@
+\hypertarget{hpl__usb_8c}{}\section{hpl/usb/hpl\+\_\+usb.c File Reference}
+\label{hpl__usb_8c}\index{hpl/usb/hpl\+\_\+usb.\+c@{hpl/usb/hpl\+\_\+usb.\+c}}
+
+
+S\+AM U\+SB H\+PL.  
+
+
+{\ttfamily \#include $<$compiler.\+h$>$}\newline
+{\ttfamily \#include $<$hal\+\_\+atomic.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+usb.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+usb\+\_\+device.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+usb\+\_\+config.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$utils\+\_\+assert.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__usb__ep__cfg__item}{\+\_\+usb\+\_\+ep\+\_\+cfg\+\_\+item}
+\item 
+struct \hyperlink{struct__usb__d__dev__ep}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}
+\item 
+struct \hyperlink{struct__usb__d__dev}{\+\_\+usb\+\_\+d\+\_\+dev}
+\item 
+struct \hyperlink{struct__usb__d__dev__prvt}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+prvt}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hpl__usb_8c_a77a3d04462a6befdc3c15125526b27c9}\label{hpl__usb_8c_a77a3d04462a6befdc3c15125526b27c9}} 
+\#define {\bfseries N\+V\+M\+\_\+\+U\+S\+B\+\_\+\+P\+A\+D\+\_\+\+T\+R\+A\+N\+S\+N\+\_\+\+P\+OS}~45
+\item 
+\mbox{\Hypertarget{hpl__usb_8c_aeea66d98e1b43ccf07bfc3d49fad5325}\label{hpl__usb_8c_aeea66d98e1b43ccf07bfc3d49fad5325}} 
+\#define {\bfseries N\+V\+M\+\_\+\+U\+S\+B\+\_\+\+P\+A\+D\+\_\+\+T\+R\+A\+N\+S\+N\+\_\+\+S\+I\+ZE}~5
+\item 
+\mbox{\Hypertarget{hpl__usb_8c_aaa5d3b2627eb861708d109bac57f69e1}\label{hpl__usb_8c_aaa5d3b2627eb861708d109bac57f69e1}} 
+\#define {\bfseries N\+V\+M\+\_\+\+U\+S\+B\+\_\+\+P\+A\+D\+\_\+\+T\+R\+A\+N\+S\+P\+\_\+\+P\+OS}~50
+\item 
+\mbox{\Hypertarget{hpl__usb_8c_a5201be2766e5f9e37abf20910b91f80c}\label{hpl__usb_8c_a5201be2766e5f9e37abf20910b91f80c}} 
+\#define {\bfseries N\+V\+M\+\_\+\+U\+S\+B\+\_\+\+P\+A\+D\+\_\+\+T\+R\+A\+N\+S\+P\+\_\+\+S\+I\+ZE}~5
+\item 
+\mbox{\Hypertarget{hpl__usb_8c_a212aea3c8920ce85b19965fe65384353}\label{hpl__usb_8c_a212aea3c8920ce85b19965fe65384353}} 
+\#define {\bfseries N\+V\+M\+\_\+\+U\+S\+B\+\_\+\+P\+A\+D\+\_\+\+T\+R\+I\+M\+\_\+\+P\+OS}~55
+\item 
+\mbox{\Hypertarget{hpl__usb_8c_a8449d9a159eccecd8d618b3a8ee22bfd}\label{hpl__usb_8c_a8449d9a159eccecd8d618b3a8ee22bfd}} 
+\#define {\bfseries N\+V\+M\+\_\+\+U\+S\+B\+\_\+\+P\+A\+D\+\_\+\+T\+R\+I\+M\+\_\+\+S\+I\+ZE}~3
+\item 
+\mbox{\Hypertarget{hpl__usb_8c_ab4448879c3f1852ff13d8517082c4c50}\label{hpl__usb_8c_ab4448879c3f1852ff13d8517082c4c50}} 
+\#define {\bfseries D\+P\+L\+L\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+F\+L\+AG}~(S\+Y\+S\+C\+T\+R\+L\+\_\+\+D\+P\+L\+L\+S\+T\+A\+T\+U\+S\+\_\+\+E\+N\+A\+B\+LE $\vert$ S\+Y\+S\+C\+T\+R\+L\+\_\+\+D\+P\+L\+L\+S\+T\+A\+T\+U\+S\+\_\+\+C\+L\+K\+R\+DY $\vert$ S\+Y\+S\+C\+T\+R\+L\+\_\+\+D\+P\+L\+L\+S\+T\+A\+T\+U\+S\+\_\+\+L\+O\+CK)
+\item 
+\mbox{\Hypertarget{hpl__usb_8c_afb49b06fed30a5b16cf5ecc2e0483f72}\label{hpl__usb_8c_afb49b06fed30a5b16cf5ecc2e0483f72}} 
+\#define {\bfseries D\+F\+L\+L\+\_\+\+R\+E\+A\+D\+Y\+\_\+\+F\+L\+AG}~(S\+Y\+S\+C\+T\+R\+L\+\_\+\+P\+C\+L\+K\+S\+R\+\_\+\+D\+F\+L\+L\+R\+DY $\vert$ S\+Y\+S\+C\+T\+R\+L\+\_\+\+P\+C\+L\+K\+S\+R\+\_\+\+D\+F\+L\+L\+L\+C\+KF $\vert$ S\+Y\+S\+C\+T\+R\+L\+\_\+\+P\+C\+L\+K\+S\+R\+\_\+\+D\+F\+L\+L\+L\+C\+KC)
+\item 
+\#define \hyperlink{hpl__usb_8c_a7d461b82970f216f152ebb328628622e}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P0\+\_\+\+C\+A\+C\+HE}~64
+\item 
+\#define \hyperlink{hpl__usb_8c_a5c258687c61f52c0a41049cb38fc4bf1}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P0\+\_\+\+I\+\_\+\+C\+A\+C\+HE}~0
+\item 
+\#define \hyperlink{hpl__usb_8c_a9c7fc4d6356c03a853e1b8fb330537fe}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P1\+\_\+\+C\+A\+C\+HE}~64
+\item 
+\#define \hyperlink{hpl__usb_8c_a2086ea9315963785fde414c22bd82221}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P1\+\_\+\+I\+\_\+\+C\+A\+C\+HE}~0
+\item 
+\#define \hyperlink{hpl__usb_8c_ac1449d347cf61a73bea2032e2dfef70c}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P2\+\_\+\+C\+A\+C\+HE}~64
+\item 
+\#define \hyperlink{hpl__usb_8c_a99b38e4a0cab4c0585f9a58493f9b08a}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P2\+\_\+\+I\+\_\+\+C\+A\+C\+HE}~0
+\item 
+\#define \hyperlink{hpl__usb_8c_ab04d3fa26ef854a77d52d067d050becb}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P3\+\_\+\+C\+A\+C\+HE}~64
+\item 
+\#define \hyperlink{hpl__usb_8c_a0163592b00d193027db751615214ddba}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P3\+\_\+\+I\+\_\+\+C\+A\+C\+HE}~0
+\item 
+\#define \hyperlink{hpl__usb_8c_a429784acf1c5d03d307733a55fad8dbd}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P4\+\_\+\+C\+A\+C\+HE}~64
+\item 
+\#define \hyperlink{hpl__usb_8c_a06a717b3edb09e6cd3db407846acf5ae}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P4\+\_\+\+I\+\_\+\+C\+A\+C\+HE}~0
+\item 
+\#define \hyperlink{hpl__usb_8c_a456f741629ee32687b5684ddc96f87d7}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P5\+\_\+\+C\+A\+C\+HE}~64
+\item 
+\#define \hyperlink{hpl__usb_8c_a41dd1c9a3ce8da187ec70a943c75052a}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P5\+\_\+\+I\+\_\+\+C\+A\+C\+HE}~0
+\item 
+\#define \hyperlink{hpl__usb_8c_a2b9047a62f8226422e49ce7972d9e913}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P6\+\_\+\+C\+A\+C\+HE}~64
+\item 
+\#define \hyperlink{hpl__usb_8c_a48a187efb81ff482f34a8e42cd99f7b7}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P6\+\_\+\+I\+\_\+\+C\+A\+C\+HE}~0
+\item 
+\#define \hyperlink{hpl__usb_8c_a1fb12dfe9b157e8f611deffa675b87e6}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P7\+\_\+\+C\+A\+C\+HE}~64
+\item 
+\#define \hyperlink{hpl__usb_8c_ab3951db6cc4ce56e4ca28dfe18480527}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P7\+\_\+\+I\+\_\+\+C\+A\+C\+HE}~0
+\item 
+\#define \hyperlink{hpl__usb_8c_a896d59589c19e0409e995be208e0bedc}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P8\+\_\+\+C\+A\+C\+HE}~64
+\item 
+\#define \hyperlink{hpl__usb_8c_ac6d638a1259a9c5a513da5cc66815ffb}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P8\+\_\+\+I\+\_\+\+C\+A\+C\+HE}~0
+\item 
+\#define \hyperlink{hpl__usb_8c_ab69b1cb68118e649cdd22d99d81e84e2}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P9\+\_\+\+C\+A\+C\+HE}~64
+\item 
+\#define \hyperlink{hpl__usb_8c_a73c3f49c1c40321ace658505034cb6b4}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P9\+\_\+\+I\+\_\+\+C\+A\+C\+HE}~0
+\item 
+\#define \hyperlink{hpl__usb_8c_a9fb8de564a5ca365b356b595cff70741}{\+\_\+usb\+\_\+ep0\+\_\+i\+\_\+cache}~N\+U\+LL
+\item 
+\#define \hyperlink{hpl__usb_8c_a4cce75c6ad25003f69ff299f5b8172f5}{\+\_\+usb\+\_\+ep1\+\_\+cache}~N\+U\+LL
+\item 
+\#define \hyperlink{hpl__usb_8c_aaf2e9599bb28b64cb5b1b2832d4d4fca}{\+\_\+usb\+\_\+ep1\+\_\+i\+\_\+cache}~N\+U\+LL
+\item 
+\#define \hyperlink{hpl__usb_8c_a62563ca36c23d547b09d28f67c549dcf}{\+\_\+usb\+\_\+ep2\+\_\+cache}~N\+U\+LL
+\item 
+\#define \hyperlink{hpl__usb_8c_a630183e63f5de812cd71bcfbf8c9356b}{\+\_\+usb\+\_\+ep2\+\_\+i\+\_\+cache}~N\+U\+LL
+\item 
+\#define \hyperlink{hpl__usb_8c_a13394d588cf32b0b4b26dee3761a4d21}{\+\_\+usb\+\_\+ep3\+\_\+cache}~N\+U\+LL
+\item 
+\#define \hyperlink{hpl__usb_8c_af94e1c5be6c248f1102fb83e3c303c17}{\+\_\+usb\+\_\+ep3\+\_\+i\+\_\+cache}~N\+U\+LL
+\item 
+\#define \hyperlink{hpl__usb_8c_a1993479a3adfba1fc1a4969704e84109}{\+\_\+usb\+\_\+ep4\+\_\+cache}~N\+U\+LL
+\item 
+\#define \hyperlink{hpl__usb_8c_a2f890479bed3157d7d0121c1f09ea25a}{\+\_\+usb\+\_\+ep4\+\_\+i\+\_\+cache}~N\+U\+LL
+\item 
+\#define \hyperlink{hpl__usb_8c_a4e42f937121e39d4214e01d54e4a976e}{\+\_\+usb\+\_\+ep5\+\_\+cache}~N\+U\+LL
+\item 
+\#define \hyperlink{hpl__usb_8c_a86fbc0e3076ee86e78354a6913908d8d}{\+\_\+usb\+\_\+ep5\+\_\+i\+\_\+cache}~N\+U\+LL
+\item 
+\#define \hyperlink{hpl__usb_8c_ae238141367cc10f2000e84589ba598d2}{\+\_\+usb\+\_\+ep6\+\_\+cache}~N\+U\+LL
+\item 
+\#define \hyperlink{hpl__usb_8c_a4f0a4cb1dda108cbc5dfaecaba7b5bef}{\+\_\+usb\+\_\+ep6\+\_\+i\+\_\+cache}~N\+U\+LL
+\item 
+\#define \hyperlink{hpl__usb_8c_ab9410b0605e8c2d445a4ec139038001a}{\+\_\+usb\+\_\+ep7\+\_\+cache}~N\+U\+LL
+\item 
+\#define \hyperlink{hpl__usb_8c_a07f2e1f784ae734482ec51faeb5f2d74}{\+\_\+usb\+\_\+ep7\+\_\+i\+\_\+cache}~N\+U\+LL
+\item 
+\#define \hyperlink{hpl__usb_8c_afa73670ddf0df9fbe4e248860750d111}{\+\_\+usb\+\_\+ep8\+\_\+cache}~N\+U\+LL
+\item 
+\#define \hyperlink{hpl__usb_8c_a40180cf233dc6c55cc4358f314b62698}{\+\_\+usb\+\_\+ep8\+\_\+i\+\_\+cache}~N\+U\+LL
+\item 
+\#define \hyperlink{hpl__usb_8c_abb81fab43e38a6d2d3bfa81ce6a4dd96}{\+\_\+usb\+\_\+ep9\+\_\+cache}~N\+U\+LL
+\item 
+\#define \hyperlink{hpl__usb_8c_ac0011e2b3566bd34e0b0ba936e6ed1db}{\+\_\+usb\+\_\+ep9\+\_\+i\+\_\+cache}~N\+U\+LL
+\item 
+\#define \hyperlink{hpl__usb_8c_abbb3c321bac4a4b45cfe5cc520691589}{\+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+C\+A\+C\+HE}(n)~((void $\ast$)\+\_\+usb\+\_\+ep\#\#n\#\#\+\_\+cache)
+\item 
+\#define \hyperlink{hpl__usb_8c_a368a766563519d1a47e00799076dbce8}{\+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+I\+\_\+\+C\+A\+C\+HE}(n)~((void $\ast$)\+\_\+usb\+\_\+ep\#\#n\#\#\+\_\+i\+\_\+cache)
+\item 
+\#define \hyperlink{hpl__usb_8c_a56885183521f6c7f9a3a9d2a0cbc473e}{\+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+C\+F\+G\+\_\+\+I\+T\+EM}(n)
+\item 
+\mbox{\Hypertarget{hpl__usb_8c_a26143d67c4097c6eb2f9ae47fe9ccff4}\label{hpl__usb_8c_a26143d67c4097c6eb2f9ae47fe9ccff4}} 
+\#define {\bfseries U\+S\+B\+\_\+\+F\+S\+M\+S\+T\+A\+T\+U\+S\+\_\+\+F\+S\+M\+S\+T\+A\+T\+E\+\_\+\+ON}~U\+S\+B\+\_\+\+F\+S\+M\+S\+T\+A\+T\+U\+S\+\_\+\+F\+S\+M\+S\+T\+A\+TE(2ul)
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ U\+SB general settings}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{hpl__usb_8c_ad8e8f77013bb1200bbf75d775d2217ea}{\+\_\+usb\+\_\+align\+\_\+up}(val)~(((val)\&0x3) ? (((val) + 4 -\/ ((val)\&0x3))) \+: (val))
+\item 
+\#define \hyperlink{hpl__usb_8c_a59afa6b5d9e93328169e764631a2688d}{\+\_\+\+I\+N\+\_\+\+R\+AM}(a,  s)~((0x20000000 $<$= (uint32\+\_\+t)(a)) \&\& (((uint32\+\_\+t)(a) + (s)) $<$ 0x20008000))
+\item 
+\#define \hyperlink{hpl__usb_8c_a04d15f3366b4236c86663afc3b1dbd73}{\+\_\+usb\+\_\+is\+\_\+addr4dma}(addr,  size)~\hyperlink{hpl__usb_8c_a59afa6b5d9e93328169e764631a2688d}{\+\_\+\+I\+N\+\_\+\+R\+AM}((addr), (size))
+\item 
+\#define \hyperlink{hpl__usb_8c_a096b13705bded1abf35c91dd1ace6ea3}{\+\_\+usb\+\_\+is\+\_\+aligned}(val)~(((uint32\+\_\+t)(val)\&0x3) == 0)
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{hpl__usb_8c_a686152d5db084158b8174be7134e1352}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the U\+SB device instance. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb_8c_acda342ceaa2fae5d925b698f7c52143b}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+deinit} (void)
+\begin{DoxyCompactList}\small\item\em Deinitialize the U\+SB device instance. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb_8c_ad35861b6524ee2d99d13feb69b468742}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+enable} (void)
+\begin{DoxyCompactList}\small\item\em Enable the U\+SB device. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb_8c_a714fd15ecc868a73c6d0b1df58b8877d}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+disable} (void)
+\begin{DoxyCompactList}\small\item\em Disable the U\+SB device. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__usb_8c_a8305f02d6250ab2931b861e789cee940}\label{hpl__usb_8c_a8305f02d6250ab2931b861e789cee940}} 
+void \hyperlink{hpl__usb_8c_a8305f02d6250ab2931b861e789cee940}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+attach} (void)
+\begin{DoxyCompactList}\small\item\em Attach the U\+SB device. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__usb_8c_ad6c244720ee777ba2900eca2e855c81a}\label{hpl__usb_8c_ad6c244720ee777ba2900eca2e855c81a}} 
+void \hyperlink{hpl__usb_8c_ad6c244720ee777ba2900eca2e855c81a}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+detach} (void)
+\begin{DoxyCompactList}\small\item\em Detach the U\+SB device. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__usb_8c_ab1f399a3404386364a681d04924e3012}\label{hpl__usb_8c_ab1f399a3404386364a681d04924e3012}} 
+void \hyperlink{hpl__usb_8c_ab1f399a3404386364a681d04924e3012}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+send\+\_\+remotewakeup} (void)
+\begin{DoxyCompactList}\small\item\em Send the U\+SB device remote wakeup to host. \end{DoxyCompactList}\item 
+enum \hyperlink{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340}{usb\+\_\+speed} \hyperlink{hpl__usb_8c_a523a939d6b8c7491b69037612ef52115}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+speed} (void)
+\begin{DoxyCompactList}\small\item\em Get the U\+SB device working speed. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb_8c_af2d3d2f0bb86f2b47adc33350cb35c8a}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+set\+\_\+address} (uint8\+\_\+t addr)
+\begin{DoxyCompactList}\small\item\em Set the U\+SB device address. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{hpl__usb_8c_aa850429e719d5568d184c98cd70fc5c4}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+address} (void)
+\begin{DoxyCompactList}\small\item\em Get the U\+SB device address. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{hpl__usb_8c_aaac42f9473022d74bcab8eefa4a6603a}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+frame\+\_\+n} (void)
+\begin{DoxyCompactList}\small\item\em Get the U\+SB device frame number. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{hpl__usb_8c_a905a2ebea6b14260d97a11e6d34c8c8c}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+uframe\+\_\+n} (void)
+\begin{DoxyCompactList}\small\item\em Get the U\+SB device micro frame number. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb_8c_a76bf753749719ddb2d5814b68b7b13d7}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep0\+\_\+init} (const uint8\+\_\+t max\+\_\+pkt\+\_\+siz)
+\begin{DoxyCompactList}\small\item\em Initialize and enable the U\+SB device default endpoint 0. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb_8c_a318e57a092b4126f4d4fa69a6aab109b}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+init} (const uint8\+\_\+t ep, const uint8\+\_\+t attr, const uint16\+\_\+t max\+\_\+pkt\+\_\+siz)
+\begin{DoxyCompactList}\small\item\em Initialize and enable the U\+SB device endpoint. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb_8c_a5a3e4b163cff89e3ebde10ae8b7ecfc7}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+deinit} (uint8\+\_\+t ep)
+\begin{DoxyCompactList}\small\item\em Disable and deinitialize the U\+SB device endpoint. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb_8c_a82aa7786660d7f174e1007936737af3b}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+enable} (const uint8\+\_\+t ep)
+\begin{DoxyCompactList}\small\item\em Enable the endpoint. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb_8c_a517d3e1da5be4a1b9f80ac704fa7717b}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+disable} (const uint8\+\_\+t ep)
+\begin{DoxyCompactList}\small\item\em Disable the endpoint. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb_8c_adba30466a52b721c517513215f91b438}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+stall} (const uint8\+\_\+t ep, const enum \hyperlink{hpl__usb_8h_a3f8b44aed46a8be6cc2b32211e641202}{usb\+\_\+ep\+\_\+stall\+\_\+ctrl} ctrl)
+\begin{DoxyCompactList}\small\item\em Set/\+Clear/\+Get U\+SB device endpoint stall status. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb_8c_a986e37ddeda86792722e0bc8aac155bf}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+read\+\_\+req} (const uint8\+\_\+t ep, uint8\+\_\+t $\ast$req\+\_\+buf)
+\begin{DoxyCompactList}\small\item\em Read setup request data from specific endpoint. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb_8c_afbdcf23264147bc3892ccf59aaacea4b}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+trans} (const struct \hyperlink{structusb__d__transfer}{usb\+\_\+d\+\_\+transfer} $\ast$trans)
+\begin{DoxyCompactList}\small\item\em Start U\+SB device transfer. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb_8c_aace9aaa06a343223f76db73d5e99b3d5}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+abort} (const uint8\+\_\+t ep)
+\begin{DoxyCompactList}\small\item\em Abort pending U\+SB device transaction on specific endpoint. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb_8c_a09849b79eb19ed74c0136c5346fddfce}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+get\+\_\+status} (const uint8\+\_\+t ep, struct \hyperlink{structusb__d__trans__status}{usb\+\_\+d\+\_\+trans\+\_\+status} $\ast$stat)
+\begin{DoxyCompactList}\small\item\em Retrieve endpoint status. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb_8c_aa1f40f2a83f5d8ee75d5ced353fe8d9a}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+callback} (const enum \hyperlink{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65}{usb\+\_\+d\+\_\+cb\+\_\+type} type, const \hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR} func)
+\begin{DoxyCompactList}\small\item\em Register callback to handle U\+SB device events. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb_8c_a44c519e747ffee5106f0b2c5ac792436}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+ep\+\_\+callback} (const enum \hyperlink{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63}{usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+type} type, const \hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR} func)
+\begin{DoxyCompactList}\small\item\em Register callback to handle U\+SB device endpoint events. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__usb_8c_a38c26073ef07063ed778df5fb292fce3}\label{hpl__usb_8c_a38c26073ef07063ed778df5fb292fce3}} 
+void \hyperlink{hpl__usb_8c_a38c26073ef07063ed778df5fb292fce3}{U\+S\+B\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em U\+SB interrupt handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{U\+SB clock source management}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{hpl__usb_8c_a8c231f8459819be662d4b3bbf648eccd}{U\+S\+B\+\_\+\+C\+L\+K\+\_\+\+S\+R\+C\+\_\+\+D\+F\+LL}~0
+\item 
+\#define \hyperlink{hpl__usb_8c_adcf064074a88e8a08fdf6400de0551ff}{U\+S\+B\+\_\+\+C\+L\+K\+\_\+\+S\+R\+C\+\_\+\+D\+P\+LL}~1
+\item 
+\#define \hyperlink{hpl__usb_8c_a771ae0d5a488c5efd106bac3fb694bb4}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+D\+\_\+\+C\+L\+K\+\_\+\+S\+RC}~\hyperlink{hpl__usb_8c_a8c231f8459819be662d4b3bbf648eccd}{U\+S\+B\+\_\+\+C\+L\+K\+\_\+\+S\+R\+C\+\_\+\+D\+F\+LL}
+\item 
+\#define \hyperlink{hpl__usb_8c_a8834fc5f16e02d92b39c594feb7a5a95}{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+R\+M\+T\+\_\+\+W\+K\+U\+P\+\_\+\+R\+E\+T\+RY}~5
+\end{DoxyCompactItemize}
+\subsection*{HW specific settings and implements}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{hpl__usb_8c_a12a5580ba5a2ca674cb271474ae5e819}{U\+S\+B\+\_\+\+D\+\_\+\+N\+\_\+\+EP}~(1 + C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+D\+\_\+\+N\+U\+M\+\_\+\+E\+P\+\_\+\+SP $\ast$ 2)
+\item 
+\#define \hyperlink{hpl__usb_8c_af88c45c0c5b1c7f4bacc11049b8d2b25}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+used}(ept)~((ept)-\/$>$ep != 0x\+F\+F)
+\item 
+\#define \hyperlink{hpl__usb_8c_a35bdeffd2f21d05b0682bc4a74a53b6b}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+busy}(ept)~((ept)-\/$>$flags.\+bits.\+is\+\_\+busy)
+\item 
+\#define \hyperlink{hpl__usb_8c_a540f603fa4ccf55bf5fd4e4a09474878}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+ctrl}(ept)~((ept)-\/$>$flags.\+bits.\+eptype == \hyperlink{hpl__usb_8c_ad2f5d22ae6105919d3669f7ae3eb1c4a}{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+C\+T\+RL})
+\item 
+\#define \hyperlink{hpl__usb_8c_ae4d53b58c73bae85827bd814de701eb9}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+in}(ept)~((ept)-\/$>$flags.\+bits.\+dir)
+\item 
+\#define \hyperlink{hpl__usb_8c_af18b1fe14239169408ecf87c5d72cf7b}{U\+S\+B\+\_\+\+D\+\_\+\+S\+E\+T\+U\+P\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}~(U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+E\+P\+I\+N\+T\+F\+L\+A\+G\+\_\+\+R\+X\+S\+TP)
+\item 
+\#define \hyperlink{hpl__usb_8c_a5df4a90a09b1367cc94472cad0da4099}{U\+S\+B\+\_\+\+D\+\_\+\+B\+A\+N\+K1\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}~(U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+E\+P\+I\+N\+T\+F\+L\+A\+G\+\_\+\+T\+R\+C\+P\+T1 $\vert$ U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+E\+P\+I\+N\+T\+F\+L\+A\+G\+\_\+\+T\+R\+F\+A\+I\+L1 $\vert$ U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+E\+P\+I\+N\+T\+F\+L\+A\+G\+\_\+\+S\+T\+A\+L\+L1)
+\item 
+\#define \hyperlink{hpl__usb_8c_a3b8111de9f26549d0bf2c9da6fd9a570}{U\+S\+B\+\_\+\+D\+\_\+\+B\+A\+N\+K0\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}~(U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+E\+P\+I\+N\+T\+F\+L\+A\+G\+\_\+\+T\+R\+C\+P\+T0 $\vert$ U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+E\+P\+I\+N\+T\+F\+L\+A\+G\+\_\+\+T\+R\+F\+A\+I\+L0 $\vert$ U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+E\+P\+I\+N\+T\+F\+L\+A\+G\+\_\+\+S\+T\+A\+L\+L0)
+\item 
+\#define \hyperlink{hpl__usb_8c_a4f4c74270c681d07d091581ac727472a}{U\+S\+B\+\_\+\+D\+\_\+\+A\+L\+L\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}~(0x7\+F)
+\item 
+\#define \hyperlink{hpl__usb_8c_a3019979fdea8cdcc3de82d82665c1ae3}{U\+S\+B\+\_\+\+D\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}~(U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+I\+N\+T\+F\+L\+A\+G\+\_\+\+U\+P\+R\+SM $\vert$ U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+I\+N\+T\+F\+L\+A\+G\+\_\+\+E\+O\+R\+SM $\vert$ U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+I\+N\+T\+F\+L\+A\+G\+\_\+\+W\+A\+K\+E\+UP)
+\item 
+\#define \hyperlink{hpl__usb_8c_aaaf31c0e03318a65bec84686de23b7af}{U\+S\+B\+\_\+\+D\+\_\+\+S\+U\+S\+P\+E\+N\+D\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}~(U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+I\+N\+T\+F\+L\+A\+G\+\_\+\+L\+P\+M\+S\+U\+SP $\vert$ U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+I\+N\+T\+F\+L\+A\+G\+\_\+\+S\+U\+S\+P\+E\+ND)
+\item 
+\#define \hyperlink{hpl__usb_8c_a337a695d859fa6c407f94fb4ed2c4f1b}{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+T\+R\+A\+N\+S\+\_\+\+M\+AX}~8192 /$\ast$ 14-\/bits, uses 13-\/bits. $\ast$/
+\item 
+\#define \hyperlink{hpl__usb_8c_a78d38b3a6b2d1ebf83e328b0a694d753}{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+D\+I\+S\+A\+B\+LE}~0
+\item 
+\#define \hyperlink{hpl__usb_8c_ad2f5d22ae6105919d3669f7ae3eb1c4a}{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+C\+T\+RL}~1
+\item 
+\#define \hyperlink{hpl__usb_8c_a7854a5490e21019eb0f980b60e294e10}{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+I\+S\+O\+CH}~2
+\item 
+\#define \hyperlink{hpl__usb_8c_a20bc7ea02198fd144af92c095e49d1f1}{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+I\+NT}~3
+\item 
+\#define \hyperlink{hpl__usb_8c_afc769f4fca021a77d6eb9347d613eff9}{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+B\+U\+LK}~4
+\item 
+\#define \hyperlink{hpl__usb_8c_a59743a88dd44a58b47e26b1949dfc267}{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+D\+U\+AL}~5
+\item 
+\#define \hyperlink{hpl__usb_8c_a3b28574b797ef25cb25d391fe447c438}{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+C\+F\+G\+\_\+\+C\+T\+RL}~0x11
+\item 
+typedef struct \hyperlink{struct__usb__d__dev__prvt}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+prvt} \hyperlink{hpl__usb_8c_a0c42ca79708d287d588ea0ef6afabacb}{usb\+\_\+d\+\_\+dev\+\_\+prvt\+\_\+t}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+S\+AM U\+SB H\+PL. 
+
+Copyright (C) 2015-\/2017 Atmel Corporation. All rights reserved.
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{hpl__usb_8c_a59afa6b5d9e93328169e764631a2688d}\label{hpl__usb_8c_a59afa6b5d9e93328169e764631a2688d}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+\+I\+N\+\_\+\+R\+AM@{\+\_\+\+I\+N\+\_\+\+R\+AM}}
+\index{\+\_\+\+I\+N\+\_\+\+R\+AM@{\+\_\+\+I\+N\+\_\+\+R\+AM}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+I\+N\+\_\+\+R\+AM}{\_IN\_RAM}}
+{\footnotesize\ttfamily \#define \+\_\+\+I\+N\+\_\+\+R\+AM(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{s }\end{DoxyParamCaption})~((0x20000000 $<$= (uint32\+\_\+t)(a)) \&\& (((uint32\+\_\+t)(a) + (s)) $<$ 0x20008000))}
+
+Check if the buffer is in R\+AM (can D\+MA), or cache needed 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & Buffer start address. \\
+\hline
+\mbox{\tt in}  & {\em s} & Buffer size, in number of bytes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} If the buffer is in R\+AM. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__usb_8c_ad8e8f77013bb1200bbf75d775d2217ea}\label{hpl__usb_8c_ad8e8f77013bb1200bbf75d775d2217ea}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+align\+\_\+up@{\+\_\+usb\+\_\+align\+\_\+up}}
+\index{\+\_\+usb\+\_\+align\+\_\+up@{\+\_\+usb\+\_\+align\+\_\+up}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+align\+\_\+up}{\_usb\_align\_up}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+align\+\_\+up(\begin{DoxyParamCaption}\item[{}]{val }\end{DoxyParamCaption})~(((val)\&0x3) ? (((val) + 4 -\/ ((val)\&0x3))) \+: (val))}
+
+Increase the value to be aligned. \mbox{\Hypertarget{hpl__usb_8c_a35bdeffd2f21d05b0682bc4a74a53b6b}\label{hpl__usb_8c_a35bdeffd2f21d05b0682bc4a74a53b6b}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+busy@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+busy}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+busy@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+busy}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+busy}{\_usb\_d\_dev\_ep\_is\_busy}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+busy(\begin{DoxyParamCaption}\item[{}]{ept }\end{DoxyParamCaption})~((ept)-\/$>$flags.\+bits.\+is\+\_\+busy)}
+
+Check if the endpoint is busy doing transactions. \mbox{\Hypertarget{hpl__usb_8c_a540f603fa4ccf55bf5fd4e4a09474878}\label{hpl__usb_8c_a540f603fa4ccf55bf5fd4e4a09474878}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+ctrl@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+ctrl}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+ctrl@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+ctrl}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+ctrl}{\_usb\_d\_dev\_ep\_is\_ctrl}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+ctrl(\begin{DoxyParamCaption}\item[{}]{ept }\end{DoxyParamCaption})~((ept)-\/$>$flags.\+bits.\+eptype == \hyperlink{hpl__usb_8c_ad2f5d22ae6105919d3669f7ae3eb1c4a}{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+C\+T\+RL})}
+
+Check if the endpoint is control endpoint. \mbox{\Hypertarget{hpl__usb_8c_ae4d53b58c73bae85827bd814de701eb9}\label{hpl__usb_8c_ae4d53b58c73bae85827bd814de701eb9}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+in@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+in}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+in@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+in}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+in}{\_usb\_d\_dev\_ep\_is\_in}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+in(\begin{DoxyParamCaption}\item[{}]{ept }\end{DoxyParamCaption})~((ept)-\/$>$flags.\+bits.\+dir)}
+
+Check if the endpoint transactions are IN. \mbox{\Hypertarget{hpl__usb_8c_af88c45c0c5b1c7f4bacc11049b8d2b25}\label{hpl__usb_8c_af88c45c0c5b1c7f4bacc11049b8d2b25}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+used@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+used}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+used@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+used}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+used}{\_usb\_d\_dev\_ep\_is\_used}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+is\+\_\+used(\begin{DoxyParamCaption}\item[{}]{ept }\end{DoxyParamCaption})~((ept)-\/$>$ep != 0x\+F\+F)}
+
+Check if the endpoint is used. \mbox{\Hypertarget{hpl__usb_8c_a9fb8de564a5ca365b356b595cff70741}\label{hpl__usb_8c_a9fb8de564a5ca365b356b595cff70741}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+ep0\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep0\+\_\+i\+\_\+cache}}
+\index{\+\_\+usb\+\_\+ep0\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep0\+\_\+i\+\_\+cache}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+ep0\+\_\+i\+\_\+cache}{\_usb\_ep0\_i\_cache}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+ep0\+\_\+i\+\_\+cache~N\+U\+LL}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_a4cce75c6ad25003f69ff299f5b8172f5}\label{hpl__usb_8c_a4cce75c6ad25003f69ff299f5b8172f5}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+ep1\+\_\+cache@{\+\_\+usb\+\_\+ep1\+\_\+cache}}
+\index{\+\_\+usb\+\_\+ep1\+\_\+cache@{\+\_\+usb\+\_\+ep1\+\_\+cache}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+ep1\+\_\+cache}{\_usb\_ep1\_cache}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+ep1\+\_\+cache~N\+U\+LL}
+
+Endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_aaf2e9599bb28b64cb5b1b2832d4d4fca}\label{hpl__usb_8c_aaf2e9599bb28b64cb5b1b2832d4d4fca}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+ep1\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep1\+\_\+i\+\_\+cache}}
+\index{\+\_\+usb\+\_\+ep1\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep1\+\_\+i\+\_\+cache}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+ep1\+\_\+i\+\_\+cache}{\_usb\_ep1\_i\_cache}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+ep1\+\_\+i\+\_\+cache~N\+U\+LL}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_a62563ca36c23d547b09d28f67c549dcf}\label{hpl__usb_8c_a62563ca36c23d547b09d28f67c549dcf}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+ep2\+\_\+cache@{\+\_\+usb\+\_\+ep2\+\_\+cache}}
+\index{\+\_\+usb\+\_\+ep2\+\_\+cache@{\+\_\+usb\+\_\+ep2\+\_\+cache}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+ep2\+\_\+cache}{\_usb\_ep2\_cache}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+ep2\+\_\+cache~N\+U\+LL}
+
+Endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_a630183e63f5de812cd71bcfbf8c9356b}\label{hpl__usb_8c_a630183e63f5de812cd71bcfbf8c9356b}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+ep2\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep2\+\_\+i\+\_\+cache}}
+\index{\+\_\+usb\+\_\+ep2\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep2\+\_\+i\+\_\+cache}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+ep2\+\_\+i\+\_\+cache}{\_usb\_ep2\_i\_cache}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+ep2\+\_\+i\+\_\+cache~N\+U\+LL}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_a13394d588cf32b0b4b26dee3761a4d21}\label{hpl__usb_8c_a13394d588cf32b0b4b26dee3761a4d21}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+ep3\+\_\+cache@{\+\_\+usb\+\_\+ep3\+\_\+cache}}
+\index{\+\_\+usb\+\_\+ep3\+\_\+cache@{\+\_\+usb\+\_\+ep3\+\_\+cache}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+ep3\+\_\+cache}{\_usb\_ep3\_cache}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+ep3\+\_\+cache~N\+U\+LL}
+
+Endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_af94e1c5be6c248f1102fb83e3c303c17}\label{hpl__usb_8c_af94e1c5be6c248f1102fb83e3c303c17}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+ep3\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep3\+\_\+i\+\_\+cache}}
+\index{\+\_\+usb\+\_\+ep3\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep3\+\_\+i\+\_\+cache}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+ep3\+\_\+i\+\_\+cache}{\_usb\_ep3\_i\_cache}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+ep3\+\_\+i\+\_\+cache~N\+U\+LL}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_a1993479a3adfba1fc1a4969704e84109}\label{hpl__usb_8c_a1993479a3adfba1fc1a4969704e84109}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+ep4\+\_\+cache@{\+\_\+usb\+\_\+ep4\+\_\+cache}}
+\index{\+\_\+usb\+\_\+ep4\+\_\+cache@{\+\_\+usb\+\_\+ep4\+\_\+cache}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+ep4\+\_\+cache}{\_usb\_ep4\_cache}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+ep4\+\_\+cache~N\+U\+LL}
+
+Endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_a2f890479bed3157d7d0121c1f09ea25a}\label{hpl__usb_8c_a2f890479bed3157d7d0121c1f09ea25a}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+ep4\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep4\+\_\+i\+\_\+cache}}
+\index{\+\_\+usb\+\_\+ep4\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep4\+\_\+i\+\_\+cache}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+ep4\+\_\+i\+\_\+cache}{\_usb\_ep4\_i\_cache}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+ep4\+\_\+i\+\_\+cache~N\+U\+LL}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_a4e42f937121e39d4214e01d54e4a976e}\label{hpl__usb_8c_a4e42f937121e39d4214e01d54e4a976e}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+ep5\+\_\+cache@{\+\_\+usb\+\_\+ep5\+\_\+cache}}
+\index{\+\_\+usb\+\_\+ep5\+\_\+cache@{\+\_\+usb\+\_\+ep5\+\_\+cache}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+ep5\+\_\+cache}{\_usb\_ep5\_cache}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+ep5\+\_\+cache~N\+U\+LL}
+
+Endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_a86fbc0e3076ee86e78354a6913908d8d}\label{hpl__usb_8c_a86fbc0e3076ee86e78354a6913908d8d}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+ep5\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep5\+\_\+i\+\_\+cache}}
+\index{\+\_\+usb\+\_\+ep5\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep5\+\_\+i\+\_\+cache}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+ep5\+\_\+i\+\_\+cache}{\_usb\_ep5\_i\_cache}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+ep5\+\_\+i\+\_\+cache~N\+U\+LL}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_ae238141367cc10f2000e84589ba598d2}\label{hpl__usb_8c_ae238141367cc10f2000e84589ba598d2}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+ep6\+\_\+cache@{\+\_\+usb\+\_\+ep6\+\_\+cache}}
+\index{\+\_\+usb\+\_\+ep6\+\_\+cache@{\+\_\+usb\+\_\+ep6\+\_\+cache}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+ep6\+\_\+cache}{\_usb\_ep6\_cache}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+ep6\+\_\+cache~N\+U\+LL}
+
+Endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_a4f0a4cb1dda108cbc5dfaecaba7b5bef}\label{hpl__usb_8c_a4f0a4cb1dda108cbc5dfaecaba7b5bef}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+ep6\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep6\+\_\+i\+\_\+cache}}
+\index{\+\_\+usb\+\_\+ep6\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep6\+\_\+i\+\_\+cache}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+ep6\+\_\+i\+\_\+cache}{\_usb\_ep6\_i\_cache}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+ep6\+\_\+i\+\_\+cache~N\+U\+LL}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_ab9410b0605e8c2d445a4ec139038001a}\label{hpl__usb_8c_ab9410b0605e8c2d445a4ec139038001a}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+ep7\+\_\+cache@{\+\_\+usb\+\_\+ep7\+\_\+cache}}
+\index{\+\_\+usb\+\_\+ep7\+\_\+cache@{\+\_\+usb\+\_\+ep7\+\_\+cache}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+ep7\+\_\+cache}{\_usb\_ep7\_cache}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+ep7\+\_\+cache~N\+U\+LL}
+
+Endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_a07f2e1f784ae734482ec51faeb5f2d74}\label{hpl__usb_8c_a07f2e1f784ae734482ec51faeb5f2d74}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+ep7\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep7\+\_\+i\+\_\+cache}}
+\index{\+\_\+usb\+\_\+ep7\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep7\+\_\+i\+\_\+cache}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+ep7\+\_\+i\+\_\+cache}{\_usb\_ep7\_i\_cache}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+ep7\+\_\+i\+\_\+cache~N\+U\+LL}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_afa73670ddf0df9fbe4e248860750d111}\label{hpl__usb_8c_afa73670ddf0df9fbe4e248860750d111}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+ep8\+\_\+cache@{\+\_\+usb\+\_\+ep8\+\_\+cache}}
+\index{\+\_\+usb\+\_\+ep8\+\_\+cache@{\+\_\+usb\+\_\+ep8\+\_\+cache}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+ep8\+\_\+cache}{\_usb\_ep8\_cache}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+ep8\+\_\+cache~N\+U\+LL}
+
+Endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_a40180cf233dc6c55cc4358f314b62698}\label{hpl__usb_8c_a40180cf233dc6c55cc4358f314b62698}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+ep8\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep8\+\_\+i\+\_\+cache}}
+\index{\+\_\+usb\+\_\+ep8\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep8\+\_\+i\+\_\+cache}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+ep8\+\_\+i\+\_\+cache}{\_usb\_ep8\_i\_cache}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+ep8\+\_\+i\+\_\+cache~N\+U\+LL}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_abb81fab43e38a6d2d3bfa81ce6a4dd96}\label{hpl__usb_8c_abb81fab43e38a6d2d3bfa81ce6a4dd96}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+ep9\+\_\+cache@{\+\_\+usb\+\_\+ep9\+\_\+cache}}
+\index{\+\_\+usb\+\_\+ep9\+\_\+cache@{\+\_\+usb\+\_\+ep9\+\_\+cache}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+ep9\+\_\+cache}{\_usb\_ep9\_cache}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+ep9\+\_\+cache~N\+U\+LL}
+
+Endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_ac0011e2b3566bd34e0b0ba936e6ed1db}\label{hpl__usb_8c_ac0011e2b3566bd34e0b0ba936e6ed1db}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+ep9\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep9\+\_\+i\+\_\+cache}}
+\index{\+\_\+usb\+\_\+ep9\+\_\+i\+\_\+cache@{\+\_\+usb\+\_\+ep9\+\_\+i\+\_\+cache}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+ep9\+\_\+i\+\_\+cache}{\_usb\_ep9\_i\_cache}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+ep9\+\_\+i\+\_\+cache~N\+U\+LL}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_abbb3c321bac4a4b45cfe5cc520691589}\label{hpl__usb_8c_abbb3c321bac4a4b45cfe5cc520691589}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+C\+A\+C\+HE@{\+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+C\+A\+C\+HE}}
+\index{\+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+C\+A\+C\+HE@{\+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+C\+A\+C\+HE}{\_USB\_EP\_CACHE}}
+{\footnotesize\ttfamily \#define \+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+C\+A\+C\+HE(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})~((void $\ast$)\+\_\+usb\+\_\+ep\#\#n\#\#\+\_\+cache)}
+
+Access endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_a56885183521f6c7f9a3a9d2a0cbc473e}\label{hpl__usb_8c_a56885183521f6c7f9a3a9d2a0cbc473e}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+C\+F\+G\+\_\+\+I\+T\+EM@{\+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+C\+F\+G\+\_\+\+I\+T\+EM}}
+\index{\+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+C\+F\+G\+\_\+\+I\+T\+EM@{\+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+C\+F\+G\+\_\+\+I\+T\+EM}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+C\+F\+G\+\_\+\+I\+T\+EM}{\_USB\_EP\_CFG\_ITEM}}
+{\footnotesize\ttfamily \#define \+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+C\+F\+G\+\_\+\+I\+T\+EM(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                                                                          
+              \(\backslash\)
+        \_USB\_EP\_CACHE(n), \hyperlink{hpl__usb_8c_a368a766563519d1a47e00799076dbce8}{\_USB\_EP\_I\_CACHE}(n), CONF\_USB\_EP##n##\_CACHE, CONF\_USB\_EP##n##
+      \_I\_CACHE,                        \(\backslash\)
+    \}
+\end{DoxyCode}
+Build the endpoint configuration settings for one endpoint. \mbox{\Hypertarget{hpl__usb_8c_a368a766563519d1a47e00799076dbce8}\label{hpl__usb_8c_a368a766563519d1a47e00799076dbce8}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{\+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+I\+\_\+\+C\+A\+C\+HE}}
+\index{\+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{\+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+I\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+I\+\_\+\+C\+A\+C\+HE}{\_USB\_EP\_I\_CACHE}}
+{\footnotesize\ttfamily \#define \+\_\+\+U\+S\+B\+\_\+\+E\+P\+\_\+\+I\+\_\+\+C\+A\+C\+HE(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})~((void $\ast$)\+\_\+usb\+\_\+ep\#\#n\#\#\+\_\+i\+\_\+cache)}
+
+Access endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_a04d15f3366b4236c86663afc3b1dbd73}\label{hpl__usb_8c_a04d15f3366b4236c86663afc3b1dbd73}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+is\+\_\+addr4dma@{\+\_\+usb\+\_\+is\+\_\+addr4dma}}
+\index{\+\_\+usb\+\_\+is\+\_\+addr4dma@{\+\_\+usb\+\_\+is\+\_\+addr4dma}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+is\+\_\+addr4dma}{\_usb\_is\_addr4dma}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+is\+\_\+addr4dma(\begin{DoxyParamCaption}\item[{}]{addr,  }\item[{}]{size }\end{DoxyParamCaption})~\hyperlink{hpl__usb_8c_a59afa6b5d9e93328169e764631a2688d}{\+\_\+\+I\+N\+\_\+\+R\+AM}((addr), (size))}
+
+Check if the address should be placed in R\+AM. \mbox{\Hypertarget{hpl__usb_8c_a096b13705bded1abf35c91dd1ace6ea3}\label{hpl__usb_8c_a096b13705bded1abf35c91dd1ace6ea3}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+is\+\_\+aligned@{\+\_\+usb\+\_\+is\+\_\+aligned}}
+\index{\+\_\+usb\+\_\+is\+\_\+aligned@{\+\_\+usb\+\_\+is\+\_\+aligned}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+is\+\_\+aligned}{\_usb\_is\_aligned}}
+{\footnotesize\ttfamily \#define \+\_\+usb\+\_\+is\+\_\+aligned(\begin{DoxyParamCaption}\item[{}]{val }\end{DoxyParamCaption})~(((uint32\+\_\+t)(val)\&0x3) == 0)}
+
+Check if the address is 32-\/bit aligned. \mbox{\Hypertarget{hpl__usb_8c_a771ae0d5a488c5efd106bac3fb694bb4}\label{hpl__usb_8c_a771ae0d5a488c5efd106bac3fb694bb4}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+D\+\_\+\+C\+L\+K\+\_\+\+S\+RC@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+D\+\_\+\+C\+L\+K\+\_\+\+S\+RC}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+D\+\_\+\+C\+L\+K\+\_\+\+S\+RC@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+D\+\_\+\+C\+L\+K\+\_\+\+S\+RC}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+D\+\_\+\+C\+L\+K\+\_\+\+S\+RC}{CONF\_USB\_D\_CLK\_SRC}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+D\+\_\+\+C\+L\+K\+\_\+\+S\+RC~\hyperlink{hpl__usb_8c_a8c231f8459819be662d4b3bbf648eccd}{U\+S\+B\+\_\+\+C\+L\+K\+\_\+\+S\+R\+C\+\_\+\+D\+F\+LL}}
+
+Uses D\+F\+LL as U\+SB clock source. \mbox{\Hypertarget{hpl__usb_8c_a7d461b82970f216f152ebb328628622e}\label{hpl__usb_8c_a7d461b82970f216f152ebb328628622e}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P0\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P0\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P0\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P0\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P0\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP0\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P0\+\_\+\+C\+A\+C\+HE~64}
+
+Endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_a5c258687c61f52c0a41049cb38fc4bf1}\label{hpl__usb_8c_a5c258687c61f52c0a41049cb38fc4bf1}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P0\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P0\+\_\+\+I\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P0\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P0\+\_\+\+I\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P0\+\_\+\+I\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP0\_I\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P0\+\_\+\+I\+\_\+\+C\+A\+C\+HE~0}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_a9c7fc4d6356c03a853e1b8fb330537fe}\label{hpl__usb_8c_a9c7fc4d6356c03a853e1b8fb330537fe}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P1\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P1\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P1\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P1\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P1\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP1\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P1\+\_\+\+C\+A\+C\+HE~64}
+
+Endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_a2086ea9315963785fde414c22bd82221}\label{hpl__usb_8c_a2086ea9315963785fde414c22bd82221}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P1\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P1\+\_\+\+I\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P1\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P1\+\_\+\+I\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P1\+\_\+\+I\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP1\_I\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P1\+\_\+\+I\+\_\+\+C\+A\+C\+HE~0}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_ac1449d347cf61a73bea2032e2dfef70c}\label{hpl__usb_8c_ac1449d347cf61a73bea2032e2dfef70c}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P2\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P2\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P2\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P2\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P2\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP2\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P2\+\_\+\+C\+A\+C\+HE~64}
+
+Endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_a99b38e4a0cab4c0585f9a58493f9b08a}\label{hpl__usb_8c_a99b38e4a0cab4c0585f9a58493f9b08a}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P2\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P2\+\_\+\+I\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P2\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P2\+\_\+\+I\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P2\+\_\+\+I\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP2\_I\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P2\+\_\+\+I\+\_\+\+C\+A\+C\+HE~0}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_ab04d3fa26ef854a77d52d067d050becb}\label{hpl__usb_8c_ab04d3fa26ef854a77d52d067d050becb}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P3\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P3\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P3\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P3\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P3\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP3\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P3\+\_\+\+C\+A\+C\+HE~64}
+
+Endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_a0163592b00d193027db751615214ddba}\label{hpl__usb_8c_a0163592b00d193027db751615214ddba}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P3\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P3\+\_\+\+I\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P3\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P3\+\_\+\+I\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P3\+\_\+\+I\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP3\_I\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P3\+\_\+\+I\+\_\+\+C\+A\+C\+HE~0}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_a429784acf1c5d03d307733a55fad8dbd}\label{hpl__usb_8c_a429784acf1c5d03d307733a55fad8dbd}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P4\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P4\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P4\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P4\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P4\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP4\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P4\+\_\+\+C\+A\+C\+HE~64}
+
+Endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_a06a717b3edb09e6cd3db407846acf5ae}\label{hpl__usb_8c_a06a717b3edb09e6cd3db407846acf5ae}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P4\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P4\+\_\+\+I\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P4\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P4\+\_\+\+I\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P4\+\_\+\+I\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP4\_I\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P4\+\_\+\+I\+\_\+\+C\+A\+C\+HE~0}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_a456f741629ee32687b5684ddc96f87d7}\label{hpl__usb_8c_a456f741629ee32687b5684ddc96f87d7}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P5\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P5\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P5\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P5\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P5\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP5\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P5\+\_\+\+C\+A\+C\+HE~64}
+
+Endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_a41dd1c9a3ce8da187ec70a943c75052a}\label{hpl__usb_8c_a41dd1c9a3ce8da187ec70a943c75052a}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P5\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P5\+\_\+\+I\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P5\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P5\+\_\+\+I\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P5\+\_\+\+I\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP5\_I\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P5\+\_\+\+I\+\_\+\+C\+A\+C\+HE~0}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_a2b9047a62f8226422e49ce7972d9e913}\label{hpl__usb_8c_a2b9047a62f8226422e49ce7972d9e913}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P6\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P6\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P6\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P6\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P6\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP6\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P6\+\_\+\+C\+A\+C\+HE~64}
+
+Endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_a48a187efb81ff482f34a8e42cd99f7b7}\label{hpl__usb_8c_a48a187efb81ff482f34a8e42cd99f7b7}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P6\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P6\+\_\+\+I\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P6\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P6\+\_\+\+I\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P6\+\_\+\+I\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP6\_I\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P6\+\_\+\+I\+\_\+\+C\+A\+C\+HE~0}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_a1fb12dfe9b157e8f611deffa675b87e6}\label{hpl__usb_8c_a1fb12dfe9b157e8f611deffa675b87e6}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P7\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P7\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P7\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P7\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P7\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP7\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P7\+\_\+\+C\+A\+C\+HE~64}
+
+Endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_ab3951db6cc4ce56e4ca28dfe18480527}\label{hpl__usb_8c_ab3951db6cc4ce56e4ca28dfe18480527}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P7\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P7\+\_\+\+I\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P7\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P7\+\_\+\+I\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P7\+\_\+\+I\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP7\_I\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P7\+\_\+\+I\+\_\+\+C\+A\+C\+HE~0}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_a896d59589c19e0409e995be208e0bedc}\label{hpl__usb_8c_a896d59589c19e0409e995be208e0bedc}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P8\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P8\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P8\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P8\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P8\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP8\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P8\+\_\+\+C\+A\+C\+HE~64}
+
+Endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_ac6d638a1259a9c5a513da5cc66815ffb}\label{hpl__usb_8c_ac6d638a1259a9c5a513da5cc66815ffb}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P8\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P8\+\_\+\+I\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P8\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P8\+\_\+\+I\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P8\+\_\+\+I\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP8\_I\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P8\+\_\+\+I\+\_\+\+C\+A\+C\+HE~0}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_ab69b1cb68118e649cdd22d99d81e84e2}\label{hpl__usb_8c_ab69b1cb68118e649cdd22d99d81e84e2}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P9\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P9\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P9\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P9\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P9\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP9\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P9\+\_\+\+C\+A\+C\+HE~64}
+
+Endpoint cache buffer for O\+UT transactions (none-\/control) or S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions (control). \mbox{\Hypertarget{hpl__usb_8c_a73c3f49c1c40321ace658505034cb6b4}\label{hpl__usb_8c_a73c3f49c1c40321ace658505034cb6b4}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P9\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P9\+\_\+\+I\+\_\+\+C\+A\+C\+HE}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P9\+\_\+\+I\+\_\+\+C\+A\+C\+HE@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P9\+\_\+\+I\+\_\+\+C\+A\+C\+HE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P9\+\_\+\+I\+\_\+\+C\+A\+C\+HE}{CONF\_USB\_EP9\_I\_CACHE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+E\+P9\+\_\+\+I\+\_\+\+C\+A\+C\+HE~0}
+
+Endpoint cache buffer for IN transactions (none-\/control). \mbox{\Hypertarget{hpl__usb_8c_a8834fc5f16e02d92b39c594feb7a5a95}\label{hpl__usb_8c_a8834fc5f16e02d92b39c594feb7a5a95}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+R\+M\+T\+\_\+\+W\+K\+U\+P\+\_\+\+R\+E\+T\+RY@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+R\+M\+T\+\_\+\+W\+K\+U\+P\+\_\+\+R\+E\+T\+RY}}
+\index{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+R\+M\+T\+\_\+\+W\+K\+U\+P\+\_\+\+R\+E\+T\+RY@{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+R\+M\+T\+\_\+\+W\+K\+U\+P\+\_\+\+R\+E\+T\+RY}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+R\+M\+T\+\_\+\+W\+K\+U\+P\+\_\+\+R\+E\+T\+RY}{CONF\_USB\_RMT\_WKUP\_RETRY}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+R\+M\+T\+\_\+\+W\+K\+U\+P\+\_\+\+R\+E\+T\+RY~5}
+
+Retry for U\+SB remote wakeup sending. \mbox{\Hypertarget{hpl__usb_8c_a8c231f8459819be662d4b3bbf648eccd}\label{hpl__usb_8c_a8c231f8459819be662d4b3bbf648eccd}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!U\+S\+B\+\_\+\+C\+L\+K\+\_\+\+S\+R\+C\+\_\+\+D\+F\+LL@{U\+S\+B\+\_\+\+C\+L\+K\+\_\+\+S\+R\+C\+\_\+\+D\+F\+LL}}
+\index{U\+S\+B\+\_\+\+C\+L\+K\+\_\+\+S\+R\+C\+\_\+\+D\+F\+LL@{U\+S\+B\+\_\+\+C\+L\+K\+\_\+\+S\+R\+C\+\_\+\+D\+F\+LL}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+C\+L\+K\+\_\+\+S\+R\+C\+\_\+\+D\+F\+LL}{USB\_CLK\_SRC\_DFLL}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+C\+L\+K\+\_\+\+S\+R\+C\+\_\+\+D\+F\+LL~0}
+
+U\+SB clock is generated by D\+F\+LL. \mbox{\Hypertarget{hpl__usb_8c_adcf064074a88e8a08fdf6400de0551ff}\label{hpl__usb_8c_adcf064074a88e8a08fdf6400de0551ff}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!U\+S\+B\+\_\+\+C\+L\+K\+\_\+\+S\+R\+C\+\_\+\+D\+P\+LL@{U\+S\+B\+\_\+\+C\+L\+K\+\_\+\+S\+R\+C\+\_\+\+D\+P\+LL}}
+\index{U\+S\+B\+\_\+\+C\+L\+K\+\_\+\+S\+R\+C\+\_\+\+D\+P\+LL@{U\+S\+B\+\_\+\+C\+L\+K\+\_\+\+S\+R\+C\+\_\+\+D\+P\+LL}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+C\+L\+K\+\_\+\+S\+R\+C\+\_\+\+D\+P\+LL}{USB\_CLK\_SRC\_DPLL}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+C\+L\+K\+\_\+\+S\+R\+C\+\_\+\+D\+P\+LL~1}
+
+U\+SB clock is generated by D\+P\+LL. \mbox{\Hypertarget{hpl__usb_8c_a4f4c74270c681d07d091581ac727472a}\label{hpl__usb_8c_a4f4c74270c681d07d091581ac727472a}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!U\+S\+B\+\_\+\+D\+\_\+\+A\+L\+L\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS@{U\+S\+B\+\_\+\+D\+\_\+\+A\+L\+L\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}}
+\index{U\+S\+B\+\_\+\+D\+\_\+\+A\+L\+L\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS@{U\+S\+B\+\_\+\+D\+\_\+\+A\+L\+L\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+D\+\_\+\+A\+L\+L\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}{USB\_D\_ALL\_INT\_FLAGS}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+D\+\_\+\+A\+L\+L\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS~(0x7\+F)}
+
+Interrupt flags for S\+E\+T\+U\+P/\+I\+N/\+O\+UT transactions. \mbox{\Hypertarget{hpl__usb_8c_a3b8111de9f26549d0bf2c9da6fd9a570}\label{hpl__usb_8c_a3b8111de9f26549d0bf2c9da6fd9a570}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!U\+S\+B\+\_\+\+D\+\_\+\+B\+A\+N\+K0\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS@{U\+S\+B\+\_\+\+D\+\_\+\+B\+A\+N\+K0\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}}
+\index{U\+S\+B\+\_\+\+D\+\_\+\+B\+A\+N\+K0\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS@{U\+S\+B\+\_\+\+D\+\_\+\+B\+A\+N\+K0\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+D\+\_\+\+B\+A\+N\+K0\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}{USB\_D\_BANK0\_INT\_FLAGS}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+D\+\_\+\+B\+A\+N\+K0\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS~(U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+E\+P\+I\+N\+T\+F\+L\+A\+G\+\_\+\+T\+R\+C\+P\+T0 $\vert$ U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+E\+P\+I\+N\+T\+F\+L\+A\+G\+\_\+\+T\+R\+F\+A\+I\+L0 $\vert$ U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+E\+P\+I\+N\+T\+F\+L\+A\+G\+\_\+\+S\+T\+A\+L\+L0)}
+
+Interrupt flags for B\+A\+N\+K0 transactions. \mbox{\Hypertarget{hpl__usb_8c_a5df4a90a09b1367cc94472cad0da4099}\label{hpl__usb_8c_a5df4a90a09b1367cc94472cad0da4099}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!U\+S\+B\+\_\+\+D\+\_\+\+B\+A\+N\+K1\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS@{U\+S\+B\+\_\+\+D\+\_\+\+B\+A\+N\+K1\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}}
+\index{U\+S\+B\+\_\+\+D\+\_\+\+B\+A\+N\+K1\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS@{U\+S\+B\+\_\+\+D\+\_\+\+B\+A\+N\+K1\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+D\+\_\+\+B\+A\+N\+K1\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}{USB\_D\_BANK1\_INT\_FLAGS}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+D\+\_\+\+B\+A\+N\+K1\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS~(U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+E\+P\+I\+N\+T\+F\+L\+A\+G\+\_\+\+T\+R\+C\+P\+T1 $\vert$ U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+E\+P\+I\+N\+T\+F\+L\+A\+G\+\_\+\+T\+R\+F\+A\+I\+L1 $\vert$ U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+E\+P\+I\+N\+T\+F\+L\+A\+G\+\_\+\+S\+T\+A\+L\+L1)}
+
+Interrupt flags for B\+A\+N\+K1 transactions. \mbox{\Hypertarget{hpl__usb_8c_a337a695d859fa6c407f94fb4ed2c4f1b}\label{hpl__usb_8c_a337a695d859fa6c407f94fb4ed2c4f1b}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+T\+R\+A\+N\+S\+\_\+\+M\+AX@{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+T\+R\+A\+N\+S\+\_\+\+M\+AX}}
+\index{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+T\+R\+A\+N\+S\+\_\+\+M\+AX@{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+T\+R\+A\+N\+S\+\_\+\+M\+AX}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+T\+R\+A\+N\+S\+\_\+\+M\+AX}{USB\_D\_DEV\_TRANS\_MAX}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+T\+R\+A\+N\+S\+\_\+\+M\+AX~8192 /$\ast$ 14-\/bits, uses 13-\/bits. $\ast$/}
+
+Max data bytes for a single D\+MA transfer. \mbox{\Hypertarget{hpl__usb_8c_a3b28574b797ef25cb25d391fe447c438}\label{hpl__usb_8c_a3b28574b797ef25cb25d391fe447c438}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+C\+F\+G\+\_\+\+C\+T\+RL@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+C\+F\+G\+\_\+\+C\+T\+RL}}
+\index{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+C\+F\+G\+\_\+\+C\+T\+RL@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+C\+F\+G\+\_\+\+C\+T\+RL}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+C\+F\+G\+\_\+\+C\+T\+RL}{USB\_D\_EPCFG\_CTRL}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+C\+F\+G\+\_\+\+C\+T\+RL~0x11}
+
+E\+P\+C\+FG register value for control endpoints. \mbox{\Hypertarget{hpl__usb_8c_afc769f4fca021a77d6eb9347d613eff9}\label{hpl__usb_8c_afc769f4fca021a77d6eb9347d613eff9}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+B\+U\+LK@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+B\+U\+LK}}
+\index{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+B\+U\+LK@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+B\+U\+LK}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+B\+U\+LK}{USB\_D\_EPTYPE\_BULK}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+B\+U\+LK~4}
+
+Endpoint type setting to work as bulk endpoint. \mbox{\Hypertarget{hpl__usb_8c_ad2f5d22ae6105919d3669f7ae3eb1c4a}\label{hpl__usb_8c_ad2f5d22ae6105919d3669f7ae3eb1c4a}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+C\+T\+RL@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+C\+T\+RL}}
+\index{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+C\+T\+RL@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+C\+T\+RL}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+C\+T\+RL}{USB\_D\_EPTYPE\_CTRL}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+C\+T\+RL~1}
+
+Endpoint type setting to work as control endpoint. \mbox{\Hypertarget{hpl__usb_8c_a78d38b3a6b2d1ebf83e328b0a694d753}\label{hpl__usb_8c_a78d38b3a6b2d1ebf83e328b0a694d753}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+D\+I\+S\+A\+B\+LE@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+D\+I\+S\+A\+B\+LE}}
+\index{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+D\+I\+S\+A\+B\+LE@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+D\+I\+S\+A\+B\+LE}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+D\+I\+S\+A\+B\+LE}{USB\_D\_EPTYPE\_DISABLE}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+D\+I\+S\+A\+B\+LE~0}
+
+Endpoint type setting to disable. \mbox{\Hypertarget{hpl__usb_8c_a59743a88dd44a58b47e26b1949dfc267}\label{hpl__usb_8c_a59743a88dd44a58b47e26b1949dfc267}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+D\+U\+AL@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+D\+U\+AL}}
+\index{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+D\+U\+AL@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+D\+U\+AL}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+D\+U\+AL}{USB\_D\_EPTYPE\_DUAL}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+D\+U\+AL~5}
+
+Endpoint type setting for dual bank endpoint. \mbox{\Hypertarget{hpl__usb_8c_a20bc7ea02198fd144af92c095e49d1f1}\label{hpl__usb_8c_a20bc7ea02198fd144af92c095e49d1f1}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+I\+NT@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+I\+NT}}
+\index{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+I\+NT@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+I\+NT}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+I\+NT}{USB\_D\_EPTYPE\_INT}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+I\+NT~3}
+
+Endpoint type setting to work as interrupt endpoint. \mbox{\Hypertarget{hpl__usb_8c_a7854a5490e21019eb0f980b60e294e10}\label{hpl__usb_8c_a7854a5490e21019eb0f980b60e294e10}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+I\+S\+O\+CH@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+I\+S\+O\+CH}}
+\index{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+I\+S\+O\+CH@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+I\+S\+O\+CH}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+I\+S\+O\+CH}{USB\_D\_EPTYPE\_ISOCH}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+T\+Y\+P\+E\+\_\+\+I\+S\+O\+CH~2}
+
+Endpoint type setting to work as isochronous endpoint. \mbox{\Hypertarget{hpl__usb_8c_a12a5580ba5a2ca674cb271474ae5e819}\label{hpl__usb_8c_a12a5580ba5a2ca674cb271474ae5e819}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!U\+S\+B\+\_\+\+D\+\_\+\+N\+\_\+\+EP@{U\+S\+B\+\_\+\+D\+\_\+\+N\+\_\+\+EP}}
+\index{U\+S\+B\+\_\+\+D\+\_\+\+N\+\_\+\+EP@{U\+S\+B\+\_\+\+D\+\_\+\+N\+\_\+\+EP}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+D\+\_\+\+N\+\_\+\+EP}{USB\_D\_N\_EP}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+D\+\_\+\+N\+\_\+\+EP~(1 + C\+O\+N\+F\+\_\+\+U\+S\+B\+\_\+\+D\+\_\+\+N\+U\+M\+\_\+\+E\+P\+\_\+\+SP $\ast$ 2)}
+
+Number of endpoints supported. \mbox{\Hypertarget{hpl__usb_8c_af18b1fe14239169408ecf87c5d72cf7b}\label{hpl__usb_8c_af18b1fe14239169408ecf87c5d72cf7b}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!U\+S\+B\+\_\+\+D\+\_\+\+S\+E\+T\+U\+P\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS@{U\+S\+B\+\_\+\+D\+\_\+\+S\+E\+T\+U\+P\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}}
+\index{U\+S\+B\+\_\+\+D\+\_\+\+S\+E\+T\+U\+P\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS@{U\+S\+B\+\_\+\+D\+\_\+\+S\+E\+T\+U\+P\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+D\+\_\+\+S\+E\+T\+U\+P\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}{USB\_D\_SETUP\_INT\_FLAGS}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+D\+\_\+\+S\+E\+T\+U\+P\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS~(U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+E\+P\+I\+N\+T\+F\+L\+A\+G\+\_\+\+R\+X\+S\+TP)}
+
+Interrupt flags for S\+E\+T\+UP transaction. \mbox{\Hypertarget{hpl__usb_8c_aaaf31c0e03318a65bec84686de23b7af}\label{hpl__usb_8c_aaaf31c0e03318a65bec84686de23b7af}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!U\+S\+B\+\_\+\+D\+\_\+\+S\+U\+S\+P\+E\+N\+D\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS@{U\+S\+B\+\_\+\+D\+\_\+\+S\+U\+S\+P\+E\+N\+D\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}}
+\index{U\+S\+B\+\_\+\+D\+\_\+\+S\+U\+S\+P\+E\+N\+D\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS@{U\+S\+B\+\_\+\+D\+\_\+\+S\+U\+S\+P\+E\+N\+D\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+D\+\_\+\+S\+U\+S\+P\+E\+N\+D\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}{USB\_D\_SUSPEND\_INT\_FLAGS}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+D\+\_\+\+S\+U\+S\+P\+E\+N\+D\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS~(U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+I\+N\+T\+F\+L\+A\+G\+\_\+\+L\+P\+M\+S\+U\+SP $\vert$ U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+I\+N\+T\+F\+L\+A\+G\+\_\+\+S\+U\+S\+P\+E\+ND)}
+
+Interrupt flags for S\+U\+S\+P\+E\+ND event. \mbox{\Hypertarget{hpl__usb_8c_a3019979fdea8cdcc3de82d82665c1ae3}\label{hpl__usb_8c_a3019979fdea8cdcc3de82d82665c1ae3}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!U\+S\+B\+\_\+\+D\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS@{U\+S\+B\+\_\+\+D\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}}
+\index{U\+S\+B\+\_\+\+D\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS@{U\+S\+B\+\_\+\+D\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+D\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS}{USB\_D\_WAKEUP\_INT\_FLAGS}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+D\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+I\+N\+T\+\_\+\+F\+L\+A\+GS~(U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+I\+N\+T\+F\+L\+A\+G\+\_\+\+U\+P\+R\+SM $\vert$ U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+I\+N\+T\+F\+L\+A\+G\+\_\+\+E\+O\+R\+SM $\vert$ U\+S\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+I\+N\+T\+F\+L\+A\+G\+\_\+\+W\+A\+K\+E\+UP)}
+
+Interrupt flags for W\+A\+K\+E\+UP event. 
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{hpl__usb_8c_a0c42ca79708d287d588ea0ef6afabacb}\label{hpl__usb_8c_a0c42ca79708d287d588ea0ef6afabacb}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!usb\+\_\+d\+\_\+dev\+\_\+prvt\+\_\+t@{usb\+\_\+d\+\_\+dev\+\_\+prvt\+\_\+t}}
+\index{usb\+\_\+d\+\_\+dev\+\_\+prvt\+\_\+t@{usb\+\_\+d\+\_\+dev\+\_\+prvt\+\_\+t}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+dev\+\_\+prvt\+\_\+t}{usb\_d\_dev\_prvt\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{struct__usb__d__dev__prvt}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+prvt}  \hyperlink{hpl__usb_8c_a0c42ca79708d287d588ea0ef6afabacb}{usb\+\_\+d\+\_\+dev\+\_\+prvt\+\_\+t}}
+
+Private data for S\+A\+M0 U\+SB peripheral. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{hpl__usb_8c_acda342ceaa2fae5d925b698f7c52143b}\label{hpl__usb_8c_acda342ceaa2fae5d925b698f7c52143b}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+deinit@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+deinit}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+deinit@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+deinit}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+deinit()}{\_usb\_d\_dev\_deinit()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+d\+\_\+dev\+\_\+deinit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Deinitialize the U\+SB device instance. 
+
+\begin{DoxyReturn}{Returns}
+Operation result status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb_8c_a714fd15ecc868a73c6d0b1df58b8877d}\label{hpl__usb_8c_a714fd15ecc868a73c6d0b1df58b8877d}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+disable@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+disable}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+disable@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+disable}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+disable()}{\_usb\_d\_dev\_disable()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+disable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Disable the U\+SB device. 
+
+\begin{DoxyReturn}{Returns}
+Operation result status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb_8c_ad35861b6524ee2d99d13feb69b468742}\label{hpl__usb_8c_ad35861b6524ee2d99d13feb69b468742}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+enable@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+enable}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+enable@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+enable}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+enable()}{\_usb\_d\_dev\_enable()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+enable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Enable the U\+SB device. 
+
+\begin{DoxyReturn}{Returns}
+Operation result status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb_8c_a76bf753749719ddb2d5814b68b7b13d7}\label{hpl__usb_8c_a76bf753749719ddb2d5814b68b7b13d7}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep0\+\_\+init@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep0\+\_\+init}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep0\+\_\+init@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep0\+\_\+init}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep0\+\_\+init()}{\_usb\_d\_dev\_ep0\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep0\+\_\+init (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{max\+\_\+pkt\+\_\+siz }\end{DoxyParamCaption})}
+
+
+
+Initialize and enable the U\+SB device default endpoint 0. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em max\+\_\+pkt\+\_\+siz} & Max endpoint size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation result status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb_8c_aace9aaa06a343223f76db73d5e99b3d5}\label{hpl__usb_8c_aace9aaa06a343223f76db73d5e99b3d5}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+abort@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+abort}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+abort@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+abort}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+abort()}{\_usb\_d\_dev\_ep\_abort()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+abort (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep }\end{DoxyParamCaption})}
+
+
+
+Abort pending U\+SB device transaction on specific endpoint. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & Endpoint address to abort. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__usb_8c_a5a3e4b163cff89e3ebde10ae8b7ecfc7}\label{hpl__usb_8c_a5a3e4b163cff89e3ebde10ae8b7ecfc7}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+deinit@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+deinit}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+deinit@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+deinit}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+deinit()}{\_usb\_d\_dev\_ep\_deinit()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+deinit (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep }\end{DoxyParamCaption})}
+
+
+
+Disable and deinitialize the U\+SB device endpoint. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & The endpoint to deinitialize. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__usb_8c_a517d3e1da5be4a1b9f80ac704fa7717b}\label{hpl__usb_8c_a517d3e1da5be4a1b9f80ac704fa7717b}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+disable@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+disable}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+disable@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+disable}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+disable()}{\_usb\_d\_dev\_ep\_disable()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+disable (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep }\end{DoxyParamCaption})}
+
+
+
+Disable the endpoint. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & The endpoint to disable. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__usb_8c_a82aa7786660d7f174e1007936737af3b}\label{hpl__usb_8c_a82aa7786660d7f174e1007936737af3b}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+enable@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+enable}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+enable@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+enable}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+enable()}{\_usb\_d\_dev\_ep\_enable()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+enable (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep }\end{DoxyParamCaption})}
+
+
+
+Enable the endpoint. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & The endpoint to enable. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation result status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb_8c_a09849b79eb19ed74c0136c5346fddfce}\label{hpl__usb_8c_a09849b79eb19ed74c0136c5346fddfce}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+get\+\_\+status@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+get\+\_\+status}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+get\+\_\+status@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+get\+\_\+status}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+get\+\_\+status()}{\_usb\_d\_dev\_ep\_get\_status()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+get\+\_\+status (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep,  }\item[{struct \hyperlink{structusb__d__trans__status}{usb\+\_\+d\+\_\+trans\+\_\+status} $\ast$}]{stat }\end{DoxyParamCaption})}
+
+
+
+Retrieve endpoint status. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & Endpoint address. \\
+\hline
+\mbox{\tt out}  & {\em stat} & Pointer to buffer to fill status description. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 2} & Packet writing. \\
+\hline
+{\em 1} & Busy. \\
+\hline
+{\em 0} & Ready. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb_8c_a318e57a092b4126f4d4fa69a6aab109b}\label{hpl__usb_8c_a318e57a092b4126f4d4fa69a6aab109b}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+init@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+init}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+init@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+init}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+init()}{\_usb\_d\_dev\_ep\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+init (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep,  }\item[{const uint8\+\_\+t}]{attr,  }\item[{uint16\+\_\+t}]{max\+\_\+pkt\+\_\+siz }\end{DoxyParamCaption})}
+
+
+
+Initialize and enable the U\+SB device endpoint. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & Endpoint address, see endpoint descriptor details in U\+SB spec. \\
+\hline
+\mbox{\tt in}  & {\em attr} & Endpoint attributes, see endpoint descriptor details in U\+SB spec. \\
+\hline
+\mbox{\tt in}  & {\em max\+\_\+pkt\+\_\+siz} & Endpoint size, see endpoint descriptor details in U\+SB spec. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation result status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb_8c_a986e37ddeda86792722e0bc8aac155bf}\label{hpl__usb_8c_a986e37ddeda86792722e0bc8aac155bf}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+read\+\_\+req@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+read\+\_\+req}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+read\+\_\+req@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+read\+\_\+req}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+read\+\_\+req()}{\_usb\_d\_dev\_ep\_read\_req()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+read\+\_\+req (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep,  }\item[{uint8\+\_\+t $\ast$}]{req\+\_\+buf }\end{DoxyParamCaption})}
+
+
+
+Read setup request data from specific endpoint. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & Endpoint address. \\
+\hline
+\mbox{\tt out}  & {\em req\+\_\+buf} & Pointer to buffer to locate the setup packet. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of bytes or error code. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em $<$0} & error code. \\
+\hline
+{\em 0} & No setup packet ready for read. \\
+\hline
+{\em $>$0} & Size of bytes read, and ready to start I\+N/\+O\+UT. Note that if this number is over 8, only first 8 bytes will be copied. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb_8c_adba30466a52b721c517513215f91b438}\label{hpl__usb_8c_adba30466a52b721c517513215f91b438}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+stall@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+stall}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+stall@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+stall}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+stall()}{\_usb\_d\_dev\_ep\_stall()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+stall (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep,  }\item[{const enum \hyperlink{hpl__usb_8h_a3f8b44aed46a8be6cc2b32211e641202}{usb\+\_\+ep\+\_\+stall\+\_\+ctrl}}]{ctrl }\end{DoxyParamCaption})}
+
+
+
+Set/\+Clear/\+Get U\+SB device endpoint stall status. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & Endpoint address. \\
+\hline
+\mbox{\tt in}  & {\em ctrl} & Operation selector. See \hyperlink{hpl__usb_8h_a3f8b44aed46a8be6cc2b32211e641202}{usb\+\_\+ep\+\_\+stall\+\_\+ctrl}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation result or stall status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success or not stall. \\
+\hline
+{\em 1} & Endpoint is stalled. \\
+\hline
+{\em -\/1} & error. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb_8c_afbdcf23264147bc3892ccf59aaacea4b}\label{hpl__usb_8c_afbdcf23264147bc3892ccf59aaacea4b}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+trans@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+trans}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+trans@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+trans}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+trans()}{\_usb\_d\_dev\_ep\_trans()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+trans (\begin{DoxyParamCaption}\item[{const struct \hyperlink{structusb__d__transfer}{usb\+\_\+d\+\_\+transfer} $\ast$}]{trans }\end{DoxyParamCaption})}
+
+
+
+Start U\+SB device transfer. 
+
+On different U\+SB peripheral hardware the transaction buffer address and size may have different constraints. E.\+g., some hardware may require input address 32-\/bit aligned, and input size 32-\/bit aligned. Refer to the corresponding hardware usage reference documents. The constraints are checked in implementation, with error code returned.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em trans} & Pointer to the transaction description. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation result status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 1} & Busy. \\
+\hline
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb_8c_aa850429e719d5568d184c98cd70fc5c4}\label{hpl__usb_8c_aa850429e719d5568d184c98cd70fc5c4}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+address@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+address}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+address@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+address}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+address()}{\_usb\_d\_dev\_get\_address()}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+address (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the U\+SB device address. 
+
+\begin{DoxyReturn}{Returns}
+Address that is used. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__usb_8c_aaac42f9473022d74bcab8eefa4a6603a}\label{hpl__usb_8c_aaac42f9473022d74bcab8eefa4a6603a}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+frame\+\_\+n@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+frame\+\_\+n}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+frame\+\_\+n@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+frame\+\_\+n}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+frame\+\_\+n()}{\_usb\_d\_dev\_get\_frame\_n()}}
+{\footnotesize\ttfamily uint16\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+frame\+\_\+n (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the U\+SB device frame number. 
+
+\begin{DoxyReturn}{Returns}
+The frame number. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__usb_8c_a523a939d6b8c7491b69037612ef52115}\label{hpl__usb_8c_a523a939d6b8c7491b69037612ef52115}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+speed@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+speed}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+speed@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+speed}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+speed()}{\_usb\_d\_dev\_get\_speed()}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340}{usb\+\_\+speed} \+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+speed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the U\+SB device working speed. 
+
+\begin{DoxyReturn}{Returns}
+U\+SB speed. See \hyperlink{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340}{usb\+\_\+speed}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__usb_8c_a905a2ebea6b14260d97a11e6d34c8c8c}\label{hpl__usb_8c_a905a2ebea6b14260d97a11e6d34c8c8c}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+uframe\+\_\+n@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+uframe\+\_\+n}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+uframe\+\_\+n@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+uframe\+\_\+n}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+uframe\+\_\+n()}{\_usb\_d\_dev\_get\_uframe\_n()}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+uframe\+\_\+n (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the U\+SB device micro frame number. 
+
+\begin{DoxyReturn}{Returns}
+The micro frame number inside one frame (0$\sim$7). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__usb_8c_a686152d5db084158b8174be7134e1352}\label{hpl__usb_8c_a686152d5db084158b8174be7134e1352}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+init@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+init}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+init@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+init}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+init()}{\_usb\_d\_dev\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialize the U\+SB device instance. 
+
+\begin{DoxyReturn}{Returns}
+Operation result status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb_8c_aa1f40f2a83f5d8ee75d5ced353fe8d9a}\label{hpl__usb_8c_aa1f40f2a83f5d8ee75d5ced353fe8d9a}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+callback@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+callback}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+callback@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+callback}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+callback()}{\_usb\_d\_dev\_register\_callback()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+callback (\begin{DoxyParamCaption}\item[{const enum \hyperlink{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65}{usb\+\_\+d\+\_\+cb\+\_\+type}}]{type,  }\item[{const \hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR}}]{func }\end{DoxyParamCaption})}
+
+
+
+Register callback to handle U\+SB device events. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em type} & Callback type. See \hyperlink{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65}{usb\+\_\+d\+\_\+cb\+\_\+type}. \\
+\hline
+\mbox{\tt in}  & {\em func} & Pointer to callback function. Refer to \hyperlink{struct__usb__d__dev__callbacks}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+callbacks} for the prototypes. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__usb_8c_a44c519e747ffee5106f0b2c5ac792436}\label{hpl__usb_8c_a44c519e747ffee5106f0b2c5ac792436}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+ep\+\_\+callback@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+ep\+\_\+callback}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+ep\+\_\+callback@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+ep\+\_\+callback}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+ep\+\_\+callback()}{\_usb\_d\_dev\_register\_ep\_callback()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+ep\+\_\+callback (\begin{DoxyParamCaption}\item[{const enum \hyperlink{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63}{usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+type}}]{type,  }\item[{const \hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR}}]{func }\end{DoxyParamCaption})}
+
+
+
+Register callback to handle U\+SB device endpoint events. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em type} & Callback type. See \hyperlink{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63}{usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+type}. \\
+\hline
+\mbox{\tt in}  & {\em func} & Pointer to callback function. Refer to \hyperlink{struct__usb__d__dev__ep__callbacks}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks} for the prototypes. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__usb_8c_af2d3d2f0bb86f2b47adc33350cb35c8a}\label{hpl__usb_8c_af2d3d2f0bb86f2b47adc33350cb35c8a}} 
+\index{hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+set\+\_\+address@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+set\+\_\+address}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+set\+\_\+address@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+set\+\_\+address}!hpl\+\_\+usb.\+c@{hpl\+\_\+usb.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+set\+\_\+address()}{\_usb\_d\_dev\_set\_address()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+d\+\_\+dev\+\_\+set\+\_\+address (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{addr }\end{DoxyParamCaption})}
+
+
+
+Set the U\+SB device address. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em addr} & Address to be used. \\
+\hline
+\end{DoxyParams}

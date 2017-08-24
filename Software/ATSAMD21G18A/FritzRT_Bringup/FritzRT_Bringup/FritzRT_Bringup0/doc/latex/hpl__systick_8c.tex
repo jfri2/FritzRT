@@ -1,0 +1,30 @@
+\hypertarget{hpl__systick_8c}{}\section{hpl/systick/hpl\+\_\+systick.c File Reference}
+\label{hpl__systick_8c}\index{hpl/systick/hpl\+\_\+systick.\+c@{hpl/systick/hpl\+\_\+systick.\+c}}
+
+
+Sys\+Tick related functionality implementation.  
+
+
+{\ttfamily \#include $<$hpl\+\_\+time\+\_\+measure.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+systick\+\_\+config.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___h_p_l_gafa42a76bae0892be69f99fad9ad2f312}{\+\_\+system\+\_\+time\+\_\+init} (void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize system time module. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga4689ea1d17db0a91e3db670687bfe640}{\+\_\+delay\+\_\+init} (void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize delay functionality. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga7bd979fd9280b6f1d630f2afa36aa3e5}{\+\_\+system\+\_\+time\+\_\+deinit} (void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em De-\/initialize system time module. \end{DoxyCompactList}\item 
+\hyperlink{group___h_p_l_ga5885ba48297c95f5c8a108cfa02e6e55}{system\+\_\+time\+\_\+t} \hyperlink{group___h_p_l_gaef21251348cfac8ea881d7927a678fc7}{\+\_\+system\+\_\+time\+\_\+get} (const void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Get system time. \end{DoxyCompactList}\item 
+\hyperlink{group___h_p_l_ga5885ba48297c95f5c8a108cfa02e6e55}{system\+\_\+time\+\_\+t} \hyperlink{group___h_p_l_gac4972d67e3648ca8a51181ce8fc6e616}{\+\_\+system\+\_\+time\+\_\+get\+\_\+max\+\_\+time\+\_\+value} (const void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Get maximum possible system time. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gaa9e7b0c5bb246838e100046abf186bb8}{\+\_\+delay\+\_\+cycles} (void $\ast$const hw, uint32\+\_\+t cycles)
+\begin{DoxyCompactList}\small\item\em Delay loop to delay n number of cycles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Sys\+Tick related functionality implementation. 
+
+Copyright (C) 2014 Atmel Corporation. All rights reserved.

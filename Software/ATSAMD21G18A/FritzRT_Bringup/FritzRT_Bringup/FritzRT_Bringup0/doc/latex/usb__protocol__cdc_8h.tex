@@ -1,0 +1,398 @@
+\hypertarget{usb__protocol__cdc_8h}{}\section{usb/class/cdc/usb\+\_\+protocol\+\_\+cdc.h File Reference}
+\label{usb__protocol__cdc_8h}\index{usb/class/cdc/usb\+\_\+protocol\+\_\+cdc.\+h@{usb/class/cdc/usb\+\_\+protocol\+\_\+cdc.\+h}}
+
+
+U\+SB Communication Device Class (C\+DC) protocol definitions.  
+
+
+{\ttfamily \#include \char`\"{}usb\+\_\+includes.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structusb__cdc__hdr__desc}{usb\+\_\+cdc\+\_\+hdr\+\_\+desc}
+\begin{DoxyCompactList}\small\item\em C\+DC Header Functional Descriptor. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__cdc__call__mgmt__desc}{usb\+\_\+cdc\+\_\+call\+\_\+mgmt\+\_\+desc}
+\begin{DoxyCompactList}\small\item\em C\+DC Call Management Functional Descriptor. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__cdc__acm__desc}{usb\+\_\+cdc\+\_\+acm\+\_\+desc}
+\begin{DoxyCompactList}\small\item\em C\+DC A\+CM Functional Descriptor. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__cdc__union__desc}{usb\+\_\+cdc\+\_\+union\+\_\+desc}
+\begin{DoxyCompactList}\small\item\em C\+DC Union Functional Descriptor. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__cdc__line__coding}{usb\+\_\+cdc\+\_\+line\+\_\+coding}
+\begin{DoxyCompactList}\small\item\em Line Coding structure. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__cdc__control__signal}{usb\+\_\+cdc\+\_\+control\+\_\+signal}
+\begin{DoxyCompactList}\small\item\em Control signal structure. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__cdc__notify__msg}{usb\+\_\+cdc\+\_\+notify\+\_\+msg}
+\item 
+union \hyperlink{unionusb__cdc__uart__state}{usb\+\_\+cdc\+\_\+uart\+\_\+state}
+\begin{DoxyCompactList}\small\item\em U\+A\+RT State Bitmap (cdc spec 1.\+1 chapter 6.\+3.\+5) \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__cdc__notify__serial__state}{usb\+\_\+cdc\+\_\+notify\+\_\+serial\+\_\+state}
+\begin{DoxyCompactList}\small\item\em Hardware handshake support (cdc spec 1.\+1 chapter 6.\+3.\+5) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{Indent}\textbf{ Possible values of class}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__cdc__protocol__group_ga4c62892f7e7d3aeba3909c2687ce8a44}{C\+D\+C\+\_\+\+C\+L\+A\+S\+S\+\_\+\+D\+E\+V\+I\+CE}~0x02
+\begin{DoxyCompactList}\small\item\em U\+SB Communication Device Class. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_gaf3d488254ba4df34163f9938fe515746}{C\+D\+C\+\_\+\+C\+L\+A\+S\+S\+\_\+\+C\+O\+MM}~0x02
+\begin{DoxyCompactList}\small\item\em C\+DC Communication Class Interface. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_ga799bb47bad1d048e420886c575835eb4}{C\+D\+C\+\_\+\+C\+L\+A\+S\+S\+\_\+\+D\+A\+TA}~0x0A
+\begin{DoxyCompactList}\small\item\em C\+DC Data Class Interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ U\+SB C\+DC Subclass I\+Ds}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__cdc__protocol__group_ga9d555a2c20cdda9166df1f1a0deb2fe6}{C\+D\+C\+\_\+\+S\+U\+B\+C\+L\+A\+S\+S\+\_\+\+D\+L\+CM}~0x01
+\begin{DoxyCompactList}\small\item\em Direct Line Control Model. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_gacce3aedc4473cc5526efc16448b89221}{C\+D\+C\+\_\+\+S\+U\+B\+C\+L\+A\+S\+S\+\_\+\+A\+CM}~0x02
+\begin{DoxyCompactList}\small\item\em Abstract Control Model. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_ga8e66107828e9b10a8b37823cb4436209}{C\+D\+C\+\_\+\+S\+U\+B\+C\+L\+A\+S\+S\+\_\+\+T\+CM}~0x03
+\begin{DoxyCompactList}\small\item\em Telephone Control Model. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_ga279c0e93e9cf1c328e9551e62ebdc342}{C\+D\+C\+\_\+\+S\+U\+B\+C\+L\+A\+S\+S\+\_\+\+M\+C\+CM}~0x04
+\begin{DoxyCompactList}\small\item\em Multi-\/\+Channel Control Model. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_gac03be4247341651b8a14fa4c57955bca}{C\+D\+C\+\_\+\+S\+U\+B\+C\+L\+A\+S\+S\+\_\+\+C\+CM}~0x05
+\begin{DoxyCompactList}\small\item\em C\+A\+PI Control Model. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_gaa5ab06b184069e6a8692c6e82b2595b3}{C\+D\+C\+\_\+\+S\+U\+B\+C\+L\+A\+S\+S\+\_\+\+E\+TH}~0x06
+\begin{DoxyCompactList}\small\item\em Ethernet Networking Control Model. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_gaf1a7d3d1e1dd78003500d6fccd205461}{C\+D\+C\+\_\+\+S\+U\+B\+C\+L\+A\+S\+S\+\_\+\+A\+TM}~0x07
+\begin{DoxyCompactList}\small\item\em A\+TM Networking Control Model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ U\+SB C\+DC Communication Interface Protocol I\+Ds}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__cdc__protocol__group_ga987e4a1ebce34edcea106094d6241032}{C\+D\+C\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+V25\+T\+ER}~0x01
+\begin{DoxyCompactList}\small\item\em Common AT commands. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ U\+SB C\+DC Data Interface Protocol I\+Ds}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__cdc__protocol__group_ga34f6a52b0c21cc0df8558a89ab6244aa}{C\+D\+C\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+I430}~0x30
+\begin{DoxyCompactList}\small\item\em I\+S\+DN B\+RI. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_gaf4adc6afe3a8d15272d6063942fe1b1d}{C\+D\+C\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+H\+D\+LC}~0x31
+\begin{DoxyCompactList}\small\item\em H\+D\+LC. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_ga23a4cfd8c12e8d75a57bda51845abc0a}{C\+D\+C\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+T\+R\+A\+NS}~0x32
+\begin{DoxyCompactList}\small\item\em Transparent. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_ga304da80f158210479728ae1158f48498}{C\+D\+C\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+Q921M}~0x50
+\begin{DoxyCompactList}\small\item\em Q.\+921 management protocol. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_gab4efd3c7d98b5d12bf01238259a50707}{C\+D\+C\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+Q921}~0x51
+\begin{DoxyCompactList}\small\item\em Q.\+931 \mbox{[}sic\mbox{]} Data link protocol. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_ga4a1fc0e0435a322372f24b797bdccbc6}{C\+D\+C\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+Q921\+TM}~0x52
+\begin{DoxyCompactList}\small\item\em Q.\+921 T\+E\+I-\/multiplexor. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_ga230095dec563e53ab1231c981ee9d05f}{C\+D\+C\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+V42\+B\+IS}~0x90
+\begin{DoxyCompactList}\small\item\em Data compression procedures. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_ga0083ef9581e965b89b52d55bf315e419}{C\+D\+C\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+Q931}~0x91
+\begin{DoxyCompactList}\small\item\em Euro-\/\+I\+S\+DN protocol control. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_ga208090ddb75268f1f49e8e815400b6e3}{C\+D\+C\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+V120}~0x92
+\begin{DoxyCompactList}\small\item\em V.\+24 rate adaption to I\+S\+DN. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_ga4ae176ca7b4078cfc2506faff308d049}{C\+D\+C\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+C\+A\+P\+I20}~0x93
+\begin{DoxyCompactList}\small\item\em C\+A\+PI Commands. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_gae3fb87c639e467c9e9a1cab674a53463}{C\+D\+C\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+H\+O\+ST}~0x\+FD
+\begin{DoxyCompactList}\small\item\em Host based driver. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_gaa4704c0876c47f0fc9b4e1e2812a746c}{C\+D\+C\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+P\+U\+FD}~0x\+FE
+\begin{DoxyCompactList}\small\item\em Describes the Protocol Unit Functional Descriptors \mbox{[}sic\mbox{]} on Communication Class Interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ U\+SB C\+DC Functional Descriptor Types}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__cdc__protocol__group_gafe0ca40b5aacc5c750f952af952583d2}{C\+D\+C\+\_\+\+C\+S\+\_\+\+I\+N\+T\+E\+R\+F\+A\+CE}~0x24
+\begin{DoxyCompactList}\small\item\em Interface Functional Descriptor. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_gae07e10978a48ff63df33c3aeedf84c3a}{C\+D\+C\+\_\+\+C\+S\+\_\+\+E\+N\+D\+P\+O\+I\+NT}~0x25
+\begin{DoxyCompactList}\small\item\em Endpoint Functional Descriptor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ U\+SB C\+DC Functional Descriptor Subtypes}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__cdc__protocol__group_gafb7ba01e68938e255cfb6727c5a02f23}{C\+D\+C\+\_\+\+S\+C\+S\+\_\+\+H\+E\+A\+D\+ER}~0x00
+\begin{DoxyCompactList}\small\item\em Header Functional Descriptor. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_gaeda25d7337f810f2bd205b579510ebd4}{C\+D\+C\+\_\+\+S\+C\+S\+\_\+\+C\+A\+L\+L\+\_\+\+M\+G\+MT}~0x01
+\begin{DoxyCompactList}\small\item\em Call Management. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_gac06eb7a8f7ac43f6be353cc8cc5f8ce8}{C\+D\+C\+\_\+\+S\+C\+S\+\_\+\+A\+CM}~0x02
+\begin{DoxyCompactList}\small\item\em Abstract Control Management. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_ga27581d98e9052d843b2f4767f7d39110}{C\+D\+C\+\_\+\+S\+C\+S\+\_\+\+U\+N\+I\+ON}~0x06
+\begin{DoxyCompactList}\small\item\em Union Functional Descriptor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ U\+SB C\+DC Request I\+Ds}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+S\+E\+N\+D\+\_\+\+E\+N\+C\+A\+P\+S\+U\+L\+A\+T\+E\+D\+\_\+\+C\+O\+M\+M\+A\+ND}~0x00
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+G\+E\+T\+\_\+\+E\+N\+C\+A\+P\+S\+U\+L\+A\+T\+E\+D\+\_\+\+R\+E\+S\+P\+O\+N\+SE}~0x01
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+S\+E\+T\+\_\+\+C\+O\+M\+M\+\_\+\+F\+E\+A\+T\+U\+RE}~0x02
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+G\+E\+T\+\_\+\+C\+O\+M\+M\+\_\+\+F\+E\+A\+T\+U\+RE}~0x03
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+C\+L\+E\+A\+R\+\_\+\+C\+O\+M\+M\+\_\+\+F\+E\+A\+T\+U\+RE}~0x04
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+S\+E\+T\+\_\+\+A\+U\+X\+\_\+\+L\+I\+N\+E\+\_\+\+S\+T\+A\+TE}~0x10
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+S\+E\+T\+\_\+\+H\+O\+O\+K\+\_\+\+S\+T\+A\+TE}~0x11
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+P\+U\+L\+S\+E\+\_\+\+S\+E\+T\+UP}~0x12
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+S\+E\+N\+D\+\_\+\+P\+U\+L\+SE}~0x13
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+S\+E\+T\+\_\+\+P\+U\+L\+S\+E\+\_\+\+T\+I\+ME}~0x14
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+R\+I\+N\+G\+\_\+\+A\+U\+X\+\_\+\+J\+A\+CK}~0x15
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+S\+E\+T\+\_\+\+L\+I\+N\+E\+\_\+\+C\+O\+D\+I\+NG}~0x20
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+G\+E\+T\+\_\+\+L\+I\+N\+E\+\_\+\+C\+O\+D\+I\+NG}~0x21
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+S\+E\+T\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+L\+I\+N\+E\+\_\+\+S\+T\+A\+TE}~0x22
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+S\+E\+N\+D\+\_\+\+B\+R\+E\+AK}~0x23
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+S\+E\+T\+\_\+\+R\+I\+N\+G\+E\+R\+\_\+\+P\+A\+R\+MS}~0x30
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+G\+E\+T\+\_\+\+R\+I\+N\+G\+E\+R\+\_\+\+P\+A\+R\+MS}~0x31
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+S\+E\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+\_\+\+P\+A\+R\+MS}~0x32
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+G\+E\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+\_\+\+P\+A\+R\+MS}~0x33
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+S\+E\+T\+\_\+\+L\+I\+N\+E\+\_\+\+P\+A\+R\+MS}~0x34
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+G\+E\+T\+\_\+\+L\+I\+N\+E\+\_\+\+P\+A\+R\+MS}~0x35
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+D\+I\+A\+L\+\_\+\+D\+I\+G\+I\+TS}~0x36
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+S\+E\+T\+\_\+\+U\+N\+I\+T\+\_\+\+P\+A\+R\+A\+M\+E\+T\+ER}~0x37
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+G\+E\+T\+\_\+\+U\+N\+I\+T\+\_\+\+P\+A\+R\+A\+M\+E\+T\+ER}~0x38
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+C\+L\+E\+A\+R\+\_\+\+U\+N\+I\+T\+\_\+\+P\+A\+R\+A\+M\+E\+T\+ER}~0x39
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+G\+E\+T\+\_\+\+P\+R\+O\+F\+I\+LE}~0x3A
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+S\+E\+T\+\_\+\+E\+T\+H\+E\+R\+N\+E\+T\+\_\+\+M\+U\+L\+T\+I\+C\+A\+S\+T\+\_\+\+F\+I\+L\+T\+E\+RS}~0x40
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+S\+E\+T\+\_\+\+E\+T\+H\+E\+R\+N\+E\+T\+\_\+\+P\+O\+W\+E\+R\+\_\+\+M\+A\+N\+A\+G\+E\+M\+E\+N\+T\+\_\+\+P\+A\+T\+T\+E\+R\+N\+F\+I\+L\+T\+ER}~0x41
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+G\+E\+T\+\_\+\+E\+T\+H\+E\+R\+N\+E\+T\+\_\+\+P\+O\+W\+E\+R\+\_\+\+M\+A\+N\+A\+G\+E\+M\+E\+N\+T\+\_\+\+P\+A\+T\+T\+E\+R\+N\+F\+I\+L\+T\+ER}~0x42
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+S\+E\+T\+\_\+\+E\+T\+H\+E\+R\+N\+E\+T\+\_\+\+P\+A\+C\+K\+E\+T\+\_\+\+F\+I\+L\+T\+ER}~0x43
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+G\+E\+T\+\_\+\+E\+T\+H\+E\+R\+N\+E\+T\+\_\+\+S\+T\+A\+T\+I\+S\+T\+IC}~0x44
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+S\+E\+T\+\_\+\+A\+T\+M\+\_\+\+D\+A\+T\+A\+\_\+\+F\+O\+R\+M\+AT}~0x50
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+G\+E\+T\+\_\+\+A\+T\+M\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+I\+S\+T\+I\+CS}~0x51
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+S\+E\+T\+\_\+\+A\+T\+M\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+VC}~0x52
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+G\+E\+T\+\_\+\+A\+T\+M\+\_\+\+V\+C\+\_\+\+S\+T\+A\+T\+I\+S\+T\+I\+CS}~0x53
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+N\+O\+T\+I\+F\+Y\+\_\+\+R\+I\+N\+G\+\_\+\+D\+E\+T\+E\+CT}~0x09
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+N\+O\+T\+I\+F\+Y\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+S\+T\+A\+TE}~0x20
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+N\+O\+T\+I\+F\+Y\+\_\+\+C\+A\+L\+L\+\_\+\+S\+T\+A\+T\+E\+\_\+\+C\+H\+A\+N\+GE}~0x28
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+D\+C\+\_\+\+N\+O\+T\+I\+F\+Y\+\_\+\+L\+I\+N\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+C\+H\+A\+N\+GE}~0x29
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ U\+SB C\+DC Call Management Capabilities}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__cdc__protocol__group_gadba5c50400705310683bce4604525634}{C\+D\+C\+\_\+\+C\+A\+L\+L\+\_\+\+M\+G\+M\+T\+\_\+\+S\+U\+P\+P\+O\+R\+T\+ED}~(1 $<$$<$ 0)
+\begin{DoxyCompactList}\small\item\em Device handles call management itself. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_ga84beb2dffd6b294aed339d1dcf4dadf2}{C\+D\+C\+\_\+\+C\+A\+L\+L\+\_\+\+M\+G\+M\+T\+\_\+\+O\+V\+E\+R\+\_\+\+D\+CI}~(1 $<$$<$ 1)
+\begin{DoxyCompactList}\small\item\em Device can send/receive call management info over a Data Class interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ U\+SB C\+DC A\+CM Capabilities}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__cdc__protocol__group_gab1dab8b998f3a80f796edaf74567d4a7}{C\+D\+C\+\_\+\+A\+C\+M\+\_\+\+S\+U\+P\+P\+O\+R\+T\+\_\+\+F\+E\+A\+T\+U\+R\+E\+\_\+\+R\+E\+Q\+U\+E\+S\+TS}~(1 $<$$<$ 0)
+\item 
+\#define \hyperlink{group__cdc__protocol__group_gacba280f60d9dacf049a41a6711b1e9b2}{C\+D\+C\+\_\+\+A\+C\+M\+\_\+\+S\+U\+P\+P\+O\+R\+T\+\_\+\+L\+I\+N\+E\+\_\+\+R\+E\+Q\+U\+E\+S\+TS}~(1 $<$$<$ 1)
+\item 
+\#define \hyperlink{group__cdc__protocol__group_ga5e20369c655ed417fb699944b064ebdc}{C\+D\+C\+\_\+\+A\+C\+M\+\_\+\+S\+U\+P\+P\+O\+R\+T\+\_\+\+S\+E\+N\+D\+B\+R\+E\+A\+K\+\_\+\+R\+E\+Q\+U\+E\+S\+TS}~(1 $<$$<$ 2)
+\begin{DoxyCompactList}\small\item\em Device supports the request Send\+\_\+\+Break. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__cdc__protocol__group_gac7cc3782b884395213a99ffae74b159f}{C\+D\+C\+\_\+\+A\+C\+M\+\_\+\+S\+U\+P\+P\+O\+R\+T\+\_\+\+N\+O\+T\+I\+F\+Y\+\_\+\+R\+E\+Q\+U\+E\+S\+TS}~(1 $<$$<$ 3)
+\begin{DoxyCompactList}\small\item\em Device supports the notification Network\+\_\+\+Connection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Possible values in usb\+\_\+cdc\+\_\+control\+\_\+signal\+\_\+t}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{usb__protocol__cdc_8h_ab1402f7560badaf983e3823a2e75b39c}{C\+D\+C\+\_\+\+C\+T\+R\+L\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+A\+C\+T\+I\+V\+A\+T\+E\+\_\+\+C\+A\+R\+R\+I\+ER}~(1 $<$$<$ 1)
+\item 
+\#define \hyperlink{usb__protocol__cdc_8h_a232b776307e37e07eca6fd106aa5f320}{C\+D\+C\+\_\+\+C\+T\+R\+L\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+D\+T\+E\+\_\+\+P\+R\+E\+S\+E\+NT}~(1 $<$$<$ 0)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Possible values in usb\+\_\+cdc\+\_\+notify\+\_\+serial\+\_\+state\+\_\+t}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{usb__protocol__cdc_8h_aafa95b6c5abafaa3421902df70428398}\label{usb__protocol__cdc_8h_aafa95b6c5abafaa3421902df70428398}} 
+\#define {\bfseries C\+D\+C\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+S\+T\+A\+T\+E\+\_\+\+D\+CD}~C\+P\+U\+\_\+\+T\+O\+\_\+\+L\+E16((1 $<$$<$ 0))
+\item 
+\mbox{\Hypertarget{usb__protocol__cdc_8h_af4d6d8d6990a49d2d690f4a2221d2ea4}\label{usb__protocol__cdc_8h_af4d6d8d6990a49d2d690f4a2221d2ea4}} 
+\#define {\bfseries C\+D\+C\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+S\+T\+A\+T\+E\+\_\+\+D\+SR}~C\+P\+U\+\_\+\+T\+O\+\_\+\+L\+E16((1 $<$$<$ 1))
+\item 
+\mbox{\Hypertarget{usb__protocol__cdc_8h_a4f4568a9c419e1f6c6049e6351f4fb8a}\label{usb__protocol__cdc_8h_a4f4568a9c419e1f6c6049e6351f4fb8a}} 
+\#define {\bfseries C\+D\+C\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+R\+E\+AK}~C\+P\+U\+\_\+\+T\+O\+\_\+\+L\+E16((1 $<$$<$ 2))
+\item 
+\mbox{\Hypertarget{usb__protocol__cdc_8h_a50e133d334a1d269f11dbfddf7584aa2}\label{usb__protocol__cdc_8h_a50e133d334a1d269f11dbfddf7584aa2}} 
+\#define {\bfseries C\+D\+C\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+S\+T\+A\+T\+E\+\_\+\+R\+I\+NG}~C\+P\+U\+\_\+\+T\+O\+\_\+\+L\+E16((1 $<$$<$ 3))
+\item 
+\mbox{\Hypertarget{usb__protocol__cdc_8h_a1d2b66027b86544993305f5602612a72}\label{usb__protocol__cdc_8h_a1d2b66027b86544993305f5602612a72}} 
+\#define {\bfseries C\+D\+C\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+S\+T\+A\+T\+E\+\_\+\+F\+R\+A\+M\+I\+NG}~C\+P\+U\+\_\+\+T\+O\+\_\+\+L\+E16((1 $<$$<$ 4))
+\item 
+\mbox{\Hypertarget{usb__protocol__cdc_8h_ac1a2e84a7444f8d9c22467d48b250449}\label{usb__protocol__cdc_8h_ac1a2e84a7444f8d9c22467d48b250449}} 
+\#define {\bfseries C\+D\+C\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+S\+T\+A\+T\+E\+\_\+\+P\+A\+R\+I\+TY}~C\+P\+U\+\_\+\+T\+O\+\_\+\+L\+E16((1 $<$$<$ 5))
+\item 
+\mbox{\Hypertarget{usb__protocol__cdc_8h_a460608200d65e5aaa071185af20973e6}\label{usb__protocol__cdc_8h_a460608200d65e5aaa071185af20973e6}} 
+\#define {\bfseries C\+D\+C\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+V\+E\+R\+R\+UN}~C\+P\+U\+\_\+\+T\+O\+\_\+\+L\+E16((1 $<$$<$ 6))
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Typedefs}
+\begin{Indent}\textbf{ U\+SB C\+DC control signals}\par
+{\em spec 1.\+1 chapter 6.\+2.\+14 }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{usb__protocol__cdc_8h_ac45693435bebf90ecccb54e5d0235008}\label{usb__protocol__cdc_8h_ac45693435bebf90ecccb54e5d0235008}} 
+typedef struct \hyperlink{structusb__cdc__control__signal}{usb\+\_\+cdc\+\_\+control\+\_\+signal} \hyperlink{usb__protocol__cdc_8h_ac45693435bebf90ecccb54e5d0235008}{usb\+\_\+cdc\+\_\+control\+\_\+signal\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Control signal structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ U\+SB C\+DC notification message}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{usb__protocol__cdc_8h_a9b1e38a2ce8489958e5ab0061ea038a7}\label{usb__protocol__cdc_8h_a9b1e38a2ce8489958e5ab0061ea038a7}} 
+typedef struct \hyperlink{structusb__cdc__notify__msg}{usb\+\_\+cdc\+\_\+notify\+\_\+msg} {\bfseries usb\+\_\+cdc\+\_\+notify\+\_\+msg\+\_\+t}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ U\+SB C\+DC serial state}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{usb__protocol__cdc_8h_a718de9cdb455221797282db8dc6e17b3}\label{usb__protocol__cdc_8h_a718de9cdb455221797282db8dc6e17b3}} 
+typedef union \hyperlink{unionusb__cdc__uart__state}{usb\+\_\+cdc\+\_\+uart\+\_\+state} \hyperlink{usb__protocol__cdc_8h_a718de9cdb455221797282db8dc6e17b3}{usb\+\_\+cdc\+\_\+uart\+\_\+state\+\_\+t}
+\begin{DoxyCompactList}\small\item\em U\+A\+RT State Bitmap (cdc spec 1.\+1 chapter 6.\+3.\+5) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{usb__protocol__cdc_8h_ae92429169c149bec046518c483e35ecb}\label{usb__protocol__cdc_8h_ae92429169c149bec046518c483e35ecb}} 
+typedef struct \hyperlink{structusb__cdc__notify__serial__state}{usb\+\_\+cdc\+\_\+notify\+\_\+serial\+\_\+state} \hyperlink{usb__protocol__cdc_8h_ae92429169c149bec046518c483e35ecb}{usb\+\_\+cdc\+\_\+notify\+\_\+serial\+\_\+state\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Hardware handshake support (cdc spec 1.\+1 chapter 6.\+3.\+5) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{U\+SB C\+DC Descriptors}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+C\+D\+C\+\_\+\+H\+D\+R\+\_\+\+D\+E\+S\+C\+\_\+\+L\+EN}~5
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+C\+D\+C\+\_\+\+H\+D\+R\+\_\+\+D\+E\+S\+C\+\_\+\+B\+Y\+T\+ES}(bcd\+C\+DC)
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+C\+D\+C\+\_\+\+C\+A\+L\+L\+\_\+\+M\+G\+M\+T\+\_\+\+D\+E\+S\+C\+\_\+\+L\+EN}~5
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+C\+D\+C\+\_\+\+C\+A\+L\+L\+\_\+\+M\+G\+M\+T\+\_\+\+D\+E\+S\+C\+\_\+\+B\+Y\+T\+ES}(bm\+Capabilities,  b\+Data\+Interface)
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+C\+D\+C\+\_\+\+A\+C\+M\+\_\+\+D\+E\+S\+C\+\_\+\+L\+EN}~4
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+C\+D\+C\+\_\+\+A\+C\+M\+\_\+\+D\+E\+S\+C\+\_\+\+B\+Y\+T\+ES}(bm\+Capabilities)
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+C\+D\+C\+\_\+\+U\+N\+I\+O\+N\+\_\+\+D\+E\+S\+C\+\_\+\+L\+EN}~5
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+C\+D\+C\+\_\+\+U\+N\+I\+O\+N\+\_\+\+D\+E\+S\+C\+\_\+\+B\+Y\+T\+ES}(b\+Master\+Interface,  b\+Slave\+Interface)~U\+S\+B\+\_\+\+C\+D\+C\+\_\+\+U\+N\+I\+O\+N\+\_\+\+D\+E\+S\+C\+\_\+\+L\+EN, \hyperlink{group__cdc__protocol__group_gafe0ca40b5aacc5c750f952af952583d2}{C\+D\+C\+\_\+\+C\+S\+\_\+\+I\+N\+T\+E\+R\+F\+A\+CE}, \hyperlink{group__cdc__protocol__group_ga27581d98e9052d843b2f4767f7d39110}{C\+D\+C\+\_\+\+S\+C\+S\+\_\+\+U\+N\+I\+ON}, b\+Master\+Interface, b\+Slave\+Interface
+\item 
+typedef struct \hyperlink{structusb__cdc__hdr__desc}{usb\+\_\+cdc\+\_\+hdr\+\_\+desc} \hyperlink{group__cdc__protocol__group_ga12d62552fff01851269b3cf927a3982e}{usb\+\_\+cdc\+\_\+hdr\+\_\+desc\+\_\+t}
+\begin{DoxyCompactList}\small\item\em C\+DC Header Functional Descriptor. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structusb__cdc__call__mgmt__desc}{usb\+\_\+cdc\+\_\+call\+\_\+mgmt\+\_\+desc} \hyperlink{group__cdc__protocol__group_ga6999f792e477f13f5a89351f956ca372}{usb\+\_\+cdc\+\_\+call\+\_\+mgmt\+\_\+desc\+\_\+t}
+\begin{DoxyCompactList}\small\item\em C\+DC Call Management Functional Descriptor. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structusb__cdc__acm__desc}{usb\+\_\+cdc\+\_\+acm\+\_\+desc} \hyperlink{group__cdc__protocol__group_ga3c0e7058e94628e8a4c9782b741f7dbb}{usb\+\_\+cdc\+\_\+acm\+\_\+desc\+\_\+t}
+\begin{DoxyCompactList}\small\item\em C\+DC A\+CM Functional Descriptor. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structusb__cdc__union__desc}{usb\+\_\+cdc\+\_\+union\+\_\+desc} \hyperlink{group__cdc__protocol__group_gadd60e7e0096730f029d68b36a6389085}{usb\+\_\+cdc\+\_\+union\+\_\+desc\+\_\+t}
+\begin{DoxyCompactList}\small\item\em C\+DC Union Functional Descriptor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{U\+SB C\+DC line coding}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{usb__protocol__cdc_8h_a3c7a6043e6bad9fdb2397cd55c42a42b}{cdc\+\_\+char\+\_\+format} \{ \hyperlink{usb__protocol__cdc_8h_a3c7a6043e6bad9fdb2397cd55c42a42ba91a98e65c928f90dda87311124146570}{C\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+1} = 0, 
+\hyperlink{usb__protocol__cdc_8h_a3c7a6043e6bad9fdb2397cd55c42a42ba14a3ecd9c4ca08a01c752ab7812cbe9f}{C\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+1\+\_\+5} = 1, 
+\hyperlink{usb__protocol__cdc_8h_a3c7a6043e6bad9fdb2397cd55c42a42ba49b5d7493d3e79ca260a9350f833e8cd}{C\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+2} = 2
+ \}\begin{DoxyCompactList}\small\item\em Possible values of b\+Char\+Format. \end{DoxyCompactList}
+\item 
+enum \hyperlink{usb__protocol__cdc_8h_abbab0861d65d43845f1a506fc381ca1b}{cdc\+\_\+parity} \{ \newline
+\hyperlink{usb__protocol__cdc_8h_abbab0861d65d43845f1a506fc381ca1ba3786e873183eaa7eb298fe1016ea426a}{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+N\+O\+NE} = 0, 
+\hyperlink{usb__protocol__cdc_8h_abbab0861d65d43845f1a506fc381ca1baa3aae67136b342609025e31396404509}{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+O\+DD} = 1, 
+\hyperlink{usb__protocol__cdc_8h_abbab0861d65d43845f1a506fc381ca1ba98b459946d7640a15eb64fceb8149374}{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+E\+V\+EN} = 2, 
+\hyperlink{usb__protocol__cdc_8h_abbab0861d65d43845f1a506fc381ca1ba132be49b0d35205cf8d116d19eb8785d}{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+M\+A\+RK} = 3, 
+\newline
+\hyperlink{usb__protocol__cdc_8h_abbab0861d65d43845f1a506fc381ca1baa102d02cecbe45dbc5c7feda8cf88096}{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+S\+P\+A\+CE} = 4
+ \}\begin{DoxyCompactList}\small\item\em Possible values of b\+Parity\+Type. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{usb__protocol__cdc_8h_ac937db2ee5da628e1b96ebf07dda1b42}\label{usb__protocol__cdc_8h_ac937db2ee5da628e1b96ebf07dda1b42}} 
+typedef struct \hyperlink{structusb__cdc__line__coding}{usb\+\_\+cdc\+\_\+line\+\_\+coding} \hyperlink{usb__protocol__cdc_8h_ac937db2ee5da628e1b96ebf07dda1b42}{usb\+\_\+cdc\+\_\+line\+\_\+coding\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Line Coding structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+SB Communication Device Class (C\+DC) protocol definitions. 
+
+Copyright (c) 2015 Atmel Corporation. All rights reserved.
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{usb__protocol__cdc_8h_ab1402f7560badaf983e3823a2e75b39c}\label{usb__protocol__cdc_8h_ab1402f7560badaf983e3823a2e75b39c}} 
+\index{usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}!C\+D\+C\+\_\+\+C\+T\+R\+L\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+A\+C\+T\+I\+V\+A\+T\+E\+\_\+\+C\+A\+R\+R\+I\+ER@{C\+D\+C\+\_\+\+C\+T\+R\+L\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+A\+C\+T\+I\+V\+A\+T\+E\+\_\+\+C\+A\+R\+R\+I\+ER}}
+\index{C\+D\+C\+\_\+\+C\+T\+R\+L\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+A\+C\+T\+I\+V\+A\+T\+E\+\_\+\+C\+A\+R\+R\+I\+ER@{C\+D\+C\+\_\+\+C\+T\+R\+L\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+A\+C\+T\+I\+V\+A\+T\+E\+\_\+\+C\+A\+R\+R\+I\+ER}!usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}}
+\subsubsection{\texorpdfstring{C\+D\+C\+\_\+\+C\+T\+R\+L\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+A\+C\+T\+I\+V\+A\+T\+E\+\_\+\+C\+A\+R\+R\+I\+ER}{CDC\_CTRL\_SIGNAL\_ACTIVATE\_CARRIER}}
+{\footnotesize\ttfamily \#define C\+D\+C\+\_\+\+C\+T\+R\+L\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+A\+C\+T\+I\+V\+A\+T\+E\+\_\+\+C\+A\+R\+R\+I\+ER~(1 $<$$<$ 1)}
+
+Carrier control for half duplex modems. This signal corresponds to V.\+24 signal 105 and R\+S-\/232 signal R\+TS. The device ignores the value of this bit when operating in full duplex mode. \mbox{\Hypertarget{usb__protocol__cdc_8h_a232b776307e37e07eca6fd106aa5f320}\label{usb__protocol__cdc_8h_a232b776307e37e07eca6fd106aa5f320}} 
+\index{usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}!C\+D\+C\+\_\+\+C\+T\+R\+L\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+D\+T\+E\+\_\+\+P\+R\+E\+S\+E\+NT@{C\+D\+C\+\_\+\+C\+T\+R\+L\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+D\+T\+E\+\_\+\+P\+R\+E\+S\+E\+NT}}
+\index{C\+D\+C\+\_\+\+C\+T\+R\+L\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+D\+T\+E\+\_\+\+P\+R\+E\+S\+E\+NT@{C\+D\+C\+\_\+\+C\+T\+R\+L\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+D\+T\+E\+\_\+\+P\+R\+E\+S\+E\+NT}!usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}}
+\subsubsection{\texorpdfstring{C\+D\+C\+\_\+\+C\+T\+R\+L\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+D\+T\+E\+\_\+\+P\+R\+E\+S\+E\+NT}{CDC\_CTRL\_SIGNAL\_DTE\_PRESENT}}
+{\footnotesize\ttfamily \#define C\+D\+C\+\_\+\+C\+T\+R\+L\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+D\+T\+E\+\_\+\+P\+R\+E\+S\+E\+NT~(1 $<$$<$ 0)}
+
+Indicates to D\+CE if D\+TE is present or not. This signal corresponds to V.\+24 signal 108/2 and R\+S-\/232 signal D\+TR. 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{usb__protocol__cdc_8h_a3c7a6043e6bad9fdb2397cd55c42a42b}\label{usb__protocol__cdc_8h_a3c7a6043e6bad9fdb2397cd55c42a42b}} 
+\index{usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}!cdc\+\_\+char\+\_\+format@{cdc\+\_\+char\+\_\+format}}
+\index{cdc\+\_\+char\+\_\+format@{cdc\+\_\+char\+\_\+format}!usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}}
+\subsubsection{\texorpdfstring{cdc\+\_\+char\+\_\+format}{cdc\_char\_format}}
+{\footnotesize\ttfamily enum \hyperlink{usb__protocol__cdc_8h_a3c7a6043e6bad9fdb2397cd55c42a42b}{cdc\+\_\+char\+\_\+format}}
+
+
+
+Possible values of b\+Char\+Format. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+1@{C\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+1}!usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}}\index{usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}!C\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+1@{C\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+1}}}\mbox{\Hypertarget{usb__protocol__cdc_8h_a3c7a6043e6bad9fdb2397cd55c42a42ba91a98e65c928f90dda87311124146570}\label{usb__protocol__cdc_8h_a3c7a6043e6bad9fdb2397cd55c42a42ba91a98e65c928f90dda87311124146570}} 
+C\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+1&1 stop bit \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+1\+\_\+5@{C\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+1\+\_\+5}!usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}}\index{usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}!C\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+1\+\_\+5@{C\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+1\+\_\+5}}}\mbox{\Hypertarget{usb__protocol__cdc_8h_a3c7a6043e6bad9fdb2397cd55c42a42ba14a3ecd9c4ca08a01c752ab7812cbe9f}\label{usb__protocol__cdc_8h_a3c7a6043e6bad9fdb2397cd55c42a42ba14a3ecd9c4ca08a01c752ab7812cbe9f}} 
+C\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+1\+\_\+5&1.\+5 stop bits \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+2@{C\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+2}!usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}}\index{usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}!C\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+2@{C\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+2}}}\mbox{\Hypertarget{usb__protocol__cdc_8h_a3c7a6043e6bad9fdb2397cd55c42a42ba49b5d7493d3e79ca260a9350f833e8cd}\label{usb__protocol__cdc_8h_a3c7a6043e6bad9fdb2397cd55c42a42ba49b5d7493d3e79ca260a9350f833e8cd}} 
+C\+D\+C\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+2&2 stop bits \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{usb__protocol__cdc_8h_abbab0861d65d43845f1a506fc381ca1b}\label{usb__protocol__cdc_8h_abbab0861d65d43845f1a506fc381ca1b}} 
+\index{usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}!cdc\+\_\+parity@{cdc\+\_\+parity}}
+\index{cdc\+\_\+parity@{cdc\+\_\+parity}!usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}}
+\subsubsection{\texorpdfstring{cdc\+\_\+parity}{cdc\_parity}}
+{\footnotesize\ttfamily enum \hyperlink{usb__protocol__cdc_8h_abbab0861d65d43845f1a506fc381ca1b}{cdc\+\_\+parity}}
+
+
+
+Possible values of b\+Parity\+Type. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+N\+O\+NE@{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+N\+O\+NE}!usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}}\index{usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}!C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+N\+O\+NE@{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+N\+O\+NE}}}\mbox{\Hypertarget{usb__protocol__cdc_8h_abbab0861d65d43845f1a506fc381ca1ba3786e873183eaa7eb298fe1016ea426a}\label{usb__protocol__cdc_8h_abbab0861d65d43845f1a506fc381ca1ba3786e873183eaa7eb298fe1016ea426a}} 
+C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+N\+O\+NE&No parity. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+O\+DD@{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+O\+DD}!usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}}\index{usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}!C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+O\+DD@{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+O\+DD}}}\mbox{\Hypertarget{usb__protocol__cdc_8h_abbab0861d65d43845f1a506fc381ca1baa3aae67136b342609025e31396404509}\label{usb__protocol__cdc_8h_abbab0861d65d43845f1a506fc381ca1baa3aae67136b342609025e31396404509}} 
+C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+O\+DD&Odd parity. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+E\+V\+EN@{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+E\+V\+EN}!usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}}\index{usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}!C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+E\+V\+EN@{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+E\+V\+EN}}}\mbox{\Hypertarget{usb__protocol__cdc_8h_abbab0861d65d43845f1a506fc381ca1ba98b459946d7640a15eb64fceb8149374}\label{usb__protocol__cdc_8h_abbab0861d65d43845f1a506fc381ca1ba98b459946d7640a15eb64fceb8149374}} 
+C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+E\+V\+EN&Even parity. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+M\+A\+RK@{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+M\+A\+RK}!usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}}\index{usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}!C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+M\+A\+RK@{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+M\+A\+RK}}}\mbox{\Hypertarget{usb__protocol__cdc_8h_abbab0861d65d43845f1a506fc381ca1ba132be49b0d35205cf8d116d19eb8785d}\label{usb__protocol__cdc_8h_abbab0861d65d43845f1a506fc381ca1ba132be49b0d35205cf8d116d19eb8785d}} 
+C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+M\+A\+RK&Parity forced to 0 (space) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+S\+P\+A\+CE@{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+S\+P\+A\+CE}!usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}}\index{usb\+\_\+protocol\+\_\+cdc.\+h@{usb\+\_\+protocol\+\_\+cdc.\+h}!C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+S\+P\+A\+CE@{C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+S\+P\+A\+CE}}}\mbox{\Hypertarget{usb__protocol__cdc_8h_abbab0861d65d43845f1a506fc381ca1baa102d02cecbe45dbc5c7feda8cf88096}\label{usb__protocol__cdc_8h_abbab0861d65d43845f1a506fc381ca1baa102d02cecbe45dbc5c7feda8cf88096}} 
+C\+D\+C\+\_\+\+P\+A\+R\+\_\+\+S\+P\+A\+CE&Parity forced to 1 (mark) \\
+\hline
+
+\end{DoxyEnumFields}

@@ -1,0 +1,60 @@
+\hypertarget{hpl__pwm_8h}{}\section{hal/include/hpl\+\_\+pwm.h File Reference}
+\label{hpl__pwm_8h}\index{hal/include/hpl\+\_\+pwm.\+h@{hal/include/hpl\+\_\+pwm.\+h}}
+
+
+P\+WM related functionality declaration.  
+
+
+{\ttfamily \#include $<$compiler.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}hpl\+\_\+irq.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__pwm__callback}{\+\_\+pwm\+\_\+callback}
+\begin{DoxyCompactList}\small\item\em P\+WM interrupt callbacks. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device}
+\begin{DoxyCompactList}\small\item\em P\+WM descriptor device structure. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__pwm__hpl__interface}{\+\_\+pwm\+\_\+hpl\+\_\+interface}
+\begin{DoxyCompactList}\small\item\em P\+WM functions, pointers to low-\/level functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint32\+\_\+t \hyperlink{group___h_p_l_ga54b3c18a071fea0c56652e887810b3f6}{pwm\+\_\+period\+\_\+t}
+\begin{DoxyCompactList}\small\item\em P\+WM pulse-\/width period. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___h_p_l_gaa279abe5a858ccbaea89be01192a2d6c}\label{group___h_p_l_gaa279abe5a858ccbaea89be01192a2d6c}} 
+enum \hyperlink{group___h_p_l_gaa279abe5a858ccbaea89be01192a2d6c}{\+\_\+pwm\+\_\+callback\+\_\+type} \{ {\bfseries P\+W\+M\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+CB}, 
+{\bfseries P\+W\+M\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+CB}
+ \}\begin{DoxyCompactList}\small\item\em P\+WM callback types. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group___h_p_l_ga15351abaf44430845341bb1da4101792}{\+\_\+pwm\+\_\+init} (struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize TC. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga0c2822fd73d42097e88ed03c54338f0f}{\+\_\+pwm\+\_\+deinit} (struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Deinitialize TC. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___h_p_l_ga2e9db8f70af92197ac77967d49436aae}{\+\_\+pwm\+\_\+get\+\_\+hardware\+\_\+offset} (const struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve offset of the given tc hardware instance. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga784626e8777e650b2904f9a650d128eb}{\+\_\+pwm\+\_\+enable} (struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Start hardware pwm. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gaaf3c1fc89c862522d17ce40f1e5216ce}{\+\_\+pwm\+\_\+disable} (struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Stop hardware pwm. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gab1dc42dd879185801f516f9bedb00d05}{\+\_\+pwm\+\_\+set\+\_\+param} (struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device, const \hyperlink{group___h_p_l_ga54b3c18a071fea0c56652e887810b3f6}{pwm\+\_\+period\+\_\+t} period, const \hyperlink{group___h_p_l_ga54b3c18a071fea0c56652e887810b3f6}{pwm\+\_\+period\+\_\+t} duty\+\_\+cycle)
+\begin{DoxyCompactList}\small\item\em Set pwm parameter. \end{DoxyCompactList}\item 
+bool \hyperlink{group___h_p_l_ga2aecb7ebd28cc6b5979cbac28d626418}{\+\_\+pwm\+\_\+is\+\_\+enabled} (const struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if pwm is working. \end{DoxyCompactList}\item 
+\hyperlink{group___h_p_l_ga54b3c18a071fea0c56652e887810b3f6}{pwm\+\_\+period\+\_\+t} \hyperlink{group___h_p_l_ga2e95a6e02d2d3f85622820ee8376fa93}{\+\_\+pwm\+\_\+get\+\_\+period} (const struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Get pwm waveform period value. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___h_p_l_ga4a94f4b8189fed59cfa1190674f08740}{\+\_\+pwm\+\_\+get\+\_\+duty} (const struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Get pwm waveform duty cycle value. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga583710860d0b672db85bada1acc07dc4}{\+\_\+pwm\+\_\+set\+\_\+irq\+\_\+state} (struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_gaa279abe5a858ccbaea89be01192a2d6c}{\+\_\+pwm\+\_\+callback\+\_\+type} type, const bool disable)
+\begin{DoxyCompactList}\small\item\em Enable/disable P\+WM interrupt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+P\+WM related functionality declaration. 
+
+Copyright (C) 2014-\/2016 Atmel Corporation. All rights reserved.

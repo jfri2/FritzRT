@@ -1,0 +1,46 @@
+\hypertarget{struct__timer__hpl__interface}{}\section{\+\_\+timer\+\_\+hpl\+\_\+interface Struct Reference}
+\label{struct__timer__hpl__interface}\index{\+\_\+timer\+\_\+hpl\+\_\+interface@{\+\_\+timer\+\_\+hpl\+\_\+interface}}
+
+
+Timer functions, pointers to low-\/level functions.  
+
+
+
+
+{\ttfamily \#include $<$hpl\+\_\+timer.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct__timer__hpl__interface_ae2eceeb08048819f7906b491e6b65ef7}\label{struct__timer__hpl__interface_ae2eceeb08048819f7906b491e6b65ef7}} 
+int32\+\_\+t($\ast$ {\bfseries init} )(struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device, void $\ast$const hw)
+\item 
+\mbox{\Hypertarget{struct__timer__hpl__interface_a88f7b883e6d4bd4c64f0c2355ded9d42}\label{struct__timer__hpl__interface_a88f7b883e6d4bd4c64f0c2355ded9d42}} 
+void($\ast$ {\bfseries deinit} )(struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\item 
+\mbox{\Hypertarget{struct__timer__hpl__interface_a8de36d780977766bf952b33b45298046}\label{struct__timer__hpl__interface_a8de36d780977766bf952b33b45298046}} 
+void($\ast$ {\bfseries start\+\_\+timer} )(struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\item 
+\mbox{\Hypertarget{struct__timer__hpl__interface_a03b98e2a92816433bd1139c187671c17}\label{struct__timer__hpl__interface_a03b98e2a92816433bd1139c187671c17}} 
+void($\ast$ {\bfseries stop\+\_\+timer} )(struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\item 
+\mbox{\Hypertarget{struct__timer__hpl__interface_a69a53d0cab1090dbd1cfe9e83ffebfc3}\label{struct__timer__hpl__interface_a69a53d0cab1090dbd1cfe9e83ffebfc3}} 
+void($\ast$ {\bfseries set\+\_\+timer\+\_\+period} )(struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device, const uint32\+\_\+t clock\+\_\+cycles)
+\item 
+\mbox{\Hypertarget{struct__timer__hpl__interface_a0c1dcb4735372cd445da9d8fb9565b61}\label{struct__timer__hpl__interface_a0c1dcb4735372cd445da9d8fb9565b61}} 
+uint32\+\_\+t($\ast$ {\bfseries get\+\_\+period} )(const struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\item 
+\mbox{\Hypertarget{struct__timer__hpl__interface_a8fa50445e57394bf1a7d1d361928a5d1}\label{struct__timer__hpl__interface_a8fa50445e57394bf1a7d1d361928a5d1}} 
+bool($\ast$ {\bfseries is\+\_\+timer\+\_\+started} )(const struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\item 
+\mbox{\Hypertarget{struct__timer__hpl__interface_a9316842bee4d73d75a68f02383feac14}\label{struct__timer__hpl__interface_a9316842bee4d73d75a68f02383feac14}} 
+void($\ast$ {\bfseries set\+\_\+timer\+\_\+irq} )(struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Timer functions, pointers to low-\/level functions. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+hal/include/\hyperlink{hpl__timer_8h}{hpl\+\_\+timer.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,58 @@
+\hypertarget{usb__protocol_8c}{}\section{usb/usb\+\_\+protocol.c File Reference}
+\label{usb__protocol_8c}\index{usb/usb\+\_\+protocol.\+c@{usb/usb\+\_\+protocol.\+c}}
+
+
+U\+SB protocol implementation.  
+
+
+{\ttfamily \#include \char`\"{}usb\+\_\+protocol.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{usb__protocol_8c_a58da078384fe26d7d996fe5999bd1e35}\label{usb__protocol_8c_a58da078384fe26d7d996fe5999bd1e35}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+N\+O\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+C\+H\+E\+CK}
+\item 
+\mbox{\Hypertarget{usb__protocol_8c_aa47f2e1addbe050ab1f1c58ab27cb28f}\label{usb__protocol_8c_aa47f2e1addbe050ab1f1c58ab27cb28f}} 
+\#define {\bfseries \+\_\+param\+\_\+error\+\_\+check}(cond)
+\item 
+\#define {\bfseries \+\_\+desc\+\_\+len\+\_\+check}()
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{group__usb__protocol__group_ga18a090f372b76fbdb9de0e56b5f0fd91}{usb\+\_\+find\+\_\+desc} (uint8\+\_\+t $\ast$desc, uint8\+\_\+t $\ast$eof, uint8\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em Find specific U\+SB Descriptor by its type. \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \hyperlink{group__usb__protocol__group_ga551acaf5b1e20b719ba590f6a6539c10}{usb\+\_\+find\+\_\+iface\+\_\+after} (uint8\+\_\+t $\ast$desc, uint8\+\_\+t $\ast$eof, uint8\+\_\+t iface\+\_\+n)
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{group__usb__protocol__group_ga8f56a203b361e0acc32e3f48e7ccfe9e}{usb\+\_\+find\+\_\+ep\+\_\+desc} (uint8\+\_\+t $\ast$desc, uint8\+\_\+t $\ast$eof)
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{group__usb__protocol__group_ga46b136c975b5c0b24d9292eb0db100d6}{usb\+\_\+find\+\_\+cfg\+\_\+desc} (uint8\+\_\+t $\ast$desc, uint8\+\_\+t $\ast$eof, uint8\+\_\+t cfg\+\_\+value)
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{group__usb__protocol__group_ga651d6393a33f3c95103fb35bce1b5466}{usb\+\_\+find\+\_\+str\+\_\+desc} (uint8\+\_\+t $\ast$desc, uint8\+\_\+t $\ast$eof, uint8\+\_\+t str\+\_\+index)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+SB protocol implementation. 
+
+This file contains the U\+SB definitions and data structures provided by the U\+SB 2.\+0 specification.
+
+Copyright (C) 2015 Atmel Corporation. All rights reserved. 
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{usb__protocol_8c_a78136b575b836a1e46669f985f1d0233}\label{usb__protocol_8c_a78136b575b836a1e46669f985f1d0233}} 
+\index{usb\+\_\+protocol.\+c@{usb\+\_\+protocol.\+c}!\+\_\+desc\+\_\+len\+\_\+check@{\+\_\+desc\+\_\+len\+\_\+check}}
+\index{\+\_\+desc\+\_\+len\+\_\+check@{\+\_\+desc\+\_\+len\+\_\+check}!usb\+\_\+protocol.\+c@{usb\+\_\+protocol.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+desc\+\_\+len\+\_\+check}{\_desc\_len\_check}}
+{\footnotesize\ttfamily \#define \+\_\+desc\+\_\+len\+\_\+check(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (usb\_desc\_len(desc) < 2) \{                                                                              
+              \(\backslash\)
+        \textcolor{comment}{/* Encounter an invalid descriptor. */}                                                             
+                  \(\backslash\)
+        return NULL;                                                                                       
+                  \(\backslash\)
+    \}
+\end{DoxyCode}

@@ -1,0 +1,55 @@
+\hypertarget{structusb__h__xfer}{}\section{usb\+\_\+h\+\_\+xfer Struct Reference}
+\label{structusb__h__xfer}\index{usb\+\_\+h\+\_\+xfer@{usb\+\_\+h\+\_\+xfer}}
+
+
+General transfer descriptor.  
+
+
+
+
+{\ttfamily \#include $<$hpl\+\_\+usb\+\_\+host.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>uint16\_t {\bfseries u16} \mbox{[}9\mbox{]}\\
+\>uint8\_t {\bfseries u8} \mbox{[}18\mbox{]}\\
+\} \hyperlink{structusb__h__xfer_abf28abad782a49b46036bb6f5aa8a0bf}{reserved}\\
+
+\end{tabbing}\item 
+uint8\+\_\+t \hyperlink{structusb__h__xfer_a6beff3569ca236c435297860e7d73865}{state}
+\item 
+int8\+\_\+t \hyperlink{structusb__h__xfer_ada2ac9bb01c2a37045d9b69c3762e02c}{status}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+General transfer descriptor. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structusb__h__xfer_abf28abad782a49b46036bb6f5aa8a0bf}\label{structusb__h__xfer_abf28abad782a49b46036bb6f5aa8a0bf}} 
+\index{usb\+\_\+h\+\_\+xfer@{usb\+\_\+h\+\_\+xfer}!reserved@{reserved}}
+\index{reserved@{reserved}!usb\+\_\+h\+\_\+xfer@{usb\+\_\+h\+\_\+xfer}}
+\subsubsection{\texorpdfstring{reserved}{reserved}}
+{\footnotesize\ttfamily union \{ ... \}   usb\+\_\+h\+\_\+xfer\+::reserved}
+
+Reserved for different transfer \mbox{\Hypertarget{structusb__h__xfer_a6beff3569ca236c435297860e7d73865}\label{structusb__h__xfer_a6beff3569ca236c435297860e7d73865}} 
+\index{usb\+\_\+h\+\_\+xfer@{usb\+\_\+h\+\_\+xfer}!state@{state}}
+\index{state@{state}!usb\+\_\+h\+\_\+xfer@{usb\+\_\+h\+\_\+xfer}}
+\subsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+h\+\_\+xfer\+::state}
+
+Transfer state \mbox{\Hypertarget{structusb__h__xfer_ada2ac9bb01c2a37045d9b69c3762e02c}\label{structusb__h__xfer_ada2ac9bb01c2a37045d9b69c3762e02c}} 
+\index{usb\+\_\+h\+\_\+xfer@{usb\+\_\+h\+\_\+xfer}!status@{status}}
+\index{status@{status}!usb\+\_\+h\+\_\+xfer@{usb\+\_\+h\+\_\+xfer}}
+\subsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily int8\+\_\+t usb\+\_\+h\+\_\+xfer\+::status}
+
+Last transfer status 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+hal/include/\hyperlink{hpl__usb__host_8h}{hpl\+\_\+usb\+\_\+host.\+h}\end{DoxyCompactItemize}

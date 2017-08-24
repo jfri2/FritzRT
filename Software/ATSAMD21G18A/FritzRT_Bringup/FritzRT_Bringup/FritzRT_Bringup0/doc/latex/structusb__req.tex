@@ -1,0 +1,66 @@
+\hypertarget{structusb__req}{}\section{usb\+\_\+req Struct Reference}
+\label{structusb__req}\index{usb\+\_\+req@{usb\+\_\+req}}
+
+
+A U\+SB Device S\+E\+T\+UP request.  
+
+
+
+
+{\ttfamily \#include $<$usb\+\_\+protocol.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structusb__req_a2cf601b6ffc7e21755bcd223909643bb}\label{structusb__req_a2cf601b6ffc7e21755bcd223909643bb}} 
+uint8\+\_\+t {\bfseries bm\+Request\+Type}
+\item 
+\mbox{\Hypertarget{structusb__req_ae9de9104f87d7c078729ab1feb8fb104}\label{structusb__req_ae9de9104f87d7c078729ab1feb8fb104}} 
+uint8\+\_\+t {\bfseries b\+Request}
+\item 
+\mbox{\Hypertarget{structusb__req_a85739b39640b8a4f6f5310ec7c3afb26}\label{structusb__req_a85739b39640b8a4f6f5310ec7c3afb26}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>le16\_t {\bfseries wValue}\\
+\>struct \{\\
+\>\>uint8\_t {\bfseries l}\\
+\>\>uint8\_t {\bfseries h}\\
+\>\} {\bfseries wValueBytes}\\
+\}; \\
+
+\end{tabbing}\item 
+\mbox{\Hypertarget{structusb__req_a7e67abfdf3e4ccac1fcc97218775ae19}\label{structusb__req_a7e67abfdf3e4ccac1fcc97218775ae19}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>le16\_t {\bfseries wIndex}\\
+\>struct \{\\
+\>\>uint8\_t {\bfseries l}\\
+\>\>uint8\_t {\bfseries h}\\
+\>\} {\bfseries wIndexBytes}\\
+\}; \\
+
+\end{tabbing}\item 
+\mbox{\Hypertarget{structusb__req_a1aee9b648767efc36ceaf7aaba0f0b03}\label{structusb__req_a1aee9b648767efc36ceaf7aaba0f0b03}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>le16\_t {\bfseries wLength}\\
+\>struct \{\\
+\>\>uint8\_t {\bfseries l}\\
+\>\>uint8\_t {\bfseries h}\\
+\>\} {\bfseries wLengthBytes}\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A U\+SB Device S\+E\+T\+UP request. 
+
+The data payload of S\+E\+T\+UP packets always follows this structure. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+usb/\hyperlink{usb__protocol_8h}{usb\+\_\+protocol.\+h}\end{DoxyCompactItemize}

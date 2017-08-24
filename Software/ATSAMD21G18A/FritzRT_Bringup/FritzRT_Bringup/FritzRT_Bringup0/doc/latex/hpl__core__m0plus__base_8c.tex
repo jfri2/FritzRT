@@ -1,0 +1,62 @@
+\hypertarget{hpl__core__m0plus__base_8c}{}\section{hpl/core/hpl\+\_\+core\+\_\+m0plus\+\_\+base.c File Reference}
+\label{hpl__core__m0plus__base_8c}\index{hpl/core/hpl\+\_\+core\+\_\+m0plus\+\_\+base.\+c@{hpl/core/hpl\+\_\+core\+\_\+m0plus\+\_\+base.\+c}}
+
+
+Core related functionality implementation.  
+
+
+{\ttfamily \#include $<$hpl\+\_\+core.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+irq.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+reset.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+sleep.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+delay.\+h$>$}\newline
+{\ttfamily \#include $<$utils.\+h$>$}\newline
+{\ttfamily \#include $<$utils\+\_\+assert.\+h$>$}\newline
+{\ttfamily \#include $<$peripheral\+\_\+clk\+\_\+config.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hpl__core__m0plus__base_8c_a68b93cb1c373be54c2b7cee881ca869a}\label{hpl__core__m0plus__base_8c_a68b93cb1c373be54c2b7cee881ca869a}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+C\+P\+U\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}~1000000
+\item 
+\mbox{\Hypertarget{hpl__core__m0plus__base_8c_a8ca32c0b03ba2e1e90f5c2ec0007eb80}\label{hpl__core__m0plus__base_8c_a8ca32c0b03ba2e1e90f5c2ec0007eb80}} 
+\#define {\bfseries C\+P\+U\+\_\+\+F\+R\+E\+Q\+\_\+\+P\+O\+W\+ER}~7
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___h_p_l_gaf1c17c7797e22fd860d303deda80e17c}{\+\_\+reset\+\_\+mcu} (void)
+\begin{DoxyCompactList}\small\item\em Reset M\+CU. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga8977ae60a1c30b8c2216f8f2a9c59b5e}{\+\_\+go\+\_\+to\+\_\+sleep} (void)
+\begin{DoxyCompactList}\small\item\em Put M\+CU to sleep. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___h_p_l_ga082e8d19d78ab2cf2f63ded8530c7852}{\+\_\+irq\+\_\+get\+\_\+current} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve current I\+RQ number. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gae6a80cff8a450795dc3f2d6df1a19464}{\+\_\+irq\+\_\+disable} (uint8\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Disable the given I\+RQ. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga7720726f19dfdda1561a042483c97a58}{\+\_\+irq\+\_\+set} (uint8\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Set the given I\+RQ. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga80f1b1a044a8773e23b38517296620b4}{\+\_\+irq\+\_\+clear} (uint8\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Clear the given I\+RQ. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gac8b7aa49ad81aecd34603b4dc23dd143}{\+\_\+irq\+\_\+enable} (uint8\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Enable the given I\+RQ. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga1ee85f2f8227e335c654b9085e9b7d5c}{\+\_\+irq\+\_\+register} (const uint8\+\_\+t n, struct \hyperlink{struct__irq__descriptor}{\+\_\+irq\+\_\+descriptor} $\ast$const irq)
+\begin{DoxyCompactList}\small\item\em Register I\+RQ handler. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__core__m0plus__base_8c_a4e0c522c1bb26af24accaf20e6b87d12}\label{hpl__core__m0plus__base_8c_a4e0c522c1bb26af24accaf20e6b87d12}} 
+void \hyperlink{hpl__core__m0plus__base_8c_a4e0c522c1bb26af24accaf20e6b87d12}{Default\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Default interrupt handler for unused I\+R\+Qs. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___h_p_l_gacdb903e26206a1b890c9465e20455aef}{\+\_\+get\+\_\+cycles\+\_\+for\+\_\+us} (const uint16\+\_\+t us)
+\begin{DoxyCompactList}\small\item\em Retrieve the amount of cycles to delay for the given amount of us. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___h_p_l_gabf15f09c56b3ef75a3dbf7073092c51f}{\+\_\+get\+\_\+cycles\+\_\+for\+\_\+ms} (const uint16\+\_\+t ms)
+\begin{DoxyCompactList}\small\item\em Retrieve the amount of cycles to delay for the given amount of ms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hpl__core__m0plus__base_8c_a7f41f9238e734e44845a3dc9c71d62d2}\label{hpl__core__m0plus__base_8c_a7f41f9238e734e44845a3dc9c71d62d2}} 
+struct \hyperlink{struct__irq__descriptor}{\+\_\+irq\+\_\+descriptor} $\ast$ \hyperlink{hpl__core__m0plus__base_8c_a7f41f9238e734e44845a3dc9c71d62d2}{\+\_\+irq\+\_\+table} \mbox{[}P\+E\+R\+I\+P\+H\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+R\+Qn\mbox{]}
+\begin{DoxyCompactList}\small\item\em The array of interrupt handlers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Core related functionality implementation. 
+
+Copyright (C) 2014-\/2016 Atmel Corporation. All rights reserved.

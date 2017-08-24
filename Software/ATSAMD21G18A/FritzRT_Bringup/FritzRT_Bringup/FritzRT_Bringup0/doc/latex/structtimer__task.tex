@@ -1,0 +1,60 @@
+\hypertarget{structtimer__task}{}\section{timer\+\_\+task Struct Reference}
+\label{structtimer__task}\index{timer\+\_\+task@{timer\+\_\+task}}
+
+
+Timer task structure.  
+
+
+
+
+{\ttfamily \#include $<$hal\+\_\+timer.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structtimer__task_a79f338a842e6edd81f9273a18c3877f7}\label{structtimer__task_a79f338a842e6edd81f9273a18c3877f7}} 
+struct \hyperlink{structlist__element}{list\+\_\+element} {\bfseries elem}
+\item 
+uint32\+\_\+t \hyperlink{structtimer__task_a862d2aad8a2d1a9c22d108227cbf6c24}{time\+\_\+label}
+\item 
+uint32\+\_\+t \hyperlink{structtimer__task_a627f11cf534c7c4173e010235a3545ce}{interval}
+\item 
+\hyperlink{group__doc__driver__hal__timer_ga636b5fdfa1fc11dcedfc831f36bec204}{timer\+\_\+cb\+\_\+t} \hyperlink{structtimer__task_a74a6d0c7868a22666966e37b32795d25}{cb}
+\item 
+enum \hyperlink{group__doc__driver__hal__timer_gaca1571cb764dfc6dc97aca691789d53d}{timer\+\_\+task\+\_\+mode} \hyperlink{structtimer__task_afaa093b08fe0267ae9b66b016b0886e0}{mode}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Timer task structure. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structtimer__task_a74a6d0c7868a22666966e37b32795d25}\label{structtimer__task_a74a6d0c7868a22666966e37b32795d25}} 
+\index{timer\+\_\+task@{timer\+\_\+task}!cb@{cb}}
+\index{cb@{cb}!timer\+\_\+task@{timer\+\_\+task}}
+\subsubsection{\texorpdfstring{cb}{cb}}
+{\footnotesize\ttfamily \hyperlink{group__doc__driver__hal__timer_ga636b5fdfa1fc11dcedfc831f36bec204}{timer\+\_\+cb\+\_\+t} timer\+\_\+task\+::cb}
+
+Number of timer ticks before calling the task. \mbox{\Hypertarget{structtimer__task_a627f11cf534c7c4173e010235a3545ce}\label{structtimer__task_a627f11cf534c7c4173e010235a3545ce}} 
+\index{timer\+\_\+task@{timer\+\_\+task}!interval@{interval}}
+\index{interval@{interval}!timer\+\_\+task@{timer\+\_\+task}}
+\subsubsection{\texorpdfstring{interval}{interval}}
+{\footnotesize\ttfamily uint32\+\_\+t timer\+\_\+task\+::interval}
+
+Absolute timer start time. \mbox{\Hypertarget{structtimer__task_afaa093b08fe0267ae9b66b016b0886e0}\label{structtimer__task_afaa093b08fe0267ae9b66b016b0886e0}} 
+\index{timer\+\_\+task@{timer\+\_\+task}!mode@{mode}}
+\index{mode@{mode}!timer\+\_\+task@{timer\+\_\+task}}
+\subsubsection{\texorpdfstring{mode}{mode}}
+{\footnotesize\ttfamily enum \hyperlink{group__doc__driver__hal__timer_gaca1571cb764dfc6dc97aca691789d53d}{timer\+\_\+task\+\_\+mode} timer\+\_\+task\+::mode}
+
+Function pointer to the task. \mbox{\Hypertarget{structtimer__task_a862d2aad8a2d1a9c22d108227cbf6c24}\label{structtimer__task_a862d2aad8a2d1a9c22d108227cbf6c24}} 
+\index{timer\+\_\+task@{timer\+\_\+task}!time\+\_\+label@{time\+\_\+label}}
+\index{time\+\_\+label@{time\+\_\+label}!timer\+\_\+task@{timer\+\_\+task}}
+\subsubsection{\texorpdfstring{time\+\_\+label}{time\_label}}
+{\footnotesize\ttfamily uint32\+\_\+t timer\+\_\+task\+::time\+\_\+label}
+
+List element. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+hal/include/\hyperlink{hal__timer_8h}{hal\+\_\+timer.\+h}\end{DoxyCompactItemize}

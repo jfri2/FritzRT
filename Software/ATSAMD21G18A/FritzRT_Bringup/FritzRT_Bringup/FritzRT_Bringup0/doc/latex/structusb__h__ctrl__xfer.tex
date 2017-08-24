@@ -1,0 +1,112 @@
+\hypertarget{structusb__h__ctrl__xfer}{}\section{usb\+\_\+h\+\_\+ctrl\+\_\+xfer Struct Reference}
+\label{structusb__h__ctrl__xfer}\index{usb\+\_\+h\+\_\+ctrl\+\_\+xfer@{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}}
+
+
+Transfer descriptor for control transfer.  
+
+
+
+
+{\ttfamily \#include $<$hpl\+\_\+usb\+\_\+host.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{structusb__h__ctrl__xfer_a4e6a75132f6c0ca21aa0d4a9a44e9b9f}{data}
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{structusb__h__ctrl__xfer_ad7bbc367de903eb4319432768b57442b}{setup}
+\item 
+uint16\+\_\+t \hyperlink{structusb__h__ctrl__xfer_a64df46630092535d3c706e816bf22116}{size}
+\item 
+uint16\+\_\+t \hyperlink{structusb__h__ctrl__xfer_ac1431c769926b00cf8ddfc60c7758271}{count}
+\item 
+int16\+\_\+t \hyperlink{structusb__h__ctrl__xfer_a1e524622e50fbcbdd4f2edc79bfdcd08}{req\+\_\+timeout}
+\item 
+int16\+\_\+t \hyperlink{structusb__h__ctrl__xfer_ad090b0b14e24af272f3ea6a1b8c1595d}{pkt\+\_\+timeout}
+\item 
+uint16\+\_\+t \hyperlink{structusb__h__ctrl__xfer_ac26b14086c38dc598d26b75faaf98a64}{pkt\+\_\+size}
+\item 
+uint8\+\_\+t \hyperlink{structusb__h__ctrl__xfer_a6a9bfe1f9da5dadc830a0e2b502eda69}{state}
+\item 
+int8\+\_\+t \hyperlink{structusb__h__ctrl__xfer_a07b31fc28b01ca6356b1dccbf6ec4443}{status}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Transfer descriptor for control transfer. 
+
+Timing in U\+SB 2.\+0 spec.\+:
+\begin{DoxyItemize}
+\item 9.\+2.\+6.\+1 \+: U\+SB sets an upper limit of 5 seconds as the upper limit for any command to be processed.
+\item 9.\+2.\+6.\+3 \+: if a device receives a Set\+Address() request, the device must be able to complete processing of the request and be able to successfully complete the Status stage of the request within 50 ms. After successful completion of the Status stage, the device is allowed a Set\+Address() recovery interval of 2 ms. At the end of this interval, the device must be able to accept Setup packets addressed to the new address.
+\item 9.\+2.\+6.\+4 \+: For standard device requests that require no Data stage, a device must be able to complete the request and be able to successfully complete the Status stage of the request within 50 ms of receipt of the request. This limitation applies to requests to the device, interface, or endpoint. For standard device requests that require data stage transfer to the host, the device must be able to return the first data packet to the host within 500 ms of receipt of the request. For subsequent data packets, if any, the device must be able to return them within 500 ms of successful completion of the transmission of the previous packet. The device must then be able to successfully complete the status stage within 50 ms after returning the last data packet. For standard device requests that require a data stage transfer to the device, the 5-\/second limit applies.
+\item 9.\+2.\+6.\+5 \+: Unless specifically exempted in the class document, all class-\/specific requests must meet the timing limitations for standard device requests.
+\end{DoxyItemize}
+
+Conclusion\+:
+\begin{DoxyEnumerate}
+\item Whole request with data\+: 5 seconds
+\item Whole request without data\+: 50 ms
+\item Data packets\+: 500 ms 
+\end{DoxyEnumerate}
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structusb__h__ctrl__xfer_ac1431c769926b00cf8ddfc60c7758271}\label{structusb__h__ctrl__xfer_ac1431c769926b00cf8ddfc60c7758271}} 
+\index{usb\+\_\+h\+\_\+ctrl\+\_\+xfer@{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}!count@{count}}
+\index{count@{count}!usb\+\_\+h\+\_\+ctrl\+\_\+xfer@{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}}
+\subsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily uint16\+\_\+t usb\+\_\+h\+\_\+ctrl\+\_\+xfer\+::count}
+
+Transfer count \mbox{\Hypertarget{structusb__h__ctrl__xfer_a4e6a75132f6c0ca21aa0d4a9a44e9b9f}\label{structusb__h__ctrl__xfer_a4e6a75132f6c0ca21aa0d4a9a44e9b9f}} 
+\index{usb\+\_\+h\+\_\+ctrl\+\_\+xfer@{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}!data@{data}}
+\index{data@{data}!usb\+\_\+h\+\_\+ctrl\+\_\+xfer@{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}}
+\subsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ usb\+\_\+h\+\_\+ctrl\+\_\+xfer\+::data}
+
+Pointer to transfer data \mbox{\Hypertarget{structusb__h__ctrl__xfer_ac26b14086c38dc598d26b75faaf98a64}\label{structusb__h__ctrl__xfer_ac26b14086c38dc598d26b75faaf98a64}} 
+\index{usb\+\_\+h\+\_\+ctrl\+\_\+xfer@{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}!pkt\+\_\+size@{pkt\+\_\+size}}
+\index{pkt\+\_\+size@{pkt\+\_\+size}!usb\+\_\+h\+\_\+ctrl\+\_\+xfer@{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}}
+\subsubsection{\texorpdfstring{pkt\+\_\+size}{pkt\_size}}
+{\footnotesize\ttfamily uint16\+\_\+t usb\+\_\+h\+\_\+ctrl\+\_\+xfer\+::pkt\+\_\+size}
+
+Packet size during transfer ($<$= allocate max packet size) \mbox{\Hypertarget{structusb__h__ctrl__xfer_ad090b0b14e24af272f3ea6a1b8c1595d}\label{structusb__h__ctrl__xfer_ad090b0b14e24af272f3ea6a1b8c1595d}} 
+\index{usb\+\_\+h\+\_\+ctrl\+\_\+xfer@{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}!pkt\+\_\+timeout@{pkt\+\_\+timeout}}
+\index{pkt\+\_\+timeout@{pkt\+\_\+timeout}!usb\+\_\+h\+\_\+ctrl\+\_\+xfer@{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}}
+\subsubsection{\texorpdfstring{pkt\+\_\+timeout}{pkt\_timeout}}
+{\footnotesize\ttfamily int16\+\_\+t usb\+\_\+h\+\_\+ctrl\+\_\+xfer\+::pkt\+\_\+timeout}
+
+Timeout between packets (500ms for data and 50ms for status), -\/1 if disabled \mbox{\Hypertarget{structusb__h__ctrl__xfer_a1e524622e50fbcbdd4f2edc79bfdcd08}\label{structusb__h__ctrl__xfer_a1e524622e50fbcbdd4f2edc79bfdcd08}} 
+\index{usb\+\_\+h\+\_\+ctrl\+\_\+xfer@{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}!req\+\_\+timeout@{req\+\_\+timeout}}
+\index{req\+\_\+timeout@{req\+\_\+timeout}!usb\+\_\+h\+\_\+ctrl\+\_\+xfer@{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}}
+\subsubsection{\texorpdfstring{req\+\_\+timeout}{req\_timeout}}
+{\footnotesize\ttfamily int16\+\_\+t usb\+\_\+h\+\_\+ctrl\+\_\+xfer\+::req\+\_\+timeout}
+
+Timeout for request, -\/1 if disable timeout \mbox{\Hypertarget{structusb__h__ctrl__xfer_ad7bbc367de903eb4319432768b57442b}\label{structusb__h__ctrl__xfer_ad7bbc367de903eb4319432768b57442b}} 
+\index{usb\+\_\+h\+\_\+ctrl\+\_\+xfer@{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}!setup@{setup}}
+\index{setup@{setup}!usb\+\_\+h\+\_\+ctrl\+\_\+xfer@{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}}
+\subsubsection{\texorpdfstring{setup}{setup}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ usb\+\_\+h\+\_\+ctrl\+\_\+xfer\+::setup}
+
+Pointer to setup packet \mbox{\Hypertarget{structusb__h__ctrl__xfer_a64df46630092535d3c706e816bf22116}\label{structusb__h__ctrl__xfer_a64df46630092535d3c706e816bf22116}} 
+\index{usb\+\_\+h\+\_\+ctrl\+\_\+xfer@{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}!size@{size}}
+\index{size@{size}!usb\+\_\+h\+\_\+ctrl\+\_\+xfer@{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}}
+\subsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily uint16\+\_\+t usb\+\_\+h\+\_\+ctrl\+\_\+xfer\+::size}
+
+Expected transfer size \mbox{\Hypertarget{structusb__h__ctrl__xfer_a6a9bfe1f9da5dadc830a0e2b502eda69}\label{structusb__h__ctrl__xfer_a6a9bfe1f9da5dadc830a0e2b502eda69}} 
+\index{usb\+\_\+h\+\_\+ctrl\+\_\+xfer@{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}!state@{state}}
+\index{state@{state}!usb\+\_\+h\+\_\+ctrl\+\_\+xfer@{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}}
+\subsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+h\+\_\+ctrl\+\_\+xfer\+::state}
+
+Transfer state \mbox{\Hypertarget{structusb__h__ctrl__xfer_a07b31fc28b01ca6356b1dccbf6ec4443}\label{structusb__h__ctrl__xfer_a07b31fc28b01ca6356b1dccbf6ec4443}} 
+\index{usb\+\_\+h\+\_\+ctrl\+\_\+xfer@{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}!status@{status}}
+\index{status@{status}!usb\+\_\+h\+\_\+ctrl\+\_\+xfer@{usb\+\_\+h\+\_\+ctrl\+\_\+xfer}}
+\subsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily int8\+\_\+t usb\+\_\+h\+\_\+ctrl\+\_\+xfer\+::status}
+
+Last transfer status 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+hal/include/\hyperlink{hpl__usb__host_8h}{hpl\+\_\+usb\+\_\+host.\+h}\end{DoxyCompactItemize}

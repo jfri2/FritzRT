@@ -1,0 +1,68 @@
+\hypertarget{structusb__d__ep__status}{}\section{usb\+\_\+d\+\_\+ep\+\_\+status Struct Reference}
+\label{structusb__d__ep__status}\index{usb\+\_\+d\+\_\+ep\+\_\+status@{usb\+\_\+d\+\_\+ep\+\_\+status}}
+
+
+{\ttfamily \#include $<$hal\+\_\+usb\+\_\+device.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{structusb__d__ep__status_a3b13c0d91a42e3fc727788d60cbdee92}{ep}
+\item 
+uint8\+\_\+t \hyperlink{structusb__d__ep__status_a9090be975e0c1346bca9fc0fb5cf36ce}{code}
+\item 
+uint8\+\_\+t \hyperlink{structusb__d__ep__status_a1f65a74739950821f1742e57a2d25539}{error}
+\item 
+uint8\+\_\+t \hyperlink{structusb__d__ep__status_ac28adfc05f72116186906662394d8644}{state}
+\item 
+uint32\+\_\+t \hyperlink{structusb__d__ep__status_a23340a8e7cc82a333ab6c9f68fb4543e}{count}
+\item 
+uint32\+\_\+t \hyperlink{structusb__d__ep__status_a81459eb4fc0080b63bc1c7e3c35f32ec}{size}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+SB device endpoint status structure. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structusb__d__ep__status_a9090be975e0c1346bca9fc0fb5cf36ce}\label{structusb__d__ep__status_a9090be975e0c1346bca9fc0fb5cf36ce}} 
+\index{usb\+\_\+d\+\_\+ep\+\_\+status@{usb\+\_\+d\+\_\+ep\+\_\+status}!code@{code}}
+\index{code@{code}!usb\+\_\+d\+\_\+ep\+\_\+status@{usb\+\_\+d\+\_\+ep\+\_\+status}}
+\subsubsection{\texorpdfstring{code}{code}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+d\+\_\+ep\+\_\+status\+::code}
+
+Endpoint transfer status code that triggers the callback. \hyperlink{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5e}{usb\+\_\+xfer\+\_\+code}. \mbox{\Hypertarget{structusb__d__ep__status_a23340a8e7cc82a333ab6c9f68fb4543e}\label{structusb__d__ep__status_a23340a8e7cc82a333ab6c9f68fb4543e}} 
+\index{usb\+\_\+d\+\_\+ep\+\_\+status@{usb\+\_\+d\+\_\+ep\+\_\+status}!count@{count}}
+\index{count@{count}!usb\+\_\+d\+\_\+ep\+\_\+status@{usb\+\_\+d\+\_\+ep\+\_\+status}}
+\subsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily uint32\+\_\+t usb\+\_\+d\+\_\+ep\+\_\+status\+::count}
+
+Transfer count. \mbox{\Hypertarget{structusb__d__ep__status_a3b13c0d91a42e3fc727788d60cbdee92}\label{structusb__d__ep__status_a3b13c0d91a42e3fc727788d60cbdee92}} 
+\index{usb\+\_\+d\+\_\+ep\+\_\+status@{usb\+\_\+d\+\_\+ep\+\_\+status}!ep@{ep}}
+\index{ep@{ep}!usb\+\_\+d\+\_\+ep\+\_\+status@{usb\+\_\+d\+\_\+ep\+\_\+status}}
+\subsubsection{\texorpdfstring{ep}{ep}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+d\+\_\+ep\+\_\+status\+::ep}
+
+Endpoint address, including direction. \mbox{\Hypertarget{structusb__d__ep__status_a1f65a74739950821f1742e57a2d25539}\label{structusb__d__ep__status_a1f65a74739950821f1742e57a2d25539}} 
+\index{usb\+\_\+d\+\_\+ep\+\_\+status@{usb\+\_\+d\+\_\+ep\+\_\+status}!error@{error}}
+\index{error@{error}!usb\+\_\+d\+\_\+ep\+\_\+status@{usb\+\_\+d\+\_\+ep\+\_\+status}}
+\subsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+d\+\_\+ep\+\_\+status\+::error}
+
+Endpoint error, if {\ttfamily code} is \hyperlink{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474ca55e42f3b85f972f5eedf70d17243b14c}{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+E\+R\+R\+OR}. \mbox{\Hypertarget{structusb__d__ep__status_a81459eb4fc0080b63bc1c7e3c35f32ec}\label{structusb__d__ep__status_a81459eb4fc0080b63bc1c7e3c35f32ec}} 
+\index{usb\+\_\+d\+\_\+ep\+\_\+status@{usb\+\_\+d\+\_\+ep\+\_\+status}!size@{size}}
+\index{size@{size}!usb\+\_\+d\+\_\+ep\+\_\+status@{usb\+\_\+d\+\_\+ep\+\_\+status}}
+\subsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily uint32\+\_\+t usb\+\_\+d\+\_\+ep\+\_\+status\+::size}
+
+Transfer size. \mbox{\Hypertarget{structusb__d__ep__status_ac28adfc05f72116186906662394d8644}\label{structusb__d__ep__status_ac28adfc05f72116186906662394d8644}} 
+\index{usb\+\_\+d\+\_\+ep\+\_\+status@{usb\+\_\+d\+\_\+ep\+\_\+status}!state@{state}}
+\index{state@{state}!usb\+\_\+d\+\_\+ep\+\_\+status@{usb\+\_\+d\+\_\+ep\+\_\+status}}
+\subsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+d\+\_\+ep\+\_\+status\+::state}
+
+Transfer state, \hyperlink{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36a}{usb\+\_\+ep\+\_\+state}. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+hal/include/\hyperlink{hal__usb__device_8h}{hal\+\_\+usb\+\_\+device.\+h}\end{DoxyCompactItemize}

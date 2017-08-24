@@ -1,0 +1,38 @@
+\hypertarget{hpl__spi__async_8h}{}\section{hal/include/hpl\+\_\+spi\+\_\+async.h File Reference}
+\label{hpl__spi__async_8h}\index{hal/include/hpl\+\_\+spi\+\_\+async.\+h@{hal/include/hpl\+\_\+spi\+\_\+async.\+h}}
+
+
+Common S\+PI related functionality declaration.  
+
+
+{\ttfamily \#include $<$hpl\+\_\+spi.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+irq.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__spi__async__dev__callbacks}{\+\_\+spi\+\_\+async\+\_\+dev\+\_\+callbacks}
+\begin{DoxyCompactList}\small\item\em The callbacks offered by S\+PI driver. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev}
+\begin{DoxyCompactList}\small\item\em S\+PI async driver. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{group__hpl__spi_ga446094494e8aacbf4ad1a74c868d9809}{\+\_\+spi\+\_\+async\+\_\+dev\+\_\+cb\+\_\+complete\+\_\+t}) (struct \hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev} $\ast$dev, int32\+\_\+t status)
+\begin{DoxyCompactList}\small\item\em The prototype for callback on S\+PI transfer complete. If status code is zero, it indicates the normal completion, that is, SS deactivation. If status code belows zero, it indicates complete. \end{DoxyCompactList}\item 
+typedef void($\ast$ \hyperlink{group__hpl__spi_ga62275ef9b2c245ed2ed183f9d1c98a31}{\+\_\+spi\+\_\+async\+\_\+dev\+\_\+cb\+\_\+xfer\+\_\+t}) (struct \hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em The prototype for callback on S\+PI transmit/receive event For TX, the callback is invoked when transmit is done or ready to start transmit. For RX, the callback is invoked when receive is done or ready to read data, see \+\_\+spi\+\_\+async\+\_\+dev\+\_\+read\+\_\+one\+\_\+t on data reading. Without D\+MA enabled, the callback is invoked on each character event. With D\+MA enabled, the callback is invoked on D\+MA buffer done. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group__hpl__spi_ga0f0c72bc59abef8035904e8e267dfde9}{\+\_\+spi\+\_\+async\+\_\+dev\+\_\+cb\+\_\+type} \{ \hyperlink{group__hpl__spi_gga0f0c72bc59abef8035904e8e267dfde9a2737d518cdb51d60e7b2d7c3d793dc59}{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+TX}, 
+\hyperlink{group__hpl__spi_gga0f0c72bc59abef8035904e8e267dfde9a9bd42857f574c730b26d17c12946f337}{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+RX}, 
+\hyperlink{group__hpl__spi_gga0f0c72bc59abef8035904e8e267dfde9a37eb945faf2d105fc98a372ec31a57e1}{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+C\+O\+M\+P\+L\+E\+TE}, 
+\hyperlink{group__hpl__spi_gga0f0c72bc59abef8035904e8e267dfde9a2433e69f88c4631aebf9c7471420a747}{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+N}
+ \}\begin{DoxyCompactList}\small\item\em Callbacks the S\+PI driver must offer in async mode. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Common S\+PI related functionality declaration. 
+
+Copyright (C) 2015 Atmel Corporation. All rights reserved.

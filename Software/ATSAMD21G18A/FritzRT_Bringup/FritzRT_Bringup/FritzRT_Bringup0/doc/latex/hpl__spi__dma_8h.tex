@@ -1,0 +1,63 @@
+\hypertarget{hpl__spi__dma_8h}{}\section{hal/include/hpl\+\_\+spi\+\_\+dma.h File Reference}
+\label{hpl__spi__dma_8h}\index{hal/include/hpl\+\_\+spi\+\_\+dma.\+h@{hal/include/hpl\+\_\+spi\+\_\+dma.\+h}}
+
+
+Common S\+PI D\+MA related functionality declaration.  
+
+
+{\ttfamily \#include $<$hpl\+\_\+irq.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+dma.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__spi__dma__dev__callbacks}{\+\_\+spi\+\_\+dma\+\_\+dev\+\_\+callbacks}
+\begin{DoxyCompactList}\small\item\em The callbacks offered by S\+PI driver. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__spi__dma__dev}{\+\_\+spi\+\_\+dma\+\_\+dev}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hpl__spi__dma_8h_ae7c46033731e549163962bd7c79cab78}\label{hpl__spi__dma_8h_ae7c46033731e549163962bd7c79cab78}} 
+typedef void($\ast$ \hyperlink{hpl__spi__dma_8h_ae7c46033731e549163962bd7c79cab78}{\+\_\+spi\+\_\+dma\+\_\+cb\+\_\+t}) (struct \hyperlink{struct__dma__resource}{\+\_\+dma\+\_\+resource} $\ast$resource)
+\begin{DoxyCompactList}\small\item\em The prototype for callback on S\+PI D\+MA. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{hpl__spi__dma_8h_a620c54d725b7b6e7f39ebf1c3e67d56f}{\+\_\+spi\+\_\+dma\+\_\+dev\+\_\+cb\+\_\+type} \{ \hyperlink{hpl__spi__dma_8h_a620c54d725b7b6e7f39ebf1c3e67d56fa8c68a55ff89af622cc9176eb81550f09}{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+\+TX}, 
+\hyperlink{hpl__spi__dma_8h_a620c54d725b7b6e7f39ebf1c3e67d56fa888542f632ac3d2a639b2ab5aab9c867}{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+\+RX}, 
+\hyperlink{hpl__spi__dma_8h_a620c54d725b7b6e7f39ebf1c3e67d56fa4d0366eec22408e596f568ef7d10cb39}{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{hpl__spi__dma_8h_a620c54d725b7b6e7f39ebf1c3e67d56fa9f0f9c3678d19224137d7359c1a7713c}{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+N}
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Common S\+PI D\+MA related functionality declaration. 
+
+Copyright (C) 2016 Atmel Corporation. All rights reserved.
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{hpl__spi__dma_8h_a620c54d725b7b6e7f39ebf1c3e67d56f}\label{hpl__spi__dma_8h_a620c54d725b7b6e7f39ebf1c3e67d56f}} 
+\index{hpl\+\_\+spi\+\_\+dma.\+h@{hpl\+\_\+spi\+\_\+dma.\+h}!\+\_\+spi\+\_\+dma\+\_\+dev\+\_\+cb\+\_\+type@{\+\_\+spi\+\_\+dma\+\_\+dev\+\_\+cb\+\_\+type}}
+\index{\+\_\+spi\+\_\+dma\+\_\+dev\+\_\+cb\+\_\+type@{\+\_\+spi\+\_\+dma\+\_\+dev\+\_\+cb\+\_\+type}!hpl\+\_\+spi\+\_\+dma.\+h@{hpl\+\_\+spi\+\_\+dma.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+spi\+\_\+dma\+\_\+dev\+\_\+cb\+\_\+type}{\_spi\_dma\_dev\_cb\_type}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__spi__dma_8h_a620c54d725b7b6e7f39ebf1c3e67d56f}{\+\_\+spi\+\_\+dma\+\_\+dev\+\_\+cb\+\_\+type}}
+
+The callback types \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+\+TX@{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+\+TX}!hpl\+\_\+spi\+\_\+dma.\+h@{hpl\+\_\+spi\+\_\+dma.\+h}}\index{hpl\+\_\+spi\+\_\+dma.\+h@{hpl\+\_\+spi\+\_\+dma.\+h}!S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+\+TX@{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+\+TX}}}\mbox{\Hypertarget{hpl__spi__dma_8h_a620c54d725b7b6e7f39ebf1c3e67d56fa8c68a55ff89af622cc9176eb81550f09}\label{hpl__spi__dma_8h_a620c54d725b7b6e7f39ebf1c3e67d56fa8c68a55ff89af622cc9176eb81550f09}} 
+S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+\+TX&Callback type for D\+MA transmit. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+\+RX@{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+\+RX}!hpl\+\_\+spi\+\_\+dma.\+h@{hpl\+\_\+spi\+\_\+dma.\+h}}\index{hpl\+\_\+spi\+\_\+dma.\+h@{hpl\+\_\+spi\+\_\+dma.\+h}!S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+\+RX@{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+\+RX}}}\mbox{\Hypertarget{hpl__spi__dma_8h_a620c54d725b7b6e7f39ebf1c3e67d56fa888542f632ac3d2a639b2ab5aab9c867}\label{hpl__spi__dma_8h_a620c54d725b7b6e7f39ebf1c3e67d56fa888542f632ac3d2a639b2ab5aab9c867}} 
+S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+\+RX&Callback type for D\+MA receive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+\+E\+R\+R\+OR@{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+\+E\+R\+R\+OR}!hpl\+\_\+spi\+\_\+dma.\+h@{hpl\+\_\+spi\+\_\+dma.\+h}}\index{hpl\+\_\+spi\+\_\+dma.\+h@{hpl\+\_\+spi\+\_\+dma.\+h}!S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+\+E\+R\+R\+OR@{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+\+E\+R\+R\+OR}}}\mbox{\Hypertarget{hpl__spi__dma_8h_a620c54d725b7b6e7f39ebf1c3e67d56fa4d0366eec22408e596f568ef7d10cb39}\label{hpl__spi__dma_8h_a620c54d725b7b6e7f39ebf1c3e67d56fa4d0366eec22408e596f568ef7d10cb39}} 
+S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+\+E\+R\+R\+OR&Callback type for D\+MA error. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+N@{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+N}!hpl\+\_\+spi\+\_\+dma.\+h@{hpl\+\_\+spi\+\_\+dma.\+h}}\index{hpl\+\_\+spi\+\_\+dma.\+h@{hpl\+\_\+spi\+\_\+dma.\+h}!S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+N@{S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+N}}}\mbox{\Hypertarget{hpl__spi__dma_8h_a620c54d725b7b6e7f39ebf1c3e67d56fa9f0f9c3678d19224137d7359c1a7713c}\label{hpl__spi__dma_8h_a620c54d725b7b6e7f39ebf1c3e67d56fa9f0f9c3678d19224137d7359c1a7713c}} 
+S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+C\+B\+\_\+\+D\+M\+A\+\_\+N&Number of callbacks. \\
+\hline
+
+\end{DoxyEnumFields}

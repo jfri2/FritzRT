@@ -1,0 +1,235 @@
+\hypertarget{group__doc__driver__hal__timer}{}\section{Doc\+\_\+driver\+\_\+hal\+\_\+timer}
+\label{group__doc__driver__hal__timer}\index{Doc\+\_\+driver\+\_\+hal\+\_\+timer@{Doc\+\_\+driver\+\_\+hal\+\_\+timer}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtimer__task}{timer\+\_\+task}
+\begin{DoxyCompactList}\small\item\em Timer task structure. \end{DoxyCompactList}\item 
+struct \hyperlink{structtimer__descriptor}{timer\+\_\+descriptor}
+\begin{DoxyCompactList}\small\item\em Timer structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__doc__driver__hal__timer_ga636b5fdfa1fc11dcedfc831f36bec204}\label{group__doc__driver__hal__timer_ga636b5fdfa1fc11dcedfc831f36bec204}} 
+typedef void($\ast$ \hyperlink{group__doc__driver__hal__timer_ga636b5fdfa1fc11dcedfc831f36bec204}{timer\+\_\+cb\+\_\+t}) (const struct \hyperlink{structtimer__task}{timer\+\_\+task} $\ast$const \hyperlink{structtimer__task}{timer\+\_\+task})
+\begin{DoxyCompactList}\small\item\em Timer task callback function type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__doc__driver__hal__timer_gaca1571cb764dfc6dc97aca691789d53d}\label{group__doc__driver__hal__timer_gaca1571cb764dfc6dc97aca691789d53d}} 
+enum \hyperlink{group__doc__driver__hal__timer_gaca1571cb764dfc6dc97aca691789d53d}{timer\+\_\+task\+\_\+mode} \{ {\bfseries T\+I\+M\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+O\+N\+E\+\_\+\+S\+H\+OT}, 
+{\bfseries T\+I\+M\+E\+R\+\_\+\+T\+A\+S\+K\+\_\+\+R\+E\+P\+E\+AT}
+ \}\begin{DoxyCompactList}\small\item\em Timer mode type. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__timer_ga22db38dddbdcff5fef216fd5968c237d}{timer\+\_\+init} (struct \hyperlink{structtimer__descriptor}{timer\+\_\+descriptor} $\ast$const descr, void $\ast$const hw, struct \hyperlink{struct__timer__hpl__interface}{\+\_\+timer\+\_\+hpl\+\_\+interface} $\ast$const func)
+\begin{DoxyCompactList}\small\item\em Initialize timer. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__timer_gad507034c9221e87e6a7bbb737f697063}{timer\+\_\+deinit} (struct \hyperlink{structtimer__descriptor}{timer\+\_\+descriptor} $\ast$const descr)
+\begin{DoxyCompactList}\small\item\em Deinitialize timer. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__timer_ga462a0562dcbf75fce52d9b763ded6375}{timer\+\_\+start} (struct \hyperlink{structtimer__descriptor}{timer\+\_\+descriptor} $\ast$const descr)
+\begin{DoxyCompactList}\small\item\em Start timer. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__timer_gaeb44f8c22b1579586981522213a6df2b}{timer\+\_\+stop} (struct \hyperlink{structtimer__descriptor}{timer\+\_\+descriptor} $\ast$const descr)
+\begin{DoxyCompactList}\small\item\em Stop timer. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__timer_ga658e045e3dfdc01d14e09db3a1ff1eb7}{timer\+\_\+set\+\_\+clock\+\_\+cycles\+\_\+per\+\_\+tick} (struct \hyperlink{structtimer__descriptor}{timer\+\_\+descriptor} $\ast$const descr, const uint32\+\_\+t clock\+\_\+cycles)
+\begin{DoxyCompactList}\small\item\em Set amount of clock cycles per timer tick. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__timer_gadfb41242ed524d44676ef469b6e4d8ba}{timer\+\_\+get\+\_\+clock\+\_\+cycles\+\_\+in\+\_\+tick} (const struct \hyperlink{structtimer__descriptor}{timer\+\_\+descriptor} $\ast$const descr, uint32\+\_\+t $\ast$const cycles)
+\begin{DoxyCompactList}\small\item\em Retrieve the amount of clock cycles in a tick. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__timer_ga6a3e13f52fc112ac1d11c2615044bdac}{timer\+\_\+add\+\_\+task} (struct \hyperlink{structtimer__descriptor}{timer\+\_\+descriptor} $\ast$const descr, struct \hyperlink{structtimer__task}{timer\+\_\+task} $\ast$const task)
+\begin{DoxyCompactList}\small\item\em Add timer task. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__timer_gad9ebc284902f8cc56872fe4c28c8f77e}{timer\+\_\+remove\+\_\+task} (struct \hyperlink{structtimer__descriptor}{timer\+\_\+descriptor} $\ast$const descr, const struct \hyperlink{structtimer__task}{timer\+\_\+task} $\ast$const task)
+\begin{DoxyCompactList}\small\item\em Remove timer task. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group__doc__driver__hal__timer_ga0d15eccf64f5a468c2f359286a2d6682}{timer\+\_\+get\+\_\+version} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve the current driver version. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__doc__driver__hal__timer_ga6a3e13f52fc112ac1d11c2615044bdac}\label{group__doc__driver__hal__timer_ga6a3e13f52fc112ac1d11c2615044bdac}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+timer@{Doc\+\_\+driver\+\_\+hal\+\_\+timer}!timer\+\_\+add\+\_\+task@{timer\+\_\+add\+\_\+task}}
+\index{timer\+\_\+add\+\_\+task@{timer\+\_\+add\+\_\+task}!Doc\+\_\+driver\+\_\+hal\+\_\+timer@{Doc\+\_\+driver\+\_\+hal\+\_\+timer}}
+\subsubsection{\texorpdfstring{timer\+\_\+add\+\_\+task()}{timer\_add\_task()}}
+{\footnotesize\ttfamily int32\+\_\+t timer\+\_\+add\+\_\+task (\begin{DoxyParamCaption}\item[{struct \hyperlink{structtimer__descriptor}{timer\+\_\+descriptor} $\ast$const}]{descr,  }\item[{struct \hyperlink{structtimer__task}{timer\+\_\+task} $\ast$const}]{task }\end{DoxyParamCaption})}
+
+
+
+Add timer task. 
+
+This function adds the given timer task to the given timer. It checks if the given hardware is initialized.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & The timer descriptor of a timer to add task to \\
+\hline
+\mbox{\tt in}  & {\em task} & A task to add\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Timer\textquotesingle{}s task adding status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__timer_gad507034c9221e87e6a7bbb737f697063}\label{group__doc__driver__hal__timer_gad507034c9221e87e6a7bbb737f697063}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+timer@{Doc\+\_\+driver\+\_\+hal\+\_\+timer}!timer\+\_\+deinit@{timer\+\_\+deinit}}
+\index{timer\+\_\+deinit@{timer\+\_\+deinit}!Doc\+\_\+driver\+\_\+hal\+\_\+timer@{Doc\+\_\+driver\+\_\+hal\+\_\+timer}}
+\subsubsection{\texorpdfstring{timer\+\_\+deinit()}{timer\_deinit()}}
+{\footnotesize\ttfamily int32\+\_\+t timer\+\_\+deinit (\begin{DoxyParamCaption}\item[{struct \hyperlink{structtimer__descriptor}{timer\+\_\+descriptor} $\ast$const}]{descr }\end{DoxyParamCaption})}
+
+
+
+Deinitialize timer. 
+
+This function deinitializes the given timer. It checks if the given hardware is initialized and if the given hardware is permitted to be deinitialized.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & A timer descriptor to deinitialize\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+De-\/initialization status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__timer_gadfb41242ed524d44676ef469b6e4d8ba}\label{group__doc__driver__hal__timer_gadfb41242ed524d44676ef469b6e4d8ba}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+timer@{Doc\+\_\+driver\+\_\+hal\+\_\+timer}!timer\+\_\+get\+\_\+clock\+\_\+cycles\+\_\+in\+\_\+tick@{timer\+\_\+get\+\_\+clock\+\_\+cycles\+\_\+in\+\_\+tick}}
+\index{timer\+\_\+get\+\_\+clock\+\_\+cycles\+\_\+in\+\_\+tick@{timer\+\_\+get\+\_\+clock\+\_\+cycles\+\_\+in\+\_\+tick}!Doc\+\_\+driver\+\_\+hal\+\_\+timer@{Doc\+\_\+driver\+\_\+hal\+\_\+timer}}
+\subsubsection{\texorpdfstring{timer\+\_\+get\+\_\+clock\+\_\+cycles\+\_\+in\+\_\+tick()}{timer\_get\_clock\_cycles\_in\_tick()}}
+{\footnotesize\ttfamily int32\+\_\+t timer\+\_\+get\+\_\+clock\+\_\+cycles\+\_\+in\+\_\+tick (\begin{DoxyParamCaption}\item[{const struct \hyperlink{structtimer__descriptor}{timer\+\_\+descriptor} $\ast$const}]{descr,  }\item[{uint32\+\_\+t $\ast$const}]{cycles }\end{DoxyParamCaption})}
+
+
+
+Retrieve the amount of clock cycles in a tick. 
+
+This function retrieves how many clock cycles there are in a single timer tick. It checks if the given hardware is initialized.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & The timer descriptor of a timer to convert ticks to clock cycles \\
+\hline
+\mbox{\tt out}  & {\em cycles} & The amount of clock cycles\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of clock cycles retrieving. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__timer_ga0d15eccf64f5a468c2f359286a2d6682}\label{group__doc__driver__hal__timer_ga0d15eccf64f5a468c2f359286a2d6682}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+timer@{Doc\+\_\+driver\+\_\+hal\+\_\+timer}!timer\+\_\+get\+\_\+version@{timer\+\_\+get\+\_\+version}}
+\index{timer\+\_\+get\+\_\+version@{timer\+\_\+get\+\_\+version}!Doc\+\_\+driver\+\_\+hal\+\_\+timer@{Doc\+\_\+driver\+\_\+hal\+\_\+timer}}
+\subsubsection{\texorpdfstring{timer\+\_\+get\+\_\+version()}{timer\_get\_version()}}
+{\footnotesize\ttfamily uint32\+\_\+t timer\+\_\+get\+\_\+version (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve the current driver version. 
+
+\begin{DoxyReturn}{Returns}
+Current driver version. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__timer_ga22db38dddbdcff5fef216fd5968c237d}\label{group__doc__driver__hal__timer_ga22db38dddbdcff5fef216fd5968c237d}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+timer@{Doc\+\_\+driver\+\_\+hal\+\_\+timer}!timer\+\_\+init@{timer\+\_\+init}}
+\index{timer\+\_\+init@{timer\+\_\+init}!Doc\+\_\+driver\+\_\+hal\+\_\+timer@{Doc\+\_\+driver\+\_\+hal\+\_\+timer}}
+\subsubsection{\texorpdfstring{timer\+\_\+init()}{timer\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t timer\+\_\+init (\begin{DoxyParamCaption}\item[{struct \hyperlink{structtimer__descriptor}{timer\+\_\+descriptor} $\ast$const}]{descr,  }\item[{void $\ast$const}]{hw,  }\item[{struct \hyperlink{struct__timer__hpl__interface}{\+\_\+timer\+\_\+hpl\+\_\+interface} $\ast$const}]{func }\end{DoxyParamCaption})}
+
+
+
+Initialize timer. 
+
+This function initializes the given timer. It checks if the given hardware is not initialized and if the given hardware is permitted to be initialized.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em descr} & A timer descriptor to initialize \\
+\hline
+\mbox{\tt in}  & {\em hw} & The pointer to the hardware instance \\
+\hline
+\mbox{\tt in}  & {\em func} & The pointer to a set of function pointers\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Initialization status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__timer_gad9ebc284902f8cc56872fe4c28c8f77e}\label{group__doc__driver__hal__timer_gad9ebc284902f8cc56872fe4c28c8f77e}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+timer@{Doc\+\_\+driver\+\_\+hal\+\_\+timer}!timer\+\_\+remove\+\_\+task@{timer\+\_\+remove\+\_\+task}}
+\index{timer\+\_\+remove\+\_\+task@{timer\+\_\+remove\+\_\+task}!Doc\+\_\+driver\+\_\+hal\+\_\+timer@{Doc\+\_\+driver\+\_\+hal\+\_\+timer}}
+\subsubsection{\texorpdfstring{timer\+\_\+remove\+\_\+task()}{timer\_remove\_task()}}
+{\footnotesize\ttfamily int32\+\_\+t timer\+\_\+remove\+\_\+task (\begin{DoxyParamCaption}\item[{struct \hyperlink{structtimer__descriptor}{timer\+\_\+descriptor} $\ast$const}]{descr,  }\item[{const struct \hyperlink{structtimer__task}{timer\+\_\+task} $\ast$const}]{task }\end{DoxyParamCaption})}
+
+
+
+Remove timer task. 
+
+This function removes the given timer task from the given timer. It checks if the given hardware is initialized.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & The timer descriptor of a timer to remove task from \\
+\hline
+\mbox{\tt in}  & {\em task} & A task to remove\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Timer\textquotesingle{}s task removing status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__timer_ga658e045e3dfdc01d14e09db3a1ff1eb7}\label{group__doc__driver__hal__timer_ga658e045e3dfdc01d14e09db3a1ff1eb7}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+timer@{Doc\+\_\+driver\+\_\+hal\+\_\+timer}!timer\+\_\+set\+\_\+clock\+\_\+cycles\+\_\+per\+\_\+tick@{timer\+\_\+set\+\_\+clock\+\_\+cycles\+\_\+per\+\_\+tick}}
+\index{timer\+\_\+set\+\_\+clock\+\_\+cycles\+\_\+per\+\_\+tick@{timer\+\_\+set\+\_\+clock\+\_\+cycles\+\_\+per\+\_\+tick}!Doc\+\_\+driver\+\_\+hal\+\_\+timer@{Doc\+\_\+driver\+\_\+hal\+\_\+timer}}
+\subsubsection{\texorpdfstring{timer\+\_\+set\+\_\+clock\+\_\+cycles\+\_\+per\+\_\+tick()}{timer\_set\_clock\_cycles\_per\_tick()}}
+{\footnotesize\ttfamily int32\+\_\+t timer\+\_\+set\+\_\+clock\+\_\+cycles\+\_\+per\+\_\+tick (\begin{DoxyParamCaption}\item[{struct \hyperlink{structtimer__descriptor}{timer\+\_\+descriptor} $\ast$const}]{descr,  }\item[{const uint32\+\_\+t}]{clock\+\_\+cycles }\end{DoxyParamCaption})}
+
+
+
+Set amount of clock cycles per timer tick. 
+
+This function sets the amount of clock cycles per timer tick for the given timer. It checks if the given hardware is initialized.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & The timer descriptor of a timer to stop \\
+\hline
+\mbox{\tt in}  & {\em clock\+\_\+cycles} & The amount of clock cycles per tick to set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Setting clock cycles amount status.
+\end{DoxyReturn}
+Set amount of clock cycles per timer tick. \mbox{\Hypertarget{group__doc__driver__hal__timer_ga462a0562dcbf75fce52d9b763ded6375}\label{group__doc__driver__hal__timer_ga462a0562dcbf75fce52d9b763ded6375}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+timer@{Doc\+\_\+driver\+\_\+hal\+\_\+timer}!timer\+\_\+start@{timer\+\_\+start}}
+\index{timer\+\_\+start@{timer\+\_\+start}!Doc\+\_\+driver\+\_\+hal\+\_\+timer@{Doc\+\_\+driver\+\_\+hal\+\_\+timer}}
+\subsubsection{\texorpdfstring{timer\+\_\+start()}{timer\_start()}}
+{\footnotesize\ttfamily int32\+\_\+t timer\+\_\+start (\begin{DoxyParamCaption}\item[{struct \hyperlink{structtimer__descriptor}{timer\+\_\+descriptor} $\ast$const}]{descr }\end{DoxyParamCaption})}
+
+
+
+Start timer. 
+
+This function starts the given timer. It checks if the given hardware is initialized.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & The timer descriptor of a timer to start\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Timer starting status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__timer_gaeb44f8c22b1579586981522213a6df2b}\label{group__doc__driver__hal__timer_gaeb44f8c22b1579586981522213a6df2b}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+timer@{Doc\+\_\+driver\+\_\+hal\+\_\+timer}!timer\+\_\+stop@{timer\+\_\+stop}}
+\index{timer\+\_\+stop@{timer\+\_\+stop}!Doc\+\_\+driver\+\_\+hal\+\_\+timer@{Doc\+\_\+driver\+\_\+hal\+\_\+timer}}
+\subsubsection{\texorpdfstring{timer\+\_\+stop()}{timer\_stop()}}
+{\footnotesize\ttfamily int32\+\_\+t timer\+\_\+stop (\begin{DoxyParamCaption}\item[{struct \hyperlink{structtimer__descriptor}{timer\+\_\+descriptor} $\ast$const}]{descr }\end{DoxyParamCaption})}
+
+
+
+Stop timer. 
+
+This function stops the given timer. It checks if the given hardware is initialized.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em descr} & The timer descriptor of a timer to stop\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Timer stopping status. 
+\end{DoxyReturn}

@@ -1,0 +1,50 @@
+\hypertarget{hal__spi__m__sync_8c}{}\section{hal/src/hal\+\_\+spi\+\_\+m\+\_\+sync.c File Reference}
+\label{hal__spi__m__sync_8c}\index{hal/src/hal\+\_\+spi\+\_\+m\+\_\+sync.\+c@{hal/src/hal\+\_\+spi\+\_\+m\+\_\+sync.\+c}}
+
+
+I/O S\+PI related functionality implementation.  
+
+
+{\ttfamily \#include \char`\"{}hal\+\_\+spi\+\_\+m\+\_\+sync.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$utils\+\_\+assert.\+h$>$}\newline
+{\ttfamily \#include $<$utils.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hal__spi__m__sync_8c_ab634b15383ccee315fe0e69439d06eda}\label{hal__spi__m__sync_8c_ab634b15383ccee315fe0e69439d06eda}} 
+\#define \hyperlink{hal__spi__m__sync_8c_ab634b15383ccee315fe0e69439d06eda}{S\+P\+I\+\_\+\+M\+\_\+\+S\+Y\+N\+C\+\_\+\+D\+R\+I\+V\+E\+R\+\_\+\+V\+E\+R\+S\+I\+ON}~0x00000001u
+\begin{DoxyCompactList}\small\item\em Driver version. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hal__spi__m__sync_8c_a2599c8912b4253c2cf2855de0fdbf800}\label{hal__spi__m__sync_8c_a2599c8912b4253c2cf2855de0fdbf800}} 
+\#define {\bfseries S\+P\+I\+\_\+\+D\+E\+A\+C\+T\+I\+V\+A\+T\+E\+\_\+\+N\+E\+XT}~0x8000
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__spi__master__sync_ga3f0a5220385e86a704bdbb89623cf3d3}{spi\+\_\+m\+\_\+sync\+\_\+init} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$spi, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize S\+PI H\+AL instance and hardware for polling mode. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__spi__master__sync_ga9cf25d877d82e3e1f572643d579af447}{spi\+\_\+m\+\_\+sync\+\_\+deinit} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$spi)
+\begin{DoxyCompactList}\small\item\em Deinitialize the S\+PI H\+AL instance and hardware. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__spi__master__sync_ga2dd2e3fba4c359e43a7b319519c3c5a0}{spi\+\_\+m\+\_\+sync\+\_\+enable} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$spi)
+\begin{DoxyCompactList}\small\item\em Enable S\+PI. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__spi__master__sync_ga9ded81d6be782e2f51bd54d254de5e67}{spi\+\_\+m\+\_\+sync\+\_\+disable} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$spi)
+\begin{DoxyCompactList}\small\item\em Disable S\+PI. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__spi__master__sync_ga4c0ec93b64162e9a26ef8783cebe015a}{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+baudrate} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$spi, const uint32\+\_\+t baud\+\_\+val)
+\begin{DoxyCompactList}\small\item\em Set S\+PI baudrate. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__spi__master__sync_gae0189af85236848e651205053e332521}{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+mode} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$spi, const enum \hyperlink{group__hpl__spi_ga9c30fdfffba6be76b4044ccb17b218e5}{spi\+\_\+transfer\+\_\+mode} mode)
+\begin{DoxyCompactList}\small\item\em Set S\+PI mode. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__spi__master__sync_ga92c45dae92165462bb938bd9df4ab94c}{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+char\+\_\+size} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$spi, const enum \hyperlink{group__hpl__spi_ga4a3ef460c2cea333834811806f32d60a}{spi\+\_\+char\+\_\+size} char\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Set S\+PI transfer character size in number of bits. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__spi__master__sync_ga8b36184685ef17e6ffd0f1df3f0ea5be}{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+data\+\_\+order} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$spi, const enum \hyperlink{group__hpl__spi_gabaa69dbc0601cb5b1e2681400598a4b2}{spi\+\_\+data\+\_\+order} dord)
+\begin{DoxyCompactList}\small\item\em Set S\+PI transfer data order. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__spi__master__sync_gae4bc019de8bd861b7bbb75f5a83e6261}{spi\+\_\+m\+\_\+sync\+\_\+transfer} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$spi, const struct \hyperlink{structspi__xfer}{spi\+\_\+xfer} $\ast$p\+\_\+xfer)
+\begin{DoxyCompactList}\small\item\em Perform the S\+PI data transfer (TX and RX) in polling way. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__spi__master__sync_ga658f37bdda03b932a3400c5bb2abccff}{spi\+\_\+m\+\_\+sync\+\_\+get\+\_\+io\+\_\+descriptor} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$const spi, struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$$\ast$io)
+\begin{DoxyCompactList}\small\item\em Return the I/O descriptor for this S\+PI instance. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group__doc__driver__hal__spi__master__sync_gad547327b1fc9255bdde6946aa7e419e7}{spi\+\_\+m\+\_\+sync\+\_\+get\+\_\+version} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve the current driver version. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+I/O S\+PI related functionality implementation. 
+
+Copyright (C) 2014 Atmel Corporation. All rights reserved.

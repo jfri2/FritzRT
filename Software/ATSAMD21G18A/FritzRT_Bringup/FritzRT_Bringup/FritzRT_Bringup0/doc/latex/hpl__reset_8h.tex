@@ -1,0 +1,37 @@
+\hypertarget{hpl__reset_8h}{}\section{hal/include/hpl\+\_\+reset.h File Reference}
+\label{hpl__reset_8h}\index{hal/include/hpl\+\_\+reset.\+h@{hal/include/hpl\+\_\+reset.\+h}}
+
+
+Reset related functionality declaration.  
+
+
+{\ttfamily \#include $<$compiler.\+h$>$}\newline
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group___h_p_l_ga9066b7b3f20c4514ad24dcbff8fa3898}{reset\+\_\+reason} \{ \newline
+{\bfseries R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+S\+O\+N\+\_\+\+P\+OR} = 1, 
+{\bfseries R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+S\+O\+N\+\_\+\+B\+O\+D12} = 2, 
+{\bfseries R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+S\+O\+N\+\_\+\+B\+O\+D33} = 4, 
+{\bfseries R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+S\+O\+N\+\_\+\+E\+XT} = 8, 
+\newline
+{\bfseries R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+S\+O\+N\+\_\+\+W\+DT} = 16, 
+{\bfseries R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+S\+O\+N\+\_\+\+S\+Y\+ST} = 32, 
+{\bfseries R\+E\+S\+E\+T\+\_\+\+R\+E\+A\+S\+O\+N\+\_\+\+B\+A\+C\+K\+UP} = 64
+ \}\begin{DoxyCompactList}\small\item\em Reset reason enumeration. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{Indent}\textbf{ H\+PL functions}\par
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group___h_p_l_ga9066b7b3f20c4514ad24dcbff8fa3898}{reset\+\_\+reason} \hyperlink{group___h_p_l_gab7e1d30a2aa0a64c175ce3ce373b3c4f}{\+\_\+get\+\_\+reset\+\_\+reason} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve the reset reason. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gaf1c17c7797e22fd860d303deda80e17c}{\+\_\+reset\+\_\+mcu} (void)
+\begin{DoxyCompactList}\small\item\em Reset M\+CU. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Detailed Description}
+Reset related functionality declaration. 
+
+Copyright (C) 2014 Atmel Corporation. All rights reserved.

@@ -1,0 +1,118 @@
+\hypertarget{hpl__tc_8c}{}\section{hpl/tc/hpl\+\_\+tc.c File Reference}
+\label{hpl__tc_8c}\index{hpl/tc/hpl\+\_\+tc.\+c@{hpl/tc/hpl\+\_\+tc.\+c}}
+
+
+S\+AM TC.  
+
+
+{\ttfamily \#include $<$hpl\+\_\+pwm.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+tc\+\_\+config.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+timer.\+h$>$}\newline
+{\ttfamily \#include $<$utils.\+h$>$}\newline
+{\ttfamily \#include $<$utils\+\_\+assert.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+tc\+\_\+base.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtc__configuration}{tc\+\_\+configuration}
+\begin{DoxyCompactList}\small\item\em TC configuration type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hpl__tc_8c_a29bc71213606b61d25e1ccd22a37596b}\label{hpl__tc_8c_a29bc71213606b61d25e1ccd22a37596b}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+T\+C3\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__tc_8c_a24a120a497ae4e1ac70c80a873501331}\label{hpl__tc_8c_a24a120a497ae4e1ac70c80a873501331}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+T\+C4\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__tc_8c_a1d55210821edcbf84e7383e4ef861c37}\label{hpl__tc_8c_a1d55210821edcbf84e7383e4ef861c37}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+T\+C5\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__tc_8c_aae8cd64360db26608b00b7313715395c}\label{hpl__tc_8c_aae8cd64360db26608b00b7313715395c}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+T\+C6\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__tc_8c_a9103517c8f8d5ba8b1e3c60d541edba6}\label{hpl__tc_8c_a9103517c8f8d5ba8b1e3c60d541edba6}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+T\+C7\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__tc_8c_ad2ba91f882e200cf383cb480e1185949}\label{hpl__tc_8c_ad2ba91f882e200cf383cb480e1185949}} 
+\#define \hyperlink{hpl__tc_8c_ad2ba91f882e200cf383cb480e1185949}{T\+C\+\_\+\+I\+R\+Q\+\_\+\+B\+A\+S\+E\+\_\+\+I\+N\+D\+EX}~((uint8\+\_\+t)T\+C3\+\_\+\+I\+R\+Qn)
+\begin{DoxyCompactList}\small\item\em TC I\+RQ base index. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__tc_8c_a32564d1b67b0fa008b21bae9ddd54103}\label{hpl__tc_8c_a32564d1b67b0fa008b21bae9ddd54103}} 
+\#define \hyperlink{hpl__tc_8c_a32564d1b67b0fa008b21bae9ddd54103}{T\+C\+\_\+\+H\+W\+\_\+\+B\+A\+S\+E\+\_\+\+A\+D\+DR}~((uint32\+\_\+t)T\+C3)
+\begin{DoxyCompactList}\small\item\em TC base address. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__tc_8c_a1bcdbbd982d5718b47b0d64c7d81a403}\label{hpl__tc_8c_a1bcdbbd982d5718b47b0d64c7d81a403}} 
+\#define \hyperlink{hpl__tc_8c_a1bcdbbd982d5718b47b0d64c7d81a403}{T\+C\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+F\+S\+ET}~3
+\begin{DoxyCompactList}\small\item\em TC number offset. \end{DoxyCompactList}\item 
+\#define \hyperlink{hpl__tc_8c_a1403572e36d0d62a2ebde54287edd9c2}{T\+C\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}(n)
+\begin{DoxyCompactList}\small\item\em Macro is used to fill usart configuration structure based on its number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group___h_p_l_gade39b65e851877482435cfb3789724a8}{\+\_\+timer\+\_\+init} (struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize TC. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gac9b7787b4e39ba73070712a897e3198e}{\+\_\+timer\+\_\+deinit} (struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em De-\/initialize TC. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga29f3fa3f07ba0428641f4db03b5bbee0}{\+\_\+timer\+\_\+start} (struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Start hardware timer. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gaf20437ff953c5533299bd9f7d4fabfe4}{\+\_\+timer\+\_\+stop} (struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Stop hardware timer. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gabca60e7eaef3b0c209d68f5581609a4a}{\+\_\+timer\+\_\+set\+\_\+period} (struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device, const uint32\+\_\+t clock\+\_\+cycles)
+\begin{DoxyCompactList}\small\item\em Set timer period. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___h_p_l_ga7dcd9a3f656643075605cbdd19bb1dc3}{\+\_\+timer\+\_\+get\+\_\+period} (const struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve timer period. \end{DoxyCompactList}\item 
+bool \hyperlink{group___h_p_l_ga32ec962f2bdeb1c15eca8e38e7a88de2}{\+\_\+timer\+\_\+is\+\_\+started} (const struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if timer is running. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__timer__hpl__interface}{\+\_\+timer\+\_\+hpl\+\_\+interface} $\ast$ \hyperlink{group__tc__group_gaac375bec08b476a19a893e462affce95}{\+\_\+tc\+\_\+get\+\_\+timer} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve timer helper functions. \end{DoxyCompactList}\item 
+struct \hyperlink{struct__pwm__hpl__interface}{\+\_\+pwm\+\_\+hpl\+\_\+interface} $\ast$ \hyperlink{group__tc__group_gaffdfa66265d1088ae0661b8700032314}{\+\_\+tc\+\_\+get\+\_\+pwm} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve pwm helper functions. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga7689280886559ce8d6dd0514b2654146}{\+\_\+timer\+\_\+set\+\_\+irq} (struct \hyperlink{struct__timer__device}{\+\_\+timer\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Set timer I\+RQ. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__tc_8c_ae69893861c9ce728a475a17e26296582}\label{hpl__tc_8c_ae69893861c9ce728a475a17e26296582}} 
+void \hyperlink{hpl__tc_8c_ae69893861c9ce728a475a17e26296582}{T\+C3\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em TC interrupt handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+S\+AM TC. 
+
+Copyright (C) 2015 -\/ 2017 Atmel Corporation. All rights reserved.
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{hpl__tc_8c_a1403572e36d0d62a2ebde54287edd9c2}\label{hpl__tc_8c_a1403572e36d0d62a2ebde54287edd9c2}} 
+\index{hpl\+\_\+tc.\+c@{hpl\+\_\+tc.\+c}!T\+C\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON@{T\+C\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}}
+\index{T\+C\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON@{T\+C\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}!hpl\+\_\+tc.\+c@{hpl\+\_\+tc.\+c}}
+\subsubsection{\texorpdfstring{T\+C\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}{TC\_CONFIGURATION}}
+{\footnotesize\ttfamily \#define T\+C\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                                                                          
+              \(\backslash\)
+        (n), TC\_CTRLA\_MODE(CONF\_TC##n##\_MODE) | TC\_CTRLA\_WAVEGEN(TC\_CTRLA\_WAVEGEN\_MPWM\_Val)                
+                  \(\backslash\)
+                 | TC\_CTRLA\_PRESCALER(CONF\_TC##n##\_PRESCALER) | (CONF\_TC##n##\_RUNSTDBY << 
+      TC\_CTRLA\_RUNSTDBY\_Pos)       \(\backslash\)
+                 | TC\_CTRLA\_PRESCSYNC(CONF\_TC##n##\_PRESCSYNC),                                             
+                  \(\backslash\)
+            (CONF\_TC##n##\_DBGRUN << TC\_DBGCTRL\_DBGRUN\_Pos),                                                
+                  \(\backslash\)
+            (CONF\_TC##n##\_OVFEO << TC\_EVCTRL\_OVFEO\_Pos) | (CONF\_TC##n##\_TCEI << TC\_EVCTRL\_TCEI\_Pos)        
+                  \(\backslash\)
+                | (CONF\_TC##n##\_TCINV << TC\_EVCTRL\_TCINV\_Pos) | (CONF\_TC##n##\_EVACT << TC\_EVCTRL\_EVACT\_Pos)
+                  \(\backslash\)
+                | (CONF\_TC##n##\_MCEO0 << TC\_EVCTRL\_MCEO0\_Pos) | (CONF\_TC##n##\_MCEO1 << TC\_EVCTRL\_MCEO1\_Pos)
+      ,           \(\backslash\)
+            CONF\_TC##n##\_PER, CONF\_TC##n##\_CC0, CONF\_TC##n##\_CC1                                           
+                  \(\backslash\)
+    \}
+\end{DoxyCode}
+
+
+Macro is used to fill usart configuration structure based on its number. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The number of structures \\
+\hline
+\end{DoxyParams}

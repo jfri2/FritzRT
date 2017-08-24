@@ -1,6 +1,4 @@
 #include <atmel_start.h>
-#include <hal_gpio.h>
-#include <hal_delay.h>
 #include "./app/app.h"
 
 int main(void)
@@ -9,18 +7,22 @@ int main(void)
 	atmel_start_init();
 
     // Initialize application and application drivers
-    app_init();
+    //app_init();
+
+    // Turn on all user LEDs
+    gpio_set_pin_level(PIN_LED_RX, false);
+    gpio_set_pin_level(PIN_LED_TX, false);
 
     // Application Loop
 	while (1) 
     {
-        gpio_set_pin_level(PIN_SPI_CTRL_SCK, true);
-        gpio_set_pin_level(PIN_LED_RX, true);
-        gpio_set_pin_level(PIN_LED_TX, true);
-        delay_ms(1000);
-        gpio_set_pin_level(PIN_SPI_CTRL_SCK, false);
-        gpio_set_pin_level(PIN_LED_RX, false);
-        gpio_set_pin_level(PIN_LED_TX, false);
-        delay_ms(1000);
+        gpio_toggle_pin_level(PIN_LED_RX);
+        gpio_toggle_pin_level(PIN_LED_TX);
 	}
+}
+
+void SysTick_Handler(void)
+{
+    static uint32_t systck_count = 0;
+    systck_count++;
 }

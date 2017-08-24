@@ -1,0 +1,59 @@
+\hypertarget{hpl__spi__m__async_8h}{}\section{hal/include/hpl\+\_\+spi\+\_\+m\+\_\+async.h File Reference}
+\label{hpl__spi__m__async_8h}\index{hal/include/hpl\+\_\+spi\+\_\+m\+\_\+async.\+h@{hal/include/hpl\+\_\+spi\+\_\+m\+\_\+async.\+h}}
+
+
+S\+PI Slave Async related functionality declaration.  
+
+
+{\ttfamily \#include $<$hpl\+\_\+spi.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+spi\+\_\+async.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__hpl__spi_gaab37ebaab3686617eb20d5d175e82e6a}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+dev}~\hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev}
+\item 
+\#define {\bfseries \+\_\+spi\+\_\+m\+\_\+async\+\_\+dev\+\_\+cb\+\_\+type}~\hyperlink{group__hpl__spi_ga0f0c72bc59abef8035904e8e267dfde9}{\+\_\+spi\+\_\+async\+\_\+dev\+\_\+cb\+\_\+type}
+\item 
+\#define \hyperlink{group__hpl__spi_gae7b65368c281e539d81064e45accc8a9}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+dev\+\_\+cb\+\_\+complete\+\_\+t}~\hyperlink{group__hpl__spi_ga446094494e8aacbf4ad1a74c868d9809}{\+\_\+spi\+\_\+async\+\_\+dev\+\_\+cb\+\_\+complete\+\_\+t}
+\item 
+\#define \hyperlink{group__hpl__spi_ga91057ea550ac0806ee96b93ee180c7d6}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+dev\+\_\+cb\+\_\+xfer\+\_\+t}~\hyperlink{group__hpl__spi_ga62275ef9b2c245ed2ed183f9d1c98a31}{\+\_\+spi\+\_\+async\+\_\+dev\+\_\+cb\+\_\+xfer\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gab967bf854bc706f4bd6ba5a327dc32b1}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+init} (struct \hyperlink{group__hpl__spi_gaab37ebaab3686617eb20d5d175e82e6a}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+dev} $\ast$dev, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize S\+PI for access with interrupts It will load default hardware configuration and software struct. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gae4360b2d04093ceebe9c544c1d38703c}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+deinit} (struct \hyperlink{group__hpl__spi_gaab37ebaab3686617eb20d5d175e82e6a}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Initialize S\+PI for access with interrupts Disable, reset the hardware and the software struct. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gadae03c08b6d35ed7ab360e5a3186819c}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+enable} (struct \hyperlink{group__hpl__spi_gaab37ebaab3686617eb20d5d175e82e6a}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Enable S\+PI for access with interrupts Enable the S\+PI and enable callback generation of receive and error interrupts. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gaaeefe807432ef5d2416ba1659b9f807f}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+disable} (struct \hyperlink{group__hpl__spi_gaab37ebaab3686617eb20d5d175e82e6a}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Disable S\+PI for access without interrupts Disable S\+PI and interrupts. Deactivate all CS pins if works as master. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga2044d42ba5353a59324da48cebf69e25}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+set\+\_\+mode} (struct \hyperlink{group__hpl__spi_gaab37ebaab3686617eb20d5d175e82e6a}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+dev} $\ast$dev, const enum \hyperlink{group__hpl__spi_ga9c30fdfffba6be76b4044ccb17b218e5}{spi\+\_\+transfer\+\_\+mode} mode)
+\begin{DoxyCompactList}\small\item\em Set S\+PI transfer mode Set S\+PI transfer mode (\hyperlink{group__hpl__spi_ga9c30fdfffba6be76b4044ccb17b218e5}{spi\+\_\+transfer\+\_\+mode}), which controls clock polarity and clock phase. Mode 0\+: leading edge is rising edge, data sample on leading edge. Mode 1\+: leading edge is rising edge, data sample on trailing edge. Mode 2\+: leading edge is falling edge, data sample on leading edge. Mode 3\+: leading edge is falling edge, data sample on trailing edge. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gac3b42aecc24e3edf0b9d608db13056d2}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+set\+\_\+baudrate} (struct \hyperlink{group__hpl__spi_gaab37ebaab3686617eb20d5d175e82e6a}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+dev} $\ast$dev, const uint32\+\_\+t baud\+\_\+val)
+\begin{DoxyCompactList}\small\item\em Set S\+PI baudrate. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gaaed0c114955cb90a53932deadd347895}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+set\+\_\+char\+\_\+size} (struct \hyperlink{group__hpl__spi_gaab37ebaab3686617eb20d5d175e82e6a}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+dev} $\ast$dev, const enum \hyperlink{group__hpl__spi_ga4a3ef460c2cea333834811806f32d60a}{spi\+\_\+char\+\_\+size} char\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Set S\+PI baudrate. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gaa8228094fcecc7b1f75b2f3f6e1a63a0}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+set\+\_\+data\+\_\+order} (struct \hyperlink{group__hpl__spi_gaab37ebaab3686617eb20d5d175e82e6a}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+dev} $\ast$dev, const enum \hyperlink{group__hpl__spi_gabaa69dbc0601cb5b1e2681400598a4b2}{spi\+\_\+data\+\_\+order} dord)
+\begin{DoxyCompactList}\small\item\em Set S\+PI data order. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga1be1b6a4ab1e574d1d5b7e678063a98b}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+enable\+\_\+tx} (struct \hyperlink{group__hpl__spi_gaab37ebaab3686617eb20d5d175e82e6a}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+dev} $\ast$dev, bool state)
+\begin{DoxyCompactList}\small\item\em Enable interrupt on character output. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga8fc2dc760cf191c7979e2a568bfe33a4}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+enable\+\_\+rx} (struct \hyperlink{group__hpl__spi_gaab37ebaab3686617eb20d5d175e82e6a}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+dev} $\ast$dev, bool state)
+\begin{DoxyCompactList}\small\item\em Enable interrupt on character input. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga0f88fe411dd9a3bda81b0c035eaf3e80}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+enable\+\_\+ss\+\_\+detect} (struct \hyperlink{group__hpl__spi_gaab37ebaab3686617eb20d5d175e82e6a}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+dev} $\ast$dev, bool state)
+\begin{DoxyCompactList}\small\item\em Enable interrupt on Slave Select (SS) rising. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{group__hpl__spi_ga0210fb0efa281b97063ac82606c30cae}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+read\+\_\+one} (struct \hyperlink{group__hpl__spi_gaab37ebaab3686617eb20d5d175e82e6a}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Read one character to S\+PI device instance. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga6e4ef571a2b01b191ade58f21686f13c}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+write\+\_\+one} (struct \hyperlink{group__hpl__spi_gaab37ebaab3686617eb20d5d175e82e6a}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+dev} $\ast$dev, uint16\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Write one character to assigned buffer. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga8ded12d6ee42cc5265a9d5c43e042315}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+register\+\_\+callback} (struct \hyperlink{group__hpl__spi_gaab37ebaab3686617eb20d5d175e82e6a}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+dev} $\ast$dev, const enum \+\_\+spi\+\_\+m\+\_\+async\+\_\+dev\+\_\+cb\+\_\+type cb\+\_\+type, const \hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR} func)
+\begin{DoxyCompactList}\small\item\em Register the S\+PI device callback. \end{DoxyCompactList}\item 
+void \hyperlink{group__hpl__spi_ga78a45200688acd1d51a83fb1cbe013ec}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state} (struct \hyperlink{group__hpl__spi_gaab37ebaab3686617eb20d5d175e82e6a}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+dev} $\ast$const device, const enum \+\_\+spi\+\_\+m\+\_\+async\+\_\+dev\+\_\+cb\+\_\+type type, const bool state)
+\begin{DoxyCompactList}\small\item\em Enable/disable S\+PI master interrupt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+S\+PI Slave Async related functionality declaration. 
+
+Copyright (C) 2015 Atmel Corporation. All rights reserved.

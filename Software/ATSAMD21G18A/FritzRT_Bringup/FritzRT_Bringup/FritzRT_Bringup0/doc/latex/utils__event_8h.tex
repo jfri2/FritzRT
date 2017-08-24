@@ -1,0 +1,112 @@
+\hypertarget{utils__event_8h}{}\section{hal/utils/include/utils\+\_\+event.h File Reference}
+\label{utils__event_8h}\index{hal/utils/include/utils\+\_\+event.\+h@{hal/utils/include/utils\+\_\+event.\+h}}
+
+
+Events declaration.  
+
+
+{\ttfamily \#include $<$utils.\+h$>$}\newline
+{\ttfamily \#include $<$utils\+\_\+list.\+h$>$}\newline
+{\ttfamily \#include $<$events.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structevent}{event}
+\begin{DoxyCompactList}\small\item\em Event structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{utils__event_8h_a7742dda4ee49629fb7dd4928ddb69b0f}\label{utils__event_8h_a7742dda4ee49629fb7dd4928ddb69b0f}} 
+\#define \hyperlink{utils__event_8h_a7742dda4ee49629fb7dd4928ddb69b0f}{E\+V\+E\+N\+T\+\_\+\+M\+A\+X\+\_\+\+A\+M\+O\+U\+NT}~8
+\begin{DoxyCompactList}\small\item\em The maximum amount of events. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{utils__event_8h_a2af2644ca6887944b1e80857a8353170}\label{utils__event_8h_a2af2644ca6887944b1e80857a8353170}} 
+\#define \hyperlink{utils__event_8h_a2af2644ca6887944b1e80857a8353170}{E\+V\+E\+N\+T\+\_\+\+M\+A\+S\+K\+\_\+\+S\+I\+ZE}~(\hyperlink{group__doc__driver__hal__utils__macro_gab4181d52c8a5083a8f30e3063893f3da}{round\+\_\+up}(\hyperlink{utils__event_8h_a7742dda4ee49629fb7dd4928ddb69b0f}{E\+V\+E\+N\+T\+\_\+\+M\+A\+X\+\_\+\+A\+M\+O\+U\+NT}, 8))
+\begin{DoxyCompactList}\small\item\em The size of event mask used, it is E\+V\+E\+N\+T\+\_\+\+M\+A\+X\+\_\+\+A\+M\+O\+U\+NT rounded up to the closest number divisible by 8. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{utils__event_8h_a464e4a836321664da495676b3bf3fe1f}\label{utils__event_8h_a464e4a836321664da495676b3bf3fe1f}} 
+typedef uint8\+\_\+t \hyperlink{utils__event_8h_a464e4a836321664da495676b3bf3fe1f}{event\+\_\+id\+\_\+t}
+\begin{DoxyCompactList}\small\item\em The type of event ID. I\+Ds should start with 0 and be in numerical order. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{utils__event_8h_a18c18ed73d5177fa995be522c98aaaea}\label{utils__event_8h_a18c18ed73d5177fa995be522c98aaaea}} 
+typedef uintptr\+\_\+t \hyperlink{utils__event_8h_a18c18ed73d5177fa995be522c98aaaea}{event\+\_\+data\+\_\+t}
+\begin{DoxyCompactList}\small\item\em The type of returned parameter. This type is big enough to contain pointer to data on any platform. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{utils__event_8h_ababd195dca19ce9c6976c408d0dc5b2d}\label{utils__event_8h_ababd195dca19ce9c6976c408d0dc5b2d}} 
+typedef void($\ast$ \hyperlink{utils__event_8h_ababd195dca19ce9c6976c408d0dc5b2d}{event\+\_\+cb\+\_\+t}) (\hyperlink{utils__event_8h_a464e4a836321664da495676b3bf3fe1f}{event\+\_\+id\+\_\+t} id, \hyperlink{utils__event_8h_a18c18ed73d5177fa995be522c98aaaea}{event\+\_\+data\+\_\+t} data)
+\begin{DoxyCompactList}\small\item\em The type of returned parameter. This type is big enough to contain pointer to data on any platform. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{utils__event_8h_a4f6f1bed989bde2eefdc3b7e938592a9}{event\+\_\+subscribe} (struct \hyperlink{structevent}{event} $\ast$const \hyperlink{structevent}{event}, const \hyperlink{utils__event_8h_a464e4a836321664da495676b3bf3fe1f}{event\+\_\+id\+\_\+t} id, \hyperlink{utils__event_8h_ababd195dca19ce9c6976c408d0dc5b2d}{event\+\_\+cb\+\_\+t} cb)
+\begin{DoxyCompactList}\small\item\em Subscribe to event. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{utils__event_8h_abe8abc1b79b1a4cfe2f805712f9e5fe0}{event\+\_\+unsubscribe} (struct \hyperlink{structevent}{event} $\ast$const \hyperlink{structevent}{event}, const \hyperlink{utils__event_8h_a464e4a836321664da495676b3bf3fe1f}{event\+\_\+id\+\_\+t} id)
+\begin{DoxyCompactList}\small\item\em Remove event from subscription. \end{DoxyCompactList}\item 
+void \hyperlink{utils__event_8h_a7fbabb8ab58fe0ccf764b81d0568a995}{event\+\_\+post} (const \hyperlink{utils__event_8h_a464e4a836321664da495676b3bf3fe1f}{event\+\_\+id\+\_\+t} id, const \hyperlink{utils__event_8h_a18c18ed73d5177fa995be522c98aaaea}{event\+\_\+data\+\_\+t} data)
+\begin{DoxyCompactList}\small\item\em Post event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Events declaration. 
+
+Copyright (C) 2015 Atmel Corporation. All rights reserved.
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{utils__event_8h_a7fbabb8ab58fe0ccf764b81d0568a995}\label{utils__event_8h_a7fbabb8ab58fe0ccf764b81d0568a995}} 
+\index{utils\+\_\+event.\+h@{utils\+\_\+event.\+h}!event\+\_\+post@{event\+\_\+post}}
+\index{event\+\_\+post@{event\+\_\+post}!utils\+\_\+event.\+h@{utils\+\_\+event.\+h}}
+\subsubsection{\texorpdfstring{event\+\_\+post()}{event\_post()}}
+{\footnotesize\ttfamily void event\+\_\+post (\begin{DoxyParamCaption}\item[{const \hyperlink{utils__event_8h_a464e4a836321664da495676b3bf3fe1f}{event\+\_\+id\+\_\+t}}]{id,  }\item[{const \hyperlink{utils__event_8h_a18c18ed73d5177fa995be522c98aaaea}{event\+\_\+data\+\_\+t}}]{data }\end{DoxyParamCaption})}
+
+
+
+Post event. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em id} & The event ID to post \\
+\hline
+\mbox{\tt in}  & {\em data} & The event data to be passed to event subscribers \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utils__event_8h_a4f6f1bed989bde2eefdc3b7e938592a9}\label{utils__event_8h_a4f6f1bed989bde2eefdc3b7e938592a9}} 
+\index{utils\+\_\+event.\+h@{utils\+\_\+event.\+h}!event\+\_\+subscribe@{event\+\_\+subscribe}}
+\index{event\+\_\+subscribe@{event\+\_\+subscribe}!utils\+\_\+event.\+h@{utils\+\_\+event.\+h}}
+\subsubsection{\texorpdfstring{event\+\_\+subscribe()}{event\_subscribe()}}
+{\footnotesize\ttfamily int32\+\_\+t event\+\_\+subscribe (\begin{DoxyParamCaption}\item[{struct \hyperlink{structevent}{event} $\ast$const}]{event,  }\item[{const \hyperlink{utils__event_8h_a464e4a836321664da495676b3bf3fe1f}{event\+\_\+id\+\_\+t}}]{id,  }\item[{\hyperlink{utils__event_8h_ababd195dca19ce9c6976c408d0dc5b2d}{event\+\_\+cb\+\_\+t}}]{cb }\end{DoxyParamCaption})}
+
+
+
+Subscribe to event. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em event} & The pointer to event structure \\
+\hline
+\mbox{\tt in}  & {\em id} & The event ID to subscribe to \\
+\hline
+\mbox{\tt in}  & {\em cb} & The callback function to call when the given event occurs\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of subscription 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utils__event_8h_abe8abc1b79b1a4cfe2f805712f9e5fe0}\label{utils__event_8h_abe8abc1b79b1a4cfe2f805712f9e5fe0}} 
+\index{utils\+\_\+event.\+h@{utils\+\_\+event.\+h}!event\+\_\+unsubscribe@{event\+\_\+unsubscribe}}
+\index{event\+\_\+unsubscribe@{event\+\_\+unsubscribe}!utils\+\_\+event.\+h@{utils\+\_\+event.\+h}}
+\subsubsection{\texorpdfstring{event\+\_\+unsubscribe()}{event\_unsubscribe()}}
+{\footnotesize\ttfamily int32\+\_\+t event\+\_\+unsubscribe (\begin{DoxyParamCaption}\item[{struct \hyperlink{structevent}{event} $\ast$const}]{event,  }\item[{const \hyperlink{utils__event_8h_a464e4a836321664da495676b3bf3fe1f}{event\+\_\+id\+\_\+t}}]{id }\end{DoxyParamCaption})}
+
+
+
+Remove event from subscription. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em event} & The pointer to event structure \\
+\hline
+\mbox{\tt in}  & {\em id} & The event ID to remove subscription from\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of subscription removing 
+\end{DoxyReturn}

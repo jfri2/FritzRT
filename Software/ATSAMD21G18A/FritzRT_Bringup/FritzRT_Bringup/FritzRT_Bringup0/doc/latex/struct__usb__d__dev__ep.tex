@@ -1,0 +1,127 @@
+\hypertarget{struct__usb__d__dev__ep}{}\section{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep Struct Reference}
+\label{struct__usb__d__dev__ep}\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{struct__usb__d__dev__ep_ae92c765b2fa69c10f3ecfad197f02b58}{trans\+\_\+buf}
+\item 
+uint32\+\_\+t \hyperlink{struct__usb__d__dev__ep_afb1bb784ecb141ded602492986c9b143}{trans\+\_\+size}
+\item 
+uint32\+\_\+t \hyperlink{struct__usb__d__dev__ep_a5a93b9e40a4c898719b68e57cd7dab12}{trans\+\_\+count}
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{struct__usb__d__dev__ep_a2d47ba0250abeb90f53fa6dbde19b064}{cache}
+\item 
+uint16\+\_\+t \hyperlink{struct__usb__d__dev__ep_ab9b9e7226ec2d279c5c15385120bfafe}{size}
+\item 
+uint8\+\_\+t \hyperlink{struct__usb__d__dev__ep_af7f394dcca24e4e6db6f2cc59daa2647}{ep}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>uint8\_t \hyperlink{struct__usb__d__dev__ep_aec515d494d17a7912a0c5b303e4c1696}{eptype}: 3\\
+\>\>uint8\_t \hyperlink{struct__usb__d__dev__ep_a2fff80c2f9b61f264ab4b85c88f6a477}{is\_stalled}: 1\\
+\>\>uint8\_t \hyperlink{struct__usb__d__dev__ep_af8226dd30729290d5959f410fb2b90b4}{need\_zlp}: 1\\
+\>\>uint8\_t \hyperlink{struct__usb__d__dev__ep_a28ed1e059170e6614ceaa07a1e0a408c}{use\_cache}: 1\\
+\>\>uint8\_t \hyperlink{struct__usb__d__dev__ep_a108475bc1f0f9a01337b2c6d3f109491}{is\_busy}: 1\\
+\>\>uint8\_t \hyperlink{struct__usb__d__dev__ep_a1edae238e40b7419da0d0feed2b6c16b}{dir}: 1\\
+\>\} \hyperlink{struct__usb__d__dev__ep_aa7295c7077ef0b40927462e4c32a85c4}{bits}\\
+\>uint8\_t {\bfseries u8}\\
+\} \hyperlink{struct__usb__d__dev__ep_adc7a500f14196d3bc35ef8a3c2424119}{flags}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+H\+PL U\+SB device endpoint struct. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{struct__usb__d__dev__ep_aa7295c7077ef0b40927462e4c32a85c4}\label{struct__usb__d__dev__ep_aa7295c7077ef0b40927462e4c32a85c4}} 
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}!bits@{bits}}
+\index{bits@{bits}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}}
+\subsubsection{\texorpdfstring{bits}{bits}}
+{\footnotesize\ttfamily struct \{ ... \}   \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+::bits}
+
+Interpreted by bit fields. \mbox{\Hypertarget{struct__usb__d__dev__ep_a2d47ba0250abeb90f53fa6dbde19b064}\label{struct__usb__d__dev__ep_a2d47ba0250abeb90f53fa6dbde19b064}} 
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}!cache@{cache}}
+\index{cache@{cache}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}}
+\subsubsection{\texorpdfstring{cache}{cache}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+::cache}
+
+Pointer to cache buffer, must be aligned. \mbox{\Hypertarget{struct__usb__d__dev__ep_a1edae238e40b7419da0d0feed2b6c16b}\label{struct__usb__d__dev__ep_a1edae238e40b7419da0d0feed2b6c16b}} 
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}!dir@{dir}}
+\index{dir@{dir}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}}
+\subsubsection{\texorpdfstring{dir}{dir}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+::dir}
+
+Transaction direction. \mbox{\Hypertarget{struct__usb__d__dev__ep_af7f394dcca24e4e6db6f2cc59daa2647}\label{struct__usb__d__dev__ep_af7f394dcca24e4e6db6f2cc59daa2647}} 
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}!ep@{ep}}
+\index{ep@{ep}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}}
+\subsubsection{\texorpdfstring{ep}{ep}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+::ep}
+
+Endpoint address. \mbox{\Hypertarget{struct__usb__d__dev__ep_aec515d494d17a7912a0c5b303e4c1696}\label{struct__usb__d__dev__ep_aec515d494d17a7912a0c5b303e4c1696}} 
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}!eptype@{eptype}}
+\index{eptype@{eptype}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}}
+\subsubsection{\texorpdfstring{eptype}{eptype}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+::eptype}
+
+E\+P\+C\+F\+G.\+E\+T\+Y\+PE. \mbox{\Hypertarget{struct__usb__d__dev__ep_adc7a500f14196d3bc35ef8a3c2424119}\label{struct__usb__d__dev__ep_adc7a500f14196d3bc35ef8a3c2424119}} 
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}!flags@{flags}}
+\index{flags@{flags}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}}
+\subsubsection{\texorpdfstring{flags}{flags}}
+{\footnotesize\ttfamily union \{ ... \}   \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+::flags}
+
+Feature flags. \mbox{\Hypertarget{struct__usb__d__dev__ep_a108475bc1f0f9a01337b2c6d3f109491}\label{struct__usb__d__dev__ep_a108475bc1f0f9a01337b2c6d3f109491}} 
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}!is\+\_\+busy@{is\+\_\+busy}}
+\index{is\+\_\+busy@{is\+\_\+busy}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}}
+\subsubsection{\texorpdfstring{is\+\_\+busy}{is\_busy}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+::is\+\_\+busy}
+
+Endpoint is busy. \mbox{\Hypertarget{struct__usb__d__dev__ep_a2fff80c2f9b61f264ab4b85c88f6a477}\label{struct__usb__d__dev__ep_a2fff80c2f9b61f264ab4b85c88f6a477}} 
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}!is\+\_\+stalled@{is\+\_\+stalled}}
+\index{is\+\_\+stalled@{is\+\_\+stalled}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}}
+\subsubsection{\texorpdfstring{is\+\_\+stalled}{is\_stalled}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+::is\+\_\+stalled}
+
+Stall status. \mbox{\Hypertarget{struct__usb__d__dev__ep_af8226dd30729290d5959f410fb2b90b4}\label{struct__usb__d__dev__ep_af8226dd30729290d5959f410fb2b90b4}} 
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}!need\+\_\+zlp@{need\+\_\+zlp}}
+\index{need\+\_\+zlp@{need\+\_\+zlp}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}}
+\subsubsection{\texorpdfstring{need\+\_\+zlp}{need\_zlp}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+::need\+\_\+zlp}
+
+Transaction auto Z\+LP. \mbox{\Hypertarget{struct__usb__d__dev__ep_ab9b9e7226ec2d279c5c15385120bfafe}\label{struct__usb__d__dev__ep_ab9b9e7226ec2d279c5c15385120bfafe}} 
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}!size@{size}}
+\index{size@{size}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}}
+\subsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily uint16\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+::size}
+
+Endpoint size. \mbox{\Hypertarget{struct__usb__d__dev__ep_ae92c765b2fa69c10f3ecfad197f02b58}\label{struct__usb__d__dev__ep_ae92c765b2fa69c10f3ecfad197f02b58}} 
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}!trans\+\_\+buf@{trans\+\_\+buf}}
+\index{trans\+\_\+buf@{trans\+\_\+buf}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}}
+\subsubsection{\texorpdfstring{trans\+\_\+buf}{trans\_buf}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+::trans\+\_\+buf}
+
+Pointer to transaction buffer. \mbox{\Hypertarget{struct__usb__d__dev__ep_a5a93b9e40a4c898719b68e57cd7dab12}\label{struct__usb__d__dev__ep_a5a93b9e40a4c898719b68e57cd7dab12}} 
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}!trans\+\_\+count@{trans\+\_\+count}}
+\index{trans\+\_\+count@{trans\+\_\+count}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}}
+\subsubsection{\texorpdfstring{trans\+\_\+count}{trans\_count}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+::trans\+\_\+count}
+
+Transaction transferred count. \mbox{\Hypertarget{struct__usb__d__dev__ep_afb1bb784ecb141ded602492986c9b143}\label{struct__usb__d__dev__ep_afb1bb784ecb141ded602492986c9b143}} 
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}!trans\+\_\+size@{trans\+\_\+size}}
+\index{trans\+\_\+size@{trans\+\_\+size}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}}
+\subsubsection{\texorpdfstring{trans\+\_\+size}{trans\_size}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+::trans\+\_\+size}
+
+Transaction size. \mbox{\Hypertarget{struct__usb__d__dev__ep_a28ed1e059170e6614ceaa07a1e0a408c}\label{struct__usb__d__dev__ep_a28ed1e059170e6614ceaa07a1e0a408c}} 
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}!use\+\_\+cache@{use\+\_\+cache}}
+\index{use\+\_\+cache@{use\+\_\+cache}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep}}
+\subsubsection{\texorpdfstring{use\+\_\+cache}{use\_cache}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+::use\+\_\+cache}
+
+Transaction with cache 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+hpl/usb/\hyperlink{hpl__usb_8c}{hpl\+\_\+usb.\+c}\end{DoxyCompactItemize}

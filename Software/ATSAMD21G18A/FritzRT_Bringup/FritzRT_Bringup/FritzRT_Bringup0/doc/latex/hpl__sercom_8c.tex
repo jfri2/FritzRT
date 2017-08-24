@@ -1,0 +1,1478 @@
+\hypertarget{hpl__sercom_8c}{}\section{hpl/sercom/hpl\+\_\+sercom.c File Reference}
+\label{hpl__sercom_8c}\index{hpl/sercom/hpl\+\_\+sercom.\+c@{hpl/sercom/hpl\+\_\+sercom.\+c}}
+
+
+S\+AM Serial Communication Interface.  
+
+
+{\ttfamily \#include $<$hpl\+\_\+dma.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+i2c\+\_\+m\+\_\+async.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+i2c\+\_\+m\+\_\+sync.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+i2c\+\_\+s\+\_\+async.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+sercom\+\_\+config.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+spi\+\_\+m\+\_\+async.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+spi\+\_\+m\+\_\+sync.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+spi\+\_\+s\+\_\+async.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+spi\+\_\+s\+\_\+sync.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+usart\+\_\+async.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+usart\+\_\+sync.\+h$>$}\newline
+{\ttfamily \#include $<$utils.\+h$>$}\newline
+{\ttfamily \#include $<$utils\+\_\+assert.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structusart__configuration}{usart\+\_\+configuration}
+\begin{DoxyCompactList}\small\item\em S\+E\+R\+C\+OM U\+S\+A\+RT configuration type. \end{DoxyCompactList}\item 
+struct \hyperlink{structi2cm__configuration}{i2cm\+\_\+configuration}
+\begin{DoxyCompactList}\small\item\em S\+E\+R\+C\+OM I2\+CM configuration type. \end{DoxyCompactList}\item 
+struct \hyperlink{structi2cs__configuration}{i2cs\+\_\+configuration}
+\begin{DoxyCompactList}\small\item\em S\+E\+R\+C\+OM I2C slave configuration type. \end{DoxyCompactList}\item 
+struct \hyperlink{structsercomspi__regs__cfg}{sercomspi\+\_\+regs\+\_\+cfg}
+\item 
+struct \hyperlink{struct__spi__trans__ctrl}{\+\_\+spi\+\_\+trans\+\_\+ctrl}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_adea7eb16df8a0f59c73bd933e3b7969a}\label{hpl__sercom_8c_adea7eb16df8a0f59c73bd933e3b7969a}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+0\+\_\+\+U\+S\+A\+R\+T\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_aa5e682a4e00350c5ab52ca36b25132ca}\label{hpl__sercom_8c_aa5e682a4e00350c5ab52ca36b25132ca}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+1\+\_\+\+U\+S\+A\+R\+T\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_af82f36c624dfa3778fab5076d5373e52}\label{hpl__sercom_8c_af82f36c624dfa3778fab5076d5373e52}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+2\+\_\+\+U\+S\+A\+R\+T\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a088e57fe494fe9a55d865f12be8150f2}\label{hpl__sercom_8c_a088e57fe494fe9a55d865f12be8150f2}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+3\+\_\+\+U\+S\+A\+R\+T\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_adc14997ca09fccbc90dd292c33b8eb7e}\label{hpl__sercom_8c_adc14997ca09fccbc90dd292c33b8eb7e}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+4\+\_\+\+U\+S\+A\+R\+T\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_ad69ddfcf2d1e8bc60e175e93e3c10480}\label{hpl__sercom_8c_ad69ddfcf2d1e8bc60e175e93e3c10480}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+5\+\_\+\+U\+S\+A\+R\+T\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a06168379b2321b51ff90e7a56a98dc0e}\label{hpl__sercom_8c_a06168379b2321b51ff90e7a56a98dc0e}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+6\+\_\+\+U\+S\+A\+R\+T\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_adc7d85e75cd4d28dec8d9798369e44da}\label{hpl__sercom_8c_adc7d85e75cd4d28dec8d9798369e44da}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+7\+\_\+\+U\+S\+A\+R\+T\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\#define \hyperlink{hpl__sercom_8c_ac780f3e9e684158fe0071a402ea6e17c}{S\+E\+R\+C\+O\+M\+\_\+\+U\+S\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT}
+\item 
+\#define \hyperlink{hpl__sercom_8c_ab10246f67cf475ad1c82294f2cb2729e}{S\+E\+R\+C\+O\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}(n)
+\begin{DoxyCompactList}\small\item\em Macro is used to fill usart configuration structure based on its number. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a763973386e7c13e836995a3cc4b054e7}\label{hpl__sercom_8c_a763973386e7c13e836995a3cc4b054e7}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+0\+\_\+\+I2\+C\+M\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a42d589390b070b558f56d0fdadcb41e1}\label{hpl__sercom_8c_a42d589390b070b558f56d0fdadcb41e1}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+1\+\_\+\+I2\+C\+M\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a3e2c0e2821c4de59ef7bd717eeb409fb}\label{hpl__sercom_8c_a3e2c0e2821c4de59ef7bd717eeb409fb}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+2\+\_\+\+I2\+C\+M\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_aeccc41762841b0ac6928a912d17eb2db}\label{hpl__sercom_8c_aeccc41762841b0ac6928a912d17eb2db}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+3\+\_\+\+I2\+C\+M\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a4aef5564f26521f0ce78b6f516e18eec}\label{hpl__sercom_8c_a4aef5564f26521f0ce78b6f516e18eec}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+4\+\_\+\+I2\+C\+M\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a54f38fd5faccf88159a200f695b9a45b}\label{hpl__sercom_8c_a54f38fd5faccf88159a200f695b9a45b}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+5\+\_\+\+I2\+C\+M\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a17095e79e147b44fe931da9bf8d3c20a}\label{hpl__sercom_8c_a17095e79e147b44fe931da9bf8d3c20a}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+6\+\_\+\+I2\+C\+M\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a220daf106f7ffa99247c4be477afccd1}\label{hpl__sercom_8c_a220daf106f7ffa99247c4be477afccd1}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+7\+\_\+\+I2\+C\+M\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\#define \hyperlink{hpl__sercom_8c_aaa3203ef3fe01ab15f40c213f4dddb94}{S\+E\+R\+C\+O\+M\+\_\+\+I2\+C\+M\+\_\+\+A\+M\+O\+U\+NT}
+\item 
+\#define \hyperlink{hpl__sercom_8c_a4b157e97b8355024ad0dfca74a1758d3}{I2\+C\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}(n)
+\begin{DoxyCompactList}\small\item\em Macro is used to fill i2cm configuration structure based on its number. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a0a8c178f536fdedde62cfd1ef70796e0}\label{hpl__sercom_8c_a0a8c178f536fdedde62cfd1ef70796e0}} 
+\#define {\bfseries E\+R\+R\+O\+R\+\_\+\+F\+L\+AG}~(1 $<$$<$ 7)
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a8c9675d72bad601186972bce08c01804}\label{hpl__sercom_8c_a8c9675d72bad601186972bce08c01804}} 
+\#define {\bfseries S\+B\+\_\+\+F\+L\+AG}~(1 $<$$<$ 1)
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_aea742bf00d2163741d1996bb27ebb35d}\label{hpl__sercom_8c_aea742bf00d2163741d1996bb27ebb35d}} 
+\#define {\bfseries M\+B\+\_\+\+F\+L\+AG}~(1 $<$$<$ 0)
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a46dc7ae84992bfe62cc00731959a67f4}\label{hpl__sercom_8c_a46dc7ae84992bfe62cc00731959a67f4}} 
+\#define {\bfseries C\+M\+D\+\_\+\+S\+T\+OP}~0x3
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a9fad2fbb677672fc4e969be5586753ba}\label{hpl__sercom_8c_a9fad2fbb677672fc4e969be5586753ba}} 
+\#define {\bfseries I2\+C\+\_\+\+I\+D\+LE}~0x1
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_ae3261da09fc3dac7ef0c40d78bfb76c2}\label{hpl__sercom_8c_ae3261da09fc3dac7ef0c40d78bfb76c2}} 
+\#define {\bfseries I2\+C\+\_\+\+SM}~0x0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a788fc2320eac902c5ac1e2c70301ed6d}\label{hpl__sercom_8c_a788fc2320eac902c5ac1e2c70301ed6d}} 
+\#define {\bfseries I2\+C\+\_\+\+FM}~0x1
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_ab9e6030369153c32588362b9be576b7e}\label{hpl__sercom_8c_ab9e6030369153c32588362b9be576b7e}} 
+\#define {\bfseries I2\+C\+\_\+\+HS}~0x2
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_acb0c9beee9a305288db71f8548d1ef1e}\label{hpl__sercom_8c_acb0c9beee9a305288db71f8548d1ef1e}} 
+\#define {\bfseries T\+E\+N\+\_\+\+A\+D\+D\+R\+\_\+\+F\+R\+A\+ME}~0x78
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a7927832249f2f043f9494b94c2eb8574}\label{hpl__sercom_8c_a7927832249f2f043f9494b94c2eb8574}} 
+\#define {\bfseries T\+E\+N\+\_\+\+A\+D\+D\+R\+\_\+\+M\+A\+SK}~0x3ff
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_ac1db02a3bf8d4224c57eb61a4f14e12a}\label{hpl__sercom_8c_ac1db02a3bf8d4224c57eb61a4f14e12a}} 
+\#define {\bfseries S\+E\+V\+E\+N\+\_\+\+A\+D\+D\+R\+\_\+\+M\+A\+SK}~0x7f
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a948a3c628aad8de3f51e9288f19657fd}\label{hpl__sercom_8c_a948a3c628aad8de3f51e9288f19657fd}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+0\+\_\+\+I2\+C\+S\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a2495104d5eb4359c38bf403f38f6a7b3}\label{hpl__sercom_8c_a2495104d5eb4359c38bf403f38f6a7b3}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+1\+\_\+\+I2\+C\+S\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_ac4047b7c38705f9467da709e4cbbdbd1}\label{hpl__sercom_8c_ac4047b7c38705f9467da709e4cbbdbd1}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+2\+\_\+\+I2\+C\+S\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a83617f4978d90ade850e11f6e41db528}\label{hpl__sercom_8c_a83617f4978d90ade850e11f6e41db528}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+3\+\_\+\+I2\+C\+S\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a45902f47c5ab271d79cb360c8bd7654f}\label{hpl__sercom_8c_a45902f47c5ab271d79cb360c8bd7654f}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+4\+\_\+\+I2\+C\+S\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_aef2cb890d7616a3538429ca898cf149b}\label{hpl__sercom_8c_aef2cb890d7616a3538429ca898cf149b}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+5\+\_\+\+I2\+C\+S\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_ad195b95d35160f4bb341f808e87f5dd5}\label{hpl__sercom_8c_ad195b95d35160f4bb341f808e87f5dd5}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+6\+\_\+\+I2\+C\+S\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a931ee14104bb41aa5823a3141b3c1240}\label{hpl__sercom_8c_a931ee14104bb41aa5823a3141b3c1240}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+7\+\_\+\+I2\+C\+S\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\#define \hyperlink{hpl__sercom_8c_a4e0f212d3f5b5aeb84126b0c6c55a092}{S\+E\+R\+C\+O\+M\+\_\+\+I2\+C\+S\+\_\+\+A\+M\+O\+U\+NT}
+\item 
+\#define \hyperlink{hpl__sercom_8c_a7a76b548840c732798902e998a4285db}{I2\+C\+S\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}(n)
+\begin{DoxyCompactList}\small\item\em Macro is used to fill I2C slave configuration structure based on its number. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__sercom_8c_afdeb1903d493e59a3f5073141058efd6}\label{hpl__sercom_8c_afdeb1903d493e59a3f5073141058efd6}} 
+\#define \hyperlink{hpl__sercom_8c_afdeb1903d493e59a3f5073141058efd6}{I2\+C\+S\+\_\+7\+B\+I\+T\+\_\+\+A\+D\+D\+R\+E\+S\+S\+I\+N\+G\+\_\+\+M\+A\+SK}~0x7F
+\begin{DoxyCompactList}\small\item\em Macro to check 10-\/bit addressing. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a8d25d8144f586aaf9c29bc2f4b65823a}\label{hpl__sercom_8c_a8d25d8144f586aaf9c29bc2f4b65823a}} 
+\#define {\bfseries S\+E\+R\+C\+O\+M\+\_\+\+U\+S\+A\+R\+T\+\_\+\+C\+T\+R\+L\+A\+\_\+\+M\+O\+D\+E\+\_\+\+S\+P\+I\+\_\+\+S\+L\+A\+VE}~(2 $<$$<$ 2)
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a88521668ffba6ad71203b6ab3e6fe9b1}\label{hpl__sercom_8c_a88521668ffba6ad71203b6ab3e6fe9b1}} 
+\#define {\bfseries S\+P\+I\+\_\+\+D\+E\+V\+\_\+\+I\+R\+Q\+\_\+\+M\+O\+DE}~0x8000
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_abea284e7227b9398d67fa87677941dad}\label{hpl__sercom_8c_abea284e7227b9398d67fa87677941dad}} 
+\#define {\bfseries \+\_\+\+S\+P\+I\+\_\+\+C\+S\+\_\+\+P\+O\+R\+T\+\_\+\+E\+X\+T\+R\+A\+CT}(cs)~(((cs) $>$$>$ 0) \& 0x\+F\+F)
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a8558809ce1305fc4f2329f8b85560dd9}\label{hpl__sercom_8c_a8558809ce1305fc4f2329f8b85560dd9}} 
+\#define {\bfseries \+\_\+\+S\+P\+I\+\_\+\+C\+S\+\_\+\+P\+I\+N\+\_\+\+E\+X\+T\+R\+A\+CT}(cs)~(((cs) $>$$>$ 8) \& 0x\+F\+F)
+\item 
+\#define \hyperlink{hpl__sercom_8c_a7e44d99ca1f2c4f432cad2eb2a07c020}{S\+E\+R\+C\+O\+M\+S\+P\+I\+\_\+\+R\+E\+GS}(n)
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_ab9a6fcc7cbaf15a04098831cc45211a6}\label{hpl__sercom_8c_ab9a6fcc7cbaf15a04098831cc45211a6}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+0\+\_\+\+S\+P\+I\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a1ceca00177a97234a8fd846a15cfe458}\label{hpl__sercom_8c_a1ceca00177a97234a8fd846a15cfe458}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+1\+\_\+\+S\+P\+I\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_aa71319d42811f7138b4f204a6af86ece}\label{hpl__sercom_8c_aa71319d42811f7138b4f204a6af86ece}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+2\+\_\+\+S\+P\+I\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a6445e1efb68253557b0f2f9a263310c4}\label{hpl__sercom_8c_a6445e1efb68253557b0f2f9a263310c4}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+3\+\_\+\+S\+P\+I\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_ad424a555488b7da382b1e42b7374a4ad}\label{hpl__sercom_8c_ad424a555488b7da382b1e42b7374a4ad}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+4\+\_\+\+S\+P\+I\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_ab1831ae9673b3d875212c4129b0df9ac}\label{hpl__sercom_8c_ab1831ae9673b3d875212c4129b0df9ac}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+5\+\_\+\+S\+P\+I\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_aa620d42787e5f962b0818049896e82ae}\label{hpl__sercom_8c_aa620d42787e5f962b0818049896e82ae}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+6\+\_\+\+S\+P\+I\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\mbox{\Hypertarget{hpl__sercom_8c_ae8e1bdf3691e913cae1ffccf9904f4bd}\label{hpl__sercom_8c_ae8e1bdf3691e913cae1ffccf9904f4bd}} 
+\#define {\bfseries C\+O\+N\+F\+\_\+\+S\+E\+R\+C\+O\+M\+\_\+7\+\_\+\+S\+P\+I\+\_\+\+E\+N\+A\+B\+LE}~0
+\item 
+\#define \hyperlink{hpl__sercom_8c_a0505b1bb47d5b45ee3406000fcad7649}{S\+E\+R\+C\+O\+M\+\_\+\+S\+P\+I\+\_\+\+A\+M\+O\+U\+NT}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group___h_p_l_gad1cc7b8e72fd67fdeec8062c802eb25a}{\+\_\+usart\+\_\+sync\+\_\+init} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize synchronous S\+E\+R\+C\+OM U\+S\+A\+RT. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group___h_p_l_ga11745e0bd0c9d636afbefae8e209665e}{\+\_\+usart\+\_\+async\+\_\+init} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize asynchronous S\+E\+R\+C\+OM U\+S\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gac046761a56aaedeba5acad135cab707c}{\+\_\+usart\+\_\+sync\+\_\+deinit} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em De-\/initialize S\+E\+R\+C\+OM U\+S\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga57e2ef9f6ec11c53a9d88bdb7a82aac4}{\+\_\+usart\+\_\+async\+\_\+deinit} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em De-\/initialize S\+E\+R\+C\+OM U\+S\+A\+RT. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{group___h_p_l_ga0f2e4f3338270295eea1d4e1b00bfa1e}{\+\_\+usart\+\_\+sync\+\_\+calculate\+\_\+baud\+\_\+rate} (const uint32\+\_\+t baud, const uint32\+\_\+t clock\+\_\+rate, const uint8\+\_\+t samples, const enum \hyperlink{group___h_p_l_ga59141b5eb86f4d53f17bbeab1d7c83e7}{usart\+\_\+baud\+\_\+rate\+\_\+mode} mode, const uint8\+\_\+t fraction)
+\begin{DoxyCompactList}\small\item\em Calculate baud rate register value. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{group___h_p_l_gab834a3310b05b1118ac7cf5ad90835ba}{\+\_\+usart\+\_\+async\+\_\+calculate\+\_\+baud\+\_\+rate} (const uint32\+\_\+t baud, const uint32\+\_\+t clock\+\_\+rate, const uint8\+\_\+t samples, const enum \hyperlink{group___h_p_l_ga59141b5eb86f4d53f17bbeab1d7c83e7}{usart\+\_\+baud\+\_\+rate\+\_\+mode} mode, const uint8\+\_\+t fraction)
+\begin{DoxyCompactList}\small\item\em Calculate baud rate register value. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga5ca07057bde212b46f6547e5bdb876de}{\+\_\+usart\+\_\+sync\+\_\+enable} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Enable S\+E\+R\+C\+OM module. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga86c4101798d9dbc584f1e56615140d6f}{\+\_\+usart\+\_\+async\+\_\+enable} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Enable S\+E\+R\+C\+OM module. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gac021f29c77d8a9bfabfdd7433dbbb024}{\+\_\+usart\+\_\+sync\+\_\+disable} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Disable S\+E\+R\+C\+OM module. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gadb6751e5c270eb88eb754f45e7b8a91f}{\+\_\+usart\+\_\+async\+\_\+disable} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Disable S\+E\+R\+C\+OM module. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga882c8cecf50eb1276401d6874956b903}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+baud\+\_\+rate} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const uint32\+\_\+t baud\+\_\+rate)
+\begin{DoxyCompactList}\small\item\em Set baud rate. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gab3211a57f9d6f2e355db5b67ce3fe905}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+baud\+\_\+rate} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const uint32\+\_\+t baud\+\_\+rate)
+\begin{DoxyCompactList}\small\item\em Set baud rate. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga1b30e54d42d94ab59067e121d286d47a}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+data\+\_\+order} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga426849bbd9655cec091101ebc9123eb4}{usart\+\_\+data\+\_\+order} order)
+\begin{DoxyCompactList}\small\item\em Set data order. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga8f29c61bfbc9298ba0e25be2980ddd15}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+data\+\_\+order} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga426849bbd9655cec091101ebc9123eb4}{usart\+\_\+data\+\_\+order} order)
+\begin{DoxyCompactList}\small\item\em Set data order. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga2dd82ebe0069e4c61fda94ac0dda1a63}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+mode} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga1c465965478e0f6908a4c99d4f3ad20f}{usart\+\_\+mode} mode)
+\begin{DoxyCompactList}\small\item\em Set mode. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga90f1288d1ba0ab800801db3124f6a1cc}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+mode} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga1c465965478e0f6908a4c99d4f3ad20f}{usart\+\_\+mode} mode)
+\begin{DoxyCompactList}\small\item\em Set mode. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gaee0a2babdf7b777fa4754028c92fc2e8}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+parity} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga867cc5f0ea7d3bf651d68f0046cf6f41}{usart\+\_\+parity} parity)
+\begin{DoxyCompactList}\small\item\em Set parity. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga739cdfde316390a089c38355bc4f596e}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+parity} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga867cc5f0ea7d3bf651d68f0046cf6f41}{usart\+\_\+parity} parity)
+\begin{DoxyCompactList}\small\item\em Set parity. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga93c7de4ab355c189e306288d21642ff3}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+stop\+\_\+bits} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga88311517c5168c29a681604a8a33b06e}{usart\+\_\+stop\+\_\+bits} stop\+\_\+bits)
+\begin{DoxyCompactList}\small\item\em Set stop bits mode. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga7f2ef73e4b9da5be12fc0eabb97ab67b}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+stop\+\_\+bits} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga88311517c5168c29a681604a8a33b06e}{usart\+\_\+stop\+\_\+bits} stop\+\_\+bits)
+\begin{DoxyCompactList}\small\item\em Set stop bits mode. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga45ebffe94571d266e42b3dd882ad559d}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+character\+\_\+size} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga631ce7b4f60dccd392e6d6ef7d3cd4e2}{usart\+\_\+character\+\_\+size} size)
+\begin{DoxyCompactList}\small\item\em Set character size. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gaf834af5cc0738976ddbc200901aef105}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+character\+\_\+size} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_ga631ce7b4f60dccd392e6d6ef7d3cd4e2}{usart\+\_\+character\+\_\+size} size)
+\begin{DoxyCompactList}\small\item\em Set character size. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___h_p_l_ga512c769b924d59433542bf347980334b}{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+status} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve S\+E\+R\+C\+OM usart status. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group___h_p_l_ga09d708dc23dacf358d3de8a3a0545c1a}{\+\_\+usart\+\_\+async\+\_\+get\+\_\+status} (const struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve S\+E\+R\+C\+OM usart status. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga6f9cc0e2020d49845bef97301bc692e0}{\+\_\+usart\+\_\+sync\+\_\+write\+\_\+byte} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Write a byte to the given S\+E\+R\+C\+OM U\+S\+A\+RT instance. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga3a2887cd1710eaad2df0e66b9e830faa}{\+\_\+usart\+\_\+async\+\_\+write\+\_\+byte} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Write a byte to the given S\+E\+R\+C\+OM U\+S\+A\+RT instance. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___h_p_l_gad6e42aaa92499103016d605362e35d97}{\+\_\+usart\+\_\+sync\+\_\+read\+\_\+byte} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Read a byte from the given S\+E\+R\+C\+OM U\+S\+A\+RT instance. \end{DoxyCompactList}\item 
+bool \hyperlink{group___h_p_l_ga8bad9999c03b728f47848b2337393ec4}{\+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+sent} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if U\+S\+A\+RT is ready to send next byte. \end{DoxyCompactList}\item 
+bool \hyperlink{group___h_p_l_gaf96fbe9e0e063f4ae332451b7a540e2c}{\+\_\+usart\+\_\+async\+\_\+is\+\_\+byte\+\_\+sent} (const struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if U\+S\+A\+RT is ready to send next byte. \end{DoxyCompactList}\item 
+bool \hyperlink{group___h_p_l_ga5bf04a89be94430de57acf53f9b35dd2}{\+\_\+usart\+\_\+sync\+\_\+is\+\_\+byte\+\_\+received} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if there is data received by U\+S\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gae43bb6755eb8c462a9884e6cdca602aa}{\+\_\+usart\+\_\+sync\+\_\+set\+\_\+flow\+\_\+control\+\_\+state} (struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device, const union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} state)
+\begin{DoxyCompactList}\small\item\em Set the state of flow control pins. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gafdf581028b78744fccccae79d45a2078}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+flow\+\_\+control\+\_\+state} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} state)
+\begin{DoxyCompactList}\small\item\em Set the state of flow control pins. \end{DoxyCompactList}\item 
+union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} \hyperlink{group___h_p_l_ga5b6662f283d7a2791c7eed77635e9238}{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+flow\+\_\+control\+\_\+state} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve the state of flow control pins. \end{DoxyCompactList}\item 
+union \hyperlink{unionusart__flow__control__state}{usart\+\_\+flow\+\_\+control\+\_\+state} \hyperlink{group___h_p_l_gaa9850f9d97cb87f80fa615e95330ce35}{\+\_\+usart\+\_\+async\+\_\+get\+\_\+flow\+\_\+control\+\_\+state} (const struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve the state of flow control pins. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga5dcb14840b2011da3a1d0f774dafa28d}{\+\_\+usart\+\_\+async\+\_\+enable\+\_\+byte\+\_\+sent\+\_\+irq} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Enable data register empty interrupt. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_ga89bf3d02a7a3cca261900906ffd9ca76}{\+\_\+usart\+\_\+async\+\_\+enable\+\_\+tx\+\_\+done\+\_\+irq} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Enable transmission complete interrupt. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___h_p_l_ga8fd6539ded0699161df00f23ba6580aa}{\+\_\+usart\+\_\+sync\+\_\+get\+\_\+hardware\+\_\+index} (const struct \hyperlink{struct__usart__sync__device}{\+\_\+usart\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve ordinal number of the given S\+E\+R\+C\+OM U\+S\+A\+RT hardware instance. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group___h_p_l_ga378f2b4e0a90e5f5e354da00b3e6e531}{\+\_\+usart\+\_\+async\+\_\+get\+\_\+hardware\+\_\+index} (const struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve ordinal number of the given S\+E\+R\+C\+OM U\+S\+A\+RT hardware instance. \end{DoxyCompactList}\item 
+void \hyperlink{group___h_p_l_gadd7a2a78a76c6286f474bdce333c4904}{\+\_\+usart\+\_\+async\+\_\+set\+\_\+irq\+\_\+state} (struct \hyperlink{struct__usart__async__device}{\+\_\+usart\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_gace00dc77ac02c91f8bf35551b484927c}{\+\_\+usart\+\_\+async\+\_\+callback\+\_\+type} type, const bool state)
+\begin{DoxyCompactList}\small\item\em Enable/disable U\+S\+A\+RT interrupt. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_af643af29e58fe905941f1fc1d036cf97}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+enable} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const i2c\+\_\+dev)
+\begin{DoxyCompactList}\small\item\em Enable the i2c master module. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_ac0536eab02a287ec63a82d820d6b7cce}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+disable} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const i2c\+\_\+dev)
+\begin{DoxyCompactList}\small\item\em Disable the i2c master module. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_af9f59e910cd5d10672489aa6bfd6289d}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+baudrate} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const i2c\+\_\+dev, uint32\+\_\+t clkrate, uint32\+\_\+t baudrate)
+\begin{DoxyCompactList}\small\item\em Set baudrate of master. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_afd0a3ee0349da0644884cf0c0155dc87}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+init} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const i2c\+\_\+dev, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize sercom i2c module to use in async mode. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_a5d7f588b55855fca57f5919067dff4fc}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+deinit} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const i2c\+\_\+dev)
+\begin{DoxyCompactList}\small\item\em Deinitialize sercom i2c module. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_ac2b0946bdf1c6ee818863cbe8e672141}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+transfer} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$i2c\+\_\+dev, struct \hyperlink{struct__i2c__m__msg}{\+\_\+i2c\+\_\+m\+\_\+msg} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Transfer data specified by msg. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_ab7a10584dadf146ac4b869d208bbad20}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+register\+\_\+callback} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const i2c\+\_\+dev, enum \hyperlink{hpl__i2c__m__async_8h_a8015235df10b8dc8615e9d4776e71263}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+callback\+\_\+type} type, \hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR} func)
+\begin{DoxyCompactList}\small\item\em Set callback to be called in interrupt handler. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_a46050c43603c9fa9decb10cf6a6c0472}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+send\+\_\+stop} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const i2c\+\_\+dev)
+\begin{DoxyCompactList}\small\item\em Set stop condition on I2C. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_ac613796e97851c275412dbcf14c360fb}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+get\+\_\+bytes\+\_\+left} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const i2c\+\_\+dev)
+\begin{DoxyCompactList}\small\item\em Get number of bytes left in transfer buffer. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_aae297e4983036ae46d61ff527b385f8f}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+init} (struct \hyperlink{struct__i2c__m__sync__device}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+device} $\ast$const i2c\+\_\+dev, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize sercom i2c module to use in sync mode. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_ad4bca20b7f251821268fc936821ca1c2}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+deinit} (struct \hyperlink{struct__i2c__m__sync__device}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+device} $\ast$const i2c\+\_\+dev)
+\begin{DoxyCompactList}\small\item\em Deinitialize sercom i2c module. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_af2cc6a93d5fdc0d1bb751491419c8577}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+enable} (struct \hyperlink{struct__i2c__m__sync__device}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+device} $\ast$const i2c\+\_\+dev)
+\begin{DoxyCompactList}\small\item\em Enable the i2c master module. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_afec83948818f447f6b60f11eb3b231bb}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+disable} (struct \hyperlink{struct__i2c__m__sync__device}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+device} $\ast$const i2c\+\_\+dev)
+\begin{DoxyCompactList}\small\item\em Disable the i2c master module. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_aa84d51d96936daef6877413ebe59248c}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+set\+\_\+baudrate} (struct \hyperlink{struct__i2c__m__sync__device}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+device} $\ast$const i2c\+\_\+dev, uint32\+\_\+t clkrate, uint32\+\_\+t baudrate)
+\begin{DoxyCompactList}\small\item\em Set baudrate of master. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__sercom_8c_ab4c1447a0ec609a4b61d90fd9f966d60}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state} (struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{hpl__i2c__m__async_8h_a8015235df10b8dc8615e9d4776e71263}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+callback\+\_\+type} type, const bool state)
+\begin{DoxyCompactList}\small\item\em Enable/disable I2C master interrupt. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_a1b28f1bc828f0806702dcc1ca41527be}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+transfer} (struct \hyperlink{struct__i2c__m__sync__device}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+device} $\ast$const i2c\+\_\+dev, struct \hyperlink{struct__i2c__m__msg}{\+\_\+i2c\+\_\+m\+\_\+msg} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Transfer data specified by msg. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_aef9acdb8a4071700ca067d542d917968}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+send\+\_\+stop} (struct \hyperlink{struct__i2c__m__sync__device}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+device} $\ast$const i2c\+\_\+dev)
+\begin{DoxyCompactList}\small\item\em Send send condition on the I2C bus. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_a09c321534b087cb45bd6942f3a9728c4}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+init} (struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const device, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize synchronous I2C slave. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_a8497dbc3d248ec9dadf433095eb81daa}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+init} (struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const device, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize asynchronous I2C slave. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_a5036c8dd64a1c6f3c203ce426d77fafe}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+deinit} (struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Deinitialize synchronous I2C. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_a319f9d4faa0dd0625c3e795066bb5f97}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+deinit} (struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Deinitialize asynchronous I2C. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_a4d710add2886cb31b5be126f39719596}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+enable} (struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Enable I2C module. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_af944afbb0a8934bed3574e59be976ae4}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+enable} (struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Enable I2C module. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_a73445509c00ca8778d62415424dc5a45}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+disable} (struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Disable I2C module. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_ab91b29c9edd5c53164f848e5fb823db4}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+disable} (struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Disable I2C module. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_aef282275958fec4b5902e3d051c01f67}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+10bit\+\_\+addressing\+\_\+on} (const struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if 10-\/bit addressing mode is on. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_ae26686424f0f1245b986379179f58cff}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+is\+\_\+10bit\+\_\+addressing\+\_\+on} (const struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if 10-\/bit addressing mode is on. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_aa9e1c0b72c6118f078a588e89f83356c}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+set\+\_\+address} (struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const device, const uint16\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Set I2C slave address. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_ab60f5bc3ddb0b0ee80adeecc5f49ec53}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+set\+\_\+address} (struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const device, const uint16\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Set I2C slave address. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__sercom_8c_a167a1800d389342b34bb97e6a0b5883b}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+write\+\_\+byte} (struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const device, const uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Write a byte to the given I2C instance. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__sercom_8c_a3267358b526cd6955aec1b611eabc8c8}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+write\+\_\+byte} (struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const device, const uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Write a byte to the given I2C instance. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{hpl__sercom_8c_af9dafe1349c00c310828fe2730b2b03b}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+read\+\_\+byte} (const struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Read a byte from the given I2C instance. \end{DoxyCompactList}\item 
+bool \hyperlink{hpl__sercom_8c_aa78954ee8e6c6d52e605a50435293bcf}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+byte\+\_\+sent} (const struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if I2C is ready to send next byt. \end{DoxyCompactList}\item 
+bool \hyperlink{hpl__sercom_8c_adae60f11365b3548e7c41874f3273690}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+byte\+\_\+received} (const struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Check if there is data received by I2C. \end{DoxyCompactList}\item 
+\hyperlink{hpl__i2c__s__sync_8h_af7f44929c45b3881a2e7e6c6f98c6380}{i2c\+\_\+s\+\_\+status\+\_\+t} \hyperlink{hpl__sercom_8c_abca513a7604e30ec078f840fa19e4254}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+get\+\_\+status} (const struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve I2C slave status. \end{DoxyCompactList}\item 
+\hyperlink{hpl__i2c__s__sync_8h_af7f44929c45b3881a2e7e6c6f98c6380}{i2c\+\_\+s\+\_\+status\+\_\+t} \hyperlink{hpl__sercom_8c_ad4196b5c3cb12962a0bd168ac19adecc}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+get\+\_\+status} (const struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Retrieve I2C slave status. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_afd25099eaed5d3dfc7adc81db5b5c4a5}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+abort\+\_\+transmission} (const struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const device)
+\begin{DoxyCompactList}\small\item\em Abort data transmission. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__sercom_8c_aeadf801d4c1fe280a351a5132f0e9aa8}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+set\+\_\+irq\+\_\+state} (struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const device, const enum \hyperlink{hpl__i2c__s__async_8h_ac7d8319c8f419ccc7228c09fa4b3dde4}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+callback\+\_\+type} type, const bool state)
+\begin{DoxyCompactList}\small\item\em Enable/disable I2C slave interrupt. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga1ba635e6ad210d1428315ddd399647e2}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+init} (struct \hyperlink{group__hpl__spi_ga7674622aeda62f2981f106e2d8221a5e}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+dev} $\ast$dev, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize S\+PI for access without interrupts It will load default hardware configuration and software struct. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga9bfff6aba1ac04a156b33b435497ed5a}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+init} (struct \hyperlink{group__hpl__spi_ga36cf082f9d7764b69f43a52f039e7165}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+dev} $\ast$dev, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize S\+PI for access without interrupts It will load default hardware configuration and software struct. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a53e405ee7a5b5cd2d55d3dbeb112e2f6}\label{hpl__sercom_8c_a53e405ee7a5b5cd2d55d3dbeb112e2f6}} 
+int32\+\_\+t {\bfseries \+\_\+spi\+\_\+m\+\_\+async\+\_\+init} (struct \hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev} $\ast$dev, void $\ast$const hw)
+\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gab7029f17c278df8b26d1b3dabc209a6c}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+init} (struct \hyperlink{group__hpl__spi_ga7ac9e8d408bc498841e8e461ad8656aa}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+dev} $\ast$dev, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize S\+PI for access with interrupts It will load default hardware configuration and software struct. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a1b74d1ee408f016c1a9b0039d0193236}\label{hpl__sercom_8c_a1b74d1ee408f016c1a9b0039d0193236}} 
+int32\+\_\+t {\bfseries \+\_\+spi\+\_\+m\+\_\+async\+\_\+deinit} (struct \hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev} $\ast$dev)
+\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gaeeb792ee0ed50ffd0dd57d94211cd9ed}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+deinit} (struct \hyperlink{group__hpl__spi_ga7ac9e8d408bc498841e8e461ad8656aa}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Initialize S\+PI for access with interrupts Disable, reset the hardware and the software struct. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gaf4e206004864513902ccd1c79a4d59d8}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+deinit} (struct \hyperlink{group__hpl__spi_ga7674622aeda62f2981f106e2d8221a5e}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Deinitialize S\+PI Disable, reset the hardware and the software struct. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga6f2703d1bbc1ae9e5924119709f6fadf}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+deinit} (struct \hyperlink{group__hpl__spi_ga36cf082f9d7764b69f43a52f039e7165}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Initialize S\+PI for access with interrupts Disable, reset the hardware and the software struct. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga3c9ed3535e73ac73198d7a06829ce260}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+enable} (struct \hyperlink{group__hpl__spi_ga7674622aeda62f2981f106e2d8221a5e}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Enable S\+PI for access without interrupts. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga92a6db85ee5f31aa57b1aa4e712f14e7}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+enable} (struct \hyperlink{group__hpl__spi_ga36cf082f9d7764b69f43a52f039e7165}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Enable S\+PI for access without interrupts. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a79876142649bfdad521d1c380653095a}\label{hpl__sercom_8c_a79876142649bfdad521d1c380653095a}} 
+int32\+\_\+t {\bfseries \+\_\+spi\+\_\+m\+\_\+async\+\_\+enable} (struct \hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev} $\ast$dev)
+\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga506b300340ae2cd06b640f47e05f9fee}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+enable} (struct \hyperlink{group__hpl__spi_ga7ac9e8d408bc498841e8e461ad8656aa}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Enable S\+PI for access with interrupts Enable the S\+PI and enable callback generation of receive and error interrupts. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga1f98d26555a08dae45c7d80da8a6b1e9}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+disable} (struct \hyperlink{group__hpl__spi_ga7674622aeda62f2981f106e2d8221a5e}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Disable S\+PI for access without interrupts Disable S\+PI. Deactivate all CS pins if works as master. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gaece136abe12e7e2945fcb7b28d1bb5e1}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+disable} (struct \hyperlink{group__hpl__spi_ga36cf082f9d7764b69f43a52f039e7165}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Disable S\+PI for access without interrupts Disable S\+PI. Deactivate all CS pins if works as master. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__sercom_8c_ac4900269af417ddac66647ac03c199eb}\label{hpl__sercom_8c_ac4900269af417ddac66647ac03c199eb}} 
+int32\+\_\+t {\bfseries \+\_\+spi\+\_\+m\+\_\+async\+\_\+disable} (struct \hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev} $\ast$dev)
+\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gaeb0c400081a9de6a4ff574be671d788c}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+disable} (struct \hyperlink{group__hpl__spi_ga7ac9e8d408bc498841e8e461ad8656aa}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Disable S\+PI for access without interrupts Disable S\+PI and interrupts. Deactivate all CS pins if works as master. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gafa658db2528d45e511ca80ade9feb2f8}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+mode} (struct \hyperlink{group__hpl__spi_ga7674622aeda62f2981f106e2d8221a5e}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+dev} $\ast$dev, const enum \hyperlink{group__hpl__spi_ga9c30fdfffba6be76b4044ccb17b218e5}{spi\+\_\+transfer\+\_\+mode} mode)
+\begin{DoxyCompactList}\small\item\em Set S\+PI transfer mode Set S\+PI transfer mode (\hyperlink{group__hpl__spi_ga9c30fdfffba6be76b4044ccb17b218e5}{spi\+\_\+transfer\+\_\+mode}), which controls clock polarity and clock phase. Mode 0\+: leading edge is rising edge, data sample on leading edge. Mode 1\+: leading edge is rising edge, data sample on trailing edge. Mode 2\+: leading edge is falling edge, data sample on leading edge. Mode 3\+: leading edge is falling edge, data sample on trailing edge. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__sercom_8c_ad3ec2208eee4cf5555c5b4e0d27320e1}\label{hpl__sercom_8c_ad3ec2208eee4cf5555c5b4e0d27320e1}} 
+int32\+\_\+t {\bfseries \+\_\+spi\+\_\+m\+\_\+async\+\_\+set\+\_\+mode} (struct \hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev} $\ast$dev, const enum \hyperlink{group__hpl__spi_ga9c30fdfffba6be76b4044ccb17b218e5}{spi\+\_\+transfer\+\_\+mode} mode)
+\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gadf01869e506fd07f13dcf6afbcf07d7e}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+set\+\_\+mode} (struct \hyperlink{group__hpl__spi_ga7ac9e8d408bc498841e8e461ad8656aa}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+dev} $\ast$dev, const enum \hyperlink{group__hpl__spi_ga9c30fdfffba6be76b4044ccb17b218e5}{spi\+\_\+transfer\+\_\+mode} mode)
+\begin{DoxyCompactList}\small\item\em Set S\+PI transfer mode Set S\+PI transfer mode (\hyperlink{group__hpl__spi_ga9c30fdfffba6be76b4044ccb17b218e5}{spi\+\_\+transfer\+\_\+mode}), which controls clock polarity and clock phase. Mode 0\+: leading edge is rising edge, data sample on leading edge. Mode 1\+: leading edge is rising edge, data sample on trailing edge. Mode 2\+: leading edge is falling edge, data sample on leading edge. Mode 3\+: leading edge is falling edge, data sample on trailing edge. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga0dc0439caabbb1ed80874e97c7ba67a7}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+set\+\_\+mode} (struct \hyperlink{group__hpl__spi_ga36cf082f9d7764b69f43a52f039e7165}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+dev} $\ast$dev, const enum \hyperlink{group__hpl__spi_ga9c30fdfffba6be76b4044ccb17b218e5}{spi\+\_\+transfer\+\_\+mode} mode)
+\begin{DoxyCompactList}\small\item\em Set S\+PI transfer mode Set S\+PI transfer mode (\hyperlink{group__hpl__spi_ga9c30fdfffba6be76b4044ccb17b218e5}{spi\+\_\+transfer\+\_\+mode}), which controls clock polarity and clock phase. Mode 0\+: leading edge is rising edge, data sample on leading edge. Mode 1\+: leading edge is rising edge, data sample on trailing edge. Mode 2\+: leading edge is falling edge, data sample on leading edge. Mode 3\+: leading edge is falling edge, data sample on trailing edge. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gaf83a57ec4a0328b8d58c9aa847867445}{\+\_\+spi\+\_\+calc\+\_\+baud\+\_\+val} (struct \hyperlink{structspi__dev}{spi\+\_\+dev} $\ast$dev, const uint32\+\_\+t clk, const uint32\+\_\+t baud)
+\begin{DoxyCompactList}\small\item\em Calculate the baudrate value for hardware to use to set baudrate. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga9afbba219e80a3afa273c19c889dae3a}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+baudrate} (struct \hyperlink{group__hpl__spi_ga7674622aeda62f2981f106e2d8221a5e}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+dev} $\ast$dev, const uint32\+\_\+t baud\+\_\+val)
+\begin{DoxyCompactList}\small\item\em Set S\+PI baudrate. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a791735c1fac131471f08fd5e91f7b4a0}\label{hpl__sercom_8c_a791735c1fac131471f08fd5e91f7b4a0}} 
+int32\+\_\+t {\bfseries \+\_\+spi\+\_\+m\+\_\+async\+\_\+set\+\_\+baudrate} (struct \hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev} $\ast$dev, const uint32\+\_\+t baud\+\_\+val)
+\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gab3dbaa2147cc8f859c11a6fd2bf04a13}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+char\+\_\+size} (struct \hyperlink{group__hpl__spi_ga7674622aeda62f2981f106e2d8221a5e}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+dev} $\ast$dev, const enum \hyperlink{group__hpl__spi_ga4a3ef460c2cea333834811806f32d60a}{spi\+\_\+char\+\_\+size} char\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Set S\+PI baudrate. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__sercom_8c_ad266004fe3a7beb6f12922c2649d287c}\label{hpl__sercom_8c_ad266004fe3a7beb6f12922c2649d287c}} 
+int32\+\_\+t {\bfseries \+\_\+spi\+\_\+m\+\_\+async\+\_\+set\+\_\+char\+\_\+size} (struct \hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev} $\ast$dev, const enum \hyperlink{group__hpl__spi_ga4a3ef460c2cea333834811806f32d60a}{spi\+\_\+char\+\_\+size} char\+\_\+size)
+\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gaa004cfed65f6200145d623ade4c23bb7}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+set\+\_\+char\+\_\+size} (struct \hyperlink{group__hpl__spi_ga7ac9e8d408bc498841e8e461ad8656aa}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+dev} $\ast$dev, const enum \hyperlink{group__hpl__spi_ga4a3ef460c2cea333834811806f32d60a}{spi\+\_\+char\+\_\+size} char\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Set S\+PI baudrate. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga986f5f676a69c705d5239fd53193864a}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+set\+\_\+char\+\_\+size} (struct \hyperlink{group__hpl__spi_ga36cf082f9d7764b69f43a52f039e7165}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+dev} $\ast$dev, const enum \hyperlink{group__hpl__spi_ga4a3ef460c2cea333834811806f32d60a}{spi\+\_\+char\+\_\+size} char\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Set S\+PI baudrate. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga83403f5f3a201292ac93622f20278221}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+data\+\_\+order} (struct \hyperlink{group__hpl__spi_ga7674622aeda62f2981f106e2d8221a5e}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+dev} $\ast$dev, const enum \hyperlink{group__hpl__spi_gabaa69dbc0601cb5b1e2681400598a4b2}{spi\+\_\+data\+\_\+order} dord)
+\begin{DoxyCompactList}\small\item\em Set S\+PI data order. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a553b5777a016a7f3de86f2081af3ab95}\label{hpl__sercom_8c_a553b5777a016a7f3de86f2081af3ab95}} 
+int32\+\_\+t {\bfseries \+\_\+spi\+\_\+m\+\_\+async\+\_\+set\+\_\+data\+\_\+order} (struct \hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev} $\ast$dev, const enum \hyperlink{group__hpl__spi_gabaa69dbc0601cb5b1e2681400598a4b2}{spi\+\_\+data\+\_\+order} dord)
+\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga3e8f1969cbefb53284f84f7dbcc71565}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+set\+\_\+data\+\_\+order} (struct \hyperlink{group__hpl__spi_ga7ac9e8d408bc498841e8e461ad8656aa}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+dev} $\ast$dev, const enum \hyperlink{group__hpl__spi_gabaa69dbc0601cb5b1e2681400598a4b2}{spi\+\_\+data\+\_\+order} dord)
+\begin{DoxyCompactList}\small\item\em Set S\+PI data order. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga5cab059286805d618d2bc11da8e43d94}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+set\+\_\+data\+\_\+order} (struct \hyperlink{group__hpl__spi_ga36cf082f9d7764b69f43a52f039e7165}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+dev} $\ast$dev, const enum \hyperlink{group__hpl__spi_gabaa69dbc0601cb5b1e2681400598a4b2}{spi\+\_\+data\+\_\+order} dord)
+\begin{DoxyCompactList}\small\item\em Set S\+PI data order. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga7c3dd5d93fc342e6436bbce037b8b424}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+trans} (struct \hyperlink{group__hpl__spi_ga7674622aeda62f2981f106e2d8221a5e}{\+\_\+spi\+\_\+m\+\_\+sync\+\_\+dev} $\ast$dev, const struct \hyperlink{structspi__msg}{spi\+\_\+msg} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Transfer the whole message without interrupt Transfer the message, it will keep waiting until the message finish or error. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__sercom_8c_ad64a19c56b67cbf4441a33adecbc7d50}\label{hpl__sercom_8c_ad64a19c56b67cbf4441a33adecbc7d50}} 
+int32\+\_\+t {\bfseries \+\_\+spi\+\_\+m\+\_\+async\+\_\+enable\+\_\+tx} (struct \hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev} $\ast$dev, bool state)
+\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga95cc445c703d422f1043bdbae0ffd7b3}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+enable\+\_\+tx} (struct \hyperlink{group__hpl__spi_ga7ac9e8d408bc498841e8e461ad8656aa}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+dev} $\ast$dev, bool state)
+\begin{DoxyCompactList}\small\item\em Enable interrupt on character output. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__sercom_8c_ac2df33c46bb6be2b5a2ec7389b4806c6}\label{hpl__sercom_8c_ac2df33c46bb6be2b5a2ec7389b4806c6}} 
+int32\+\_\+t {\bfseries \+\_\+spi\+\_\+m\+\_\+async\+\_\+enable\+\_\+rx} (struct \hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev} $\ast$dev, bool state)
+\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga6434080b193c1e9546e90db3d01dab81}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+enable\+\_\+rx} (struct \hyperlink{group__hpl__spi_ga7ac9e8d408bc498841e8e461ad8656aa}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+dev} $\ast$dev, bool state)
+\begin{DoxyCompactList}\small\item\em Enable interrupt on character input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a06ebfbedbde2fb209b00e972904080a4}\label{hpl__sercom_8c_a06ebfbedbde2fb209b00e972904080a4}} 
+int32\+\_\+t {\bfseries \+\_\+spi\+\_\+m\+\_\+async\+\_\+enable\+\_\+ss\+\_\+detect} (struct \hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev} $\ast$dev, bool state)
+\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga850ea6c15d3c93959f618b363f445182}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+enable\+\_\+ss\+\_\+detect} (struct \hyperlink{group__hpl__spi_ga7ac9e8d408bc498841e8e461ad8656aa}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+dev} $\ast$dev, bool state)
+\begin{DoxyCompactList}\small\item\em Enable interrupt on Slave Select (SS) rising. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a7f1c6c79ea91fc7827583d61dea9f42a}\label{hpl__sercom_8c_a7f1c6c79ea91fc7827583d61dea9f42a}} 
+int32\+\_\+t {\bfseries \+\_\+spi\+\_\+m\+\_\+async\+\_\+write\+\_\+one} (struct \hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev} $\ast$dev, uint16\+\_\+t data)
+\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gadc1092adc8163cb6297ba493f1723b30}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+write\+\_\+one} (struct \hyperlink{group__hpl__spi_ga7ac9e8d408bc498841e8e461ad8656aa}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+dev} $\ast$dev, uint16\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Write one character to assigned buffer. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_gaa5c691af95be44b8f2139379df54ba80}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+write\+\_\+one} (struct \hyperlink{group__hpl__spi_ga36cf082f9d7764b69f43a52f039e7165}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+dev} $\ast$dev, uint16\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Write one character to assigned buffer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a93a7e66e85ac3762a62f6059f9eaa1d2}\label{hpl__sercom_8c_a93a7e66e85ac3762a62f6059f9eaa1d2}} 
+uint16\+\_\+t {\bfseries \+\_\+spi\+\_\+m\+\_\+async\+\_\+read\+\_\+one} (struct \hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev} $\ast$dev)
+\item 
+uint16\+\_\+t \hyperlink{group__hpl__spi_gacbb3e58ab1b546b509917700cd3b8f5f}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+read\+\_\+one} (struct \hyperlink{group__hpl__spi_ga7ac9e8d408bc498841e8e461ad8656aa}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Read one character to S\+PI device instance. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{group__hpl__spi_ga3bc398fcaa495592607952f4f0a2f55e}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+read\+\_\+one} (struct \hyperlink{group__hpl__spi_ga36cf082f9d7764b69f43a52f039e7165}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Read one character to S\+PI device instance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__sercom_8c_a3474839e824a5fcfe6fabb23ebe0827a}\label{hpl__sercom_8c_a3474839e824a5fcfe6fabb23ebe0827a}} 
+int32\+\_\+t {\bfseries \+\_\+spi\+\_\+m\+\_\+async\+\_\+register\+\_\+callback} (struct \hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev} $\ast$dev, const enum \hyperlink{group__hpl__spi_ga0f0c72bc59abef8035904e8e267dfde9}{\+\_\+spi\+\_\+async\+\_\+dev\+\_\+cb\+\_\+type} cb\+\_\+type, const \hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR} func)
+\item 
+int32\+\_\+t \hyperlink{group__hpl__spi_ga58235b4c4fdd06abd22569c9728c2c6f}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+register\+\_\+callback} (struct \hyperlink{group__hpl__spi_ga7ac9e8d408bc498841e8e461ad8656aa}{\+\_\+spi\+\_\+s\+\_\+async\+\_\+dev} $\ast$dev, const enum \+\_\+spi\+\_\+s\+\_\+async\+\_\+dev\+\_\+cb\+\_\+type cb\+\_\+type, const \hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR} func)
+\begin{DoxyCompactList}\small\item\em Register the S\+PI device callback. \end{DoxyCompactList}\item 
+bool \hyperlink{group__hpl__spi_ga96d0ba31c615fdd4340205bc27106df8}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+is\+\_\+tx\+\_\+ready} (struct \hyperlink{group__hpl__spi_ga36cf082f9d7764b69f43a52f039e7165}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Check if TX ready. \end{DoxyCompactList}\item 
+bool \hyperlink{group__hpl__spi_ga632f8c72ffd769bc392e730e0ad805d8}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+is\+\_\+rx\+\_\+ready} (struct \hyperlink{group__hpl__spi_ga36cf082f9d7764b69f43a52f039e7165}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Check if RX character ready. \end{DoxyCompactList}\item 
+bool \hyperlink{group__hpl__spi_gaa51db7f4f9251689e45272535b1f2051}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+is\+\_\+ss\+\_\+deactivated} (struct \hyperlink{group__hpl__spi_ga36cf082f9d7764b69f43a52f039e7165}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Check if SS deactiviation detected. \end{DoxyCompactList}\item 
+bool \hyperlink{group__hpl__spi_ga8a55be7580939b887c193397e632d3f2}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+is\+\_\+error} (struct \hyperlink{group__hpl__spi_ga36cf082f9d7764b69f43a52f039e7165}{\+\_\+spi\+\_\+s\+\_\+sync\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em Check if error is detected. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__sercom_8c_a781bc447c5e013851ce48add987a249c}{\+\_\+spi\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state} (struct \hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev} $\ast$const device, const enum \hyperlink{group__hpl__spi_ga0f0c72bc59abef8035904e8e267dfde9}{\+\_\+spi\+\_\+async\+\_\+dev\+\_\+cb\+\_\+type} type, const bool state)
+\begin{DoxyCompactList}\small\item\em Enable/disable S\+PI master interrupt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+S\+AM Serial Communication Interface. 
+
+Copyright (C) 2014-\/2017 Atmel Corporation. All rights reserved.
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{hpl__sercom_8c_a4b157e97b8355024ad0dfca74a1758d3}\label{hpl__sercom_8c_a4b157e97b8355024ad0dfca74a1758d3}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!I2\+C\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON@{I2\+C\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}}
+\index{I2\+C\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON@{I2\+C\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{I2\+C\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}{I2CM\_CONFIGURATION}}
+{\footnotesize\ttfamily \#define I2\+C\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                                                                          
+              \(\backslash\)
+        (n), (SERCOM\_I2CM\_CTRLA\_MODE\_I2C\_MASTER) | (CONF\_SERCOM\_##n##\_I2CM\_RUNSTDBY << 
+      SERCOM\_I2CM\_CTRLA\_RUNSTDBY\_Pos) \(\backslash\)
+                 | (CONF\_SERCOM\_##n##\_I2CM\_SPEED << SERCOM\_I2CM\_CTRLA\_SPEED\_Pos)                           
+                  \(\backslash\)
+                 | (CONF\_SERCOM\_##n##\_I2CM\_MEXTTOEN << SERCOM\_I2CM\_CTRLA\_MEXTTOEN\_Pos)                     
+                  \(\backslash\)
+                 | (CONF\_SERCOM\_##n##\_I2CM\_SEXTTOEN << SERCOM\_I2CM\_CTRLA\_SEXTTOEN\_Pos)                     
+                  \(\backslash\)
+                 | (CONF\_SERCOM\_##n##\_I2CM\_INACTOUT << SERCOM\_I2CM\_CTRLA\_INACTOUT\_Pos)                     
+                  \(\backslash\)
+                 | (CONF\_SERCOM\_##n##\_I2CM\_LOWTOUT << SERCOM\_I2CM\_CTRLA\_LOWTOUTEN\_Pos)                     
+                  \(\backslash\)
+                 | (CONF\_SERCOM\_##n##\_I2CM\_SDAHOLD << SERCOM\_I2CM\_CTRLA\_SDAHOLD\_Pos),                      
+                  \(\backslash\)
+            SERCOM\_I2CM\_CTRLB\_SMEN, (uint32\_t)(CONF\_SERCOM\_##n##\_I2CM\_BAUD\_RATE),                          
+                  \(\backslash\)
+            CONF\_SERCOM\_##n##\_I2CM\_DEBUG\_STOP\_MODE, CONF\_SERCOM\_##n##\_I2CM\_TRISE, CONF\_GCLK\_SERCOM##n##
+      \_CORE\_FREQUENCY \(\backslash\)
+    \}
+\end{DoxyCode}
+
+
+Macro is used to fill i2cm configuration structure based on its number. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The number of structures \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__sercom_8c_a7a76b548840c732798902e998a4285db}\label{hpl__sercom_8c_a7a76b548840c732798902e998a4285db}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!I2\+C\+S\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON@{I2\+C\+S\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}}
+\index{I2\+C\+S\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON@{I2\+C\+S\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{I2\+C\+S\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}{I2CS\_CONFIGURATION}}
+{\footnotesize\ttfamily \#define I2\+C\+S\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                                                                          
+              \(\backslash\)
+        n, SERCOM\_I2CM\_CTRLA\_MODE\_I2C\_SLAVE | (CONF\_SERCOM\_##n##\_I2CS\_RUNSTDBY << 
+      SERCOM\_I2CS\_CTRLA\_RUNSTDBY\_Pos)      \(\backslash\)
+               | SERCOM\_I2CS\_CTRLA\_SDAHOLD(CONF\_SERCOM\_##n##\_I2CS\_SDAHOLD)                                 
+                  \(\backslash\)
+               | (CONF\_SERCOM\_##n##\_I2CS\_SEXTTOEN << SERCOM\_I2CS\_CTRLA\_SEXTTOEN\_Pos)                       
+                  \(\backslash\)
+               | (CONF\_SERCOM\_##n##\_I2CS\_SPEED << SERCOM\_I2CS\_CTRLA\_SPEED\_Pos)                             
+                  \(\backslash\)
+               | (CONF\_SERCOM\_##n##\_I2CS\_SCLSM << SERCOM\_I2CS\_CTRLA\_SCLSM\_Pos)                             
+                  \(\backslash\)
+               | (CONF\_SERCOM\_##n##\_I2CS\_LOWTOUT << SERCOM\_I2CS\_CTRLA\_LOWTOUTEN\_Pos),                      
+                  \(\backslash\)
+            SERCOM\_I2CS\_CTRLB\_SMEN | SERCOM\_I2CS\_CTRLB\_AACKEN | SERCOM\_I2CS\_CTRLB\_AMODE(CONF\_SERCOM\_##n##
+      \_I2CS\_AMODE), \(\backslash\)
+            (CONF\_SERCOM\_##n##\_I2CS\_GENCEN << SERCOM\_I2CS\_ADDR\_GENCEN\_Pos)                                 
+                  \(\backslash\)
+                | SERCOM\_I2CS\_ADDR\_ADDR(CONF\_SERCOM\_##n##\_I2CS\_ADDRESS)                                    
+                  \(\backslash\)
+                | (CONF\_SERCOM\_##n##\_I2CS\_TENBITEN << SERCOM\_I2CS\_ADDR\_TENBITEN\_Pos)                       
+                  \(\backslash\)
+                | SERCOM\_I2CS\_ADDR\_ADDRMASK(CONF\_SERCOM\_##n##\_I2CS\_ADDRESS\_MASK)                           
+                  \(\backslash\)
+    \}
+\end{DoxyCode}
+
+
+Macro is used to fill I2C slave configuration structure based on its number. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The number of structures \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__sercom_8c_ab10246f67cf475ad1c82294f2cb2729e}\label{hpl__sercom_8c_ab10246f67cf475ad1c82294f2cb2729e}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!S\+E\+R\+C\+O\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON@{S\+E\+R\+C\+O\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}}
+\index{S\+E\+R\+C\+O\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON@{S\+E\+R\+C\+O\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{S\+E\+R\+C\+O\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON}{SERCOM\_CONFIGURATION}}
+{\footnotesize\ttfamily \#define S\+E\+R\+C\+O\+M\+\_\+\+C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+ON(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                                                                          
+              \(\backslash\)
+        n, SERCOM\_USART\_CTRLA\_MODE(CONF\_SERCOM\_##n##\_USART\_MODE)                                           
+                  \(\backslash\)
+               | (CONF\_SERCOM\_##n##\_USART\_RUNSTDBY << SERCOM\_USART\_CTRLA\_RUNSTDBY\_Pos)                     
+                  \(\backslash\)
+               | (CONF\_SERCOM\_##n##\_USART\_IBON << SERCOM\_USART\_CTRLA\_IBON\_Pos)                             
+                  \(\backslash\)
+               | SERCOM\_USART\_CTRLA\_SAMPR(CONF\_SERCOM\_##n##\_USART\_SAMPR)                                   
+                  \(\backslash\)
+               | SERCOM\_USART\_CTRLA\_TXPO(CONF\_SERCOM\_##n##\_USART\_TXPO)                                     
+                  \(\backslash\)
+               | SERCOM\_USART\_CTRLA\_RXPO(CONF\_SERCOM\_##n##\_USART\_RXPO)                                     
+                  \(\backslash\)
+               | SERCOM\_USART\_CTRLA\_SAMPA(CONF\_SERCOM\_##n##\_USART\_SAMPA)                                   
+                  \(\backslash\)
+               | SERCOM\_USART\_CTRLA\_FORM(CONF\_SERCOM\_##n##\_USART\_FORM)                                     
+                  \(\backslash\)
+               | (CONF\_SERCOM\_##n##\_USART\_CMODE << SERCOM\_USART\_CTRLA\_CMODE\_Pos)                           
+                  \(\backslash\)
+               | (CONF\_SERCOM\_##n##\_USART\_CPOL << SERCOM\_USART\_CTRLA\_CPOL\_Pos)                             
+                  \(\backslash\)
+               | (CONF\_SERCOM\_##n##\_USART\_DORD << SERCOM\_USART\_CTRLA\_DORD\_Pos),                            
+                  \(\backslash\)
+            SERCOM\_USART\_CTRLB\_CHSIZE(CONF\_SERCOM\_##n##\_USART\_CHSIZE)                                      
+                  \(\backslash\)
+                | (CONF\_SERCOM\_##n##\_USART\_SBMODE << SERCOM\_USART\_CTRLB\_SBMODE\_Pos)                        
+                  \(\backslash\)
+                | (CONF\_SERCOM\_##n##\_USART\_CLODEN << SERCOM\_USART\_CTRLB\_COLDEN\_Pos)                        
+                  \(\backslash\)
+                | (CONF\_SERCOM\_##n##\_USART\_SFDE << SERCOM\_USART\_CTRLB\_SFDE\_Pos)                            
+                  \(\backslash\)
+                | (CONF\_SERCOM\_##n##\_USART\_ENC << SERCOM\_USART\_CTRLB\_ENC\_Pos)                              
+                  \(\backslash\)
+                | (CONF\_SERCOM\_##n##\_USART\_PMODE << SERCOM\_USART\_CTRLB\_PMODE\_Pos)                          
+                  \(\backslash\)
+                | (CONF\_SERCOM\_##n##\_USART\_TXEN << SERCOM\_USART\_CTRLB\_TXEN\_Pos)                            
+                  \(\backslash\)
+                | (CONF\_SERCOM\_##n##\_USART\_RXEN << SERCOM\_USART\_CTRLB\_RXEN\_Pos),                           
+                  \(\backslash\)
+            (uint16\_t)(CONF\_SERCOM\_##n##\_USART\_BAUD\_RATE), CONF\_SERCOM\_##n##\_USART\_FRACTIONAL,             
+                  \(\backslash\)
+            CONF\_SERCOM\_##n##\_USART\_RECEIVE\_PULSE\_LENGTH, CONF\_SERCOM\_##n##\_USART\_DEBUG\_STOP\_MODE,         
+                  \(\backslash\)
+    \}
+\end{DoxyCode}
+
+
+Macro is used to fill usart configuration structure based on its number. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The number of structures \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__sercom_8c_aaa3203ef3fe01ab15f40c213f4dddb94}\label{hpl__sercom_8c_aaa3203ef3fe01ab15f40c213f4dddb94}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!S\+E\+R\+C\+O\+M\+\_\+\+I2\+C\+M\+\_\+\+A\+M\+O\+U\+NT@{S\+E\+R\+C\+O\+M\+\_\+\+I2\+C\+M\+\_\+\+A\+M\+O\+U\+NT}}
+\index{S\+E\+R\+C\+O\+M\+\_\+\+I2\+C\+M\+\_\+\+A\+M\+O\+U\+NT@{S\+E\+R\+C\+O\+M\+\_\+\+I2\+C\+M\+\_\+\+A\+M\+O\+U\+NT}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{S\+E\+R\+C\+O\+M\+\_\+\+I2\+C\+M\+\_\+\+A\+M\+O\+U\+NT}{SERCOM\_I2CM\_AMOUNT}}
+{\footnotesize\ttfamily \#define S\+E\+R\+C\+O\+M\+\_\+\+I2\+C\+M\+\_\+\+A\+M\+O\+U\+NT}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(CONF\_SERCOM\_0\_I2CM\_ENABLE + CONF\_SERCOM\_1\_I2CM\_ENABLE + CONF\_SERCOM\_2\_I2CM\_ENABLE + 
+      CONF\_SERCOM\_3\_I2CM\_ENABLE     \(\backslash\)
+     + CONF\_SERCOM\_4\_I2CM\_ENABLE                                                                           
+                  \(\backslash\)
+     + CONF\_SERCOM\_5\_I2CM\_ENABLE                                                                           
+                  \(\backslash\)
+     + CONF\_SERCOM\_6\_I2CM\_ENABLE                                                                           
+                  \(\backslash\)
+     + CONF\_SERCOM\_7\_I2CM\_ENABLE)
+\end{DoxyCode}
+Amount of S\+E\+R\+C\+OM that is used as I2C Master. \mbox{\Hypertarget{hpl__sercom_8c_a4e0f212d3f5b5aeb84126b0c6c55a092}\label{hpl__sercom_8c_a4e0f212d3f5b5aeb84126b0c6c55a092}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!S\+E\+R\+C\+O\+M\+\_\+\+I2\+C\+S\+\_\+\+A\+M\+O\+U\+NT@{S\+E\+R\+C\+O\+M\+\_\+\+I2\+C\+S\+\_\+\+A\+M\+O\+U\+NT}}
+\index{S\+E\+R\+C\+O\+M\+\_\+\+I2\+C\+S\+\_\+\+A\+M\+O\+U\+NT@{S\+E\+R\+C\+O\+M\+\_\+\+I2\+C\+S\+\_\+\+A\+M\+O\+U\+NT}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{S\+E\+R\+C\+O\+M\+\_\+\+I2\+C\+S\+\_\+\+A\+M\+O\+U\+NT}{SERCOM\_I2CS\_AMOUNT}}
+{\footnotesize\ttfamily \#define S\+E\+R\+C\+O\+M\+\_\+\+I2\+C\+S\+\_\+\+A\+M\+O\+U\+NT}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(CONF\_SERCOM\_0\_I2CS\_ENABLE + CONF\_SERCOM\_1\_I2CS\_ENABLE + CONF\_SERCOM\_2\_I2CS\_ENABLE + 
+      CONF\_SERCOM\_3\_I2CS\_ENABLE     \(\backslash\)
+     + CONF\_SERCOM\_4\_I2CS\_ENABLE                                                                           
+                  \(\backslash\)
+     + CONF\_SERCOM\_5\_I2CS\_ENABLE                                                                           
+                  \(\backslash\)
+     + CONF\_SERCOM\_6\_I2CS\_ENABLE                                                                           
+                  \(\backslash\)
+     + CONF\_SERCOM\_7\_I2CS\_ENABLE)
+\end{DoxyCode}
+Amount of S\+E\+R\+C\+OM that is used as I2C Slave. \mbox{\Hypertarget{hpl__sercom_8c_a0505b1bb47d5b45ee3406000fcad7649}\label{hpl__sercom_8c_a0505b1bb47d5b45ee3406000fcad7649}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!S\+E\+R\+C\+O\+M\+\_\+\+S\+P\+I\+\_\+\+A\+M\+O\+U\+NT@{S\+E\+R\+C\+O\+M\+\_\+\+S\+P\+I\+\_\+\+A\+M\+O\+U\+NT}}
+\index{S\+E\+R\+C\+O\+M\+\_\+\+S\+P\+I\+\_\+\+A\+M\+O\+U\+NT@{S\+E\+R\+C\+O\+M\+\_\+\+S\+P\+I\+\_\+\+A\+M\+O\+U\+NT}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{S\+E\+R\+C\+O\+M\+\_\+\+S\+P\+I\+\_\+\+A\+M\+O\+U\+NT}{SERCOM\_SPI\_AMOUNT}}
+{\footnotesize\ttfamily \#define S\+E\+R\+C\+O\+M\+\_\+\+S\+P\+I\+\_\+\+A\+M\+O\+U\+NT}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(CONF\_SERCOM\_0\_SPI\_ENABLE + CONF\_SERCOM\_1\_SPI\_ENABLE + CONF\_SERCOM\_2\_SPI\_ENABLE + CONF\_SERCOM\_3\_SPI\_ENABLE 
+              \(\backslash\)
+     + CONF\_SERCOM\_4\_SPI\_ENABLE                                                                            
+                  \(\backslash\)
+     + CONF\_SERCOM\_5\_SPI\_ENABLE                                                                            
+                  \(\backslash\)
+     + CONF\_SERCOM\_6\_SPI\_ENABLE                                                                            
+                  \(\backslash\)
+     + CONF\_SERCOM\_7\_SPI\_ENABLE)
+\end{DoxyCode}
+Amount of S\+E\+R\+C\+OM that is used as S\+PI \mbox{\Hypertarget{hpl__sercom_8c_ac780f3e9e684158fe0071a402ea6e17c}\label{hpl__sercom_8c_ac780f3e9e684158fe0071a402ea6e17c}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!S\+E\+R\+C\+O\+M\+\_\+\+U\+S\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT@{S\+E\+R\+C\+O\+M\+\_\+\+U\+S\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT}}
+\index{S\+E\+R\+C\+O\+M\+\_\+\+U\+S\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT@{S\+E\+R\+C\+O\+M\+\_\+\+U\+S\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{S\+E\+R\+C\+O\+M\+\_\+\+U\+S\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT}{SERCOM\_USART\_AMOUNT}}
+{\footnotesize\ttfamily \#define S\+E\+R\+C\+O\+M\+\_\+\+U\+S\+A\+R\+T\+\_\+\+A\+M\+O\+U\+NT}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(CONF\_SERCOM\_0\_USART\_ENABLE + CONF\_SERCOM\_1\_USART\_ENABLE + CONF\_SERCOM\_2\_USART\_ENABLE + 
+      CONF\_SERCOM\_3\_USART\_ENABLE \(\backslash\)
+     + CONF\_SERCOM\_4\_USART\_ENABLE                                                                          
+                  \(\backslash\)
+     + CONF\_SERCOM\_5\_USART\_ENABLE                                                                          
+                  \(\backslash\)
+     + CONF\_SERCOM\_6\_USART\_ENABLE                                                                          
+                  \(\backslash\)
+     + CONF\_SERCOM\_7\_USART\_ENABLE)
+\end{DoxyCode}
+Amount of S\+E\+R\+C\+OM that is used as U\+S\+A\+RT. \mbox{\Hypertarget{hpl__sercom_8c_a7e44d99ca1f2c4f432cad2eb2a07c020}\label{hpl__sercom_8c_a7e44d99ca1f2c4f432cad2eb2a07c020}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!S\+E\+R\+C\+O\+M\+S\+P\+I\+\_\+\+R\+E\+GS@{S\+E\+R\+C\+O\+M\+S\+P\+I\+\_\+\+R\+E\+GS}}
+\index{S\+E\+R\+C\+O\+M\+S\+P\+I\+\_\+\+R\+E\+GS@{S\+E\+R\+C\+O\+M\+S\+P\+I\+\_\+\+R\+E\+GS}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{S\+E\+R\+C\+O\+M\+S\+P\+I\+\_\+\+R\+E\+GS}{SERCOMSPI\_REGS}}
+{\footnotesize\ttfamily \#define S\+E\+R\+C\+O\+M\+S\+P\+I\+\_\+\+R\+E\+GS(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                                                                          
+              \(\backslash\)
+        ((CONF\_SERCOM\_##n##\_SPI\_DORD) | (CONF\_SERCOM\_##n##\_SPI\_CPOL << SERCOM\_SPI\_CTRLA\_CPOL\_Pos)          
+                  \(\backslash\)
+         | (CONF\_SERCOM\_##n##\_SPI\_CPHA << SERCOM\_SPI\_CTRLA\_CPHA\_Pos)                                       
+                  \(\backslash\)
+         | (CONF\_SERCOM\_##n##\_SPI\_AMODE\_EN ? SERCOM\_SPI\_CTRLA\_FORM(2) : SERCOM\_SPI\_CTRLA\_FORM(0))          
+                  \(\backslash\)
+         | SERCOM\_SPI\_CTRLA\_DOPO(CONF\_SERCOM\_##n##\_SPI\_TXPO)                                               
+                  \(\backslash\)
+         | SERCOM\_SPI\_CTRLA\_DIPO(CONF\_SERCOM\_##n##\_SPI\_RXPO)                                               
+                  \(\backslash\)
+         | (CONF\_SERCOM\_##n##\_SPI\_IBON << SERCOM\_SPI\_CTRLA\_IBON\_Pos)                                       
+                  \(\backslash\)
+         | (CONF\_SERCOM\_##n##\_SPI\_RUNSTDBY << SERCOM\_SPI\_CTRLA\_RUNSTDBY\_Pos)                               
+                  \(\backslash\)
+         | SERCOM\_SPI\_CTRLA\_MODE(CONF\_SERCOM\_##n##\_SPI\_MODE)), \textcolor{comment}{/* ctrla */}                                 
+                  \(\backslash\)
+            ((CONF\_SERCOM\_##n##\_SPI\_RXEN << SERCOM\_SPI\_CTRLB\_RXEN\_Pos)                                     
+                  \(\backslash\)
+             | (CONF\_SERCOM\_##n##\_SPI\_MSSEN << SERCOM\_SPI\_CTRLB\_MSSEN\_Pos)                                 
+                  \(\backslash\)
+             | (CONF\_SERCOM\_##n##\_SPI\_SSDE << SERCOM\_SPI\_CTRLB\_SSDE\_Pos)                                   
+                  \(\backslash\)
+             | (CONF\_SERCOM\_##n##\_SPI\_PLOADEN << SERCOM\_SPI\_CTRLB\_PLOADEN\_Pos)                             
+                  \(\backslash\)
+             | SERCOM\_SPI\_CTRLB\_AMODE(CONF\_SERCOM\_##n##\_SPI\_AMODE)                                         
+                  \(\backslash\)
+             | SERCOM\_SPI\_CTRLB\_CHSIZE(CONF\_SERCOM\_##n##\_SPI\_CHSIZE)), \textcolor{comment}{/* ctrlb */}                         
+                  \(\backslash\)
+            (SERCOM\_SPI\_ADDR\_ADDR(CONF\_SERCOM\_##n##\_SPI\_ADDR)                                              
+                  \(\backslash\)
+             | SERCOM\_SPI\_ADDR\_ADDRMASK(CONF\_SERCOM\_##n##\_SPI\_ADDRMASK)),      \textcolor{comment}{/* addr */}                  
+                  \(\backslash\)
+            ((uint8\_t)CONF\_SERCOM\_##n##\_SPI\_BAUD\_RATE),                        \textcolor{comment}{/* baud */}                  
+                  \(\backslash\)
+            (CONF\_SERCOM\_##n##\_SPI\_DBGSTOP << SERCOM\_SPI\_DBGCTRL\_DBGSTOP\_Pos), \textcolor{comment}{/* dbgctrl */}               
+                  \(\backslash\)
+            CONF\_SERCOM\_##n##\_SPI\_DUMMYBYTE,                                   \textcolor{comment}{/* Dummy byte for SPI master
+       mode */}    \(\backslash\)
+            n                                                                  \textcolor{comment}{/* sercom number */}         
+                  \(\backslash\)
+    \}
+\end{DoxyCode}
+Build configuration from header macros. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{hpl__sercom_8c_a5d7f588b55855fca57f5919067dff4fc}\label{hpl__sercom_8c_a5d7f588b55855fca57f5919067dff4fc}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+deinit@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+deinit}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+deinit@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+deinit}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+deinit()}{\_i2c\_m\_async\_deinit()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+async\+\_\+deinit (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const}]{i2c\+\_\+dev }\end{DoxyParamCaption})}
+
+
+
+Deinitialize sercom i2c module. 
+
+Deinitialize I2C in interrupt mode.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__sercom_8c_ac0536eab02a287ec63a82d820d6b7cce}\label{hpl__sercom_8c_ac0536eab02a287ec63a82d820d6b7cce}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+disable@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+disable}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+disable@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+disable}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+disable()}{\_i2c\_m\_async\_disable()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+async\+\_\+disable (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const}]{i2c\+\_\+dev }\end{DoxyParamCaption})}
+
+
+
+Disable the i2c master module. 
+
+Disable I2C module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__sercom_8c_af643af29e58fe905941f1fc1d036cf97}\label{hpl__sercom_8c_af643af29e58fe905941f1fc1d036cf97}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+enable@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+enable}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+enable@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+enable}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+enable()}{\_i2c\_m\_async\_enable()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+async\+\_\+enable (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const}]{i2c\+\_\+dev }\end{DoxyParamCaption})}
+
+
+
+Enable the i2c master module. 
+
+Enable I2C module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__sercom_8c_ac613796e97851c275412dbcf14c360fb}\label{hpl__sercom_8c_ac613796e97851c275412dbcf14c360fb}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+get\+\_\+bytes\+\_\+left@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+get\+\_\+bytes\+\_\+left}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+get\+\_\+bytes\+\_\+left@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+get\+\_\+bytes\+\_\+left}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+get\+\_\+bytes\+\_\+left()}{\_i2c\_m\_async\_get\_bytes\_left()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+async\+\_\+get\+\_\+bytes\+\_\+left (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const}]{i2c\+\_\+dev }\end{DoxyParamCaption})}
+
+
+
+Get number of bytes left in transfer buffer. 
+
+Returns the number of bytes left or not used in the I2C message buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i2c\+\_\+dev} & Pointer to i2c master device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Bytes left in buffer 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em =$>$0} & Bytes left in buffer \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__sercom_8c_afd0a3ee0349da0644884cf0c0155dc87}\label{hpl__sercom_8c_afd0a3ee0349da0644884cf0c0155dc87}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+init@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+init}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+init@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+init}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+init()}{\_i2c\_m\_async\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+async\+\_\+init (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const}]{i2c\+\_\+dev,  }\item[{void $\ast$const}]{hw }\end{DoxyParamCaption})}
+
+
+
+Initialize sercom i2c module to use in async mode. 
+
+Initialize I2C in interrupt mode.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__sercom_8c_ab7a10584dadf146ac4b869d208bbad20}\label{hpl__sercom_8c_ab7a10584dadf146ac4b869d208bbad20}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+register\+\_\+callback@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+register\+\_\+callback}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+register\+\_\+callback@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+register\+\_\+callback}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+register\+\_\+callback()}{\_i2c\_m\_async\_register\_callback()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+async\+\_\+register\+\_\+callback (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const}]{i2c\+\_\+dev,  }\item[{enum \hyperlink{hpl__i2c__m__async_8h_a8015235df10b8dc8615e9d4776e71263}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+callback\+\_\+type}}]{type,  }\item[{\hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR}}]{func }\end{DoxyParamCaption})}
+
+
+
+Set callback to be called in interrupt handler. 
+
+Register callback to I2C.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to master i2c device \\
+\hline
+\mbox{\tt in}  & {\em type} & The callback type \\
+\hline
+\mbox{\tt in}  & {\em func} & The callback function pointer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__sercom_8c_a46050c43603c9fa9decb10cf6a6c0472}\label{hpl__sercom_8c_a46050c43603c9fa9decb10cf6a6c0472}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+send\+\_\+stop@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+send\+\_\+stop}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+send\+\_\+stop@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+send\+\_\+stop}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+send\+\_\+stop()}{\_i2c\_m\_async\_send\_stop()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+async\+\_\+send\+\_\+stop (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const}]{i2c\+\_\+dev }\end{DoxyParamCaption})}
+
+
+
+Set stop condition on I2C. 
+
+Generate stop condition on the I2C bus.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i2c\+\_\+dev} & Pointer to master i2c device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em I2\+C\+\_\+\+OK} & Operation was successfull \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__sercom_8c_af9f59e910cd5d10672489aa6bfd6289d}\label{hpl__sercom_8c_af9f59e910cd5d10672489aa6bfd6289d}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+baudrate@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+baudrate}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+baudrate@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+baudrate}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+baudrate()}{\_i2c\_m\_async\_set\_baudrate()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+baudrate (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const}]{i2c\+\_\+dev,  }\item[{uint32\+\_\+t}]{clkrate,  }\item[{uint32\+\_\+t}]{baudrate }\end{DoxyParamCaption})}
+
+
+
+Set baudrate of master. 
+
+Set baud rate of I2C.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device \\
+\hline
+\mbox{\tt in}  & {\em clkrate} & The clock rate of i2c master, in K\+Hz \\
+\hline
+\mbox{\tt in}  & {\em baudrate} & The baud rate desired for i2c master, in K\+Hz \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__sercom_8c_ab4c1447a0ec609a4b61d90fd9f966d60}\label{hpl__sercom_8c_ab4c1447a0ec609a4b61d90fd9f966d60}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state()}{\_i2c\_m\_async\_set\_irq\_state()}}
+{\footnotesize\ttfamily void \+\_\+i2c\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$const}]{device,  }\item[{const enum \hyperlink{hpl__i2c__m__async_8h_a8015235df10b8dc8615e9d4776e71263}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+callback\+\_\+type}}]{type,  }\item[{const bool}]{state }\end{DoxyParamCaption})}
+
+
+
+Enable/disable I2C master interrupt. 
+
+param\mbox{[}in\mbox{]} device The pointer to I2C master device instance param\mbox{[}in\mbox{]} type The type of interrupt to disable/enable if applicable param\mbox{[}in\mbox{]} state Enable or disable \mbox{\Hypertarget{hpl__sercom_8c_ac2b0946bdf1c6ee818863cbe8e672141}\label{hpl__sercom_8c_ac2b0946bdf1c6ee818863cbe8e672141}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+m\+\_\+async\+\_\+transfer@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+transfer}}
+\index{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+transfer@{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+transfer}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+transfer()}{\_i2c\_m\_async\_transfer()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+async\+\_\+transfer (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__async__device}{\+\_\+i2c\+\_\+m\+\_\+async\+\_\+device} $\ast$}]{i2c\+\_\+dev,  }\item[{struct \hyperlink{struct__i2c__m__msg}{\+\_\+i2c\+\_\+m\+\_\+msg} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Transfer data specified by msg. 
+
+Transfer data by I2C.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device \\
+\hline
+\mbox{\tt in}  & {\em msg} & The pointer to i2c message\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Transfer status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Transfer success \\
+\hline
+{\em $<$0} & Transfer fail, return the error code \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__sercom_8c_ad4bca20b7f251821268fc936821ca1c2}\label{hpl__sercom_8c_ad4bca20b7f251821268fc936821ca1c2}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+deinit@{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+deinit}}
+\index{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+deinit@{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+deinit}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+deinit()}{\_i2c\_m\_sync\_deinit()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+sync\+\_\+deinit (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__sync__device}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+device} $\ast$const}]{i2c\+\_\+dev }\end{DoxyParamCaption})}
+
+
+
+Deinitialize sercom i2c module. 
+
+Deinitialize I2C.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__sercom_8c_afec83948818f447f6b60f11eb3b231bb}\label{hpl__sercom_8c_afec83948818f447f6b60f11eb3b231bb}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+disable@{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+disable}}
+\index{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+disable@{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+disable}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+disable()}{\_i2c\_m\_sync\_disable()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+sync\+\_\+disable (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__sync__device}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+device} $\ast$const}]{i2c\+\_\+dev }\end{DoxyParamCaption})}
+
+
+
+Disable the i2c master module. 
+
+Disable I2C module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__sercom_8c_af2cc6a93d5fdc0d1bb751491419c8577}\label{hpl__sercom_8c_af2cc6a93d5fdc0d1bb751491419c8577}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+enable@{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+enable}}
+\index{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+enable@{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+enable}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+enable()}{\_i2c\_m\_sync\_enable()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+sync\+\_\+enable (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__sync__device}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+device} $\ast$const}]{i2c\+\_\+dev }\end{DoxyParamCaption})}
+
+
+
+Enable the i2c master module. 
+
+Enable I2C module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__sercom_8c_aae297e4983036ae46d61ff527b385f8f}\label{hpl__sercom_8c_aae297e4983036ae46d61ff527b385f8f}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+init@{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+init}}
+\index{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+init@{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+init}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+init()}{\_i2c\_m\_sync\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+sync\+\_\+init (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__sync__device}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+device} $\ast$const}]{i2c\+\_\+dev,  }\item[{void $\ast$const}]{hw }\end{DoxyParamCaption})}
+
+
+
+Initialize sercom i2c module to use in sync mode. 
+
+Initialize I2C.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__sercom_8c_aef9acdb8a4071700ca067d542d917968}\label{hpl__sercom_8c_aef9acdb8a4071700ca067d542d917968}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+send\+\_\+stop@{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+send\+\_\+stop}}
+\index{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+send\+\_\+stop@{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+send\+\_\+stop}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+send\+\_\+stop()}{\_i2c\_m\_sync\_send\_stop()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+sync\+\_\+send\+\_\+stop (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__sync__device}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+device} $\ast$const}]{i2c\+\_\+dev }\end{DoxyParamCaption})}
+
+
+
+Send send condition on the I2C bus. 
+
+This function will generate a stop condition on the I2C bus
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device struct\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 for success and negative value for error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__sercom_8c_aa84d51d96936daef6877413ebe59248c}\label{hpl__sercom_8c_aa84d51d96936daef6877413ebe59248c}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+set\+\_\+baudrate@{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+set\+\_\+baudrate}}
+\index{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+set\+\_\+baudrate@{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+set\+\_\+baudrate}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+set\+\_\+baudrate()}{\_i2c\_m\_sync\_set\_baudrate()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+sync\+\_\+set\+\_\+baudrate (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__sync__device}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+device} $\ast$const}]{i2c\+\_\+dev,  }\item[{uint32\+\_\+t}]{clkrate,  }\item[{uint32\+\_\+t}]{baudrate }\end{DoxyParamCaption})}
+
+
+
+Set baudrate of master. 
+
+Set baud rate of I2C.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device \\
+\hline
+\mbox{\tt in}  & {\em clkrate} & The clock rate of i2c master, in K\+Hz \\
+\hline
+\mbox{\tt in}  & {\em baudrate} & The baud rate desired for i2c master, in K\+Hz \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__sercom_8c_a1b28f1bc828f0806702dcc1ca41527be}\label{hpl__sercom_8c_a1b28f1bc828f0806702dcc1ca41527be}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+transfer@{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+transfer}}
+\index{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+transfer@{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+transfer}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+transfer()}{\_i2c\_m\_sync\_transfer()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+m\+\_\+sync\+\_\+transfer (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__m__sync__device}{\+\_\+i2c\+\_\+m\+\_\+sync\+\_\+device} $\ast$const}]{i2c\+\_\+dev,  }\item[{struct \hyperlink{struct__i2c__m__msg}{\+\_\+i2c\+\_\+m\+\_\+msg} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Transfer data specified by msg. 
+
+Transfer data by I2C.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i2c\+\_\+dev} & The pointer to i2c device \\
+\hline
+\mbox{\tt in}  & {\em msg} & The pointer to i2c message\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Transfer status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Transfer success \\
+\hline
+{\em $<$0} & Transfer fail or partial fail, return the error code \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__sercom_8c_afd25099eaed5d3dfc7adc81db5b5c4a5}\label{hpl__sercom_8c_afd25099eaed5d3dfc7adc81db5b5c4a5}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+async\+\_\+abort\+\_\+transmission@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+abort\+\_\+transmission}}
+\index{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+abort\+\_\+transmission@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+abort\+\_\+transmission}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+abort\+\_\+transmission()}{\_i2c\_s\_async\_abort\_transmission()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+s\+\_\+async\+\_\+abort\+\_\+transmission (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Abort data transmission. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to i2c device structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 for success and negative value for error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__sercom_8c_a319f9d4faa0dd0625c3e795066bb5f97}\label{hpl__sercom_8c_a319f9d4faa0dd0625c3e795066bb5f97}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+async\+\_\+deinit@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+deinit}}
+\index{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+deinit@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+deinit}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+deinit()}{\_i2c\_s\_async\_deinit()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+s\+\_\+async\+\_\+deinit (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Deinitialize asynchronous I2C. 
+
+Deinitialize asynchronous I2C in interrupt mode. \mbox{\Hypertarget{hpl__sercom_8c_ab91b29c9edd5c53164f848e5fb823db4}\label{hpl__sercom_8c_ab91b29c9edd5c53164f848e5fb823db4}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+async\+\_\+disable@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+disable}}
+\index{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+disable@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+disable}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+disable()}{\_i2c\_s\_async\_disable()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+s\+\_\+async\+\_\+disable (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Disable I2C module. 
+
+This function does low level I2C disable.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to i2c slave device structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 for success and negative value for error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__sercom_8c_af944afbb0a8934bed3574e59be976ae4}\label{hpl__sercom_8c_af944afbb0a8934bed3574e59be976ae4}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+async\+\_\+enable@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+enable}}
+\index{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+enable@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+enable}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+enable()}{\_i2c\_s\_async\_enable()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+s\+\_\+async\+\_\+enable (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Enable I2C module. 
+
+This function does low level I2C enable.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to i2c slave device structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 for success and negative value for error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__sercom_8c_ad4196b5c3cb12962a0bd168ac19adecc}\label{hpl__sercom_8c_ad4196b5c3cb12962a0bd168ac19adecc}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+async\+\_\+get\+\_\+status@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+get\+\_\+status}}
+\index{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+get\+\_\+status@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+get\+\_\+status}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+get\+\_\+status()}{\_i2c\_s\_async\_get\_status()}}
+{\footnotesize\ttfamily \hyperlink{hpl__i2c__s__sync_8h_af7f44929c45b3881a2e7e6c6f98c6380}{i2c\+\_\+s\+\_\+status\+\_\+t} \+\_\+i2c\+\_\+s\+\_\+async\+\_\+get\+\_\+status (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Retrieve I2C slave status. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to i2c slave device structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+I2C slave status 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__sercom_8c_a8497dbc3d248ec9dadf433095eb81daa}\label{hpl__sercom_8c_a8497dbc3d248ec9dadf433095eb81daa}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+async\+\_\+init@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+init}}
+\index{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+init@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+init}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+init()}{\_i2c\_s\_async\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+s\+\_\+async\+\_\+init (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const}]{device,  }\item[{void $\ast$const}]{hw }\end{DoxyParamCaption})}
+
+
+
+Initialize asynchronous I2C slave. 
+
+This function does low level I2C configuration.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to i2c interrupt device structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 for success and negative value for error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__sercom_8c_ae26686424f0f1245b986379179f58cff}\label{hpl__sercom_8c_ae26686424f0f1245b986379179f58cff}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+async\+\_\+is\+\_\+10bit\+\_\+addressing\+\_\+on@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+is\+\_\+10bit\+\_\+addressing\+\_\+on}}
+\index{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+is\+\_\+10bit\+\_\+addressing\+\_\+on@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+is\+\_\+10bit\+\_\+addressing\+\_\+on}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+is\+\_\+10bit\+\_\+addressing\+\_\+on()}{\_i2c\_s\_async\_is\_10bit\_addressing\_on()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+s\+\_\+async\+\_\+is\+\_\+10bit\+\_\+addressing\+\_\+on (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Check if 10-\/bit addressing mode is on. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to i2c slave device structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Cheking status 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 1} & 10-\/bit addressing mode is on \\
+\hline
+{\em 0} & 10-\/bit addressing mode is off \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__sercom_8c_ab60f5bc3ddb0b0ee80adeecc5f49ec53}\label{hpl__sercom_8c_ab60f5bc3ddb0b0ee80adeecc5f49ec53}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+async\+\_\+set\+\_\+address@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+set\+\_\+address}}
+\index{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+set\+\_\+address@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+set\+\_\+address}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+set\+\_\+address()}{\_i2c\_s\_async\_set\_address()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+s\+\_\+async\+\_\+set\+\_\+address (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const}]{device,  }\item[{const uint16\+\_\+t}]{address }\end{DoxyParamCaption})}
+
+
+
+Set I2C slave address. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to i2c slave device structure \\
+\hline
+\mbox{\tt in}  & {\em address} & Address to set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 for success and negative value for error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__sercom_8c_aeadf801d4c1fe280a351a5132f0e9aa8}\label{hpl__sercom_8c_aeadf801d4c1fe280a351a5132f0e9aa8}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+async\+\_\+set\+\_\+irq\+\_\+state@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+set\+\_\+irq\+\_\+state}}
+\index{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+set\+\_\+irq\+\_\+state@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+set\+\_\+irq\+\_\+state}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+set\+\_\+irq\+\_\+state()}{\_i2c\_s\_async\_set\_irq\_state()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+s\+\_\+async\+\_\+set\+\_\+irq\+\_\+state (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const}]{device,  }\item[{const enum \hyperlink{hpl__i2c__s__async_8h_ac7d8319c8f419ccc7228c09fa4b3dde4}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+callback\+\_\+type}}]{type,  }\item[{const bool}]{disable }\end{DoxyParamCaption})}
+
+
+
+Enable/disable I2C slave interrupt. 
+
+param\mbox{[}in\mbox{]} device The pointer to I2C slave device instance param\mbox{[}in\mbox{]} type The type of interrupt to disable/enable if applicable param\mbox{[}in\mbox{]} disable Enable or disable \mbox{\Hypertarget{hpl__sercom_8c_a3267358b526cd6955aec1b611eabc8c8}\label{hpl__sercom_8c_a3267358b526cd6955aec1b611eabc8c8}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+async\+\_\+write\+\_\+byte@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+write\+\_\+byte}}
+\index{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+write\+\_\+byte@{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+write\+\_\+byte}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+write\+\_\+byte()}{\_i2c\_s\_async\_write\_byte()}}
+{\footnotesize\ttfamily void \+\_\+i2c\+\_\+s\+\_\+async\+\_\+write\+\_\+byte (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__s__async__device}{\+\_\+i2c\+\_\+s\+\_\+async\+\_\+device} $\ast$const}]{device,  }\item[{const uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+Write a byte to the given I2C instance. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to i2c slave device structure \\
+\hline
+\mbox{\tt in}  & {\em data} & Data to write \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__sercom_8c_a5036c8dd64a1c6f3c203ce426d77fafe}\label{hpl__sercom_8c_a5036c8dd64a1c6f3c203ce426d77fafe}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+deinit@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+deinit}}
+\index{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+deinit@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+deinit}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+deinit()}{\_i2c\_s\_sync\_deinit()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+s\+\_\+sync\+\_\+deinit (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Deinitialize synchronous I2C. 
+
+Deinitialize synchronous I2C slave. \mbox{\Hypertarget{hpl__sercom_8c_a73445509c00ca8778d62415424dc5a45}\label{hpl__sercom_8c_a73445509c00ca8778d62415424dc5a45}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+disable@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+disable}}
+\index{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+disable@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+disable}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+disable()}{\_i2c\_s\_sync\_disable()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+s\+\_\+sync\+\_\+disable (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Disable I2C module. 
+
+This function does low level I2C disable.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to i2c slave device structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 for success and negative value for error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__sercom_8c_a4d710add2886cb31b5be126f39719596}\label{hpl__sercom_8c_a4d710add2886cb31b5be126f39719596}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+enable@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+enable}}
+\index{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+enable@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+enable}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+enable()}{\_i2c\_s\_sync\_enable()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+s\+\_\+sync\+\_\+enable (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Enable I2C module. 
+
+This function does low level I2C enable.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to i2c slave device structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 for success and negative value for error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__sercom_8c_abca513a7604e30ec078f840fa19e4254}\label{hpl__sercom_8c_abca513a7604e30ec078f840fa19e4254}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+get\+\_\+status@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+get\+\_\+status}}
+\index{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+get\+\_\+status@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+get\+\_\+status}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+get\+\_\+status()}{\_i2c\_s\_sync\_get\_status()}}
+{\footnotesize\ttfamily \hyperlink{hpl__i2c__s__sync_8h_af7f44929c45b3881a2e7e6c6f98c6380}{i2c\+\_\+s\+\_\+status\+\_\+t} \+\_\+i2c\+\_\+s\+\_\+sync\+\_\+get\+\_\+status (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Retrieve I2C slave status. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to i2c slave device structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+I2C slave status 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__sercom_8c_a09c321534b087cb45bd6942f3a9728c4}\label{hpl__sercom_8c_a09c321534b087cb45bd6942f3a9728c4}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+init@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+init}}
+\index{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+init@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+init}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+init()}{\_i2c\_s\_sync\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+s\+\_\+sync\+\_\+init (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const}]{device,  }\item[{void $\ast$const}]{hw }\end{DoxyParamCaption})}
+
+
+
+Initialize synchronous I2C slave. 
+
+This function does low level I2C configuration.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to i2c slave device structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 for success and negative value for error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__sercom_8c_aef282275958fec4b5902e3d051c01f67}\label{hpl__sercom_8c_aef282275958fec4b5902e3d051c01f67}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+10bit\+\_\+addressing\+\_\+on@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+10bit\+\_\+addressing\+\_\+on}}
+\index{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+10bit\+\_\+addressing\+\_\+on@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+10bit\+\_\+addressing\+\_\+on}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+10bit\+\_\+addressing\+\_\+on()}{\_i2c\_s\_sync\_is\_10bit\_addressing\_on()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+10bit\+\_\+addressing\+\_\+on (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Check if 10-\/bit addressing mode is on. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to i2c slave device structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Cheking status 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 1} & 10-\/bit addressing mode is on \\
+\hline
+{\em 0} & 10-\/bit addressing mode is off \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__sercom_8c_adae60f11365b3548e7c41874f3273690}\label{hpl__sercom_8c_adae60f11365b3548e7c41874f3273690}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+byte\+\_\+received@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+byte\+\_\+received}}
+\index{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+byte\+\_\+received@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+byte\+\_\+received}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+byte\+\_\+received()}{\_i2c\_s\_sync\_is\_byte\_received()}}
+{\footnotesize\ttfamily bool \+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+byte\+\_\+received (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Check if there is data received by I2C. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to i2c slave device structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status of the data received check. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & if the I2C has received a byte \\
+\hline
+{\em false} & if the I2C has not received a byte \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__sercom_8c_aa78954ee8e6c6d52e605a50435293bcf}\label{hpl__sercom_8c_aa78954ee8e6c6d52e605a50435293bcf}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+byte\+\_\+sent@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+byte\+\_\+sent}}
+\index{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+byte\+\_\+sent@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+byte\+\_\+sent}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+byte\+\_\+sent()}{\_i2c\_s\_sync\_is\_byte\_sent()}}
+{\footnotesize\ttfamily bool \+\_\+i2c\+\_\+s\+\_\+sync\+\_\+is\+\_\+byte\+\_\+sent (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Check if I2C is ready to send next byt. 
+
+Check if I2C is ready to send next byte. \mbox{\Hypertarget{hpl__sercom_8c_af9dafe1349c00c310828fe2730b2b03b}\label{hpl__sercom_8c_af9dafe1349c00c310828fe2730b2b03b}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+read\+\_\+byte@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+read\+\_\+byte}}
+\index{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+read\+\_\+byte@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+read\+\_\+byte}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+read\+\_\+byte()}{\_i2c\_s\_sync\_read\_byte()}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+i2c\+\_\+s\+\_\+sync\+\_\+read\+\_\+byte (\begin{DoxyParamCaption}\item[{const struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const}]{device }\end{DoxyParamCaption})}
+
+
+
+Read a byte from the given I2C instance. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to i2c slave device structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Data received via I2C interface. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__sercom_8c_aa9e1c0b72c6118f078a588e89f83356c}\label{hpl__sercom_8c_aa9e1c0b72c6118f078a588e89f83356c}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+set\+\_\+address@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+set\+\_\+address}}
+\index{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+set\+\_\+address@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+set\+\_\+address}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+set\+\_\+address()}{\_i2c\_s\_sync\_set\_address()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+i2c\+\_\+s\+\_\+sync\+\_\+set\+\_\+address (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const}]{device,  }\item[{const uint16\+\_\+t}]{address }\end{DoxyParamCaption})}
+
+
+
+Set I2C slave address. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to i2c slave device structure \\
+\hline
+\mbox{\tt in}  & {\em address} & Address to set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 for success and negative value for error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__sercom_8c_a167a1800d389342b34bb97e6a0b5883b}\label{hpl__sercom_8c_a167a1800d389342b34bb97e6a0b5883b}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+write\+\_\+byte@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+write\+\_\+byte}}
+\index{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+write\+\_\+byte@{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+write\+\_\+byte}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+write\+\_\+byte()}{\_i2c\_s\_sync\_write\_byte()}}
+{\footnotesize\ttfamily void \+\_\+i2c\+\_\+s\+\_\+sync\+\_\+write\+\_\+byte (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__i2c__s__sync__device}{\+\_\+i2c\+\_\+s\+\_\+sync\+\_\+device} $\ast$const}]{device,  }\item[{const uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+Write a byte to the given I2C instance. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em device} & The pointer to i2c slave device structure \\
+\hline
+\mbox{\tt in}  & {\em data} & Data to write \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__sercom_8c_a781bc447c5e013851ce48add987a249c}\label{hpl__sercom_8c_a781bc447c5e013851ce48add987a249c}} 
+\index{hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}!\+\_\+spi\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state@{\+\_\+spi\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state}}
+\index{\+\_\+spi\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state@{\+\_\+spi\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state}!hpl\+\_\+sercom.\+c@{hpl\+\_\+sercom.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+spi\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state()}{\_spi\_m\_async\_set\_irq\_state()}}
+{\footnotesize\ttfamily void \+\_\+spi\+\_\+m\+\_\+async\+\_\+set\+\_\+irq\+\_\+state (\begin{DoxyParamCaption}\item[{struct \hyperlink{struct__spi__async__dev}{\+\_\+spi\+\_\+async\+\_\+dev} $\ast$const}]{device,  }\item[{const enum \hyperlink{group__hpl__spi_ga0f0c72bc59abef8035904e8e267dfde9}{\+\_\+spi\+\_\+async\+\_\+dev\+\_\+cb\+\_\+type}}]{type,  }\item[{const bool}]{state }\end{DoxyParamCaption})}
+
+
+
+Enable/disable S\+PI master interrupt. 
+
+param\mbox{[}in\mbox{]} device The pointer to S\+PI master device instance param\mbox{[}in\mbox{]} type The type of interrupt to disable/enable if applicable param\mbox{[}in\mbox{]} state Enable or disable 

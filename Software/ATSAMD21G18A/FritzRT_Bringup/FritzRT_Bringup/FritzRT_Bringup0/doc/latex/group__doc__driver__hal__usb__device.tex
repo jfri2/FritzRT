@@ -1,0 +1,499 @@
+\hypertarget{group__doc__driver__hal__usb__device}{}\section{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}
+\label{group__doc__driver__hal__usb__device}\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structusb__d__ep__status}{usb\+\_\+d\+\_\+ep\+\_\+status}
+\item 
+struct \hyperlink{structusb__d__callbacks}{usb\+\_\+d\+\_\+callbacks}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{group__doc__driver__hal__usb__device_gaad808712d16d588e66167b3719c521ec}{usb\+\_\+d\+\_\+sof\+\_\+cb\+\_\+t}) (void)
+\item 
+typedef void($\ast$ \hyperlink{group__doc__driver__hal__usb__device_ga4bcb7ee43d9f4fe37c0e5ac05ed083d4}{usb\+\_\+d\+\_\+event\+\_\+cb\+\_\+t}) (const enum \hyperlink{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94}{usb\+\_\+event} \hyperlink{structevent}{event}, const uint32\+\_\+t param)
+\item 
+typedef bool($\ast$ \hyperlink{group__doc__driver__hal__usb__device_ga9b29643c53a553c9b458a251bac3599a}{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+setup\+\_\+t}) (const uint8\+\_\+t ep, const uint8\+\_\+t $\ast$req)
+\item 
+typedef bool($\ast$ \hyperlink{group__doc__driver__hal__usb__device_gacde84eacf3bd41ee46d38bbb8569021b}{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+more\+\_\+t}) (const uint8\+\_\+t ep, const uint32\+\_\+t count)
+\item 
+typedef bool($\ast$ \hyperlink{group__doc__driver__hal__usb__device_gae62eea86879f5c1995f1ca99f095e7ab}{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+xfer\+\_\+t}) (const uint8\+\_\+t ep, const enum \hyperlink{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5e}{usb\+\_\+xfer\+\_\+code} code, void $\ast$param)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usb__device_ga5f357667fb7640cea64b82cf1f4376c9}{usb\+\_\+d\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the U\+SB device driver. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_ga00e63d5eee63f22d39997734778629aa}\label{group__doc__driver__hal__usb__device_ga00e63d5eee63f22d39997734778629aa}} 
+void \hyperlink{group__doc__driver__hal__usb__device_ga00e63d5eee63f22d39997734778629aa}{usb\+\_\+d\+\_\+deinit} (void)
+\begin{DoxyCompactList}\small\item\em Deinitialize the U\+SB device driver. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__usb__device_ga8ee730c27e0d709f1f44d89fa21a4bef}{usb\+\_\+d\+\_\+register\+\_\+callback} (const enum \hyperlink{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65}{usb\+\_\+d\+\_\+cb\+\_\+type} type, const \hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR} func)
+\begin{DoxyCompactList}\small\item\em Register the U\+SB device callback. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usb__device_gafbe4165a1a43238b36bb9014ce7d964c}{usb\+\_\+d\+\_\+enable} (void)
+\begin{DoxyCompactList}\small\item\em Enable the U\+SB device driver. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_gab7b226a14c9a585eedd0a43c1a40fc3e}\label{group__doc__driver__hal__usb__device_gab7b226a14c9a585eedd0a43c1a40fc3e}} 
+void \hyperlink{group__doc__driver__hal__usb__device_gab7b226a14c9a585eedd0a43c1a40fc3e}{usb\+\_\+d\+\_\+disable} (void)
+\begin{DoxyCompactList}\small\item\em Disable the U\+SB device driver. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_ga69ade1f34dfbf55ef65d4f727a861600}\label{group__doc__driver__hal__usb__device_ga69ade1f34dfbf55ef65d4f727a861600}} 
+void \hyperlink{group__doc__driver__hal__usb__device_ga69ade1f34dfbf55ef65d4f727a861600}{usb\+\_\+d\+\_\+attach} (void)
+\begin{DoxyCompactList}\small\item\em Attach the U\+SB device. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_ga8db4c58cbd6cc30f52e07c329db74f9f}\label{group__doc__driver__hal__usb__device_ga8db4c58cbd6cc30f52e07c329db74f9f}} 
+void \hyperlink{group__doc__driver__hal__usb__device_ga8db4c58cbd6cc30f52e07c329db74f9f}{usb\+\_\+d\+\_\+detach} (void)
+\begin{DoxyCompactList}\small\item\em Detach the U\+SB device. \end{DoxyCompactList}\item 
+enum \hyperlink{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340}{usb\+\_\+speed} \hyperlink{group__doc__driver__hal__usb__device_gaf62023a87e77430dab4553fe213733c0}{usb\+\_\+d\+\_\+get\+\_\+speed} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve current U\+SB working speed. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{group__doc__driver__hal__usb__device_gaec972bc8924fc45ee34da6d4d55b91ff}{usb\+\_\+d\+\_\+get\+\_\+frame\+\_\+num} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve current U\+SB frame number. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__doc__driver__hal__usb__device_ga99f3ce0a0dc651174ec3785eb128a062}{usb\+\_\+d\+\_\+get\+\_\+uframe\+\_\+num} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve current U\+SB micro frame number. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__usb__device_ga78b6a8341934ab15fe13c731b4134385}{usb\+\_\+d\+\_\+set\+\_\+address} (const uint8\+\_\+t addr)
+\begin{DoxyCompactList}\small\item\em Set the U\+SB address that is used. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__usb__device_ga8c17e7c142dc1439261904e3bcae4f0e}{usb\+\_\+d\+\_\+send\+\_\+remotewakeup} (void)
+\begin{DoxyCompactList}\small\item\em Send remote wakeup to host. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usb__device_ga2afdd5d981af6ebb51653e7ab6d05e6b}{usb\+\_\+d\+\_\+ep0\+\_\+init} (const uint8\+\_\+t max\+\_\+pkt\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Initialize the endpoint 0. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usb__device_ga5146aa558c31f339e604b16763c81264}{usb\+\_\+d\+\_\+ep\+\_\+init} (const uint8\+\_\+t ep, const uint8\+\_\+t attr, const uint16\+\_\+t max\+\_\+pkt\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Initialize the endpoint. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__usb__device_ga3e51e415f97d69a86d19f70774bbb4e5}{usb\+\_\+d\+\_\+ep\+\_\+deinit} (const uint8\+\_\+t ep)
+\begin{DoxyCompactList}\small\item\em Disable and deinitialize the endpoint. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__usb__device_gac044e514b0b7fb6a5e0ac8f61c6c1912}{usb\+\_\+d\+\_\+ep\+\_\+register\+\_\+callback} (const uint8\+\_\+t ep, const enum \hyperlink{hpl__usb__device_8h_a3853f69b4a009f20ffb6f8e117616865}{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+type} type, const \hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR} func)
+\begin{DoxyCompactList}\small\item\em Register the U\+SB device endpoint callback on initialized endpoint. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usb__device_ga1ad4a903a479d93cf1c44c51eeeb6621}{usb\+\_\+d\+\_\+ep\+\_\+enable} (const uint8\+\_\+t ep)
+\begin{DoxyCompactList}\small\item\em Enabled the initialized endpoint. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__usb__device_gade6576a693b632af3351ac7574356470}{usb\+\_\+d\+\_\+ep\+\_\+disable} (const uint8\+\_\+t ep)
+\begin{DoxyCompactList}\small\item\em Disable the initialized endpoint. \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \hyperlink{group__doc__driver__hal__usb__device_ga0373a1bb335936be6c66067c350d2d00}{usb\+\_\+d\+\_\+ep\+\_\+get\+\_\+req} (const uint8\+\_\+t ep)
+\begin{DoxyCompactList}\small\item\em Get request data pointer to access received setup request packet. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usb__device_ga25454406209bd4f1f2033f9c920fddb0}{usb\+\_\+d\+\_\+ep\+\_\+transfer} (const struct \hyperlink{structusb__d__transfer}{usb\+\_\+d\+\_\+transfer} $\ast$xfer)
+\begin{DoxyCompactList}\small\item\em Endpoint transfer. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__usb__device_ga4d4de7ba6b356e5bbdd0ec37c2dac442}{usb\+\_\+d\+\_\+ep\+\_\+abort} (const uint8\+\_\+t ep)
+\begin{DoxyCompactList}\small\item\em Abort an on-\/going transfer on a specific endpoint. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usb__device_gaa6ccd9df460b1f5ee2c10a8203ed0543}{usb\+\_\+d\+\_\+ep\+\_\+get\+\_\+status} (const uint8\+\_\+t ep, struct \hyperlink{structusb__d__ep__status}{usb\+\_\+d\+\_\+ep\+\_\+status} $\ast$stat)
+\begin{DoxyCompactList}\small\item\em Retrieve the endpoint status. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__usb__device_ga0bca717cd42a112bcce39c20bdda966f}{usb\+\_\+d\+\_\+ep\+\_\+halt} (const uint8\+\_\+t ep, const enum \hyperlink{hpl__usb_8h_a579e31b2de8b2343e818b13c492f30cb}{usb\+\_\+ep\+\_\+halt\+\_\+ctrl} ctrl)
+\begin{DoxyCompactList}\small\item\em Endpoint halt control. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group__doc__driver__hal__usb__device_ga31a3689de8d913fb54c5ddf2d91840bb}{usb\+\_\+d\+\_\+get\+\_\+version} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve the current driver version. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_gacde84eacf3bd41ee46d38bbb8569021b}\label{group__doc__driver__hal__usb__device_gacde84eacf3bd41ee46d38bbb8569021b}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+more\+\_\+t@{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+more\+\_\+t}}
+\index{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+more\+\_\+t@{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+more\+\_\+t}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+more\+\_\+t}{usb\_d\_ep\_cb\_more\_t}}
+{\footnotesize\ttfamily typedef bool($\ast$ usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+more\+\_\+t) (const uint8\+\_\+t ep, const uint32\+\_\+t count)}
+
+Callback that is invoked when buffer is done without error, but last packet is full size packet without Z\+LP. Return {\ttfamily true} if more data has been requested. \mbox{\Hypertarget{group__doc__driver__hal__usb__device_ga9b29643c53a553c9b458a251bac3599a}\label{group__doc__driver__hal__usb__device_ga9b29643c53a553c9b458a251bac3599a}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+setup\+\_\+t@{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+setup\+\_\+t}}
+\index{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+setup\+\_\+t@{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+setup\+\_\+t}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+setup\+\_\+t}{usb\_d\_ep\_cb\_setup\_t}}
+{\footnotesize\ttfamily typedef bool($\ast$ usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+setup\+\_\+t) (const uint8\+\_\+t ep, const uint8\+\_\+t $\ast$req)}
+
+Callback that is invoked when setup packet is received. Return {\ttfamily true} if request has been handled, or control endpoint will stall I\+N/\+O\+UT transactions. \mbox{\Hypertarget{group__doc__driver__hal__usb__device_gae62eea86879f5c1995f1ca99f095e7ab}\label{group__doc__driver__hal__usb__device_gae62eea86879f5c1995f1ca99f095e7ab}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+xfer\+\_\+t@{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+xfer\+\_\+t}}
+\index{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+xfer\+\_\+t@{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+xfer\+\_\+t}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+xfer\+\_\+t}{usb\_d\_ep\_cb\_xfer\_t}}
+{\footnotesize\ttfamily typedef bool($\ast$ usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+xfer\+\_\+t) (const uint8\+\_\+t ep, const enum \hyperlink{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5e}{usb\+\_\+xfer\+\_\+code} code, void $\ast$param)}
+
+Callback that is invoked when all data is finished, including background transfer, or error happens. In control transfer data stage, return value is checked, return {\ttfamily false} if no error happens. \mbox{\Hypertarget{group__doc__driver__hal__usb__device_ga4bcb7ee43d9f4fe37c0e5ac05ed083d4}\label{group__doc__driver__hal__usb__device_ga4bcb7ee43d9f4fe37c0e5ac05ed083d4}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+event\+\_\+cb\+\_\+t@{usb\+\_\+d\+\_\+event\+\_\+cb\+\_\+t}}
+\index{usb\+\_\+d\+\_\+event\+\_\+cb\+\_\+t@{usb\+\_\+d\+\_\+event\+\_\+cb\+\_\+t}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+event\+\_\+cb\+\_\+t}{usb\_d\_event\_cb\_t}}
+{\footnotesize\ttfamily typedef void($\ast$ usb\+\_\+d\+\_\+event\+\_\+cb\+\_\+t) (const enum \hyperlink{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94}{usb\+\_\+event} \hyperlink{structevent}{event}, const uint32\+\_\+t param)}
+
+Prototype function for callback that is invoked on U\+SB device events. \mbox{\Hypertarget{group__doc__driver__hal__usb__device_gaad808712d16d588e66167b3719c521ec}\label{group__doc__driver__hal__usb__device_gaad808712d16d588e66167b3719c521ec}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+sof\+\_\+cb\+\_\+t@{usb\+\_\+d\+\_\+sof\+\_\+cb\+\_\+t}}
+\index{usb\+\_\+d\+\_\+sof\+\_\+cb\+\_\+t@{usb\+\_\+d\+\_\+sof\+\_\+cb\+\_\+t}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+sof\+\_\+cb\+\_\+t}{usb\_d\_sof\_cb\_t}}
+{\footnotesize\ttfamily typedef void($\ast$ usb\+\_\+d\+\_\+sof\+\_\+cb\+\_\+t) (void)}
+
+Prototype function for callback that is invoked on U\+SB device S\+OF. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_gafbe4165a1a43238b36bb9014ce7d964c}\label{group__doc__driver__hal__usb__device_gafbe4165a1a43238b36bb9014ce7d964c}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+enable@{usb\+\_\+d\+\_\+enable}}
+\index{usb\+\_\+d\+\_\+enable@{usb\+\_\+d\+\_\+enable}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+enable()}{usb\_d\_enable()}}
+{\footnotesize\ttfamily int32\+\_\+t usb\+\_\+d\+\_\+enable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Enable the U\+SB device driver. 
+
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_ga2afdd5d981af6ebb51653e7ab6d05e6b}\label{group__doc__driver__hal__usb__device_ga2afdd5d981af6ebb51653e7ab6d05e6b}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+ep0\+\_\+init@{usb\+\_\+d\+\_\+ep0\+\_\+init}}
+\index{usb\+\_\+d\+\_\+ep0\+\_\+init@{usb\+\_\+d\+\_\+ep0\+\_\+init}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+ep0\+\_\+init()}{usb\_d\_ep0\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t usb\+\_\+d\+\_\+ep0\+\_\+init (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{max\+\_\+pkt\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Initialize the endpoint 0. 
+
+Note that endpoint 0 must be initialized as control endpoint.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em max\+\_\+pkt\+\_\+size} & Max. packet size of E\+P0. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_ga4d4de7ba6b356e5bbdd0ec37c2dac442}\label{group__doc__driver__hal__usb__device_ga4d4de7ba6b356e5bbdd0ec37c2dac442}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+ep\+\_\+abort@{usb\+\_\+d\+\_\+ep\+\_\+abort}}
+\index{usb\+\_\+d\+\_\+ep\+\_\+abort@{usb\+\_\+d\+\_\+ep\+\_\+abort}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+ep\+\_\+abort()}{usb\_d\_ep\_abort()}}
+{\footnotesize\ttfamily void usb\+\_\+d\+\_\+ep\+\_\+abort (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep }\end{DoxyParamCaption})}
+
+
+
+Abort an on-\/going transfer on a specific endpoint. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & The endpoint address. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_ga3e51e415f97d69a86d19f70774bbb4e5}\label{group__doc__driver__hal__usb__device_ga3e51e415f97d69a86d19f70774bbb4e5}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+ep\+\_\+deinit@{usb\+\_\+d\+\_\+ep\+\_\+deinit}}
+\index{usb\+\_\+d\+\_\+ep\+\_\+deinit@{usb\+\_\+d\+\_\+ep\+\_\+deinit}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+ep\+\_\+deinit()}{usb\_d\_ep\_deinit()}}
+{\footnotesize\ttfamily void usb\+\_\+d\+\_\+ep\+\_\+deinit (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep }\end{DoxyParamCaption})}
+
+
+
+Disable and deinitialize the endpoint. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & The endpoint address to deinitialize. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_gade6576a693b632af3351ac7574356470}\label{group__doc__driver__hal__usb__device_gade6576a693b632af3351ac7574356470}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+ep\+\_\+disable@{usb\+\_\+d\+\_\+ep\+\_\+disable}}
+\index{usb\+\_\+d\+\_\+ep\+\_\+disable@{usb\+\_\+d\+\_\+ep\+\_\+disable}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+ep\+\_\+disable()}{usb\_d\_ep\_disable()}}
+{\footnotesize\ttfamily void usb\+\_\+d\+\_\+ep\+\_\+disable (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep }\end{DoxyParamCaption})}
+
+
+
+Disable the initialized endpoint. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & The endpoint address. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_ga1ad4a903a479d93cf1c44c51eeeb6621}\label{group__doc__driver__hal__usb__device_ga1ad4a903a479d93cf1c44c51eeeb6621}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+ep\+\_\+enable@{usb\+\_\+d\+\_\+ep\+\_\+enable}}
+\index{usb\+\_\+d\+\_\+ep\+\_\+enable@{usb\+\_\+d\+\_\+ep\+\_\+enable}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+ep\+\_\+enable()}{usb\_d\_ep\_enable()}}
+{\footnotesize\ttfamily int32\+\_\+t usb\+\_\+d\+\_\+ep\+\_\+enable (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep }\end{DoxyParamCaption})}
+
+
+
+Enabled the initialized endpoint. 
+
+Setup request will be monitored after enabling a control endpoint.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & The endpoint address. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_ga0373a1bb335936be6c66067c350d2d00}\label{group__doc__driver__hal__usb__device_ga0373a1bb335936be6c66067c350d2d00}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+ep\+\_\+get\+\_\+req@{usb\+\_\+d\+\_\+ep\+\_\+get\+\_\+req}}
+\index{usb\+\_\+d\+\_\+ep\+\_\+get\+\_\+req@{usb\+\_\+d\+\_\+ep\+\_\+get\+\_\+req}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+ep\+\_\+get\+\_\+req()}{usb\_d\_ep\_get\_req()}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ usb\+\_\+d\+\_\+ep\+\_\+get\+\_\+req (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep }\end{DoxyParamCaption})}
+
+
+
+Get request data pointer to access received setup request packet. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & The endpoint address. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the request data. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em N\+U\+LL} & The endpoint is not a control endpoint. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_gaa6ccd9df460b1f5ee2c10a8203ed0543}\label{group__doc__driver__hal__usb__device_gaa6ccd9df460b1f5ee2c10a8203ed0543}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+ep\+\_\+get\+\_\+status@{usb\+\_\+d\+\_\+ep\+\_\+get\+\_\+status}}
+\index{usb\+\_\+d\+\_\+ep\+\_\+get\+\_\+status@{usb\+\_\+d\+\_\+ep\+\_\+get\+\_\+status}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+ep\+\_\+get\+\_\+status()}{usb\_d\_ep\_get\_status()}}
+{\footnotesize\ttfamily int32\+\_\+t usb\+\_\+d\+\_\+ep\+\_\+get\+\_\+status (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep,  }\item[{struct \hyperlink{structusb__d__ep__status}{usb\+\_\+d\+\_\+ep\+\_\+status} $\ast$}]{stat }\end{DoxyParamCaption})}
+
+
+
+Retrieve the endpoint status. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & The endpoint address. \\
+\hline
+\mbox{\tt out}  & {\em stat} & Pointer to the buffer to fill the status description.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Endpoint status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 1} & Busy. \\
+\hline
+{\em 0} & Idle. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_ga0bca717cd42a112bcce39c20bdda966f}\label{group__doc__driver__hal__usb__device_ga0bca717cd42a112bcce39c20bdda966f}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+ep\+\_\+halt@{usb\+\_\+d\+\_\+ep\+\_\+halt}}
+\index{usb\+\_\+d\+\_\+ep\+\_\+halt@{usb\+\_\+d\+\_\+ep\+\_\+halt}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+ep\+\_\+halt()}{usb\_d\_ep\_halt()}}
+{\footnotesize\ttfamily int32\+\_\+t usb\+\_\+d\+\_\+ep\+\_\+halt (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep,  }\item[{const enum \hyperlink{hpl__usb_8h_a579e31b2de8b2343e818b13c492f30cb}{usb\+\_\+ep\+\_\+halt\+\_\+ctrl}}]{ctrl }\end{DoxyParamCaption})}
+
+
+
+Endpoint halt control. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & The endpoint address. \\
+\hline
+\mbox{\tt in}  & {\em ctrl} & Control code (S\+E\+T/\+C\+L\+E\+A\+R/\+G\+ET).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status or H\+A\+LT state (if {\ttfamily ctrl} is \hyperlink{hpl__usb_8h_a579e31b2de8b2343e818b13c492f30cba62c50bbd6d89d1d877ff8ee1d6950dd7}{U\+S\+B\+\_\+\+E\+P\+\_\+\+H\+A\+L\+T\+\_\+\+G\+ET}). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_ga5146aa558c31f339e604b16763c81264}\label{group__doc__driver__hal__usb__device_ga5146aa558c31f339e604b16763c81264}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+ep\+\_\+init@{usb\+\_\+d\+\_\+ep\+\_\+init}}
+\index{usb\+\_\+d\+\_\+ep\+\_\+init@{usb\+\_\+d\+\_\+ep\+\_\+init}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+ep\+\_\+init()}{usb\_d\_ep\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t usb\+\_\+d\+\_\+ep\+\_\+init (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep,  }\item[{const uint8\+\_\+t}]{attr,  }\item[{const uint16\+\_\+t}]{max\+\_\+pkt\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Initialize the endpoint. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & The endpoint address. \\
+\hline
+\mbox{\tt in}  & {\em attr} & The endpoint attributes. \\
+\hline
+\mbox{\tt in}  & {\em max\+\_\+pkt\+\_\+size} & Max. packet size of E\+P0. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_gac044e514b0b7fb6a5e0ac8f61c6c1912}\label{group__doc__driver__hal__usb__device_gac044e514b0b7fb6a5e0ac8f61c6c1912}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+ep\+\_\+register\+\_\+callback@{usb\+\_\+d\+\_\+ep\+\_\+register\+\_\+callback}}
+\index{usb\+\_\+d\+\_\+ep\+\_\+register\+\_\+callback@{usb\+\_\+d\+\_\+ep\+\_\+register\+\_\+callback}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+ep\+\_\+register\+\_\+callback()}{usb\_d\_ep\_register\_callback()}}
+{\footnotesize\ttfamily void usb\+\_\+d\+\_\+ep\+\_\+register\+\_\+callback (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep,  }\item[{const enum \hyperlink{hpl__usb__device_8h_a3853f69b4a009f20ffb6f8e117616865}{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+type}}]{type,  }\item[{const \hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR}}]{func }\end{DoxyParamCaption})}
+
+
+
+Register the U\+SB device endpoint callback on initialized endpoint. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & The endpoint address. \\
+\hline
+\mbox{\tt in}  & {\em type} & The callback type to register. \\
+\hline
+\mbox{\tt in}  & {\em func} & The callback function, N\+U\+LL to disable callback. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_ga25454406209bd4f1f2033f9c920fddb0}\label{group__doc__driver__hal__usb__device_ga25454406209bd4f1f2033f9c920fddb0}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+ep\+\_\+transfer@{usb\+\_\+d\+\_\+ep\+\_\+transfer}}
+\index{usb\+\_\+d\+\_\+ep\+\_\+transfer@{usb\+\_\+d\+\_\+ep\+\_\+transfer}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+ep\+\_\+transfer()}{usb\_d\_ep\_transfer()}}
+{\footnotesize\ttfamily int32\+\_\+t usb\+\_\+d\+\_\+ep\+\_\+transfer (\begin{DoxyParamCaption}\item[{const struct \hyperlink{structusb__d__transfer}{usb\+\_\+d\+\_\+transfer} $\ast$}]{xfer }\end{DoxyParamCaption})}
+
+
+
+Endpoint transfer. 
+
+For control endpoints, start the transfer according to the direction in the bm\+Request type, and finish with S\+T\+A\+T\+US stage. For non-\/control endpoints, the transfer will be unique direction. Defined by bit 8 of the endpoint address.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em xfer} & Pointer to the transfer description. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_gaec972bc8924fc45ee34da6d4d55b91ff}\label{group__doc__driver__hal__usb__device_gaec972bc8924fc45ee34da6d4d55b91ff}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+get\+\_\+frame\+\_\+num@{usb\+\_\+d\+\_\+get\+\_\+frame\+\_\+num}}
+\index{usb\+\_\+d\+\_\+get\+\_\+frame\+\_\+num@{usb\+\_\+d\+\_\+get\+\_\+frame\+\_\+num}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+get\+\_\+frame\+\_\+num()}{usb\_d\_get\_frame\_num()}}
+{\footnotesize\ttfamily uint16\+\_\+t usb\+\_\+d\+\_\+get\+\_\+frame\+\_\+num (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve current U\+SB frame number. 
+
+\begin{DoxyReturn}{Returns}
+Frame number. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_gaf62023a87e77430dab4553fe213733c0}\label{group__doc__driver__hal__usb__device_gaf62023a87e77430dab4553fe213733c0}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+get\+\_\+speed@{usb\+\_\+d\+\_\+get\+\_\+speed}}
+\index{usb\+\_\+d\+\_\+get\+\_\+speed@{usb\+\_\+d\+\_\+get\+\_\+speed}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+get\+\_\+speed()}{usb\_d\_get\_speed()}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340}{usb\+\_\+speed} usb\+\_\+d\+\_\+get\+\_\+speed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve current U\+SB working speed. 
+
+\begin{DoxyReturn}{Returns}
+U\+SB Speed. See \hyperlink{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340}{usb\+\_\+speed}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_ga99f3ce0a0dc651174ec3785eb128a062}\label{group__doc__driver__hal__usb__device_ga99f3ce0a0dc651174ec3785eb128a062}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+get\+\_\+uframe\+\_\+num@{usb\+\_\+d\+\_\+get\+\_\+uframe\+\_\+num}}
+\index{usb\+\_\+d\+\_\+get\+\_\+uframe\+\_\+num@{usb\+\_\+d\+\_\+get\+\_\+uframe\+\_\+num}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+get\+\_\+uframe\+\_\+num()}{usb\_d\_get\_uframe\_num()}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+d\+\_\+get\+\_\+uframe\+\_\+num (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve current U\+SB micro frame number. 
+
+\begin{DoxyReturn}{Returns}
+Micro frame number inside a frame (0$\sim$7). 0 if not available (not HS). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_ga31a3689de8d913fb54c5ddf2d91840bb}\label{group__doc__driver__hal__usb__device_ga31a3689de8d913fb54c5ddf2d91840bb}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+get\+\_\+version@{usb\+\_\+d\+\_\+get\+\_\+version}}
+\index{usb\+\_\+d\+\_\+get\+\_\+version@{usb\+\_\+d\+\_\+get\+\_\+version}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+get\+\_\+version()}{usb\_d\_get\_version()}}
+{\footnotesize\ttfamily uint32\+\_\+t usb\+\_\+d\+\_\+get\+\_\+version (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve the current driver version. 
+
+\begin{DoxyReturn}{Returns}
+Current driver version. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_ga5f357667fb7640cea64b82cf1f4376c9}\label{group__doc__driver__hal__usb__device_ga5f357667fb7640cea64b82cf1f4376c9}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+init@{usb\+\_\+d\+\_\+init}}
+\index{usb\+\_\+d\+\_\+init@{usb\+\_\+d\+\_\+init}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+init()}{usb\_d\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t usb\+\_\+d\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialize the U\+SB device driver. 
+
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_ga8ee730c27e0d709f1f44d89fa21a4bef}\label{group__doc__driver__hal__usb__device_ga8ee730c27e0d709f1f44d89fa21a4bef}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+register\+\_\+callback@{usb\+\_\+d\+\_\+register\+\_\+callback}}
+\index{usb\+\_\+d\+\_\+register\+\_\+callback@{usb\+\_\+d\+\_\+register\+\_\+callback}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+register\+\_\+callback()}{usb\_d\_register\_callback()}}
+{\footnotesize\ttfamily void usb\+\_\+d\+\_\+register\+\_\+callback (\begin{DoxyParamCaption}\item[{const enum \hyperlink{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65}{usb\+\_\+d\+\_\+cb\+\_\+type}}]{type,  }\item[{const \hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR}}]{func }\end{DoxyParamCaption})}
+
+
+
+Register the U\+SB device callback. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em type} & The callback type to register. \\
+\hline
+\mbox{\tt in}  & {\em func} & The callback function, N\+U\+LL to disable callback. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_ga8c17e7c142dc1439261904e3bcae4f0e}\label{group__doc__driver__hal__usb__device_ga8c17e7c142dc1439261904e3bcae4f0e}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+send\+\_\+remotewakeup@{usb\+\_\+d\+\_\+send\+\_\+remotewakeup}}
+\index{usb\+\_\+d\+\_\+send\+\_\+remotewakeup@{usb\+\_\+d\+\_\+send\+\_\+remotewakeup}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+send\+\_\+remotewakeup()}{usb\_d\_send\_remotewakeup()}}
+{\footnotesize\ttfamily void usb\+\_\+d\+\_\+send\+\_\+remotewakeup (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Send remote wakeup to host. 
+
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__usb__device_ga78b6a8341934ab15fe13c731b4134385}\label{group__doc__driver__hal__usb__device_ga78b6a8341934ab15fe13c731b4134385}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}!usb\+\_\+d\+\_\+set\+\_\+address@{usb\+\_\+d\+\_\+set\+\_\+address}}
+\index{usb\+\_\+d\+\_\+set\+\_\+address@{usb\+\_\+d\+\_\+set\+\_\+address}!Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device@{Doc\+\_\+driver\+\_\+hal\+\_\+usb\+\_\+device}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+set\+\_\+address()}{usb\_d\_set\_address()}}
+{\footnotesize\ttfamily void usb\+\_\+d\+\_\+set\+\_\+address (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{addr }\end{DoxyParamCaption})}
+
+
+
+Set the U\+SB address that is used. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em addr} & The address to set. \\
+\hline
+\end{DoxyParams}

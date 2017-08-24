@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['bank',['bank',['../structusb__h__pipe.html#aa3815a946554f8bc314ed46f357cd847',1,'usb_h_pipe']]],
+  ['bcharformat',['bCharFormat',['../structusb__cdc__line__coding.html#aae309443995f9fe84f44a78bd866cc1a',1,'usb_cdc_line_coding']]],
+  ['bdatabits',['bDataBits',['../structusb__cdc__line__coding.html#a81e0e896a0524b8db945e1a8b50668e6',1,'usb_cdc_line_coding']]],
+  ['bdescriptortype',['bDescriptorType',['../structusb__iad__desc.html#ad8aa03d5053b5b6940b3b5ebe83fa6d5',1,'usb_iad_desc']]],
+  ['bfirstinterface',['bFirstInterface',['../structusb__iad__desc.html#af8dd823bb4394ec6964b836118f990ed',1,'usb_iad_desc']]],
+  ['bfunctionclass',['bFunctionClass',['../structusb__iad__desc.html#a80d23133725f8e0ce2527cdd9fb3cb47',1,'usb_iad_desc']]],
+  ['bfunctionprotocol',['bFunctionProtocol',['../structusb__iad__desc.html#a3ac4fa77ac68255f0134656a5a458110',1,'usb_iad_desc']]],
+  ['bfunctionsubclass',['bFunctionSubClass',['../structusb__iad__desc.html#acece89234e03f1f869c8a36b3f4ee6f2',1,'usb_iad_desc']]],
+  ['bii',['bii',['../structusb__h__pipe.html#a72de42f88c82a688e01b014ff9700efc',1,'usb_h_pipe']]],
+  ['binterfacecount',['bInterfaceCount',['../structusb__iad__desc.html#afa291ce945a183562d154a0d9918ff74',1,'usb_iad_desc']]],
+  ['bits',['bits',['../struct__usb__d__dev__ep.html#aa7295c7077ef0b40927462e4c32a85c4',1,'_usb_d_dev_ep']]],
+  ['blength',['bLength',['../structusb__iad__desc.html#afd6d58806e3bf63b00d3b56ef3df0a41',1,'usb_iad_desc']]],
+  ['bparitytype',['bParityType',['../structusb__cdc__line__coding.html#ad1b91d6baa7411fa9f6341140f5ac216',1,'usb_cdc_line_coding']]],
+  ['bs106',['bS106',['../unionusb__cdc__uart__state.html#a1e2b7d538828fa29791af00b6cecfd2c',1,'usb_cdc_uart_state']]],
+  ['bs109',['bS109',['../unionusb__cdc__uart__state.html#a6c05d44bfdaddc64bfc5d954d1f4b092',1,'usb_cdc_uart_state']]],
+  ['buf',['buf',['../structusb__d__transfer.html#a979de0737e5f05d36cdfb7d7327be5c7',1,'usb_d_transfer::buf()'],['../structusb__ep__xfer.html#a0bc7b20a280b545c78802cf5681e21e8',1,'usb_ep_xfer::buf()']]],
+  ['busy',['busy',['../structusb__d__trans__status.html#ab9b2e28501cc323122cedf06401e0fbb',1,'usb_d_trans_status']]]
+];

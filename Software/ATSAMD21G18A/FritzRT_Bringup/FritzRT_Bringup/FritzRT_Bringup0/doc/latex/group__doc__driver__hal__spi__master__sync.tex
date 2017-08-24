@@ -1,0 +1,337 @@
+\hypertarget{group__doc__driver__hal__spi__master__sync}{}\section{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}
+\label{group__doc__driver__hal__spi__master__sync}\index{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor}
+\begin{DoxyCompactList}\small\item\em S\+PI H\+AL driver struct for polling mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__spi__master__sync_ga3f0a5220385e86a704bdbb89623cf3d3}{spi\+\_\+m\+\_\+sync\+\_\+init} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$spi, void $\ast$const hw)
+\begin{DoxyCompactList}\small\item\em Initialize S\+PI H\+AL instance and hardware for polling mode. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__spi__master__sync_ga9cf25d877d82e3e1f572643d579af447}{spi\+\_\+m\+\_\+sync\+\_\+deinit} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$spi)
+\begin{DoxyCompactList}\small\item\em Deinitialize the S\+PI H\+AL instance and hardware. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__spi__master__sync_ga2dd2e3fba4c359e43a7b319519c3c5a0}{spi\+\_\+m\+\_\+sync\+\_\+enable} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$spi)
+\begin{DoxyCompactList}\small\item\em Enable S\+PI. \end{DoxyCompactList}\item 
+void \hyperlink{group__doc__driver__hal__spi__master__sync_ga9ded81d6be782e2f51bd54d254de5e67}{spi\+\_\+m\+\_\+sync\+\_\+disable} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$spi)
+\begin{DoxyCompactList}\small\item\em Disable S\+PI. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__spi__master__sync_ga4c0ec93b64162e9a26ef8783cebe015a}{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+baudrate} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$spi, const uint32\+\_\+t baud\+\_\+val)
+\begin{DoxyCompactList}\small\item\em Set S\+PI baudrate. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__spi__master__sync_gae0189af85236848e651205053e332521}{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+mode} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$spi, const enum \hyperlink{group__hpl__spi_ga9c30fdfffba6be76b4044ccb17b218e5}{spi\+\_\+transfer\+\_\+mode} mode)
+\begin{DoxyCompactList}\small\item\em Set S\+PI mode. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__spi__master__sync_ga92c45dae92165462bb938bd9df4ab94c}{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+char\+\_\+size} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$spi, const enum \hyperlink{group__hpl__spi_ga4a3ef460c2cea333834811806f32d60a}{spi\+\_\+char\+\_\+size} char\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Set S\+PI transfer character size in number of bits. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__spi__master__sync_ga8b36184685ef17e6ffd0f1df3f0ea5be}{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+data\+\_\+order} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$spi, const enum \hyperlink{group__hpl__spi_gabaa69dbc0601cb5b1e2681400598a4b2}{spi\+\_\+data\+\_\+order} dord)
+\begin{DoxyCompactList}\small\item\em Set S\+PI transfer data order. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__spi__master__sync_gae4bc019de8bd861b7bbb75f5a83e6261}{spi\+\_\+m\+\_\+sync\+\_\+transfer} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$spi, const struct \hyperlink{structspi__xfer}{spi\+\_\+xfer} $\ast$xfer)
+\begin{DoxyCompactList}\small\item\em Perform the S\+PI data transfer (TX and RX) in polling way. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{group__doc__driver__hal__spi__master__sync_ga658f37bdda03b932a3400c5bb2abccff}{spi\+\_\+m\+\_\+sync\+\_\+get\+\_\+io\+\_\+descriptor} (struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$const spi, struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$$\ast$io)
+\begin{DoxyCompactList}\small\item\em Return the I/O descriptor for this S\+PI instance. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group__doc__driver__hal__spi__master__sync_gad547327b1fc9255bdde6946aa7e419e7}{spi\+\_\+m\+\_\+sync\+\_\+get\+\_\+version} (void)
+\begin{DoxyCompactList}\small\item\em Retrieve the current driver version. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__doc__driver__hal__spi__master__sync_ga9cf25d877d82e3e1f572643d579af447}\label{group__doc__driver__hal__spi__master__sync_ga9cf25d877d82e3e1f572643d579af447}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}!spi\+\_\+m\+\_\+sync\+\_\+deinit@{spi\+\_\+m\+\_\+sync\+\_\+deinit}}
+\index{spi\+\_\+m\+\_\+sync\+\_\+deinit@{spi\+\_\+m\+\_\+sync\+\_\+deinit}!Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}}
+\subsubsection{\texorpdfstring{spi\+\_\+m\+\_\+sync\+\_\+deinit()}{spi\_m\_sync\_deinit()}}
+{\footnotesize\ttfamily void spi\+\_\+m\+\_\+sync\+\_\+deinit (\begin{DoxyParamCaption}\item[{struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$}]{spi }\end{DoxyParamCaption})}
+
+
+
+Deinitialize the S\+PI H\+AL instance and hardware. 
+
+Abort transfer, disable and reset S\+PI, deinit software.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em spi} & Pointer to the H\+AL S\+PI instance.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+R\+R\+\_\+\+N\+O\+NE} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__spi__master__sync_ga9ded81d6be782e2f51bd54d254de5e67}\label{group__doc__driver__hal__spi__master__sync_ga9ded81d6be782e2f51bd54d254de5e67}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}!spi\+\_\+m\+\_\+sync\+\_\+disable@{spi\+\_\+m\+\_\+sync\+\_\+disable}}
+\index{spi\+\_\+m\+\_\+sync\+\_\+disable@{spi\+\_\+m\+\_\+sync\+\_\+disable}!Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}}
+\subsubsection{\texorpdfstring{spi\+\_\+m\+\_\+sync\+\_\+disable()}{spi\_m\_sync\_disable()}}
+{\footnotesize\ttfamily void spi\+\_\+m\+\_\+sync\+\_\+disable (\begin{DoxyParamCaption}\item[{struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$}]{spi }\end{DoxyParamCaption})}
+
+
+
+Disable S\+PI. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em spi} & Pointer to the H\+AL S\+PI instance.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+R\+R\+\_\+\+N\+O\+NE} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__spi__master__sync_ga2dd2e3fba4c359e43a7b319519c3c5a0}\label{group__doc__driver__hal__spi__master__sync_ga2dd2e3fba4c359e43a7b319519c3c5a0}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}!spi\+\_\+m\+\_\+sync\+\_\+enable@{spi\+\_\+m\+\_\+sync\+\_\+enable}}
+\index{spi\+\_\+m\+\_\+sync\+\_\+enable@{spi\+\_\+m\+\_\+sync\+\_\+enable}!Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}}
+\subsubsection{\texorpdfstring{spi\+\_\+m\+\_\+sync\+\_\+enable()}{spi\_m\_sync\_enable()}}
+{\footnotesize\ttfamily void spi\+\_\+m\+\_\+sync\+\_\+enable (\begin{DoxyParamCaption}\item[{struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$}]{spi }\end{DoxyParamCaption})}
+
+
+
+Enable S\+PI. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em spi} & Pointer to the H\+AL S\+PI instance.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+R\+R\+\_\+\+N\+O\+NE} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__spi__master__sync_ga658f37bdda03b932a3400c5bb2abccff}\label{group__doc__driver__hal__spi__master__sync_ga658f37bdda03b932a3400c5bb2abccff}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}!spi\+\_\+m\+\_\+sync\+\_\+get\+\_\+io\+\_\+descriptor@{spi\+\_\+m\+\_\+sync\+\_\+get\+\_\+io\+\_\+descriptor}}
+\index{spi\+\_\+m\+\_\+sync\+\_\+get\+\_\+io\+\_\+descriptor@{spi\+\_\+m\+\_\+sync\+\_\+get\+\_\+io\+\_\+descriptor}!Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}}
+\subsubsection{\texorpdfstring{spi\+\_\+m\+\_\+sync\+\_\+get\+\_\+io\+\_\+descriptor()}{spi\_m\_sync\_get\_io\_descriptor()}}
+{\footnotesize\ttfamily int32\+\_\+t spi\+\_\+m\+\_\+sync\+\_\+get\+\_\+io\+\_\+descriptor (\begin{DoxyParamCaption}\item[{struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$const}]{spi,  }\item[{struct \hyperlink{structio__descriptor}{io\+\_\+descriptor} $\ast$$\ast$}]{io }\end{DoxyParamCaption})}
+
+
+
+Return the I/O descriptor for this S\+PI instance. 
+
+This function will return an I/O instance for this S\+PI driver instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em spi} & An S\+PI master descriptor, which is used to communicate through S\+PI \\
+\hline
+\mbox{\tt in,out}  & {\em io} & A pointer to an I/O descriptor pointer type\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+R\+R\+\_\+\+N\+O\+NE} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__spi__master__sync_gad547327b1fc9255bdde6946aa7e419e7}\label{group__doc__driver__hal__spi__master__sync_gad547327b1fc9255bdde6946aa7e419e7}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}!spi\+\_\+m\+\_\+sync\+\_\+get\+\_\+version@{spi\+\_\+m\+\_\+sync\+\_\+get\+\_\+version}}
+\index{spi\+\_\+m\+\_\+sync\+\_\+get\+\_\+version@{spi\+\_\+m\+\_\+sync\+\_\+get\+\_\+version}!Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}}
+\subsubsection{\texorpdfstring{spi\+\_\+m\+\_\+sync\+\_\+get\+\_\+version()}{spi\_m\_sync\_get\_version()}}
+{\footnotesize\ttfamily uint32\+\_\+t spi\+\_\+m\+\_\+sync\+\_\+get\+\_\+version (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieve the current driver version. 
+
+\begin{DoxyReturn}{Returns}
+Current driver version. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__doc__driver__hal__spi__master__sync_ga3f0a5220385e86a704bdbb89623cf3d3}\label{group__doc__driver__hal__spi__master__sync_ga3f0a5220385e86a704bdbb89623cf3d3}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}!spi\+\_\+m\+\_\+sync\+\_\+init@{spi\+\_\+m\+\_\+sync\+\_\+init}}
+\index{spi\+\_\+m\+\_\+sync\+\_\+init@{spi\+\_\+m\+\_\+sync\+\_\+init}!Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}}
+\subsubsection{\texorpdfstring{spi\+\_\+m\+\_\+sync\+\_\+init()}{spi\_m\_sync\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t spi\+\_\+m\+\_\+sync\+\_\+init (\begin{DoxyParamCaption}\item[{struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$}]{spi,  }\item[{void $\ast$const}]{hw }\end{DoxyParamCaption})}
+
+
+
+Initialize S\+PI H\+AL instance and hardware for polling mode. 
+
+Initialize S\+PI H\+AL with polling mode.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em spi} & Pointer to the H\+AL S\+PI instance. \\
+\hline
+\mbox{\tt in}  & {\em hw} & Pointer to the hardware base.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+R\+R\+\_\+\+N\+O\+NE} & Success. \\
+\hline
+{\em E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+D\+A\+TA} & Error, initialized. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__spi__master__sync_ga4c0ec93b64162e9a26ef8783cebe015a}\label{group__doc__driver__hal__spi__master__sync_ga4c0ec93b64162e9a26ef8783cebe015a}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}!spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+baudrate@{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+baudrate}}
+\index{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+baudrate@{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+baudrate}!Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}}
+\subsubsection{\texorpdfstring{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+baudrate()}{spi\_m\_sync\_set\_baudrate()}}
+{\footnotesize\ttfamily int32\+\_\+t spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+baudrate (\begin{DoxyParamCaption}\item[{struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$}]{spi,  }\item[{const uint32\+\_\+t}]{baud\+\_\+val }\end{DoxyParamCaption})}
+
+
+
+Set S\+PI baudrate. 
+
+Works if S\+PI is initialized as master, it sets the baudrate.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em spi} & Pointer to the H\+AL S\+PI instance. \\
+\hline
+\mbox{\tt in}  & {\em baud\+\_\+val} & The target baudrate value (see \char`\"{}baudrate calculation\char`\"{} for calculating the value).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+R\+R\+\_\+\+N\+O\+NE} & Success. \\
+\hline
+{\em E\+R\+R\+\_\+\+B\+U\+SY} & Busy \\
+\hline
+{\em E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG} & The baudrate is not supported. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__spi__master__sync_ga92c45dae92165462bb938bd9df4ab94c}\label{group__doc__driver__hal__spi__master__sync_ga92c45dae92165462bb938bd9df4ab94c}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}!spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+char\+\_\+size@{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+char\+\_\+size}}
+\index{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+char\+\_\+size@{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+char\+\_\+size}!Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}}
+\subsubsection{\texorpdfstring{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+char\+\_\+size()}{spi\_m\_sync\_set\_char\_size()}}
+{\footnotesize\ttfamily int32\+\_\+t spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+char\+\_\+size (\begin{DoxyParamCaption}\item[{struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$}]{spi,  }\item[{const enum \hyperlink{group__hpl__spi_ga4a3ef460c2cea333834811806f32d60a}{spi\+\_\+char\+\_\+size}}]{char\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Set S\+PI transfer character size in number of bits. 
+
+The character size (\hyperlink{group__hpl__spi_ga4a3ef460c2cea333834811806f32d60a}{spi\+\_\+char\+\_\+size}) influence the way the data is sent/received. For char size $<$= 8-\/bit, data is stored byte by byte. For char size between 9-\/bit $\sim$ 16-\/bit, data is stored in 2-\/byte length. Note that the default and recommended char size is 8-\/bit since it\textquotesingle{}s supported by all system.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em spi} & Pointer to the H\+AL S\+PI instance. \\
+\hline
+\mbox{\tt in}  & {\em char\+\_\+size} & The char size ($\sim$16, recommended 8).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+R\+R\+\_\+\+N\+O\+NE} & Success. \\
+\hline
+{\em E\+R\+R\+\_\+\+B\+U\+SY} & Busy \\
+\hline
+{\em E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG} & The char size is not supported. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__spi__master__sync_ga8b36184685ef17e6ffd0f1df3f0ea5be}\label{group__doc__driver__hal__spi__master__sync_ga8b36184685ef17e6ffd0f1df3f0ea5be}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}!spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+data\+\_\+order@{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+data\+\_\+order}}
+\index{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+data\+\_\+order@{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+data\+\_\+order}!Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}}
+\subsubsection{\texorpdfstring{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+data\+\_\+order()}{spi\_m\_sync\_set\_data\_order()}}
+{\footnotesize\ttfamily int32\+\_\+t spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+data\+\_\+order (\begin{DoxyParamCaption}\item[{struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$}]{spi,  }\item[{const enum \hyperlink{group__hpl__spi_gabaa69dbc0601cb5b1e2681400598a4b2}{spi\+\_\+data\+\_\+order}}]{dord }\end{DoxyParamCaption})}
+
+
+
+Set S\+PI transfer data order. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em spi} & Pointer to the H\+AL S\+PI instance. \\
+\hline
+\mbox{\tt in}  & {\em dord} & The data order\+: send L\+S\+B/\+M\+SB first.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+R\+R\+\_\+\+N\+O\+NE} & Success. \\
+\hline
+{\em E\+R\+R\+\_\+\+B\+U\+SY} & Busy \\
+\hline
+{\em E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG} & The data order is not supported. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__spi__master__sync_gae0189af85236848e651205053e332521}\label{group__doc__driver__hal__spi__master__sync_gae0189af85236848e651205053e332521}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}!spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+mode@{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+mode}}
+\index{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+mode@{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+mode}!Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}}
+\subsubsection{\texorpdfstring{spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+mode()}{spi\_m\_sync\_set\_mode()}}
+{\footnotesize\ttfamily int32\+\_\+t spi\+\_\+m\+\_\+sync\+\_\+set\+\_\+mode (\begin{DoxyParamCaption}\item[{struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$}]{spi,  }\item[{const enum \hyperlink{group__hpl__spi_ga9c30fdfffba6be76b4044ccb17b218e5}{spi\+\_\+transfer\+\_\+mode}}]{mode }\end{DoxyParamCaption})}
+
+
+
+Set S\+PI mode. 
+
+Set the S\+PI transfer mode (\hyperlink{group__hpl__spi_ga9c30fdfffba6be76b4044ccb17b218e5}{spi\+\_\+transfer\+\_\+mode}), which controls the clock polarity and clock phase\+:
+\begin{DoxyItemize}
+\item Mode 0\+: leading edge is rising edge, data sample on leading edge.
+\item Mode 1\+: leading edge is rising edge, data sample on trailing edge.
+\item Mode 2\+: leading edge is falling edge, data sample on leading edge.
+\item Mode 3\+: leading edge is falling edge, data sample on trailing edge.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em spi} & Pointer to the H\+AL S\+PI instance. \\
+\hline
+\mbox{\tt in}  & {\em mode} & The mode (0$\sim$3).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\+R\+R\+\_\+\+N\+O\+NE} & Success. \\
+\hline
+{\em E\+R\+R\+\_\+\+B\+U\+SY} & Busy \\
+\hline
+{\em E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG} & The mode is not supported. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__doc__driver__hal__spi__master__sync_gae4bc019de8bd861b7bbb75f5a83e6261}\label{group__doc__driver__hal__spi__master__sync_gae4bc019de8bd861b7bbb75f5a83e6261}} 
+\index{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}!spi\+\_\+m\+\_\+sync\+\_\+transfer@{spi\+\_\+m\+\_\+sync\+\_\+transfer}}
+\index{spi\+\_\+m\+\_\+sync\+\_\+transfer@{spi\+\_\+m\+\_\+sync\+\_\+transfer}!Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync@{Doc\+\_\+driver\+\_\+hal\+\_\+spi\+\_\+master\+\_\+sync}}
+\subsubsection{\texorpdfstring{spi\+\_\+m\+\_\+sync\+\_\+transfer()}{spi\_m\_sync\_transfer()}}
+{\footnotesize\ttfamily int32\+\_\+t spi\+\_\+m\+\_\+sync\+\_\+transfer (\begin{DoxyParamCaption}\item[{struct \hyperlink{structspi__m__sync__descriptor}{spi\+\_\+m\+\_\+sync\+\_\+descriptor} $\ast$}]{spi,  }\item[{const struct \hyperlink{structspi__xfer}{spi\+\_\+xfer} $\ast$}]{xfer }\end{DoxyParamCaption})}
+
+
+
+Perform the S\+PI data transfer (TX and RX) in polling way. 
+
+Activate CS, do TX and RX and deactivate CS. It blocks.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em spi} & Pointer to the H\+AL S\+PI instance. \\
+\hline
+\mbox{\tt in}  & {\em xfer} & Pointer to the transfer information (\hyperlink{structspi__xfer}{spi\+\_\+xfer}).\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em size} & Success. \\
+\hline
+{\em $>$=0} & Timeout, with number of characters transferred. \\
+\hline
+{\em E\+R\+R\+\_\+\+B\+U\+SY} & S\+PI is busy \\
+\hline
+\end{DoxyRetVals}

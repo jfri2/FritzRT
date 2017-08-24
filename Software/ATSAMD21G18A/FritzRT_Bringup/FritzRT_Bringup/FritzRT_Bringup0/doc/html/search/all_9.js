@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['init_20driver',['Init Driver',['../group__doc__driver__hal__helper__init.html',1,'']]],
+  ['i_2fo_20driver',['I/O Driver',['../group__doc__driver__hal__helper__io.html',1,'']]],
+  ['i2c_5fm_5frd',['I2C_M_RD',['../hpl__i2c__m__sync_8h.html#adb8eddbb89e88c4fc0e44306fc878b85',1,'hpl_i2c_m_sync.h']]],
+  ['i2c_5fok',['I2C_OK',['../hpl__i2c__m__sync_8h.html#a57d0c95ccd7c129288743e9674a9e96d',1,'hpl_i2c_m_sync.h']]],
+  ['i2c_5fs_5fstatus_5ft',['i2c_s_status_t',['../hpl__i2c__s__sync_8h.html#af7f44929c45b3881a2e7e6c6f98c6380',1,'hpl_i2c_s_sync.h']]],
+  ['i2c_5fstandard_5fmode',['I2C_STANDARD_MODE',['../hpl__i2c__m__sync_8h.html#aea01e023ea5246883d088908e0fc11d2',1,'hpl_i2c_m_sync.h']]],
+  ['i2cm_5fconfiguration',['i2cm_configuration',['../structi2cm__configuration.html',1,'i2cm_configuration'],['../hpl__sercom_8c.html#a4b157e97b8355024ad0dfca74a1758d3',1,'I2CM_CONFIGURATION():&#160;hpl_sercom.c']]],
+  ['i2cs_5f7bit_5faddressing_5fmask',['I2CS_7BIT_ADDRESSING_MASK',['../hpl__sercom_8c.html#afdeb1903d493e59a3f5073141058efd6',1,'hpl_sercom.c']]],
+  ['i2cs_5fconfiguration',['i2cs_configuration',['../structi2cs__configuration.html',1,'i2cs_configuration'],['../hpl__sercom_8c.html#a7a76b548840c732798902e998a4285db',1,'I2CS_CONFIGURATION():&#160;hpl_sercom.c']]],
+  ['ifunction',['iFunction',['../structusb__iad__desc.html#a99c7398765df8c1efa6f8e9972e8886c',1,'usb_iad_desc']]],
+  ['inc_5fvalue',['INC_VALUE',['../utils__increment__macro_8h.html#a224df094eda9f558243c300cd524f8e8',1,'utils_increment_macro.h']]],
+  ['init_5fget_5fversion',['init_get_version',['../group__doc__driver__hal__helper__init.html#ga7f3a0a79c14d4043ea30435f561af05f',1,'init_get_version(void):&#160;hal_init.c'],['../group__doc__driver__hal__helper__init.html#ga7f3a0a79c14d4043ea30435f561af05f',1,'init_get_version(void):&#160;hal_init.c']]],
+  ['interval',['interval',['../structtimer__task.html#a627f11cf534c7c4173e010235a3545ce',1,'timer_task::interval()'],['../structusb__h__pipe.html#a528fc668d035d4ed28dbce1ef6ac6d9d',1,'usb_h_pipe::interval()']]],
+  ['io',['io',['../structspi__m__sync__descriptor.html#a2a50cfeb0b6f494fb4ad77db7f44789d',1,'spi_m_sync_descriptor']]],
+  ['io_5fdescriptor',['io_descriptor',['../structio__descriptor.html',1,'']]],
+  ['io_5fread',['io_read',['../group__doc__driver__hal__helper__io.html#gaf5e8722129933fa8e014144fd7505be6',1,'io_read(struct io_descriptor *const io_descr, uint8_t *const buf, const uint16_t length):&#160;hal_io.c'],['../group__doc__driver__hal__helper__io.html#gaf5e8722129933fa8e014144fd7505be6',1,'io_read(struct io_descriptor *const io_descr, uint8_t *const buf, const uint16_t length):&#160;hal_io.c']]],
+  ['io_5fread_5ft',['io_read_t',['../group__doc__driver__hal__helper__io.html#ga4d9ae58de2887289fe09eac6f0aa8be7',1,'hal_io.h']]],
+  ['io_5fwrite',['io_write',['../group__doc__driver__hal__helper__io.html#ga81aac60d5ce6feb0c44f8937d7c02f14',1,'io_write(struct io_descriptor *const io_descr, const uint8_t *const buf, const uint16_t length):&#160;hal_io.c'],['../group__doc__driver__hal__helper__io.html#ga81aac60d5ce6feb0c44f8937d7c02f14',1,'io_write(struct io_descriptor *const io_descr, const uint8_t *const buf, const uint16_t length):&#160;hal_io.c']]],
+  ['io_5fwrite_5ft',['io_write_t',['../group__doc__driver__hal__helper__io.html#gacb03c48993a6786f00946c196c40add1',1,'hal_io.h']]],
+  ['irq',['irq',['../struct__spi__async__dev.html#ab24c9b89754b904df98818975cbf091f',1,'_spi_async_dev::irq()'],['../struct__spi__dma__dev.html#a1f0425472993f98835f532b416c94a78',1,'_spi_dma_dev::irq()'],['../structusb__h__desc.html#af51d57cf25ab32e379c108388d0e5c70',1,'usb_h_desc::irq()']]],
+  ['is_5fbusy',['is_busy',['../struct__usb__d__dev__ep.html#a108475bc1f0f9a01337b2c6d3f109491',1,'_usb_d_dev_ep']]],
+  ['is_5flist_5felement',['is_list_element',['../group__doc__driver__hal__utils__list.html#ga26022c1362f0fa7e17b734262229c1a7',1,'is_list_element(const struct list_descriptor *const list, const void *const element):&#160;utils_list.c'],['../group__doc__driver__hal__utils__list.html#ga26022c1362f0fa7e17b734262229c1a7',1,'is_list_element(const struct list_descriptor *const list, const void *const element):&#160;utils_list.c']]],
+  ['is_5fstalled',['is_stalled',['../struct__usb__d__dev__ep.html#a2fff80c2f9b61f264ab4b85c88f6a477',1,'_usb_d_dev_ep']]]
+];

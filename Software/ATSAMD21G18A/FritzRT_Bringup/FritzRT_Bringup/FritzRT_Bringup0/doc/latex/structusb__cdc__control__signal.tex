@@ -1,0 +1,46 @@
+\hypertarget{structusb__cdc__control__signal}{}\section{usb\+\_\+cdc\+\_\+control\+\_\+signal Struct Reference}
+\label{structusb__cdc__control__signal}\index{usb\+\_\+cdc\+\_\+control\+\_\+signal@{usb\+\_\+cdc\+\_\+control\+\_\+signal}}
+
+
+Control signal structure.  
+
+
+
+
+{\ttfamily \#include $<$usb\+\_\+protocol\+\_\+cdc.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structusb__cdc__control__signal_ab4ebb1068b5f30f2d353f33f2729f976}\label{structusb__cdc__control__signal_ab4ebb1068b5f30f2d353f33f2729f976}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>le16\_t {\bfseries value}\\
+\>struct \{\\
+\>\>uint8\_t {\bfseries dte\_present}\\
+\>\>uint8\_t {\bfseries carrier\_ctrl}\\
+\>\} {\bfseries modem}\\
+\>struct \{\\
+\>\>uint8\_t \hyperlink{structusb__cdc__control__signal_a325d909d32fb8222930cc567f7c9c1c1}{DTR}: 1\\
+\>\>\>{\em Data Terminal Ready. }\\
+\>\>uint8\_t \hyperlink{structusb__cdc__control__signal_a25d27154a09f8ce19445329cfc9ddfa4}{RTS}: 1\\
+\>\>\>{\em Request To Send. }\\
+\>\} {\bfseries rs232}\\
+\>struct \{\\
+\>\>uint8\_t \hyperlink{structusb__cdc__control__signal_adfcf2d61ff83dec43b4afac3a8af4980}{s108\_2}: 1\\
+\>\>\>{\em V.24 signal 108/2. }\\
+\>\>uint8\_t \hyperlink{structusb__cdc__control__signal_ae2ef956aeedaadd9faf09f1ec48c6c40}{s105}: 1\\
+\>\>\>{\em V.24 signal 105. }\\
+\>\} {\bfseries v24}\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Control signal structure. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+usb/class/cdc/\hyperlink{usb__protocol__cdc_8h}{usb\+\_\+protocol\+\_\+cdc.\+h}\end{DoxyCompactItemize}

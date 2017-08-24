@@ -1,0 +1,667 @@
+\hypertarget{hpl__usb__device_8h}{}\section{hal/include/hpl\+\_\+usb\+\_\+device.h File Reference}
+\label{hpl__usb__device_8h}\index{hal/include/hpl\+\_\+usb\+\_\+device.\+h@{hal/include/hpl\+\_\+usb\+\_\+device.\+h}}
+
+
+S\+AM U\+SB H\+PL.  
+
+
+{\ttfamily \#include $<$hpl\+\_\+usb.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}hpl\+\_\+usb\+\_\+config.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structusb__d__transfer}{usb\+\_\+d\+\_\+transfer}
+\item 
+struct \hyperlink{structusb__d__trans__status}{usb\+\_\+d\+\_\+trans\+\_\+status}
+\item 
+struct \hyperlink{struct__usb__d__dev__callbacks}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+callbacks}
+\item 
+struct \hyperlink{struct__usb__d__dev__ep__callbacks}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{hpl__usb__device_8h_a1e88b838737e28bdde5f01990388acf3}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+sof\+\_\+cb\+\_\+t}) (void)
+\item 
+typedef void($\ast$ \hyperlink{hpl__usb__device_8h_afe5681ede3074b44fdd7ac24d3522a01}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+event\+\_\+cb\+\_\+t}) (const enum \hyperlink{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94}{usb\+\_\+event}, const uint32\+\_\+t param)
+\item 
+typedef void($\ast$ \hyperlink{hpl__usb__device_8h_a81bbff71ce31abdbe92373eed18b1b92}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+setup\+\_\+t}) (const uint8\+\_\+t ep)
+\item 
+typedef bool($\ast$ \hyperlink{hpl__usb__device_8h_a659f0292117e58db11a03eda4c363fcb}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+more\+\_\+t}) (const uint8\+\_\+t ep, const uint32\+\_\+t transfered)
+\item 
+typedef void($\ast$ \hyperlink{hpl__usb__device_8h_a60aa954de0dd8fc6dfd175699d8d7165}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+done\+\_\+t}) (const uint8\+\_\+t ep, const int32\+\_\+t code, const uint32\+\_\+t transfered)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65}{usb\+\_\+d\+\_\+cb\+\_\+type} \{ \hyperlink{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65afa120149c5494ebbff560350acb4cc9f}{U\+S\+B\+\_\+\+D\+\_\+\+C\+B\+\_\+\+S\+OF}, 
+\hyperlink{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65a9706461f371c40a3d55f71394ab9934e}{U\+S\+B\+\_\+\+D\+\_\+\+C\+B\+\_\+\+E\+V\+E\+NT}, 
+\hyperlink{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65a3a54b1d615df98dd85684cadb0baf74c}{U\+S\+B\+\_\+\+D\+\_\+\+C\+B\+\_\+N}
+ \}
+\item 
+enum \hyperlink{hpl__usb__device_8h_a3853f69b4a009f20ffb6f8e117616865}{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+type} \{ \hyperlink{hpl__usb__device_8h_a3853f69b4a009f20ffb6f8e117616865a7f6a64d008829dcd0787f468122d1820}{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+S\+E\+T\+UP}, 
+\hyperlink{hpl__usb__device_8h_a3853f69b4a009f20ffb6f8e117616865a01d76da25f5029d202385876a778835d}{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+M\+O\+RE}, 
+\hyperlink{hpl__usb__device_8h_a3853f69b4a009f20ffb6f8e117616865a222b0b7426e630387e0d5d362502e882}{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+X\+F\+ER}, 
+\hyperlink{hpl__usb__device_8h_a3853f69b4a009f20ffb6f8e117616865a9a0ecab28e0b0eca3314936cf3ff6b28}{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+N}
+ \}
+\item 
+enum \hyperlink{hpl__usb__device_8h_a45d3defc5dcef42d8800395f13771767}{usb\+\_\+d\+\_\+lpm\+\_\+ctrl} \{ \hyperlink{hpl__usb__device_8h_a45d3defc5dcef42d8800395f13771767ac033e64bad03fe698998b28b46989d9f}{U\+S\+B\+\_\+\+D\+\_\+\+L\+P\+M\+\_\+\+D\+I\+S\+A\+B\+LE}, 
+\hyperlink{hpl__usb__device_8h_a45d3defc5dcef42d8800395f13771767a1d23988745d69f1be614164708844639}{U\+S\+B\+\_\+\+D\+\_\+\+L\+P\+M\+\_\+\+A\+CK}, 
+\hyperlink{hpl__usb__device_8h_a45d3defc5dcef42d8800395f13771767accb9a569ded5f79d26c70b03dd8198f7}{U\+S\+B\+\_\+\+D\+\_\+\+L\+P\+M\+\_\+\+N\+Y\+ET}
+ \}
+\item 
+enum \hyperlink{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63}{usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+type} \{ \hyperlink{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63a44f391353a14325b177a3238444c1756}{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+S\+E\+T\+UP}, 
+\hyperlink{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63a6e1690b22120aac35d9e4e7f23e79df5}{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+M\+O\+RE}, 
+\hyperlink{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63af0937a228ea1371030292c25121f9646}{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+D\+O\+NE}, 
+\hyperlink{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63a03308f5447946bb5f0d7cbc2ff17a544}{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+N}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{hpl__usb__device_8h_a686152d5db084158b8174be7134e1352}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the U\+SB device instance. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb__device_8h_acda342ceaa2fae5d925b698f7c52143b}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+deinit} (void)
+\begin{DoxyCompactList}\small\item\em Deinitialize the U\+SB device instance. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb__device_8h_aa1f40f2a83f5d8ee75d5ced353fe8d9a}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+callback} (const enum \hyperlink{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65}{usb\+\_\+d\+\_\+cb\+\_\+type} type, const \hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR} func)
+\begin{DoxyCompactList}\small\item\em Register callback to handle U\+SB device events. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb__device_8h_a44c519e747ffee5106f0b2c5ac792436}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+ep\+\_\+callback} (const enum \hyperlink{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63}{usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+type} type, const \hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR} func)
+\begin{DoxyCompactList}\small\item\em Register callback to handle U\+SB device endpoint events. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb__device_8h_ad35861b6524ee2d99d13feb69b468742}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+enable} (void)
+\begin{DoxyCompactList}\small\item\em Enable the U\+SB device. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb__device_8h_a714fd15ecc868a73c6d0b1df58b8877d}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+disable} (void)
+\begin{DoxyCompactList}\small\item\em Disable the U\+SB device. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__usb__device_8h_a8305f02d6250ab2931b861e789cee940}\label{hpl__usb__device_8h_a8305f02d6250ab2931b861e789cee940}} 
+void \hyperlink{hpl__usb__device_8h_a8305f02d6250ab2931b861e789cee940}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+attach} (void)
+\begin{DoxyCompactList}\small\item\em Attach the U\+SB device. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__usb__device_8h_ad6c244720ee777ba2900eca2e855c81a}\label{hpl__usb__device_8h_ad6c244720ee777ba2900eca2e855c81a}} 
+void \hyperlink{hpl__usb__device_8h_ad6c244720ee777ba2900eca2e855c81a}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+detach} (void)
+\begin{DoxyCompactList}\small\item\em Detach the U\+SB device. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hpl__usb__device_8h_ab1f399a3404386364a681d04924e3012}\label{hpl__usb__device_8h_ab1f399a3404386364a681d04924e3012}} 
+void \hyperlink{hpl__usb__device_8h_ab1f399a3404386364a681d04924e3012}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+send\+\_\+remotewakeup} (void)
+\begin{DoxyCompactList}\small\item\em Send the U\+SB device remote wakeup to host. \end{DoxyCompactList}\item 
+enum \hyperlink{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340}{usb\+\_\+speed} \hyperlink{hpl__usb__device_8h_a523a939d6b8c7491b69037612ef52115}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+speed} (void)
+\begin{DoxyCompactList}\small\item\em Get the U\+SB device working speed. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb__device_8h_ac8e49ec208030413162e720e8c8c1d1b}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+set\+\_\+address} (const uint8\+\_\+t addr)
+\begin{DoxyCompactList}\small\item\em Set the U\+SB device address. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{hpl__usb__device_8h_aa850429e719d5568d184c98cd70fc5c4}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+address} (void)
+\begin{DoxyCompactList}\small\item\em Get the U\+SB device address. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{hpl__usb__device_8h_aaac42f9473022d74bcab8eefa4a6603a}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+frame\+\_\+n} (void)
+\begin{DoxyCompactList}\small\item\em Get the U\+SB device frame number. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{hpl__usb__device_8h_a905a2ebea6b14260d97a11e6d34c8c8c}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+uframe\+\_\+n} (void)
+\begin{DoxyCompactList}\small\item\em Get the U\+SB device micro frame number. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb__device_8h_a76bf753749719ddb2d5814b68b7b13d7}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep0\+\_\+init} (const uint8\+\_\+t max\+\_\+pkt\+\_\+siz)
+\begin{DoxyCompactList}\small\item\em Initialize and enable the U\+SB device default endpoint 0. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb__device_8h_a065359792f63a44cdd9709fccbcd0896}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+init} (const uint8\+\_\+t ep, const uint8\+\_\+t attr, uint16\+\_\+t max\+\_\+pkt\+\_\+siz)
+\begin{DoxyCompactList}\small\item\em Initialize and enable the U\+SB device endpoint. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb__device_8h_a2f7b75b4d4843a3ba5ace108f66ad77d}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+deinit} (const uint8\+\_\+t ep)
+\begin{DoxyCompactList}\small\item\em Disable and deinitialize the U\+SB device endpoint. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb__device_8h_a82aa7786660d7f174e1007936737af3b}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+enable} (const uint8\+\_\+t ep)
+\begin{DoxyCompactList}\small\item\em Enable the endpoint. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb__device_8h_a517d3e1da5be4a1b9f80ac704fa7717b}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+disable} (const uint8\+\_\+t ep)
+\begin{DoxyCompactList}\small\item\em Disable the endpoint. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb__device_8h_adba30466a52b721c517513215f91b438}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+stall} (const uint8\+\_\+t ep, const enum \hyperlink{hpl__usb_8h_a3f8b44aed46a8be6cc2b32211e641202}{usb\+\_\+ep\+\_\+stall\+\_\+ctrl} ctrl)
+\begin{DoxyCompactList}\small\item\em Set/\+Clear/\+Get U\+SB device endpoint stall status. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb__device_8h_a986e37ddeda86792722e0bc8aac155bf}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+read\+\_\+req} (const uint8\+\_\+t ep, uint8\+\_\+t $\ast$req\+\_\+buf)
+\begin{DoxyCompactList}\small\item\em Read setup request data from specific endpoint. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb__device_8h_afbdcf23264147bc3892ccf59aaacea4b}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+trans} (const struct \hyperlink{structusb__d__transfer}{usb\+\_\+d\+\_\+transfer} $\ast$trans)
+\begin{DoxyCompactList}\small\item\em Start U\+SB device transfer. \end{DoxyCompactList}\item 
+void \hyperlink{hpl__usb__device_8h_aace9aaa06a343223f76db73d5e99b3d5}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+abort} (const uint8\+\_\+t ep)
+\begin{DoxyCompactList}\small\item\em Abort pending U\+SB device transaction on specific endpoint. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{hpl__usb__device_8h_a09849b79eb19ed74c0136c5346fddfce}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+get\+\_\+status} (const uint8\+\_\+t ep, struct \hyperlink{structusb__d__trans__status}{usb\+\_\+d\+\_\+trans\+\_\+status} $\ast$stat)
+\begin{DoxyCompactList}\small\item\em Retrieve endpoint status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+S\+AM U\+SB H\+PL. 
+
+Copyright (C) 2016 Atmel Corporation. All rights reserved.
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{hpl__usb__device_8h_a60aa954de0dd8fc6dfd175699d8d7165}\label{hpl__usb__device_8h_a60aa954de0dd8fc6dfd175699d8d7165}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+done\+\_\+t@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+done\+\_\+t}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+done\+\_\+t@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+done\+\_\+t}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+done\+\_\+t}{\_usb\_d\_dev\_ep\_cb\_done\_t}}
+{\footnotesize\ttfamily typedef void($\ast$ \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+done\+\_\+t) (const uint8\+\_\+t ep, const int32\+\_\+t code, const uint32\+\_\+t transfered)}
+
+Callback that is invoked when all data is finished, including background transfer, or error happens. \mbox{\Hypertarget{hpl__usb__device_8h_a659f0292117e58db11a03eda4c363fcb}\label{hpl__usb__device_8h_a659f0292117e58db11a03eda4c363fcb}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+more\+\_\+t@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+more\+\_\+t}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+more\+\_\+t@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+more\+\_\+t}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+more\+\_\+t}{\_usb\_d\_dev\_ep\_cb\_more\_t}}
+{\footnotesize\ttfamily typedef bool($\ast$ \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+more\+\_\+t) (const uint8\+\_\+t ep, const uint32\+\_\+t transfered)}
+
+Callback that is invoked when buffer is done, but last packet is full size packet without Z\+LP. Return {\ttfamily true} if more data has been requested. \mbox{\Hypertarget{hpl__usb__device_8h_a81bbff71ce31abdbe92373eed18b1b92}\label{hpl__usb__device_8h_a81bbff71ce31abdbe92373eed18b1b92}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+setup\+\_\+t@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+setup\+\_\+t}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+setup\+\_\+t@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+setup\+\_\+t}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+setup\+\_\+t}{\_usb\_d\_dev\_ep\_cb\_setup\_t}}
+{\footnotesize\ttfamily typedef void($\ast$ \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+setup\+\_\+t) (const uint8\+\_\+t ep)}
+
+Callback that is invoked when control S\+E\+T\+UP packet has bee received. \hyperlink{hpl__usb__device_8h_a986e37ddeda86792722e0bc8aac155bf}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+read\+\_\+req()} must be invoked to read setup data, and allow I\+N/\+O\+UT transactions on control endpoint. \mbox{\Hypertarget{hpl__usb__device_8h_afe5681ede3074b44fdd7ac24d3522a01}\label{hpl__usb__device_8h_afe5681ede3074b44fdd7ac24d3522a01}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+event\+\_\+cb\+\_\+t@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+event\+\_\+cb\+\_\+t}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+event\+\_\+cb\+\_\+t@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+event\+\_\+cb\+\_\+t}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+event\+\_\+cb\+\_\+t}{\_usb\_d\_dev\_event\_cb\_t}}
+{\footnotesize\ttfamily typedef void($\ast$ \+\_\+usb\+\_\+d\+\_\+dev\+\_\+event\+\_\+cb\+\_\+t) (const enum \hyperlink{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94}{usb\+\_\+event}, const uint32\+\_\+t param)}
+
+Prototype function for callback that is invoked on U\+SB device events. \mbox{\Hypertarget{hpl__usb__device_8h_a1e88b838737e28bdde5f01990388acf3}\label{hpl__usb__device_8h_a1e88b838737e28bdde5f01990388acf3}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+sof\+\_\+cb\+\_\+t@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+sof\+\_\+cb\+\_\+t}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+sof\+\_\+cb\+\_\+t@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+sof\+\_\+cb\+\_\+t}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+sof\+\_\+cb\+\_\+t}{\_usb\_d\_dev\_sof\_cb\_t}}
+{\footnotesize\ttfamily typedef void($\ast$ \+\_\+usb\+\_\+d\+\_\+dev\+\_\+sof\+\_\+cb\+\_\+t) (void)}
+
+Prototype function for callback that is invoked on U\+SB device S\+OF. 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65}\label{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!usb\+\_\+d\+\_\+cb\+\_\+type@{usb\+\_\+d\+\_\+cb\+\_\+type}}
+\index{usb\+\_\+d\+\_\+cb\+\_\+type@{usb\+\_\+d\+\_\+cb\+\_\+type}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+cb\+\_\+type}{usb\_d\_cb\_type}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65}{usb\+\_\+d\+\_\+cb\+\_\+type}}
+
+U\+SB Device callback type. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+D\+\_\+\+C\+B\+\_\+\+S\+OF@{U\+S\+B\+\_\+\+D\+\_\+\+C\+B\+\_\+\+S\+OF}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!U\+S\+B\+\_\+\+D\+\_\+\+C\+B\+\_\+\+S\+OF@{U\+S\+B\+\_\+\+D\+\_\+\+C\+B\+\_\+\+S\+OF}}}\mbox{\Hypertarget{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65afa120149c5494ebbff560350acb4cc9f}\label{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65afa120149c5494ebbff560350acb4cc9f}} 
+U\+S\+B\+\_\+\+D\+\_\+\+C\+B\+\_\+\+S\+OF&U\+SB device S\+OF callback. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+D\+\_\+\+C\+B\+\_\+\+E\+V\+E\+NT@{U\+S\+B\+\_\+\+D\+\_\+\+C\+B\+\_\+\+E\+V\+E\+NT}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!U\+S\+B\+\_\+\+D\+\_\+\+C\+B\+\_\+\+E\+V\+E\+NT@{U\+S\+B\+\_\+\+D\+\_\+\+C\+B\+\_\+\+E\+V\+E\+NT}}}\mbox{\Hypertarget{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65a9706461f371c40a3d55f71394ab9934e}\label{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65a9706461f371c40a3d55f71394ab9934e}} 
+U\+S\+B\+\_\+\+D\+\_\+\+C\+B\+\_\+\+E\+V\+E\+NT&U\+SB device events callbacks. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+D\+\_\+\+C\+B\+\_\+N@{U\+S\+B\+\_\+\+D\+\_\+\+C\+B\+\_\+N}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!U\+S\+B\+\_\+\+D\+\_\+\+C\+B\+\_\+N@{U\+S\+B\+\_\+\+D\+\_\+\+C\+B\+\_\+N}}}\mbox{\Hypertarget{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65a3a54b1d615df98dd85684cadb0baf74c}\label{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65a3a54b1d615df98dd85684cadb0baf74c}} 
+U\+S\+B\+\_\+\+D\+\_\+\+C\+B\+\_\+N&Number of types of U\+SB device callback types. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63}\label{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+type@{usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+type}}
+\index{usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+type@{usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+type}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+type}{usb\_d\_dev\_ep\_cb\_type}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63}{usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+type}}
+
+U\+SB device endpoint callbacks. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+S\+E\+T\+UP@{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+S\+E\+T\+UP}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+S\+E\+T\+UP@{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+S\+E\+T\+UP}}}\mbox{\Hypertarget{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63a44f391353a14325b177a3238444c1756}\label{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63a44f391353a14325b177a3238444c1756}} 
+U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+S\+E\+T\+UP&Setup packet is received. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+M\+O\+RE@{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+M\+O\+RE}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+M\+O\+RE@{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+M\+O\+RE}}}\mbox{\Hypertarget{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63a6e1690b22120aac35d9e4e7f23e79df5}\label{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63a6e1690b22120aac35d9e4e7f23e79df5}} 
+U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+M\+O\+RE&Try to require more data. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+D\+O\+NE@{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+D\+O\+NE}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+D\+O\+NE@{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+D\+O\+NE}}}\mbox{\Hypertarget{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63af0937a228ea1371030292c25121f9646}\label{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63af0937a228ea1371030292c25121f9646}} 
+U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+D\+O\+NE&Transaction done O\+K/\+E\+R\+R\+OR. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+N@{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+N}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+N@{U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+N}}}\mbox{\Hypertarget{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63a03308f5447946bb5f0d7cbc2ff17a544}\label{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63a03308f5447946bb5f0d7cbc2ff17a544}} 
+U\+S\+B\+\_\+\+D\+\_\+\+D\+E\+V\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+N&Number of device endpoint callbacks. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{hpl__usb__device_8h_a3853f69b4a009f20ffb6f8e117616865}\label{hpl__usb__device_8h_a3853f69b4a009f20ffb6f8e117616865}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+type@{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+type}}
+\index{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+type@{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+type}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+type}{usb\_d\_ep\_cb\_type}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb__device_8h_a3853f69b4a009f20ffb6f8e117616865}{usb\+\_\+d\+\_\+ep\+\_\+cb\+\_\+type}}
+
+U\+SB Device endpoint callback type. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+S\+E\+T\+UP@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+S\+E\+T\+UP}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+S\+E\+T\+UP@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+S\+E\+T\+UP}}}\mbox{\Hypertarget{hpl__usb__device_8h_a3853f69b4a009f20ffb6f8e117616865a7f6a64d008829dcd0787f468122d1820}\label{hpl__usb__device_8h_a3853f69b4a009f20ffb6f8e117616865a7f6a64d008829dcd0787f468122d1820}} 
+U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+S\+E\+T\+UP&U\+SB device endpoint setup callback. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+M\+O\+RE@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+M\+O\+RE}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+M\+O\+RE@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+M\+O\+RE}}}\mbox{\Hypertarget{hpl__usb__device_8h_a3853f69b4a009f20ffb6f8e117616865a01d76da25f5029d202385876a778835d}\label{hpl__usb__device_8h_a3853f69b4a009f20ffb6f8e117616865a01d76da25f5029d202385876a778835d}} 
+U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+M\+O\+RE&U\+SB device endpoint more data callback. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+X\+F\+ER@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+X\+F\+ER}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+X\+F\+ER@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+X\+F\+ER}}}\mbox{\Hypertarget{hpl__usb__device_8h_a3853f69b4a009f20ffb6f8e117616865a222b0b7426e630387e0d5d362502e882}\label{hpl__usb__device_8h_a3853f69b4a009f20ffb6f8e117616865a222b0b7426e630387e0d5d362502e882}} 
+U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+\+X\+F\+ER&U\+SB device endpoint transaction done or error callback. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+N@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+N}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+N@{U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+N}}}\mbox{\Hypertarget{hpl__usb__device_8h_a3853f69b4a009f20ffb6f8e117616865a9a0ecab28e0b0eca3314936cf3ff6b28}\label{hpl__usb__device_8h_a3853f69b4a009f20ffb6f8e117616865a9a0ecab28e0b0eca3314936cf3ff6b28}} 
+U\+S\+B\+\_\+\+D\+\_\+\+E\+P\+\_\+\+C\+B\+\_\+N&Number of types of U\+SB device endpoint callback types. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{hpl__usb__device_8h_a45d3defc5dcef42d8800395f13771767}\label{hpl__usb__device_8h_a45d3defc5dcef42d8800395f13771767}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!usb\+\_\+d\+\_\+lpm\+\_\+ctrl@{usb\+\_\+d\+\_\+lpm\+\_\+ctrl}}
+\index{usb\+\_\+d\+\_\+lpm\+\_\+ctrl@{usb\+\_\+d\+\_\+lpm\+\_\+ctrl}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+d\+\_\+lpm\+\_\+ctrl}{usb\_d\_lpm\_ctrl}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb__device_8h_a45d3defc5dcef42d8800395f13771767}{usb\+\_\+d\+\_\+lpm\+\_\+ctrl}}
+
+Control action for U\+SB device L\+PM handshake. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+D\+\_\+\+L\+P\+M\+\_\+\+D\+I\+S\+A\+B\+LE@{U\+S\+B\+\_\+\+D\+\_\+\+L\+P\+M\+\_\+\+D\+I\+S\+A\+B\+LE}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!U\+S\+B\+\_\+\+D\+\_\+\+L\+P\+M\+\_\+\+D\+I\+S\+A\+B\+LE@{U\+S\+B\+\_\+\+D\+\_\+\+L\+P\+M\+\_\+\+D\+I\+S\+A\+B\+LE}}}\mbox{\Hypertarget{hpl__usb__device_8h_a45d3defc5dcef42d8800395f13771767ac033e64bad03fe698998b28b46989d9f}\label{hpl__usb__device_8h_a45d3defc5dcef42d8800395f13771767ac033e64bad03fe698998b28b46989d9f}} 
+U\+S\+B\+\_\+\+D\+\_\+\+L\+P\+M\+\_\+\+D\+I\+S\+A\+B\+LE&No L\+PM handshake, not supported. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+D\+\_\+\+L\+P\+M\+\_\+\+A\+CK@{U\+S\+B\+\_\+\+D\+\_\+\+L\+P\+M\+\_\+\+A\+CK}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!U\+S\+B\+\_\+\+D\+\_\+\+L\+P\+M\+\_\+\+A\+CK@{U\+S\+B\+\_\+\+D\+\_\+\+L\+P\+M\+\_\+\+A\+CK}}}\mbox{\Hypertarget{hpl__usb__device_8h_a45d3defc5dcef42d8800395f13771767a1d23988745d69f1be614164708844639}\label{hpl__usb__device_8h_a45d3defc5dcef42d8800395f13771767a1d23988745d69f1be614164708844639}} 
+U\+S\+B\+\_\+\+D\+\_\+\+L\+P\+M\+\_\+\+A\+CK&A\+CK the L\+PM transaction. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+D\+\_\+\+L\+P\+M\+\_\+\+N\+Y\+ET@{U\+S\+B\+\_\+\+D\+\_\+\+L\+P\+M\+\_\+\+N\+Y\+ET}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!U\+S\+B\+\_\+\+D\+\_\+\+L\+P\+M\+\_\+\+N\+Y\+ET@{U\+S\+B\+\_\+\+D\+\_\+\+L\+P\+M\+\_\+\+N\+Y\+ET}}}\mbox{\Hypertarget{hpl__usb__device_8h_a45d3defc5dcef42d8800395f13771767accb9a569ded5f79d26c70b03dd8198f7}\label{hpl__usb__device_8h_a45d3defc5dcef42d8800395f13771767accb9a569ded5f79d26c70b03dd8198f7}} 
+U\+S\+B\+\_\+\+D\+\_\+\+L\+P\+M\+\_\+\+N\+Y\+ET&N\+Y\+ET the L\+PM transaction. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{hpl__usb__device_8h_acda342ceaa2fae5d925b698f7c52143b}\label{hpl__usb__device_8h_acda342ceaa2fae5d925b698f7c52143b}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+deinit@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+deinit}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+deinit@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+deinit}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+deinit()}{\_usb\_d\_dev\_deinit()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+d\+\_\+dev\+\_\+deinit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Deinitialize the U\+SB device instance. 
+
+\begin{DoxyReturn}{Returns}
+Operation result status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__device_8h_a714fd15ecc868a73c6d0b1df58b8877d}\label{hpl__usb__device_8h_a714fd15ecc868a73c6d0b1df58b8877d}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+disable@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+disable}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+disable@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+disable}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+disable()}{\_usb\_d\_dev\_disable()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+disable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Disable the U\+SB device. 
+
+\begin{DoxyReturn}{Returns}
+Operation result status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__device_8h_ad35861b6524ee2d99d13feb69b468742}\label{hpl__usb__device_8h_ad35861b6524ee2d99d13feb69b468742}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+enable@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+enable}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+enable@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+enable}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+enable()}{\_usb\_d\_dev\_enable()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+enable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Enable the U\+SB device. 
+
+\begin{DoxyReturn}{Returns}
+Operation result status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__device_8h_a76bf753749719ddb2d5814b68b7b13d7}\label{hpl__usb__device_8h_a76bf753749719ddb2d5814b68b7b13d7}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep0\+\_\+init@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep0\+\_\+init}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep0\+\_\+init@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep0\+\_\+init}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep0\+\_\+init()}{\_usb\_d\_dev\_ep0\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep0\+\_\+init (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{max\+\_\+pkt\+\_\+siz }\end{DoxyParamCaption})}
+
+
+
+Initialize and enable the U\+SB device default endpoint 0. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em max\+\_\+pkt\+\_\+siz} & Max endpoint size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation result status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__device_8h_aace9aaa06a343223f76db73d5e99b3d5}\label{hpl__usb__device_8h_aace9aaa06a343223f76db73d5e99b3d5}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+abort@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+abort}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+abort@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+abort}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+abort()}{\_usb\_d\_dev\_ep\_abort()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+abort (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep }\end{DoxyParamCaption})}
+
+
+
+Abort pending U\+SB device transaction on specific endpoint. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & Endpoint address to abort. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__usb__device_8h_a2f7b75b4d4843a3ba5ace108f66ad77d}\label{hpl__usb__device_8h_a2f7b75b4d4843a3ba5ace108f66ad77d}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+deinit@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+deinit}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+deinit@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+deinit}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+deinit()}{\_usb\_d\_dev\_ep\_deinit()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+deinit (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep }\end{DoxyParamCaption})}
+
+
+
+Disable and deinitialize the U\+SB device endpoint. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & The endpoint to deinitialize. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__usb__device_8h_a517d3e1da5be4a1b9f80ac704fa7717b}\label{hpl__usb__device_8h_a517d3e1da5be4a1b9f80ac704fa7717b}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+disable@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+disable}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+disable@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+disable}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+disable()}{\_usb\_d\_dev\_ep\_disable()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+disable (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep }\end{DoxyParamCaption})}
+
+
+
+Disable the endpoint. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & The endpoint to disable. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__usb__device_8h_a82aa7786660d7f174e1007936737af3b}\label{hpl__usb__device_8h_a82aa7786660d7f174e1007936737af3b}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+enable@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+enable}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+enable@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+enable}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+enable()}{\_usb\_d\_dev\_ep\_enable()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+enable (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep }\end{DoxyParamCaption})}
+
+
+
+Enable the endpoint. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & The endpoint to enable. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation result status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__device_8h_a09849b79eb19ed74c0136c5346fddfce}\label{hpl__usb__device_8h_a09849b79eb19ed74c0136c5346fddfce}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+get\+\_\+status@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+get\+\_\+status}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+get\+\_\+status@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+get\+\_\+status}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+get\+\_\+status()}{\_usb\_d\_dev\_ep\_get\_status()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+get\+\_\+status (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep,  }\item[{struct \hyperlink{structusb__d__trans__status}{usb\+\_\+d\+\_\+trans\+\_\+status} $\ast$}]{stat }\end{DoxyParamCaption})}
+
+
+
+Retrieve endpoint status. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & Endpoint address. \\
+\hline
+\mbox{\tt out}  & {\em stat} & Pointer to buffer to fill status description. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 2} & Packet writing. \\
+\hline
+{\em 1} & Busy. \\
+\hline
+{\em 0} & Ready. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__device_8h_a065359792f63a44cdd9709fccbcd0896}\label{hpl__usb__device_8h_a065359792f63a44cdd9709fccbcd0896}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+init@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+init}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+init@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+init}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+init()}{\_usb\_d\_dev\_ep\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+init (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep,  }\item[{const uint8\+\_\+t}]{attr,  }\item[{uint16\+\_\+t}]{max\+\_\+pkt\+\_\+siz }\end{DoxyParamCaption})}
+
+
+
+Initialize and enable the U\+SB device endpoint. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & Endpoint address, see endpoint descriptor details in U\+SB spec. \\
+\hline
+\mbox{\tt in}  & {\em attr} & Endpoint attributes, see endpoint descriptor details in U\+SB spec. \\
+\hline
+\mbox{\tt in}  & {\em max\+\_\+pkt\+\_\+siz} & Endpoint size, see endpoint descriptor details in U\+SB spec. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation result status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__device_8h_a986e37ddeda86792722e0bc8aac155bf}\label{hpl__usb__device_8h_a986e37ddeda86792722e0bc8aac155bf}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+read\+\_\+req@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+read\+\_\+req}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+read\+\_\+req@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+read\+\_\+req}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+read\+\_\+req()}{\_usb\_d\_dev\_ep\_read\_req()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+read\+\_\+req (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep,  }\item[{uint8\+\_\+t $\ast$}]{req\+\_\+buf }\end{DoxyParamCaption})}
+
+
+
+Read setup request data from specific endpoint. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & Endpoint address. \\
+\hline
+\mbox{\tt out}  & {\em req\+\_\+buf} & Pointer to buffer to locate the setup packet. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of bytes or error code. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em $<$0} & error code. \\
+\hline
+{\em 0} & No setup packet ready for read. \\
+\hline
+{\em $>$0} & Size of bytes read, and ready to start I\+N/\+O\+UT. Note that if this number is over 8, only first 8 bytes will be copied. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__device_8h_adba30466a52b721c517513215f91b438}\label{hpl__usb__device_8h_adba30466a52b721c517513215f91b438}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+stall@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+stall}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+stall@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+stall}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+stall()}{\_usb\_d\_dev\_ep\_stall()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+stall (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{ep,  }\item[{const enum \hyperlink{hpl__usb_8h_a3f8b44aed46a8be6cc2b32211e641202}{usb\+\_\+ep\+\_\+stall\+\_\+ctrl}}]{ctrl }\end{DoxyParamCaption})}
+
+
+
+Set/\+Clear/\+Get U\+SB device endpoint stall status. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ep} & Endpoint address. \\
+\hline
+\mbox{\tt in}  & {\em ctrl} & Operation selector. See \hyperlink{hpl__usb_8h_a3f8b44aed46a8be6cc2b32211e641202}{usb\+\_\+ep\+\_\+stall\+\_\+ctrl}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation result or stall status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success or not stall. \\
+\hline
+{\em 1} & Endpoint is stalled. \\
+\hline
+{\em -\/1} & error. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__device_8h_afbdcf23264147bc3892ccf59aaacea4b}\label{hpl__usb__device_8h_afbdcf23264147bc3892ccf59aaacea4b}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+trans@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+trans}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+trans@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+trans}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+trans()}{\_usb\_d\_dev\_ep\_trans()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+trans (\begin{DoxyParamCaption}\item[{const struct \hyperlink{structusb__d__transfer}{usb\+\_\+d\+\_\+transfer} $\ast$}]{trans }\end{DoxyParamCaption})}
+
+
+
+Start U\+SB device transfer. 
+
+On different U\+SB peripheral hardware the transaction buffer address and size may have different constraints. E.\+g., some hardware may require input address 32-\/bit aligned, and input size 32-\/bit aligned. Refer to the corresponding hardware usage reference documents. The constraints are checked in implementation, with error code returned.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em trans} & Pointer to the transaction description. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation result status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 1} & Busy. \\
+\hline
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__device_8h_aa850429e719d5568d184c98cd70fc5c4}\label{hpl__usb__device_8h_aa850429e719d5568d184c98cd70fc5c4}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+address@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+address}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+address@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+address}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+address()}{\_usb\_d\_dev\_get\_address()}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+address (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the U\+SB device address. 
+
+\begin{DoxyReturn}{Returns}
+Address that is used. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__usb__device_8h_aaac42f9473022d74bcab8eefa4a6603a}\label{hpl__usb__device_8h_aaac42f9473022d74bcab8eefa4a6603a}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+frame\+\_\+n@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+frame\+\_\+n}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+frame\+\_\+n@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+frame\+\_\+n}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+frame\+\_\+n()}{\_usb\_d\_dev\_get\_frame\_n()}}
+{\footnotesize\ttfamily uint16\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+frame\+\_\+n (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the U\+SB device frame number. 
+
+\begin{DoxyReturn}{Returns}
+The frame number. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__usb__device_8h_a523a939d6b8c7491b69037612ef52115}\label{hpl__usb__device_8h_a523a939d6b8c7491b69037612ef52115}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+speed@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+speed}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+speed@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+speed}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+speed()}{\_usb\_d\_dev\_get\_speed()}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340}{usb\+\_\+speed} \+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+speed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the U\+SB device working speed. 
+
+\begin{DoxyReturn}{Returns}
+U\+SB speed. See \hyperlink{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340}{usb\+\_\+speed}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__usb__device_8h_a905a2ebea6b14260d97a11e6d34c8c8c}\label{hpl__usb__device_8h_a905a2ebea6b14260d97a11e6d34c8c8c}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+uframe\+\_\+n@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+uframe\+\_\+n}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+uframe\+\_\+n@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+uframe\+\_\+n}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+uframe\+\_\+n()}{\_usb\_d\_dev\_get\_uframe\_n()}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+get\+\_\+uframe\+\_\+n (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the U\+SB device micro frame number. 
+
+\begin{DoxyReturn}{Returns}
+The micro frame number inside one frame (0$\sim$7). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{hpl__usb__device_8h_a686152d5db084158b8174be7134e1352}\label{hpl__usb__device_8h_a686152d5db084158b8174be7134e1352}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+init@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+init}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+init@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+init}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+init()}{\_usb\_d\_dev\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+usb\+\_\+d\+\_\+dev\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialize the U\+SB device instance. 
+
+\begin{DoxyReturn}{Returns}
+Operation result status. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Success. \\
+\hline
+{\em $<$0} & Error code. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{hpl__usb__device_8h_aa1f40f2a83f5d8ee75d5ced353fe8d9a}\label{hpl__usb__device_8h_aa1f40f2a83f5d8ee75d5ced353fe8d9a}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+callback@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+callback}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+callback@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+callback}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+callback()}{\_usb\_d\_dev\_register\_callback()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+callback (\begin{DoxyParamCaption}\item[{const enum \hyperlink{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65}{usb\+\_\+d\+\_\+cb\+\_\+type}}]{type,  }\item[{const \hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR}}]{func }\end{DoxyParamCaption})}
+
+
+
+Register callback to handle U\+SB device events. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em type} & Callback type. See \hyperlink{hpl__usb__device_8h_a79a1dfcff6b553cb9ef5c23af4e81b65}{usb\+\_\+d\+\_\+cb\+\_\+type}. \\
+\hline
+\mbox{\tt in}  & {\em func} & Pointer to callback function. Refer to \hyperlink{struct__usb__d__dev__callbacks}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+callbacks} for the prototypes. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__usb__device_8h_a44c519e747ffee5106f0b2c5ac792436}\label{hpl__usb__device_8h_a44c519e747ffee5106f0b2c5ac792436}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+ep\+\_\+callback@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+ep\+\_\+callback}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+ep\+\_\+callback@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+ep\+\_\+callback}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+ep\+\_\+callback()}{\_usb\_d\_dev\_register\_ep\_callback()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+d\+\_\+dev\+\_\+register\+\_\+ep\+\_\+callback (\begin{DoxyParamCaption}\item[{const enum \hyperlink{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63}{usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+type}}]{type,  }\item[{const \hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR}}]{func }\end{DoxyParamCaption})}
+
+
+
+Register callback to handle U\+SB device endpoint events. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em type} & Callback type. See \hyperlink{hpl__usb__device_8h_a322cfc9c564f4d01ad9ab1d4ac31dd63}{usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+cb\+\_\+type}. \\
+\hline
+\mbox{\tt in}  & {\em func} & Pointer to callback function. Refer to \hyperlink{struct__usb__d__dev__ep__callbacks}{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+ep\+\_\+callbacks} for the prototypes. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{hpl__usb__device_8h_ac8e49ec208030413162e720e8c8c1d1b}\label{hpl__usb__device_8h_ac8e49ec208030413162e720e8c8c1d1b}} 
+\index{hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}!\+\_\+usb\+\_\+d\+\_\+dev\+\_\+set\+\_\+address@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+set\+\_\+address}}
+\index{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+set\+\_\+address@{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+set\+\_\+address}!hpl\+\_\+usb\+\_\+device.\+h@{hpl\+\_\+usb\+\_\+device.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+usb\+\_\+d\+\_\+dev\+\_\+set\+\_\+address()}{\_usb\_d\_dev\_set\_address()}}
+{\footnotesize\ttfamily void \+\_\+usb\+\_\+d\+\_\+dev\+\_\+set\+\_\+address (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{addr }\end{DoxyParamCaption})}
+
+
+
+Set the U\+SB device address. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em addr} & Address to be used. \\
+\hline
+\end{DoxyParams}

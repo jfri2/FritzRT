@@ -1,0 +1,58 @@
+\hypertarget{hpl__gpio_8h}{}\section{hal/include/hpl\+\_\+gpio.h File Reference}
+\label{hpl__gpio_8h}\index{hal/include/hpl\+\_\+gpio.\+h@{hal/include/hpl\+\_\+gpio.\+h}}
+
+
+Port related functionality declaration.  
+
+
+{\ttfamily \#include $<$compiler.\+h$>$}\newline
+{\ttfamily \#include $<$hpl\+\_\+gpio\+\_\+base.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group___h_p_l_ga50e2e0aca2b651e066ebc5aeb5fdad25}{G\+P\+I\+O\+\_\+\+P\+IN}(n)~(((n)\&0x1\+Fu) $<$$<$ 0)
+\begin{DoxyCompactList}\small\item\em Macros for the pin and port group, lower 5 bits stands for pin number in the group, higher 3 bits stands for port group. \end{DoxyCompactList}\item 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+P\+O\+RT}(n)~((n) $>$$>$ 5)
+\item 
+\#define {\bfseries G\+P\+IO}(port,  pin)~((((port)\&0x7u) $<$$<$ 5) + ((pin)\&0x1\+Fu))
+\item 
+\#define {\bfseries G\+P\+I\+O\+\_\+\+P\+I\+N\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+O\+FF}~0xffffffff
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___h_p_l_gab9959d4bcdc5049e5898d5100ada3197}\label{group___h_p_l_gab9959d4bcdc5049e5898d5100ada3197}} 
+enum \hyperlink{group___h_p_l_gab9959d4bcdc5049e5898d5100ada3197}{gpio\+\_\+pull\+\_\+mode} \{ {\bfseries G\+P\+I\+O\+\_\+\+P\+U\+L\+L\+\_\+\+O\+FF}, 
+{\bfseries G\+P\+I\+O\+\_\+\+P\+U\+L\+L\+\_\+\+UP}, 
+{\bfseries G\+P\+I\+O\+\_\+\+P\+U\+L\+L\+\_\+\+D\+O\+WN}
+ \}\begin{DoxyCompactList}\small\item\em P\+O\+RT pull mode settings. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group___h_p_l_gaccc7d029df9e5a96151a68e64f4be7e2}\label{group___h_p_l_gaccc7d029df9e5a96151a68e64f4be7e2}} 
+enum \hyperlink{group___h_p_l_gaccc7d029df9e5a96151a68e64f4be7e2}{gpio\+\_\+direction} \{ {\bfseries G\+P\+I\+O\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+O\+FF}, 
+{\bfseries G\+P\+I\+O\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+IN}, 
+{\bfseries G\+P\+I\+O\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+O\+UT}
+ \}\begin{DoxyCompactList}\small\item\em P\+O\+RT direction settins. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}\label{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}} 
+enum \hyperlink{group___h_p_l_ga6d50d8c4b17ff573c07340d4d7965bc1}{gpio\+\_\+port} \{ \newline
+{\bfseries G\+P\+I\+O\+\_\+\+P\+O\+R\+TA}, 
+{\bfseries G\+P\+I\+O\+\_\+\+P\+O\+R\+TB}, 
+{\bfseries G\+P\+I\+O\+\_\+\+P\+O\+R\+TC}, 
+{\bfseries G\+P\+I\+O\+\_\+\+P\+O\+R\+TD}, 
+\newline
+{\bfseries G\+P\+I\+O\+\_\+\+P\+O\+R\+TE}
+ \}\begin{DoxyCompactList}\small\item\em P\+O\+RT group abstraction. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{Indent}\textbf{ H\+PL functions}\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group___h_p_l_ga6e226919d4a3ee84599b55a32597e284}{\+\_\+gpio\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Port initialization function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Detailed Description}
+Port related functionality declaration. 
+
+Copyright (C) 2014-\/2016 Atmel Corporation. All rights reserved.

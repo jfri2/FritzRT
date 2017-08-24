@@ -1,0 +1,85 @@
+\hypertarget{structusbdc__driver}{}\section{usbdc\+\_\+driver Struct Reference}
+\label{structusbdc__driver}\index{usbdc\+\_\+driver@{usbdc\+\_\+driver}}
+
+
+U\+SB Device Core Driver Structure.  
+
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structusbdc__descriptors}{usbdc\+\_\+descriptors} \hyperlink{structusbdc__driver_a5653047038bd63ea3973ab3a1e2bc717}{desces}
+\item 
+struct \hyperlink{structusbdc__handlers}{usbdc\+\_\+handlers} \hyperlink{structusbdc__driver_a3a41aee4eb86d314ff44148bd70a1036}{handlers}
+\item 
+struct \hyperlink{structlist__descriptor}{list\+\_\+descriptor} \hyperlink{structusbdc__driver_adb143c5cb6bdb90e3410757c9c12436c}{func\+\_\+list}
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{structusbdc__driver_a224c4c9aa86c207675941f108b43321d}{ctrl\+\_\+buf}
+\item 
+uint16\+\_\+t \hyperlink{structusbdc__driver_a790fe909a1ec4ce5c9d2df3659530c5b}{status}
+\item 
+uint8\+\_\+t \hyperlink{structusbdc__driver_a784023454ea918163bd42bb8ff9b418d}{state}
+\item 
+uint8\+\_\+t \hyperlink{structusbdc__driver_a6cf7b59432446c55e867512218e51bb9}{cfg\+\_\+value}
+\item 
+uint8\+\_\+t \hyperlink{structusbdc__driver_a494b887240ab0921fd157e0aba882864}{ctrl\+\_\+size}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+SB Device Core Driver Structure. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structusbdc__driver_a6cf7b59432446c55e867512218e51bb9}\label{structusbdc__driver_a6cf7b59432446c55e867512218e51bb9}} 
+\index{usbdc\+\_\+driver@{usbdc\+\_\+driver}!cfg\+\_\+value@{cfg\+\_\+value}}
+\index{cfg\+\_\+value@{cfg\+\_\+value}!usbdc\+\_\+driver@{usbdc\+\_\+driver}}
+\subsubsection{\texorpdfstring{cfg\+\_\+value}{cfg\_value}}
+{\footnotesize\ttfamily uint8\+\_\+t usbdc\+\_\+driver\+::cfg\+\_\+value}
+
+Configuration value. \mbox{\Hypertarget{structusbdc__driver_a224c4c9aa86c207675941f108b43321d}\label{structusbdc__driver_a224c4c9aa86c207675941f108b43321d}} 
+\index{usbdc\+\_\+driver@{usbdc\+\_\+driver}!ctrl\+\_\+buf@{ctrl\+\_\+buf}}
+\index{ctrl\+\_\+buf@{ctrl\+\_\+buf}!usbdc\+\_\+driver@{usbdc\+\_\+driver}}
+\subsubsection{\texorpdfstring{ctrl\+\_\+buf}{ctrl\_buf}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ usbdc\+\_\+driver\+::ctrl\+\_\+buf}
+
+Control buffer. \mbox{\Hypertarget{structusbdc__driver_a494b887240ab0921fd157e0aba882864}\label{structusbdc__driver_a494b887240ab0921fd157e0aba882864}} 
+\index{usbdc\+\_\+driver@{usbdc\+\_\+driver}!ctrl\+\_\+size@{ctrl\+\_\+size}}
+\index{ctrl\+\_\+size@{ctrl\+\_\+size}!usbdc\+\_\+driver@{usbdc\+\_\+driver}}
+\subsubsection{\texorpdfstring{ctrl\+\_\+size}{ctrl\_size}}
+{\footnotesize\ttfamily uint8\+\_\+t usbdc\+\_\+driver\+::ctrl\+\_\+size}
+
+Control endpoint size. \mbox{\Hypertarget{structusbdc__driver_a5653047038bd63ea3973ab3a1e2bc717}\label{structusbdc__driver_a5653047038bd63ea3973ab3a1e2bc717}} 
+\index{usbdc\+\_\+driver@{usbdc\+\_\+driver}!desces@{desces}}
+\index{desces@{desces}!usbdc\+\_\+driver@{usbdc\+\_\+driver}}
+\subsubsection{\texorpdfstring{desces}{desces}}
+{\footnotesize\ttfamily struct \hyperlink{structusbdc__descriptors}{usbdc\+\_\+descriptors} usbdc\+\_\+driver\+::desces}
+
+Pointer to descriptions of descriptors. \mbox{\Hypertarget{structusbdc__driver_adb143c5cb6bdb90e3410757c9c12436c}\label{structusbdc__driver_adb143c5cb6bdb90e3410757c9c12436c}} 
+\index{usbdc\+\_\+driver@{usbdc\+\_\+driver}!func\+\_\+list@{func\+\_\+list}}
+\index{func\+\_\+list@{func\+\_\+list}!usbdc\+\_\+driver@{usbdc\+\_\+driver}}
+\subsubsection{\texorpdfstring{func\+\_\+list}{func\_list}}
+{\footnotesize\ttfamily struct \hyperlink{structlist__descriptor}{list\+\_\+descriptor} usbdc\+\_\+driver\+::func\+\_\+list}
+
+list of function drivers. \mbox{\Hypertarget{structusbdc__driver_a3a41aee4eb86d314ff44148bd70a1036}\label{structusbdc__driver_a3a41aee4eb86d314ff44148bd70a1036}} 
+\index{usbdc\+\_\+driver@{usbdc\+\_\+driver}!handlers@{handlers}}
+\index{handlers@{handlers}!usbdc\+\_\+driver@{usbdc\+\_\+driver}}
+\subsubsection{\texorpdfstring{handlers}{handlers}}
+{\footnotesize\ttfamily struct \hyperlink{structusbdc__handlers}{usbdc\+\_\+handlers} usbdc\+\_\+driver\+::handlers}
+
+Callback handlers. \mbox{\Hypertarget{structusbdc__driver_a784023454ea918163bd42bb8ff9b418d}\label{structusbdc__driver_a784023454ea918163bd42bb8ff9b418d}} 
+\index{usbdc\+\_\+driver@{usbdc\+\_\+driver}!state@{state}}
+\index{state@{state}!usbdc\+\_\+driver@{usbdc\+\_\+driver}}
+\subsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily uint8\+\_\+t usbdc\+\_\+driver\+::state}
+
+Device state. \mbox{\Hypertarget{structusbdc__driver_a790fe909a1ec4ce5c9d2df3659530c5b}\label{structusbdc__driver_a790fe909a1ec4ce5c9d2df3659530c5b}} 
+\index{usbdc\+\_\+driver@{usbdc\+\_\+driver}!status@{status}}
+\index{status@{status}!usbdc\+\_\+driver@{usbdc\+\_\+driver}}
+\subsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily uint16\+\_\+t usbdc\+\_\+driver\+::status}
+
+Device status. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+usb/device/\hyperlink{usbdc_8c}{usbdc.\+c}\end{DoxyCompactItemize}

@@ -1,0 +1,52 @@
+\hypertarget{structusb__d__transfer}{}\section{usb\+\_\+d\+\_\+transfer Struct Reference}
+\label{structusb__d__transfer}\index{usb\+\_\+d\+\_\+transfer@{usb\+\_\+d\+\_\+transfer}}
+
+
+{\ttfamily \#include $<$hpl\+\_\+usb\+\_\+device.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{structusb__d__transfer_a979de0737e5f05d36cdfb7d7327be5c7}{buf}
+\item 
+uint32\+\_\+t \hyperlink{structusb__d__transfer_ac7676f6907606ecd6eba03d6b0e2b915}{size}
+\item 
+uint8\+\_\+t \hyperlink{structusb__d__transfer_ad53893b4d9d4e69ed95640f8968469b3}{ep}
+\item 
+uint8\+\_\+t \hyperlink{structusb__d__transfer_aa81844ece1f714100179ae8ff16d0f44}{zlp}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+SB device transfer descriptor. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structusb__d__transfer_a979de0737e5f05d36cdfb7d7327be5c7}\label{structusb__d__transfer_a979de0737e5f05d36cdfb7d7327be5c7}} 
+\index{usb\+\_\+d\+\_\+transfer@{usb\+\_\+d\+\_\+transfer}!buf@{buf}}
+\index{buf@{buf}!usb\+\_\+d\+\_\+transfer@{usb\+\_\+d\+\_\+transfer}}
+\subsubsection{\texorpdfstring{buf}{buf}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ usb\+\_\+d\+\_\+transfer\+::buf}
+
+Pointer to data buffer to transfer. Note that it\textquotesingle{}s recommended that the buffer is 32-\/bit aligned since some of U\+SB peripheral require this. \mbox{\Hypertarget{structusb__d__transfer_ad53893b4d9d4e69ed95640f8968469b3}\label{structusb__d__transfer_ad53893b4d9d4e69ed95640f8968469b3}} 
+\index{usb\+\_\+d\+\_\+transfer@{usb\+\_\+d\+\_\+transfer}!ep@{ep}}
+\index{ep@{ep}!usb\+\_\+d\+\_\+transfer@{usb\+\_\+d\+\_\+transfer}}
+\subsubsection{\texorpdfstring{ep}{ep}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+d\+\_\+transfer\+::ep}
+
+Endpoint address. \mbox{\Hypertarget{structusb__d__transfer_ac7676f6907606ecd6eba03d6b0e2b915}\label{structusb__d__transfer_ac7676f6907606ecd6eba03d6b0e2b915}} 
+\index{usb\+\_\+d\+\_\+transfer@{usb\+\_\+d\+\_\+transfer}!size@{size}}
+\index{size@{size}!usb\+\_\+d\+\_\+transfer@{usb\+\_\+d\+\_\+transfer}}
+\subsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily uint32\+\_\+t usb\+\_\+d\+\_\+transfer\+::size}
+
+Transfer size, in number of bytes. Note that it\textquotesingle{}s recommended that the buffer size is 32-\/bit aligned (modeled by 4) since some of U\+SB peripheral require this. \mbox{\Hypertarget{structusb__d__transfer_aa81844ece1f714100179ae8ff16d0f44}\label{structusb__d__transfer_aa81844ece1f714100179ae8ff16d0f44}} 
+\index{usb\+\_\+d\+\_\+transfer@{usb\+\_\+d\+\_\+transfer}!zlp@{zlp}}
+\index{zlp@{zlp}!usb\+\_\+d\+\_\+transfer@{usb\+\_\+d\+\_\+transfer}}
+\subsubsection{\texorpdfstring{zlp}{zlp}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+d\+\_\+transfer\+::zlp}
+
+Append Z\+LP for IN transfer, wait Z\+LP for O\+UT transfer. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+hal/include/\hyperlink{hpl__usb__device_8h}{hpl\+\_\+usb\+\_\+device.\+h}\end{DoxyCompactItemize}

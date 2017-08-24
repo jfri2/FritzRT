@@ -1,0 +1,177 @@
+\hypertarget{structusb__h__pipe}{}\section{usb\+\_\+h\+\_\+pipe Struct Reference}
+\label{structusb__h__pipe}\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+
+
+U\+SB Host Controller Driver Pipe structure.  
+
+
+
+
+{\ttfamily \#include $<$hpl\+\_\+usb\+\_\+host.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc} $\ast$ \hyperlink{structusb__h__pipe_ae2698ff783b82589f6cc5893d5662571}{hcd}
+\item 
+\hyperlink{hpl__usb__host_8h_a8797518a47a3477b6a65ed5358155078}{usb\+\_\+h\+\_\+pipe\+\_\+cb\+\_\+xfer\+\_\+t} \hyperlink{structusb__h__pipe_a42317c503317014d61b8773209f18ce7}{done}
+\item 
+uint16\+\_\+t \hyperlink{structusb__h__pipe_a4a9d0e10320b2a563bab23458798f4d8}{max\+\_\+pkt\+\_\+size}
+\item 
+uint8\+\_\+t \hyperlink{structusb__h__pipe_aabe6cb3a96961c2b5850a73c5bdfa8ca}{dev}
+\item 
+uint8\+\_\+t \hyperlink{structusb__h__pipe_a8b1b35e1b666e50e1f161fe9666083a6}{ep}
+\item 
+uint8\+\_\+t \hyperlink{structusb__h__pipe_a528fc668d035d4ed28dbce1ef6ac6d9d}{interval}
+\item 
+uint8\+\_\+t \hyperlink{structusb__h__pipe_a78c1a9f6df30f3e05576a16634d5d5c4}{type}
+\item 
+uint8\+\_\+t \hyperlink{structusb__h__pipe_a9b4ba000ae376cb0bf4636265b138023}{toggle}
+\item 
+uint8\+\_\+t \hyperlink{structusb__h__pipe_aa3815a946554f8bc314ed46f357cd847}{bank}\+: 2
+\item 
+uint8\+\_\+t \hyperlink{structusb__h__pipe_a02485226127cabe3dc5934ce660296cf}{speed}\+: 2
+\item 
+uint8\+\_\+t \hyperlink{structusb__h__pipe_ac6a51e6c8ab9685d75d3dff40d98f789}{high\+\_\+bw\+\_\+out}\+: 1
+\item 
+uint8\+\_\+t \hyperlink{structusb__h__pipe_aea4a85a3cbdcd530de56537deeabb243}{dma}\+: 1
+\item 
+uint8\+\_\+t \hyperlink{structusb__h__pipe_a777c0bcdb187e73738c23213edf27c66}{zlp}\+: 1
+\item 
+uint8\+\_\+t \hyperlink{structusb__h__pipe_abce16a1866fc0641461a6710e51187f7}{periodic\+\_\+start}\+: 1
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \hyperlink{structusb__h__xfer}{usb\_h\_xfer} \hyperlink{structusb__h__pipe_a0ac1e887b5231aa8fd1495b626c182df}{general}\\
+\>struct \hyperlink{structusb__h__ctrl__xfer}{usb\_h\_ctrl\_xfer} \hyperlink{structusb__h__pipe_abd949448cab8f10054ebcb0f1dedfaf4}{ctrl}\\
+\>struct \hyperlink{structusb__h__bulk__int__iso__xfer}{usb\_h\_bulk\_int\_iso\_xfer} \hyperlink{structusb__h__pipe_a72de42f88c82a688e01b014ff9700efc}{bii}\\
+\>struct \hyperlink{structusb__h__high__bw__xfer}{usb\_h\_high\_bw\_xfer} \hyperlink{structusb__h__pipe_aa71caaedd4bf6bdffd8a23f88a4c7198}{hbw}\\
+\} \hyperlink{structusb__h__pipe_ae3ce2d3ae00e7abc79ef4d44ff3c4c8a}{x}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+SB Host Controller Driver Pipe structure. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structusb__h__pipe_aa3815a946554f8bc314ed46f357cd847}\label{structusb__h__pipe_aa3815a946554f8bc314ed46f357cd847}} 
+\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}!bank@{bank}}
+\index{bank@{bank}!usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+\subsubsection{\texorpdfstring{bank}{bank}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+h\+\_\+pipe\+::bank}
+
+Endpoint number of banks (HW dependent) \mbox{\Hypertarget{structusb__h__pipe_a72de42f88c82a688e01b014ff9700efc}\label{structusb__h__pipe_a72de42f88c82a688e01b014ff9700efc}} 
+\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}!bii@{bii}}
+\index{bii@{bii}!usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+\subsubsection{\texorpdfstring{bii}{bii}}
+{\footnotesize\ttfamily struct \hyperlink{structusb__h__bulk__int__iso__xfer}{usb\+\_\+h\+\_\+bulk\+\_\+int\+\_\+iso\+\_\+xfer} usb\+\_\+h\+\_\+pipe\+::bii}
+
+Bulk interrupt iso transfer status \mbox{\Hypertarget{structusb__h__pipe_abd949448cab8f10054ebcb0f1dedfaf4}\label{structusb__h__pipe_abd949448cab8f10054ebcb0f1dedfaf4}} 
+\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}!ctrl@{ctrl}}
+\index{ctrl@{ctrl}!usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+\subsubsection{\texorpdfstring{ctrl}{ctrl}}
+{\footnotesize\ttfamily struct \hyperlink{structusb__h__ctrl__xfer}{usb\+\_\+h\+\_\+ctrl\+\_\+xfer} usb\+\_\+h\+\_\+pipe\+::ctrl}
+
+Control transfer status \mbox{\Hypertarget{structusb__h__pipe_aabe6cb3a96961c2b5850a73c5bdfa8ca}\label{structusb__h__pipe_aabe6cb3a96961c2b5850a73c5bdfa8ca}} 
+\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}!dev@{dev}}
+\index{dev@{dev}!usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+\subsubsection{\texorpdfstring{dev}{dev}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+h\+\_\+pipe\+::dev}
+
+Device address \mbox{\Hypertarget{structusb__h__pipe_aea4a85a3cbdcd530de56537deeabb243}\label{structusb__h__pipe_aea4a85a3cbdcd530de56537deeabb243}} 
+\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}!dma@{dma}}
+\index{dma@{dma}!usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+\subsubsection{\texorpdfstring{dma}{dma}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+h\+\_\+pipe\+::dma}
+
+Uses D\+MA (on transfer) \mbox{\Hypertarget{structusb__h__pipe_a42317c503317014d61b8773209f18ce7}\label{structusb__h__pipe_a42317c503317014d61b8773209f18ce7}} 
+\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}!done@{done}}
+\index{done@{done}!usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+\subsubsection{\texorpdfstring{done}{done}}
+{\footnotesize\ttfamily \hyperlink{hpl__usb__host_8h_a8797518a47a3477b6a65ed5358155078}{usb\+\_\+h\+\_\+pipe\+\_\+cb\+\_\+xfer\+\_\+t} usb\+\_\+h\+\_\+pipe\+::done}
+
+Pointer to the callback for transfer done \mbox{\Hypertarget{structusb__h__pipe_a8b1b35e1b666e50e1f161fe9666083a6}\label{structusb__h__pipe_a8b1b35e1b666e50e1f161fe9666083a6}} 
+\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}!ep@{ep}}
+\index{ep@{ep}!usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+\subsubsection{\texorpdfstring{ep}{ep}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+h\+\_\+pipe\+::ep}
+
+Endpoint address \mbox{\Hypertarget{structusb__h__pipe_a0ac1e887b5231aa8fd1495b626c182df}\label{structusb__h__pipe_a0ac1e887b5231aa8fd1495b626c182df}} 
+\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}!general@{general}}
+\index{general@{general}!usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+\subsubsection{\texorpdfstring{general}{general}}
+{\footnotesize\ttfamily struct \hyperlink{structusb__h__xfer}{usb\+\_\+h\+\_\+xfer} usb\+\_\+h\+\_\+pipe\+::general}
+
+General transfer info \mbox{\Hypertarget{structusb__h__pipe_aa71caaedd4bf6bdffd8a23f88a4c7198}\label{structusb__h__pipe_aa71caaedd4bf6bdffd8a23f88a4c7198}} 
+\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}!hbw@{hbw}}
+\index{hbw@{hbw}!usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+\subsubsection{\texorpdfstring{hbw}{hbw}}
+{\footnotesize\ttfamily struct \hyperlink{structusb__h__high__bw__xfer}{usb\+\_\+h\+\_\+high\+\_\+bw\+\_\+xfer} usb\+\_\+h\+\_\+pipe\+::hbw}
+
+Periodic high bandwidth transfer status \mbox{\Hypertarget{structusb__h__pipe_ae2698ff783b82589f6cc5893d5662571}\label{structusb__h__pipe_ae2698ff783b82589f6cc5893d5662571}} 
+\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}!hcd@{hcd}}
+\index{hcd@{hcd}!usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+\subsubsection{\texorpdfstring{hcd}{hcd}}
+{\footnotesize\ttfamily struct \hyperlink{structusb__h__desc}{usb\+\_\+h\+\_\+desc}$\ast$ usb\+\_\+h\+\_\+pipe\+::hcd}
+
+Pointer to the U\+SB Host Controller Driver \mbox{\Hypertarget{structusb__h__pipe_ac6a51e6c8ab9685d75d3dff40d98f789}\label{structusb__h__pipe_ac6a51e6c8ab9685d75d3dff40d98f789}} 
+\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}!high\+\_\+bw\+\_\+out@{high\+\_\+bw\+\_\+out}}
+\index{high\+\_\+bw\+\_\+out@{high\+\_\+bw\+\_\+out}!usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+\subsubsection{\texorpdfstring{high\+\_\+bw\+\_\+out}{high\_bw\_out}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+h\+\_\+pipe\+::high\+\_\+bw\+\_\+out}
+
+High bandwidth periodic out \mbox{\Hypertarget{structusb__h__pipe_a528fc668d035d4ed28dbce1ef6ac6d9d}\label{structusb__h__pipe_a528fc668d035d4ed28dbce1ef6ac6d9d}} 
+\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}!interval@{interval}}
+\index{interval@{interval}!usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+\subsubsection{\texorpdfstring{interval}{interval}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+h\+\_\+pipe\+::interval}
+
+Endpoint interval \mbox{\Hypertarget{structusb__h__pipe_a4a9d0e10320b2a563bab23458798f4d8}\label{structusb__h__pipe_a4a9d0e10320b2a563bab23458798f4d8}} 
+\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}!max\+\_\+pkt\+\_\+size@{max\+\_\+pkt\+\_\+size}}
+\index{max\+\_\+pkt\+\_\+size@{max\+\_\+pkt\+\_\+size}!usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+\subsubsection{\texorpdfstring{max\+\_\+pkt\+\_\+size}{max\_pkt\_size}}
+{\footnotesize\ttfamily uint16\+\_\+t usb\+\_\+h\+\_\+pipe\+::max\+\_\+pkt\+\_\+size}
+
+Endpoint max packet size (bits 10..0) \mbox{\Hypertarget{structusb__h__pipe_abce16a1866fc0641461a6710e51187f7}\label{structusb__h__pipe_abce16a1866fc0641461a6710e51187f7}} 
+\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}!periodic\+\_\+start@{periodic\+\_\+start}}
+\index{periodic\+\_\+start@{periodic\+\_\+start}!usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+\subsubsection{\texorpdfstring{periodic\+\_\+start}{periodic\_start}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+h\+\_\+pipe\+::periodic\+\_\+start}
+
+Transfer periodic \mbox{\Hypertarget{structusb__h__pipe_a02485226127cabe3dc5934ce660296cf}\label{structusb__h__pipe_a02485226127cabe3dc5934ce660296cf}} 
+\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}!speed@{speed}}
+\index{speed@{speed}!usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+\subsubsection{\texorpdfstring{speed}{speed}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+h\+\_\+pipe\+::speed}
+
+Transfer speed (HW dependent) \mbox{\Hypertarget{structusb__h__pipe_a9b4ba000ae376cb0bf4636265b138023}\label{structusb__h__pipe_a9b4ba000ae376cb0bf4636265b138023}} 
+\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}!toggle@{toggle}}
+\index{toggle@{toggle}!usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+\subsubsection{\texorpdfstring{toggle}{toggle}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+h\+\_\+pipe\+::toggle}
+
+Current toggle (driver dependent) \mbox{\Hypertarget{structusb__h__pipe_a78c1a9f6df30f3e05576a16634d5d5c4}\label{structusb__h__pipe_a78c1a9f6df30f3e05576a16634d5d5c4}} 
+\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}!type@{type}}
+\index{type@{type}!usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+\subsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+h\+\_\+pipe\+::type}
+
+Endpoint type\+: Control, Isochronous, Bulk or Interrupt \mbox{\Hypertarget{structusb__h__pipe_ae3ce2d3ae00e7abc79ef4d44ff3c4c8a}\label{structusb__h__pipe_ae3ce2d3ae00e7abc79ef4d44ff3c4c8a}} 
+\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}!x@{x}}
+\index{x@{x}!usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+\subsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily union \{ ... \}   usb\+\_\+h\+\_\+pipe\+::x}
+
+Transfer status \mbox{\Hypertarget{structusb__h__pipe_a777c0bcdb187e73738c23213edf27c66}\label{structusb__h__pipe_a777c0bcdb187e73738c23213edf27c66}} 
+\index{usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}!zlp@{zlp}}
+\index{zlp@{zlp}!usb\+\_\+h\+\_\+pipe@{usb\+\_\+h\+\_\+pipe}}
+\subsubsection{\texorpdfstring{zlp}{zlp}}
+{\footnotesize\ttfamily uint8\+\_\+t usb\+\_\+h\+\_\+pipe\+::zlp}
+
+Transfer Z\+LP support 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+hal/include/\hyperlink{hpl__usb__host_8h}{hpl\+\_\+usb\+\_\+host.\+h}\end{DoxyCompactItemize}

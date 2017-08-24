@@ -1,0 +1,219 @@
+\hypertarget{usb__includes_8h}{}\section{usb/usb\+\_\+includes.h File Reference}
+\label{usb__includes_8h}\index{usb/usb\+\_\+includes.\+h@{usb/usb\+\_\+includes.\+h}}
+
+
+U\+SB Include Header Files.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$utils.\+h$>$}\newline
+{\ttfamily \#include $<$utils\+\_\+list.\+h$>$}\newline
+{\ttfamily \#include $<$utils\+\_\+assert.\+h$>$}\newline
+{\ttfamily \#include $<$hal\+\_\+atomic.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{usb__includes_8h_a15892ad6884af110e5eaaa96994ebaa9}\label{usb__includes_8h_a15892ad6884af110e5eaaa96994ebaa9}} 
+\#define {\bfseries is\+\_\+constant}(exp)~(0)
+\item 
+\#define \hyperlink{usb__includes_8h_a2da1e076bf94088ab2046b55ed2c643f}{swap\+\_\+u16}(u16)~((uint16\+\_\+t)(((uint16\+\_\+t)(u16) $>$$>$ 8) $\vert$ ((uint16\+\_\+t)(u16) $<$$<$ 8)))
+\begin{DoxyCompactList}\small\item\em Toggles the endianism of {\itshape u16} (by swapping its bytes). \end{DoxyCompactList}\item 
+\#define \hyperlink{usb__includes_8h_a5a2317cc771c2de464efbd1620d0c910}{swap\+\_\+u32}(u32)~((uint32\+\_\+t)(((uint32\+\_\+t)\hyperlink{usb__includes_8h_a2da1e076bf94088ab2046b55ed2c643f}{swap\+\_\+u16}((uint32\+\_\+t)(u32) $>$$>$ 16)) $\vert$ ((uint32\+\_\+t)\hyperlink{usb__includes_8h_a2da1e076bf94088ab2046b55ed2c643f}{swap\+\_\+u16}((uint32\+\_\+t)(u32)) $<$$<$ 16)))
+\begin{DoxyCompactList}\small\item\em Toggles the endianism of {\itshape u32} (by swapping its bytes). \end{DoxyCompactList}\item 
+\#define \hyperlink{usb__includes_8h_a54d648861a1120a3f8d6255e9cf54125}{L\+E16}(x)~(x)
+\item 
+\#define \hyperlink{usb__includes_8h_a4f24e3d1dc0a8bf7ad7a60553d13daa7}{L\+E32}(x)~(x)
+\item 
+\#define \hyperlink{usb__includes_8h_a34c0ccbaef341c224a18eb4dcaf44407}{B\+E16}(x)~\hyperlink{usb__includes_8h_a2da1e076bf94088ab2046b55ed2c643f}{swap\+\_\+u16}(x)
+\item 
+\#define \hyperlink{usb__includes_8h_ae88eb35e4ef96c0c0f59871c8fce75b8}{B\+E32}(x)~\hyperlink{usb__includes_8h_a5a2317cc771c2de464efbd1620d0c910}{swap\+\_\+u32}(x)
+\item 
+\#define \hyperlink{usb__includes_8h_ad99b7841460907c6181215cb0f926f6f}{B\+E16\+B0}(a)~((uint8\+\_\+t)((a) $>$$>$ 8))
+\item 
+\#define \hyperlink{usb__includes_8h_a7d8a7b89a8fbd2b6f4f7002aea7267ca}{B\+E16\+B1}(a)~((uint8\+\_\+t)((a) $>$$>$ 0))
+\item 
+\#define \hyperlink{usb__includes_8h_afebdb7d5277957426df5f705b7cdd442}{B\+E32\+B0}(a)~((uint8\+\_\+t)((a) $>$$>$ 24))
+\item 
+\#define \hyperlink{usb__includes_8h_acd038e970f6a762d49721143aaf63b26}{B\+E32\+B1}(a)~((uint8\+\_\+t)((a) $>$$>$ 16))
+\item 
+\#define \hyperlink{usb__includes_8h_aef587a7764e9762524e110945001eba5}{B\+E32\+B2}(a)~((uint8\+\_\+t)((a) $>$$>$ 8))
+\item 
+\#define \hyperlink{usb__includes_8h_aa54a272beffd86393a70d14cc0b0bfeb}{B\+E32\+B3}(a)~((uint8\+\_\+t)((a) $>$$>$ 0))
+\item 
+\#define \hyperlink{usb__includes_8h_a1a9ad5b904ef3e18d7b07517b452aa7f}{L\+E16\+B0}(a)~((uint8\+\_\+t)((a) $>$$>$ 0))
+\item 
+\#define \hyperlink{usb__includes_8h_a26eafc8b9fd7eb986e6609c3133a64ee}{L\+E16\+B1}(a)~((uint8\+\_\+t)((a) $>$$>$ 8))
+\item 
+\#define \hyperlink{usb__includes_8h_a83b1b91b99aa153ce7383e55b442c377}{L\+E32\+B0}(a)~((uint8\+\_\+t)((a) $>$$>$ 0))
+\item 
+\#define \hyperlink{usb__includes_8h_ad1742f2f8aa9ff24e46fa95b1853e3ef}{L\+E32\+B1}(a)~((uint8\+\_\+t)((a) $>$$>$ 8))
+\item 
+\#define \hyperlink{usb__includes_8h_ac765bc2829a1bbc8ba27ffd0556585a4}{L\+E32\+B2}(a)~((uint8\+\_\+t)((a) $>$$>$ 16))
+\item 
+\#define \hyperlink{usb__includes_8h_a2151e692182034ca704f6245ce842443}{L\+E32\+B3}(a)~((uint8\+\_\+t)((a) $>$$>$ 24))
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{usb__includes_8h_adb35b8c1c002c23dcc87bdd8f520dd5f}\label{usb__includes_8h_adb35b8c1c002c23dcc87bdd8f520dd5f}} 
+typedef uint16\+\_\+t {\bfseries le16\+\_\+t}
+\item 
+\mbox{\Hypertarget{usb__includes_8h_a14351c68ce47837d05ce857cfff07c92}\label{usb__includes_8h_a14351c68ce47837d05ce857cfff07c92}} 
+typedef uint32\+\_\+t {\bfseries le32\+\_\+t}
+\item 
+\mbox{\Hypertarget{usb__includes_8h_adafc3ed99e530f27d0d954334c389748}\label{usb__includes_8h_adafc3ed99e530f27d0d954334c389748}} 
+typedef uint16\+\_\+t {\bfseries be16\+\_\+t}
+\item 
+\mbox{\Hypertarget{usb__includes_8h_a3410b85f2a5afdf8b35f5c7c3414fe2d}\label{usb__includes_8h_a3410b85f2a5afdf8b35f5c7c3414fe2d}} 
+typedef uint32\+\_\+t {\bfseries be32\+\_\+t}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+SB Include Header Files. 
+
+This file contains the U\+SB definitions and data structures provided by the U\+SB 2.\+0 specification.
+
+Copyright (C) 2015 -\/ 2017 Atmel Corporation. All rights reserved. 
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{usb__includes_8h_a34c0ccbaef341c224a18eb4dcaf44407}\label{usb__includes_8h_a34c0ccbaef341c224a18eb4dcaf44407}} 
+\index{usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}!B\+E16@{B\+E16}}
+\index{B\+E16@{B\+E16}!usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}}
+\subsubsection{\texorpdfstring{B\+E16}{BE16}}
+{\footnotesize\ttfamily \#define B\+E16(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\hyperlink{usb__includes_8h_a2da1e076bf94088ab2046b55ed2c643f}{swap\+\_\+u16}(x)}
+
+Get a value from/to B\+E16 data \mbox{\Hypertarget{usb__includes_8h_ad99b7841460907c6181215cb0f926f6f}\label{usb__includes_8h_ad99b7841460907c6181215cb0f926f6f}} 
+\index{usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}!B\+E16\+B0@{B\+E16\+B0}}
+\index{B\+E16\+B0@{B\+E16\+B0}!usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}}
+\subsubsection{\texorpdfstring{B\+E16\+B0}{BE16B0}}
+{\footnotesize\ttfamily \#define B\+E16\+B0(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~((uint8\+\_\+t)((a) $>$$>$ 8))}
+
+Get byte 0 for BE 16-\/bit value \mbox{\Hypertarget{usb__includes_8h_a7d8a7b89a8fbd2b6f4f7002aea7267ca}\label{usb__includes_8h_a7d8a7b89a8fbd2b6f4f7002aea7267ca}} 
+\index{usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}!B\+E16\+B1@{B\+E16\+B1}}
+\index{B\+E16\+B1@{B\+E16\+B1}!usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}}
+\subsubsection{\texorpdfstring{B\+E16\+B1}{BE16B1}}
+{\footnotesize\ttfamily \#define B\+E16\+B1(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~((uint8\+\_\+t)((a) $>$$>$ 0))}
+
+Get byte 1 for BE 16-\/bit value \mbox{\Hypertarget{usb__includes_8h_ae88eb35e4ef96c0c0f59871c8fce75b8}\label{usb__includes_8h_ae88eb35e4ef96c0c0f59871c8fce75b8}} 
+\index{usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}!B\+E32@{B\+E32}}
+\index{B\+E32@{B\+E32}!usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}}
+\subsubsection{\texorpdfstring{B\+E32}{BE32}}
+{\footnotesize\ttfamily \#define B\+E32(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\hyperlink{usb__includes_8h_a5a2317cc771c2de464efbd1620d0c910}{swap\+\_\+u32}(x)}
+
+Get a value from/to B\+E32 data \mbox{\Hypertarget{usb__includes_8h_afebdb7d5277957426df5f705b7cdd442}\label{usb__includes_8h_afebdb7d5277957426df5f705b7cdd442}} 
+\index{usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}!B\+E32\+B0@{B\+E32\+B0}}
+\index{B\+E32\+B0@{B\+E32\+B0}!usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}}
+\subsubsection{\texorpdfstring{B\+E32\+B0}{BE32B0}}
+{\footnotesize\ttfamily \#define B\+E32\+B0(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~((uint8\+\_\+t)((a) $>$$>$ 24))}
+
+Get byte 0 for BE 32-\/bit value \mbox{\Hypertarget{usb__includes_8h_acd038e970f6a762d49721143aaf63b26}\label{usb__includes_8h_acd038e970f6a762d49721143aaf63b26}} 
+\index{usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}!B\+E32\+B1@{B\+E32\+B1}}
+\index{B\+E32\+B1@{B\+E32\+B1}!usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}}
+\subsubsection{\texorpdfstring{B\+E32\+B1}{BE32B1}}
+{\footnotesize\ttfamily \#define B\+E32\+B1(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~((uint8\+\_\+t)((a) $>$$>$ 16))}
+
+Get byte 1 for BE 32-\/bit value \mbox{\Hypertarget{usb__includes_8h_aef587a7764e9762524e110945001eba5}\label{usb__includes_8h_aef587a7764e9762524e110945001eba5}} 
+\index{usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}!B\+E32\+B2@{B\+E32\+B2}}
+\index{B\+E32\+B2@{B\+E32\+B2}!usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}}
+\subsubsection{\texorpdfstring{B\+E32\+B2}{BE32B2}}
+{\footnotesize\ttfamily \#define B\+E32\+B2(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~((uint8\+\_\+t)((a) $>$$>$ 8))}
+
+Get byte 2 for BE 32-\/bit value \mbox{\Hypertarget{usb__includes_8h_aa54a272beffd86393a70d14cc0b0bfeb}\label{usb__includes_8h_aa54a272beffd86393a70d14cc0b0bfeb}} 
+\index{usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}!B\+E32\+B3@{B\+E32\+B3}}
+\index{B\+E32\+B3@{B\+E32\+B3}!usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}}
+\subsubsection{\texorpdfstring{B\+E32\+B3}{BE32B3}}
+{\footnotesize\ttfamily \#define B\+E32\+B3(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~((uint8\+\_\+t)((a) $>$$>$ 0))}
+
+Get byte 3 for BE 32-\/bit value \mbox{\Hypertarget{usb__includes_8h_a54d648861a1120a3f8d6255e9cf54125}\label{usb__includes_8h_a54d648861a1120a3f8d6255e9cf54125}} 
+\index{usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}!L\+E16@{L\+E16}}
+\index{L\+E16@{L\+E16}!usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}}
+\subsubsection{\texorpdfstring{L\+E16}{LE16}}
+{\footnotesize\ttfamily \#define L\+E16(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(x)}
+
+Get a value from/to L\+E16 data \mbox{\Hypertarget{usb__includes_8h_a1a9ad5b904ef3e18d7b07517b452aa7f}\label{usb__includes_8h_a1a9ad5b904ef3e18d7b07517b452aa7f}} 
+\index{usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}!L\+E16\+B0@{L\+E16\+B0}}
+\index{L\+E16\+B0@{L\+E16\+B0}!usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}}
+\subsubsection{\texorpdfstring{L\+E16\+B0}{LE16B0}}
+{\footnotesize\ttfamily \#define L\+E16\+B0(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~((uint8\+\_\+t)((a) $>$$>$ 0))}
+
+Get byte 0 for LE 16-\/bit value \mbox{\Hypertarget{usb__includes_8h_a26eafc8b9fd7eb986e6609c3133a64ee}\label{usb__includes_8h_a26eafc8b9fd7eb986e6609c3133a64ee}} 
+\index{usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}!L\+E16\+B1@{L\+E16\+B1}}
+\index{L\+E16\+B1@{L\+E16\+B1}!usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}}
+\subsubsection{\texorpdfstring{L\+E16\+B1}{LE16B1}}
+{\footnotesize\ttfamily \#define L\+E16\+B1(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~((uint8\+\_\+t)((a) $>$$>$ 8))}
+
+Get byte 1 for LE 16-\/bit value \mbox{\Hypertarget{usb__includes_8h_a4f24e3d1dc0a8bf7ad7a60553d13daa7}\label{usb__includes_8h_a4f24e3d1dc0a8bf7ad7a60553d13daa7}} 
+\index{usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}!L\+E32@{L\+E32}}
+\index{L\+E32@{L\+E32}!usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}}
+\subsubsection{\texorpdfstring{L\+E32}{LE32}}
+{\footnotesize\ttfamily \#define L\+E32(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(x)}
+
+Get a value from/to L\+E32 data \mbox{\Hypertarget{usb__includes_8h_a83b1b91b99aa153ce7383e55b442c377}\label{usb__includes_8h_a83b1b91b99aa153ce7383e55b442c377}} 
+\index{usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}!L\+E32\+B0@{L\+E32\+B0}}
+\index{L\+E32\+B0@{L\+E32\+B0}!usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}}
+\subsubsection{\texorpdfstring{L\+E32\+B0}{LE32B0}}
+{\footnotesize\ttfamily \#define L\+E32\+B0(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~((uint8\+\_\+t)((a) $>$$>$ 0))}
+
+Get byte 0 for LE 32-\/bit value \mbox{\Hypertarget{usb__includes_8h_ad1742f2f8aa9ff24e46fa95b1853e3ef}\label{usb__includes_8h_ad1742f2f8aa9ff24e46fa95b1853e3ef}} 
+\index{usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}!L\+E32\+B1@{L\+E32\+B1}}
+\index{L\+E32\+B1@{L\+E32\+B1}!usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}}
+\subsubsection{\texorpdfstring{L\+E32\+B1}{LE32B1}}
+{\footnotesize\ttfamily \#define L\+E32\+B1(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~((uint8\+\_\+t)((a) $>$$>$ 8))}
+
+Get byte 1 for LE 32-\/bit value \mbox{\Hypertarget{usb__includes_8h_ac765bc2829a1bbc8ba27ffd0556585a4}\label{usb__includes_8h_ac765bc2829a1bbc8ba27ffd0556585a4}} 
+\index{usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}!L\+E32\+B2@{L\+E32\+B2}}
+\index{L\+E32\+B2@{L\+E32\+B2}!usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}}
+\subsubsection{\texorpdfstring{L\+E32\+B2}{LE32B2}}
+{\footnotesize\ttfamily \#define L\+E32\+B2(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~((uint8\+\_\+t)((a) $>$$>$ 16))}
+
+Get byte 2 for LE 32-\/bit value \mbox{\Hypertarget{usb__includes_8h_a2151e692182034ca704f6245ce842443}\label{usb__includes_8h_a2151e692182034ca704f6245ce842443}} 
+\index{usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}!L\+E32\+B3@{L\+E32\+B3}}
+\index{L\+E32\+B3@{L\+E32\+B3}!usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}}
+\subsubsection{\texorpdfstring{L\+E32\+B3}{LE32B3}}
+{\footnotesize\ttfamily \#define L\+E32\+B3(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~((uint8\+\_\+t)((a) $>$$>$ 24))}
+
+Get byte 3 for LE 32-\/bit value \mbox{\Hypertarget{usb__includes_8h_a2da1e076bf94088ab2046b55ed2c643f}\label{usb__includes_8h_a2da1e076bf94088ab2046b55ed2c643f}} 
+\index{usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}!swap\+\_\+u16@{swap\+\_\+u16}}
+\index{swap\+\_\+u16@{swap\+\_\+u16}!usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}}
+\subsubsection{\texorpdfstring{swap\+\_\+u16}{swap\_u16}}
+{\footnotesize\ttfamily \#define swap\+\_\+u16(\begin{DoxyParamCaption}\item[{}]{u16 }\end{DoxyParamCaption})~((uint16\+\_\+t)(((uint16\+\_\+t)(u16) $>$$>$ 8) $\vert$ ((uint16\+\_\+t)(u16) $<$$<$ 8)))}
+
+
+
+Toggles the endianism of {\itshape u16} (by swapping its bytes). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u16} & U16 of which to toggle the endianism.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value resulting from {\itshape u16} with toggled endianism.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+More optimized if only used with values known at compile time. 
+\end{DoxyNote}
+\mbox{\Hypertarget{usb__includes_8h_a5a2317cc771c2de464efbd1620d0c910}\label{usb__includes_8h_a5a2317cc771c2de464efbd1620d0c910}} 
+\index{usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}!swap\+\_\+u32@{swap\+\_\+u32}}
+\index{swap\+\_\+u32@{swap\+\_\+u32}!usb\+\_\+includes.\+h@{usb\+\_\+includes.\+h}}
+\subsubsection{\texorpdfstring{swap\+\_\+u32}{swap\_u32}}
+{\footnotesize\ttfamily \#define swap\+\_\+u32(\begin{DoxyParamCaption}\item[{}]{u32 }\end{DoxyParamCaption})~((uint32\+\_\+t)(((uint32\+\_\+t)\hyperlink{usb__includes_8h_a2da1e076bf94088ab2046b55ed2c643f}{swap\+\_\+u16}((uint32\+\_\+t)(u32) $>$$>$ 16)) $\vert$ ((uint32\+\_\+t)\hyperlink{usb__includes_8h_a2da1e076bf94088ab2046b55ed2c643f}{swap\+\_\+u16}((uint32\+\_\+t)(u32)) $<$$<$ 16)))}
+
+
+
+Toggles the endianism of {\itshape u32} (by swapping its bytes). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u32} & U32 of which to toggle the endianism.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value resulting from {\itshape u32} with toggled endianism.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+More optimized if only used with values known at compile time. 
+\end{DoxyNote}

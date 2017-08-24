@@ -1,0 +1,372 @@
+\hypertarget{usb__protocol_8h}{}\section{usb/usb\+\_\+protocol.h File Reference}
+\label{usb__protocol_8h}\index{usb/usb\+\_\+protocol.\+h@{usb/usb\+\_\+protocol.\+h}}
+
+
+U\+SB protocol definitions.  
+
+
+{\ttfamily \#include \char`\"{}usb\+\_\+includes.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structusb__req}{usb\+\_\+req}
+\begin{DoxyCompactList}\small\item\em A U\+SB Device S\+E\+T\+UP request. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__dev__desc}{usb\+\_\+dev\+\_\+desc}
+\begin{DoxyCompactList}\small\item\em Standard U\+SB device descriptor structure. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__bos__desc}{usb\+\_\+bos\+\_\+desc}
+\begin{DoxyCompactList}\small\item\em Binary device Object Store (B\+OS) descriptor structure. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__cap__desc}{usb\+\_\+cap\+\_\+desc}
+\begin{DoxyCompactList}\small\item\em Device Capability Descriptor structure. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__2__0__ext}{usb\+\_\+2\+\_\+0\+\_\+ext}
+\begin{DoxyCompactList}\small\item\em U\+SB 2.\+0 Extension Descriptor structure. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__ss__cap__desc}{usb\+\_\+ss\+\_\+cap\+\_\+desc}
+\begin{DoxyCompactList}\small\item\em Super\+Speed U\+SB Device Capability structure. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__container__id__desc}{usb\+\_\+container\+\_\+id\+\_\+desc}
+\begin{DoxyCompactList}\small\item\em U\+SB Container ID Descriptor structure. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__dev__qual__desc}{usb\+\_\+dev\+\_\+qual\+\_\+desc}
+\begin{DoxyCompactList}\small\item\em Standard U\+SB device qualifier descriptor structure. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__config__desc}{usb\+\_\+config\+\_\+desc}
+\begin{DoxyCompactList}\small\item\em Standard U\+SB configuration descriptor structure. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__iad__desc}{usb\+\_\+iad\+\_\+desc}
+\begin{DoxyCompactList}\small\item\em Standard U\+SB association descriptor structure. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__iface__desc}{usb\+\_\+iface\+\_\+desc}
+\begin{DoxyCompactList}\small\item\em Standard U\+SB interface descriptor structure. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__ep__desc}{usb\+\_\+ep\+\_\+desc}
+\begin{DoxyCompactList}\small\item\em Standard U\+SB endpoint descriptor structure. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__ss__ep__comp__desc}{usb\+\_\+ss\+\_\+ep\+\_\+comp\+\_\+desc}
+\begin{DoxyCompactList}\small\item\em Super\+Speed Endpoint Companion descriptor structure. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__lpm__attributes}{usb\+\_\+lpm\+\_\+attributes}
+\begin{DoxyCompactList}\small\item\em L\+PM Token bm\+Attributes structure. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__str__desc}{usb\+\_\+str\+\_\+desc}
+\begin{DoxyCompactList}\small\item\em A standard U\+SB string descriptor structure. \end{DoxyCompactList}\item 
+struct \hyperlink{structusb__str__langid__desc}{usb\+\_\+str\+\_\+langid\+\_\+desc}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__usb__protocol__group_ga9bccec980a4f41a481b389b4f0c9c690}{U\+S\+B\+\_\+\+V2\+\_\+0}~(0x0200)
+\item 
+\#define \hyperlink{group__usb__protocol__group_ga98059f51cd65930412083d423a70dd17}{U\+S\+B\+\_\+\+V2\+\_\+1}~(0x0201)
+\item 
+\#define \hyperlink{group__usb__protocol__group_ga1656be31dc028f425bdf0038dcd1adc2}{U\+S\+B\+\_\+\+R\+E\+Q\+T\+\_\+\+D\+I\+R\+\_\+\+O\+UT}~(0 $<$$<$ 7)
+\begin{DoxyCompactList}\small\item\em U\+SB request data transfer direction (bm\+Request\+Type) \end{DoxyCompactList}\item 
+\#define \hyperlink{group__usb__protocol__group_ga928978defeac3ea92d4e06d5c9b23cfe}{U\+S\+B\+\_\+\+R\+E\+Q\+T\+\_\+\+D\+I\+R\+\_\+\+H2D}~(0 $<$$<$ 7)
+\item 
+\#define \hyperlink{group__usb__protocol__group_ga99708f101cf9acb0ae766810519d7b94}{U\+S\+B\+\_\+\+R\+E\+Q\+T\+\_\+\+D\+I\+R\+\_\+\+IN}~(1 $<$$<$ 7)
+\item 
+\#define \hyperlink{group__usb__protocol__group_ga02a0c7d30f1a625db822e3a43f628a7b}{U\+S\+B\+\_\+\+R\+E\+Q\+T\+\_\+\+D\+I\+R\+\_\+\+D2H}~(1 $<$$<$ 7)
+\item 
+\#define \hyperlink{group__usb__protocol__group_gad7e77b7a5960edbe83c1cbdab87db27b}{U\+S\+B\+\_\+\+R\+E\+Q\+T\+\_\+\+D\+I\+R\+\_\+\+M\+A\+SK}~(1 $<$$<$ 7)
+\item 
+\#define \hyperlink{group__usb__protocol__group_ga17829b4438f99fdd735469d3341aa55b}{U\+S\+B\+\_\+\+R\+E\+Q\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+S\+T\+A\+N\+D\+A\+RD}~(0 $<$$<$ 5)
+\begin{DoxyCompactList}\small\item\em U\+SB request types (bm\+Request\+Type) \end{DoxyCompactList}\item 
+\#define \hyperlink{group__usb__protocol__group_gaec1398f8c4022154c4f4d1d84d29e140}{U\+S\+B\+\_\+\+R\+E\+Q\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+L\+A\+SS}~(1 $<$$<$ 5)
+\item 
+\#define \hyperlink{group__usb__protocol__group_ga0b0929d731582b97004a162b1bac58e0}{U\+S\+B\+\_\+\+R\+E\+Q\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+V\+E\+N\+D\+OR}~(2 $<$$<$ 5)
+\item 
+\#define \hyperlink{group__usb__protocol__group_ga22abcf359d1d543593c772b328637771}{U\+S\+B\+\_\+\+R\+E\+Q\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+A\+SK}~(3 $<$$<$ 5)
+\item 
+\#define \hyperlink{group__usb__protocol__group_gafa408bab29066286d309f28c91990f98}{U\+S\+B\+\_\+\+R\+E\+Q\+T\+\_\+\+R\+E\+C\+I\+P\+\_\+\+D\+E\+V\+I\+CE}~(0 $<$$<$ 0)
+\begin{DoxyCompactList}\small\item\em U\+SB recipient codes (bm\+Request\+Type) \end{DoxyCompactList}\item 
+\#define \hyperlink{group__usb__protocol__group_gaa10286997b2826579fbcea8b47658925}{U\+S\+B\+\_\+\+R\+E\+Q\+T\+\_\+\+R\+E\+C\+I\+P\+\_\+\+I\+N\+T\+E\+R\+F\+A\+CE}~(1 $<$$<$ 0)
+\item 
+\#define \hyperlink{group__usb__protocol__group_ga39a14fff4ff1c830155aa553480fb4e8}{U\+S\+B\+\_\+\+R\+E\+Q\+T\+\_\+\+R\+E\+C\+I\+P\+\_\+\+E\+N\+D\+P\+O\+I\+NT}~(2 $<$$<$ 0)
+\item 
+\#define \hyperlink{group__usb__protocol__group_gac2e90c1f4f4817a4084e100163cd7b44}{U\+S\+B\+\_\+\+R\+E\+Q\+T\+\_\+\+R\+E\+C\+I\+P\+\_\+\+O\+T\+H\+ER}~(3 $<$$<$ 0)
+\item 
+\#define \hyperlink{group__usb__protocol__group_gaa678ebf133d90e2e033195a83d4f611b}{U\+S\+B\+\_\+\+R\+E\+Q\+T\+\_\+\+R\+E\+C\+I\+P\+\_\+\+M\+A\+SK}~(0x1\+F)
+\item 
+\#define \hyperlink{group__usb__protocol__group_ga0316d8f43a1648b76df257332b26aeb9}{U\+S\+B\+\_\+\+E\+P\+\_\+\+A\+D\+D\+R\+\_\+\+M\+A\+SK}~0x0f
+\begin{DoxyCompactList}\small\item\em Mask selecting the index part of an endpoint address. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__usb__protocol__group_gaae8411e95f26738326bc25a0161dde99}{U\+S\+B\+\_\+\+E\+P\+\_\+\+D\+I\+R\+\_\+\+IN}~0x80
+\begin{DoxyCompactList}\small\item\em Endpoint transfer direction is IN. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__usb__protocol__group_ga0510b0a04d9cef144e4d9793310abccf}{U\+S\+B\+\_\+\+E\+P\+\_\+\+D\+I\+R\+\_\+\+O\+UT}~0x00
+\begin{DoxyCompactList}\small\item\em Endpoint transfer direction is O\+UT. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__usb__protocol__group_ga2e0cb209febbe4e433edc0c1168435f5}{U\+S\+B\+\_\+\+D\+E\+S\+C\+\_\+\+L\+E\+N\+\_\+\+M\+AX}~255
+\begin{DoxyCompactList}\small\item\em Maximum length in bytes of a U\+SB descriptor. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__usb__protocol__group_gac7063e965def0eaeb4d45a6f9048dc53}{U\+S\+B\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+A\+T\+T\+R\+\_\+\+M\+U\+S\+T\+\_\+\+S\+ET}~(1 $<$$<$ 7)
+\item 
+\#define \hyperlink{group__usb__protocol__group_ga10945c8d92454009444979c38b9d2cca}{U\+S\+B\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+A\+T\+T\+R\+\_\+\+B\+U\+S\+\_\+\+P\+O\+W\+E\+R\+ED}~(0 $<$$<$ 6)
+\item 
+\#define \hyperlink{group__usb__protocol__group_gaf1b445db8c331630bbedb383544ed80b}{U\+S\+B\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+A\+T\+T\+R\+\_\+\+S\+E\+L\+F\+\_\+\+P\+O\+W\+E\+R\+ED}~(1 $<$$<$ 6)
+\item 
+\#define \hyperlink{group__usb__protocol__group_gab8f513d1888f75d8e18960e1b1f3f747}{U\+S\+B\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+A\+T\+T\+R\+\_\+\+R\+E\+M\+O\+T\+E\+\_\+\+W\+A\+K\+E\+UP}~(1 $<$$<$ 5)
+\item 
+\#define \hyperlink{group__usb__protocol__group_ga55d9db758a4f408eebf4b26c6001ac9b}{U\+S\+B\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+M\+A\+X\+\_\+\+P\+O\+W\+ER}(ma)~(((ma) + 1) / 2)
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Generic definitions (Class, subclass and protocol)}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+C\+L\+A\+S\+S\+\_\+\+NO}~(0x00)
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+S\+U\+B\+C\+L\+A\+S\+S\+\_\+\+NO}~(0x00)
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+NO}~(0x00)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ I\+AD (Interface Association Descriptor) constants}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+C\+L\+A\+S\+S\+\_\+\+I\+AD}~(0x\+E\+F)
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+S\+U\+B\+C\+L\+A\+S\+S\+\_\+\+I\+AD}~(0x02)
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+I\+AD}~(0x01)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Macros to build U\+SB standard descriptors}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__usb__protocol__group_ga3122a6c464e828780450a6ac9fa0a5b1}{U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+D\+E\+S\+C\+\_\+\+B\+Y\+T\+ES}(bcd\+U\+SB,  b\+Device\+Class,  b\+Device\+Sub\+Class,  b\+Device\+Protocol,  b\+Max\+Packet\+Size0,  id\+Vendor,  id\+Product,  bcd\+Device,  i\+Manufacturer,  i\+Product,  i\+Serial\+Number,  b\+Num\+Configurations)
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+D\+E\+S\+C\+\_\+\+L\+EN}~18
+\item 
+\#define \hyperlink{group__usb__protocol__group_ga6aa0ff9bcc7f846c86ccf7f9cd180dee}{U\+S\+B\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+S\+C\+\_\+\+B\+Y\+T\+ES}( w\+Total\+Length,  b\+Num\+Interfaces,  b\+Configuration\+Value,  i\+Configuration,  bm\+Attributes,  b\+Max\+Power)
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+D\+E\+S\+C\+\_\+\+L\+EN}~9
+\item 
+\#define \hyperlink{group__usb__protocol__group_ga80815c81bf0cc49109676aaa0e79691e}{U\+S\+B\+\_\+\+I\+A\+D\+\_\+\+D\+E\+S\+C\+\_\+\+B\+Y\+T\+ES}( b\+First\+Interface,  b\+Interface\+Count,  b\+Function\+Class,  b\+Function\+Sub\+Class,  b\+Function\+Protocol,  i\+Function)
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+I\+A\+D\+\_\+\+D\+E\+S\+C\+\_\+\+L\+EN}~8
+\item 
+\#define \hyperlink{group__usb__protocol__group_gabf60119d96399470a7caaac30e8f3df8}{U\+S\+B\+\_\+\+I\+F\+A\+C\+E\+\_\+\+D\+E\+S\+C\+\_\+\+B\+Y\+T\+ES}(b\+Interface\+Number,  b\+Alternate\+Setting,  b\+Num\+Endpoints,  b\+Interface\+Class,  b\+Interface\+Sub\+Class,  b\+Interface\+Protocol,  i\+Interface)
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+I\+F\+A\+C\+E\+\_\+\+D\+E\+S\+C\+\_\+\+L\+EN}~9
+\item 
+\#define \hyperlink{group__usb__protocol__group_gaf73b12465cc4aa29176a726a12d82eb2}{U\+S\+B\+\_\+\+E\+N\+D\+P\+\_\+\+D\+E\+S\+C\+\_\+\+B\+Y\+T\+ES}(b\+Endpoint\+Address,  bm\+Attributes,  w\+Max\+Packet\+Size,  b\+Interval)
+\item 
+\#define {\bfseries U\+S\+B\+\_\+\+E\+N\+D\+P\+\_\+\+D\+E\+S\+C\+\_\+\+L\+EN}~7
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structusb__req}{usb\+\_\+req} \hyperlink{group__usb__protocol__group_ga2ddc25536c2d827e1ae8d78c479c6308}{usb\+\_\+req\+\_\+t}
+\begin{DoxyCompactList}\small\item\em A U\+SB Device S\+E\+T\+UP request. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structusb__dev__desc}{usb\+\_\+dev\+\_\+desc} \hyperlink{group__usb__protocol__group_ga8975e7719a851c8f7780719d059cb3d3}{usb\+\_\+dev\+\_\+desc\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Standard U\+SB device descriptor structure. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structusb__bos__desc}{usb\+\_\+bos\+\_\+desc} \hyperlink{group__usb__protocol__group_gab901a8c0dbb2fc451f4862492a904113}{usb\+\_\+bos\+\_\+desc\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Binary device Object Store (B\+OS) descriptor structure. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structusb__cap__desc}{usb\+\_\+cap\+\_\+desc} \hyperlink{group__usb__protocol__group_gadb277824f3da4bb3f75a6a345835c438}{usb\+\_\+cap\+\_\+desc\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Device Capability Descriptor structure. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structusb__2__0__ext}{usb\+\_\+2\+\_\+0\+\_\+ext} \hyperlink{group__usb__protocol__group_ga6763c8c797bc5e754f8da2341b163c64}{usb\+\_\+2\+\_\+0\+\_\+ext\+\_\+t}
+\begin{DoxyCompactList}\small\item\em U\+SB 2.\+0 Extension Descriptor structure. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structusb__2__0__ext}{usb\+\_\+2\+\_\+0\+\_\+ext} \hyperlink{group__usb__protocol__group_ga3263b200bda3311fde64ca3d85bc6a51}{usb\+\_\+lpm\+\_\+cap\+\_\+desc\+\_\+t}
+\begin{DoxyCompactList}\small\item\em L\+PM Device Capabilities descriptor structure. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structusb__ss__cap__desc}{usb\+\_\+ss\+\_\+cap\+\_\+desc} \hyperlink{group__usb__protocol__group_gae6778be79667a7deb1e468422f05d087}{usb\+\_\+ss\+\_\+cap\+\_\+desc\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Super\+Speed U\+SB Device Capability structure. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structusb__container__id__desc}{usb\+\_\+container\+\_\+id\+\_\+desc} \hyperlink{group__usb__protocol__group_gab1692304fe3a2e344eb8dfc8f715aa15}{usb\+\_\+container\+\_\+id\+\_\+desc\+\_\+t}
+\begin{DoxyCompactList}\small\item\em U\+SB Container ID Descriptor structure. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structusb__dev__qual__desc}{usb\+\_\+dev\+\_\+qual\+\_\+desc} \hyperlink{group__usb__protocol__group_ga5ba2cb1ea0d156db1e8f2a2ae58efade}{usb\+\_\+dev\+\_\+qual\+\_\+desc\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Standard U\+SB device qualifier descriptor structure. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structusb__config__desc}{usb\+\_\+config\+\_\+desc} \hyperlink{group__usb__protocol__group_gaeaef4c20199a912d1b2353c0b709b753}{usb\+\_\+config\+\_\+desc\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Standard U\+SB configuration descriptor structure. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structusb__iad__desc}{usb\+\_\+iad\+\_\+desc} \hyperlink{group__usb__protocol__group_ga514f22c5dce37c5141b13ad75ad7111b}{usb\+\_\+iad\+\_\+desc\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Standard U\+SB association descriptor structure. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structusb__iface__desc}{usb\+\_\+iface\+\_\+desc} \hyperlink{group__usb__protocol__group_ga0f4aed9bd3c4887ce2590675f9db9fc8}{usb\+\_\+iface\+\_\+desc\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Standard U\+SB interface descriptor structure. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structusb__ep__desc}{usb\+\_\+ep\+\_\+desc} \hyperlink{group__usb__protocol__group_ga716572dc6c2f9ddbd217944712406fc9}{usb\+\_\+ep\+\_\+desc\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Standard U\+SB endpoint descriptor structure. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structusb__ss__ep__comp__desc}{usb\+\_\+ss\+\_\+ep\+\_\+comp\+\_\+desc} \hyperlink{group__usb__protocol__group_ga4b949e0003de09a97cdcddc241c9c108}{usb\+\_\+ss\+\_\+ep\+\_\+comp\+\_\+desc\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Super\+Speed Endpoint Companion descriptor structure. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structusb__lpm__attributes}{usb\+\_\+lpm\+\_\+attributes} \hyperlink{group__usb__protocol__group_ga1230c50391f0fa32f767a3f1e61b13a3}{usb\+\_\+lpm\+\_\+attributes\+\_\+t}
+\begin{DoxyCompactList}\small\item\em L\+PM Token bm\+Attributes structure. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structusb__str__desc}{usb\+\_\+str\+\_\+desc} \hyperlink{group__usb__protocol__group_ga71edff7a33abb868e08e9243e7ea7c45}{usb\+\_\+str\+\_\+desc\+\_\+t}
+\begin{DoxyCompactList}\small\item\em A standard U\+SB string descriptor structure. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structusb__str__langid__desc}{usb\+\_\+str\+\_\+langid\+\_\+desc} {\bfseries usb\+\_\+str\+\_\+langid\+\_\+desc\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__usb__protocol__group_ga99e4dd2388e6ffd6bf38a6589d141989}\label{group__usb__protocol__group_ga99e4dd2388e6ffd6bf38a6589d141989}} 
+enum \hyperlink{group__usb__protocol__group_ga99e4dd2388e6ffd6bf38a6589d141989}{usb\+\_\+ctrl\+\_\+stage} \{ {\bfseries U\+S\+B\+\_\+\+S\+E\+T\+U\+P\+\_\+\+S\+T\+A\+GE} = 0, 
+{\bfseries U\+S\+B\+\_\+\+D\+A\+T\+A\+\_\+\+S\+T\+A\+GE} = 1, 
+{\bfseries U\+S\+B\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+S\+T\+A\+GE} = 2
+ \}\begin{DoxyCompactList}\small\item\em Standard U\+SB control transfer stages. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group__usb__protocol__group_gab10ff428a015f6a3cff0e2c49da86adc}\label{group__usb__protocol__group_gab10ff428a015f6a3cff0e2c49da86adc}} 
+enum \hyperlink{group__usb__protocol__group_gab10ff428a015f6a3cff0e2c49da86adc}{usb\+\_\+req\+\_\+code} \{ \newline
+{\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+G\+E\+T\+\_\+\+S\+T\+A\+T\+US} = 0, 
+{\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+C\+L\+E\+A\+R\+\_\+\+F\+TR} = 1, 
+{\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+S\+E\+T\+\_\+\+F\+TR} = 3, 
+{\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+S\+E\+T\+\_\+\+A\+D\+D\+R\+E\+SS} = 5, 
+\newline
+{\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+G\+E\+T\+\_\+\+D\+E\+SC} = 6, 
+{\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+S\+E\+T\+\_\+\+D\+E\+SC} = 7, 
+{\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+G\+E\+T\+\_\+\+C\+O\+N\+F\+IG} = 8, 
+{\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+S\+E\+T\+\_\+\+C\+O\+N\+F\+IG} = 9, 
+\newline
+{\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+G\+E\+T\+\_\+\+I\+N\+T\+E\+R\+F\+A\+CE} = 10, 
+{\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+S\+E\+T\+\_\+\+I\+N\+T\+E\+R\+F\+A\+CE} = 11, 
+{\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+S\+Y\+N\+C\+H\+\_\+\+F\+R\+A\+ME} = 12, 
+{\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+S\+E\+T\+\_\+\+S\+EL} = 48, 
+\newline
+{\bfseries U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+I\+S\+O\+C\+H\+\_\+\+D\+E\+L\+AY} = 49
+ \}\begin{DoxyCompactList}\small\item\em Standard U\+SB requests (b\+Request) \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group__usb__protocol__group_ga66f5695265beab24e3bc499d6ff881a2}\label{group__usb__protocol__group_ga66f5695265beab24e3bc499d6ff881a2}} 
+enum \hyperlink{group__usb__protocol__group_ga66f5695265beab24e3bc499d6ff881a2}{usb\+\_\+dev\+\_\+status} \{ \newline
+{\bfseries U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+S\+T\+A\+T\+\_\+\+B\+U\+S\+\_\+\+P\+O\+W\+E\+R\+ED} = 0, 
+{\bfseries U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+S\+T\+A\+T\+\_\+\+S\+E\+L\+F\+\_\+\+P\+O\+W\+E\+R\+ED} = 1, 
+{\bfseries U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+S\+T\+A\+T\+\_\+\+R\+E\+M\+O\+T\+E\+W\+A\+K\+E\+UP} = 2, 
+{\bfseries U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+S\+T\+A\+T\+\_\+\+U1\+\_\+\+E\+N\+A\+B\+LE} = 4, 
+\newline
+{\bfseries U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+S\+T\+A\+T\+\_\+\+U2\+\_\+\+E\+N\+A\+B\+LE} = 8, 
+{\bfseries U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+S\+T\+A\+T\+\_\+\+L\+T\+M\+\_\+\+E\+N\+A\+B\+LE} = 16
+ \}\begin{DoxyCompactList}\small\item\em Standard U\+SB device status flags. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group__usb__protocol__group_ga61c6d9f1bcc6112f394333fac658d627}\label{group__usb__protocol__group_ga61c6d9f1bcc6112f394333fac658d627}} 
+enum \hyperlink{group__usb__protocol__group_ga61c6d9f1bcc6112f394333fac658d627}{usb\+\_\+interface\+\_\+status} \{ {\bfseries U\+S\+B\+\_\+\+I\+F\+A\+C\+E\+\_\+\+S\+T\+A\+T\+\_\+\+R\+E\+S\+E\+R\+V\+ED} = 0, 
+{\bfseries U\+S\+B\+\_\+\+I\+F\+A\+C\+E\+\_\+\+S\+T\+A\+T\+\_\+\+R\+E\+M\+O\+T\+E\+W\+A\+K\+E\+\_\+\+C\+AP} = 1, 
+{\bfseries U\+S\+B\+\_\+\+I\+F\+A\+C\+E\+\_\+\+S\+T\+A\+T\+\_\+\+R\+E\+M\+O\+T\+E\+W\+A\+KE} = 2
+ \}\begin{DoxyCompactList}\small\item\em Standard U\+SB Interface status flags. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group__usb__protocol__group_gaf926ff975fcda57f214001b51f15092d}\label{group__usb__protocol__group_gaf926ff975fcda57f214001b51f15092d}} 
+enum \hyperlink{group__usb__protocol__group_gaf926ff975fcda57f214001b51f15092d}{usb\+\_\+endpoint\+\_\+status} \{ {\bfseries U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+T\+\_\+\+H\+A\+LT} = 1
+ \}\begin{DoxyCompactList}\small\item\em Standard U\+SB endpoint status flags. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group__usb__protocol__group_gab9975b89ad7079085d0300eab037c3ac}{usb\+\_\+device\+\_\+feature} \{ \newline
+\hyperlink{group__usb__protocol__group_ggab9975b89ad7079085d0300eab037c3aca378d8545d6f4c12da1249e18e2b18e60}{U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+F\+T\+R\+\_\+\+R\+E\+M\+O\+T\+E\+\_\+\+W\+A\+K\+E\+UP} = 1, 
+\hyperlink{group__usb__protocol__group_ggab9975b89ad7079085d0300eab037c3aca127ceb074daad1874fc9c41f5db1c557}{U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+F\+T\+R\+\_\+\+T\+E\+S\+T\+\_\+\+M\+O\+DE} = 2, 
+{\bfseries U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+F\+T\+R\+\_\+\+O\+T\+G\+\_\+\+B\+\_\+\+H\+N\+P\+\_\+\+E\+N\+A\+B\+LE} = 3, 
+{\bfseries U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+F\+T\+R\+\_\+\+O\+T\+G\+\_\+\+A\+\_\+\+H\+N\+P\+\_\+\+SP} = 4, 
+\newline
+{\bfseries U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+F\+T\+R\+\_\+\+O\+T\+G\+\_\+\+A\+\_\+\+A\+L\+T\+\_\+\+H\+N\+P\+\_\+\+SP} = 5, 
+{\bfseries U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+F\+T\+R\+\_\+\+U1\+\_\+\+E\+N\+A\+B\+LE} = 48, 
+{\bfseries U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+F\+T\+R\+\_\+\+U2\+\_\+\+E\+N\+A\+B\+LE} = 49, 
+{\bfseries U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+F\+T\+R\+\_\+\+L\+T\+M\+\_\+\+E\+N\+A\+B\+LE} = 50
+ \}\begin{DoxyCompactList}\small\item\em Standard U\+SB device feature flags. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group__usb__protocol__group_ga9027bb283d3666e351fe5c403292cf2e}{usb\+\_\+device\+\_\+hs\+\_\+test\+\_\+mode} \{ \newline
+{\bfseries U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+T\+E\+S\+T\+\_\+\+M\+O\+D\+E\+\_\+J} = 1, 
+{\bfseries U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+T\+E\+S\+T\+\_\+\+M\+O\+D\+E\+\_\+K} = 2, 
+{\bfseries U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+T\+E\+S\+T\+\_\+\+M\+O\+D\+E\+\_\+\+S\+E0\+\_\+\+N\+AK} = 3, 
+{\bfseries U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+T\+E\+S\+T\+\_\+\+M\+O\+D\+E\+\_\+\+P\+A\+C\+K\+ET} = 4, 
+\newline
+{\bfseries U\+S\+B\+\_\+\+D\+E\+V\+\_\+\+T\+E\+S\+T\+\_\+\+M\+O\+D\+E\+\_\+\+F\+O\+R\+C\+E\+\_\+\+E\+N\+A\+B\+LE} = 5
+ \}\begin{DoxyCompactList}\small\item\em Test Mode possible on HS U\+SB device. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group__usb__protocol__group_gac9759075d928dc9e928d2dcce5d1102e}\label{group__usb__protocol__group_gac9759075d928dc9e928d2dcce5d1102e}} 
+enum \hyperlink{group__usb__protocol__group_gac9759075d928dc9e928d2dcce5d1102e}{usb\+\_\+iface\+\_\+feature} \{ {\bfseries U\+S\+B\+\_\+\+I\+F\+A\+C\+E\+\_\+\+F\+T\+R\+\_\+\+F\+U\+N\+C\+\_\+\+S\+U\+SP} = 0
+ \}\begin{DoxyCompactList}\small\item\em Standard Feature Selectors for Interface. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group__usb__protocol__group_gac46bc23132eb03cefa56ba47024ced5d}\label{group__usb__protocol__group_gac46bc23132eb03cefa56ba47024ced5d}} 
+enum \hyperlink{group__usb__protocol__group_gac46bc23132eb03cefa56ba47024ced5d}{usb\+\_\+endpoint\+\_\+feature} \{ {\bfseries U\+S\+B\+\_\+\+E\+P\+\_\+\+F\+T\+R\+\_\+\+H\+A\+LT} = 0
+ \}\begin{DoxyCompactList}\small\item\em Standard U\+SB endpoint feature/status flags. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group__usb__protocol__group_gade3fc5b71e88ed167a8c8d67ee087db3}\label{group__usb__protocol__group_gade3fc5b71e88ed167a8c8d67ee087db3}} 
+enum \hyperlink{group__usb__protocol__group_gade3fc5b71e88ed167a8c8d67ee087db3}{usb\+\_\+test\+\_\+mode\+\_\+selector} \{ \newline
+{\bfseries U\+S\+B\+\_\+\+T\+E\+S\+T\+\_\+J} = 0x01, 
+{\bfseries U\+S\+B\+\_\+\+T\+E\+S\+T\+\_\+K} = 0x02, 
+{\bfseries U\+S\+B\+\_\+\+T\+E\+S\+T\+\_\+\+S\+E0\+\_\+\+N\+AK} = 0x03, 
+{\bfseries U\+S\+B\+\_\+\+T\+E\+S\+T\+\_\+\+P\+A\+C\+K\+ET} = 0x04, 
+\newline
+{\bfseries U\+S\+B\+\_\+\+T\+E\+S\+T\+\_\+\+F\+O\+R\+C\+E\+\_\+\+E\+N\+A\+B\+LE} = 0x05
+ \}\begin{DoxyCompactList}\small\item\em Standard U\+SB Test Mode Selectors. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group__usb__protocol__group_ga87d46dd117d939964c939f1518dec93f}\label{group__usb__protocol__group_ga87d46dd117d939964c939f1518dec93f}} 
+enum \hyperlink{group__usb__protocol__group_ga87d46dd117d939964c939f1518dec93f}{usb\+\_\+descriptor\+\_\+type} \{ \newline
+{\bfseries U\+S\+B\+\_\+\+D\+T\+\_\+\+D\+E\+V\+I\+CE} = 1, 
+{\bfseries U\+S\+B\+\_\+\+D\+T\+\_\+\+C\+O\+N\+F\+IG} = 2, 
+{\bfseries U\+S\+B\+\_\+\+D\+T\+\_\+\+S\+T\+R\+I\+NG} = 3, 
+{\bfseries U\+S\+B\+\_\+\+D\+T\+\_\+\+I\+N\+T\+E\+R\+F\+A\+CE} = 4, 
+\newline
+{\bfseries U\+S\+B\+\_\+\+D\+T\+\_\+\+E\+N\+D\+P\+O\+I\+NT} = 5, 
+{\bfseries U\+S\+B\+\_\+\+D\+T\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+Q\+U\+A\+L\+I\+F\+I\+ER} = 6, 
+{\bfseries U\+S\+B\+\_\+\+D\+T\+\_\+\+O\+T\+H\+E\+R\+\_\+\+S\+P\+E\+E\+D\+\_\+\+C\+O\+N\+F\+IG} = 7, 
+{\bfseries U\+S\+B\+\_\+\+D\+T\+\_\+\+I\+N\+T\+E\+R\+F\+A\+C\+E\+\_\+\+P\+O\+W\+ER} = 8, 
+\newline
+{\bfseries U\+S\+B\+\_\+\+D\+T\+\_\+\+O\+TG} = 9, 
+{\bfseries U\+S\+B\+\_\+\+D\+T\+\_\+\+D\+E\+B\+UG} = 10, 
+{\bfseries U\+S\+B\+\_\+\+D\+T\+\_\+\+I\+AD} = 11, 
+{\bfseries U\+S\+B\+\_\+\+D\+T\+\_\+\+B\+OS} = 15, 
+\newline
+{\bfseries U\+S\+B\+\_\+\+D\+T\+\_\+\+D\+E\+V\+\_\+\+C\+AP} = 16, 
+{\bfseries U\+S\+B\+\_\+\+D\+T\+\_\+\+S\+S\+\_\+\+E\+P\+\_\+\+C\+O\+M\+P\+A\+N\+I\+ON} = 48
+ \}\begin{DoxyCompactList}\small\item\em Standard U\+SB descriptor types. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group__usb__protocol__group_gab4eef94a7d2be2570193c4f9400a6fa6}\label{group__usb__protocol__group_gab4eef94a7d2be2570193c4f9400a6fa6}} 
+enum \hyperlink{group__usb__protocol__group_gab4eef94a7d2be2570193c4f9400a6fa6}{usb\+\_\+capability\+\_\+type} \{ {\bfseries U\+S\+B\+\_\+\+C\+A\+P\+T\+\_\+\+W\+I\+R\+E\+L\+E\+SS} = 1, 
+{\bfseries U\+S\+B\+\_\+\+C\+A\+P\+T\+\_\+2\+\_\+0\+\_\+\+E\+XT} = 2, 
+{\bfseries U\+S\+B\+\_\+\+C\+A\+P\+T\+\_\+\+S\+U\+P\+E\+R\+\_\+\+S\+P\+E\+ED} = 3, 
+{\bfseries U\+S\+B\+\_\+\+C\+A\+P\+T\+\_\+\+C\+O\+N\+T\+A\+I\+N\+E\+R\+\_\+\+ID} = 4
+ \}\begin{DoxyCompactList}\small\item\em Capability types. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group__usb__protocol__group_gab91aeaf1666bcc324f087f04fc896b7b}\label{group__usb__protocol__group_gab91aeaf1666bcc324f087f04fc896b7b}} 
+enum \hyperlink{group__usb__protocol__group_gab91aeaf1666bcc324f087f04fc896b7b}{usb\+\_\+2\+\_\+0\+\_\+ext\+\_\+attr} \{ {\bfseries U\+S\+B\+\_\+2\+\_\+0\+\_\+\+E\+X\+T\+\_\+\+L\+P\+M\+\_\+\+SP} = 1
+ \}\begin{DoxyCompactList}\small\item\em U\+SB 2.\+0 Extension attributes. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group__usb__protocol__group_ga83fdfa2cd4ff3a5ea7c8d6806f3d5685}\label{group__usb__protocol__group_ga83fdfa2cd4ff3a5ea7c8d6806f3d5685}} 
+enum \hyperlink{group__usb__protocol__group_ga83fdfa2cd4ff3a5ea7c8d6806f3d5685}{usb\+\_\+ss\+\_\+cap\+\_\+attr} \{ {\bfseries U\+S\+B\+\_\+\+S\+S\+\_\+\+L\+T\+M\+\_\+\+SP}
+ \}\begin{DoxyCompactList}\small\item\em U\+SB Super\+Speed Capability attributes. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group__usb__protocol__group_gaaa900ea6ec7302fde55332e3b24bf3b6}\label{group__usb__protocol__group_gaaa900ea6ec7302fde55332e3b24bf3b6}} 
+enum \hyperlink{group__usb__protocol__group_gaaa900ea6ec7302fde55332e3b24bf3b6}{usb\+\_\+speed\+\_\+sp} \{ \newline
+{\bfseries U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+L\+O\+W\+\_\+\+SP} = 1, 
+{\bfseries U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+L\+S\+\_\+\+SP} = 1, 
+{\bfseries U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+F\+U\+L\+L\+\_\+\+SP} = 2, 
+{\bfseries U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+F\+S\+\_\+\+SP} = 2, 
+\newline
+{\bfseries U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+H\+I\+G\+H\+\_\+\+SP} = 4, 
+{\bfseries U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+H\+S\+\_\+\+SP} = 4, 
+{\bfseries U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+S\+U\+P\+E\+R\+\_\+\+SP} = 8, 
+{\bfseries U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+S\+S\+\_\+\+SP} = 8
+ \}\begin{DoxyCompactList}\small\item\em U\+SB Speed Supports. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group__usb__protocol__group_ga666def795a15032e5bf93a450f79113f}\label{group__usb__protocol__group_ga666def795a15032e5bf93a450f79113f}} 
+enum \hyperlink{group__usb__protocol__group_ga666def795a15032e5bf93a450f79113f}{usb\+\_\+ep\+\_\+type} \{ \newline
+{\bfseries U\+S\+B\+\_\+\+E\+P\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+O\+N\+T\+R\+OL} = 0x00, 
+{\bfseries U\+S\+B\+\_\+\+E\+P\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+S\+O\+C\+H\+R\+O\+N\+O\+US} = 0x01, 
+{\bfseries U\+S\+B\+\_\+\+E\+P\+\_\+\+T\+Y\+P\+E\+\_\+\+B\+U\+LK} = 0x02, 
+{\bfseries U\+S\+B\+\_\+\+E\+P\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT} = 0x03, 
+\newline
+{\bfseries U\+S\+B\+\_\+\+E\+P\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+A\+SK} = 0x03u
+ \}\begin{DoxyCompactList}\small\item\em Standard U\+SB endpoint transfer types. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group__usb__protocol__group_ga91299b3befbdb4075e84225376e6cc10}\label{group__usb__protocol__group_ga91299b3befbdb4075e84225376e6cc10}} 
+enum \hyperlink{group__usb__protocol__group_ga91299b3befbdb4075e84225376e6cc10}{usb\+\_\+ep\+\_\+int\+\_\+type} \{ {\bfseries U\+S\+B\+\_\+\+E\+P\+\_\+\+I\+N\+T\+\_\+\+T\+\_\+\+P\+E\+R\+I\+O\+D\+IC} = 0x00u, 
+{\bfseries U\+S\+B\+\_\+\+E\+P\+\_\+\+I\+N\+T\+\_\+\+T\+\_\+\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+ON} = 0x01u, 
+{\bfseries U\+S\+B\+\_\+\+E\+P\+\_\+\+I\+N\+T\+\_\+\+T\+\_\+\+M\+A\+SK} = 0x03u
+ \}\begin{DoxyCompactList}\small\item\em U\+SB endpoint interrupt types. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group__usb__protocol__group_ga417770fc2794ba8e170cfd9b291aecb4}\label{group__usb__protocol__group_ga417770fc2794ba8e170cfd9b291aecb4}} 
+enum \hyperlink{group__usb__protocol__group_ga417770fc2794ba8e170cfd9b291aecb4}{usb\+\_\+ep\+\_\+sync\+\_\+type} \{ \newline
+{\bfseries U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+Y\+N\+C\+\_\+\+T\+\_\+\+NO} = 0x00u, 
+{\bfseries U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+Y\+N\+C\+\_\+\+T\+\_\+\+A\+S\+Y\+NC} = 0x02u, 
+{\bfseries U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+Y\+N\+C\+\_\+\+T\+\_\+\+A\+D\+A\+P\+T\+I\+VE} = 0x02u, 
+{\bfseries U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+Y\+N\+C\+\_\+\+T\+\_\+\+S\+Y\+NC} = 0x03u, 
+\newline
+{\bfseries U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+Y\+N\+C\+\_\+\+T\+\_\+\+M\+A\+SK} = 0x03u
+ \}\begin{DoxyCompactList}\small\item\em Standard U\+SB endpoint synchronization types. \end{DoxyCompactList}
+\item 
+\mbox{\Hypertarget{group__usb__protocol__group_gad2b9705d36b9857068e21bcc1000733e}\label{group__usb__protocol__group_gad2b9705d36b9857068e21bcc1000733e}} 
+enum \hyperlink{group__usb__protocol__group_gad2b9705d36b9857068e21bcc1000733e}{usb\+\_\+ep\+\_\+usage\+\_\+type} \{ {\bfseries U\+S\+B\+\_\+\+E\+P\+\_\+\+U\+S\+A\+G\+E\+\_\+\+T\+\_\+\+D\+A\+TA} = 0x00u, 
+{\bfseries U\+S\+B\+\_\+\+E\+P\+\_\+\+U\+S\+A\+G\+E\+\_\+\+T\+\_\+\+F\+E\+E\+D\+B\+A\+CK} = 0x01u, 
+{\bfseries U\+S\+B\+\_\+\+E\+P\+\_\+\+U\+S\+A\+G\+E\+\_\+\+T\+\_\+\+F\+E\+E\+D\+B\+A\+C\+K\+\_\+\+D\+A\+TA} = 0x02u, 
+{\bfseries U\+S\+B\+\_\+\+E\+P\+\_\+\+U\+S\+A\+G\+E\+\_\+\+T\+\_\+\+M\+A\+SK} = 0x03u
+ \}\begin{DoxyCompactList}\small\item\em Standard U\+SB endpoint usage types. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group__usb__protocol__group_ga1f92deaf695c06566999f0c5343978c1}{usb\+\_\+langid} \{ \hyperlink{group__usb__protocol__group_gga1f92deaf695c06566999f0c5343978c1a8acad914e2d28c9bb1d2d3cc74c5b39e}{U\+S\+B\+\_\+\+L\+A\+N\+G\+I\+D\+\_\+\+E\+N\+\_\+\+US} = 0x0409
+ \}\begin{DoxyCompactList}\small\item\em Standard U\+SB language I\+Ds for string descriptors. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{group__usb__protocol__group_ga18a090f372b76fbdb9de0e56b5f0fd91}{usb\+\_\+find\+\_\+desc} (uint8\+\_\+t $\ast$desc, uint8\+\_\+t $\ast$eof, uint8\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em Find specific U\+SB Descriptor by its type. \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \hyperlink{group__usb__protocol__group_ga551acaf5b1e20b719ba590f6a6539c10}{usb\+\_\+find\+\_\+iface\+\_\+after} (uint8\+\_\+t $\ast$desc, uint8\+\_\+t $\ast$eof, uint8\+\_\+t iface\+\_\+n)
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{group__usb__protocol__group_ga8f56a203b361e0acc32e3f48e7ccfe9e}{usb\+\_\+find\+\_\+ep\+\_\+desc} (uint8\+\_\+t $\ast$desc, uint8\+\_\+t $\ast$eof)
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{group__usb__protocol__group_ga46b136c975b5c0b24d9292eb0db100d6}{usb\+\_\+find\+\_\+cfg\+\_\+desc} (uint8\+\_\+t $\ast$desc, uint8\+\_\+t $\ast$eof, uint8\+\_\+t cfg\+\_\+value)
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{group__usb__protocol__group_ga651d6393a33f3c95103fb35bce1b5466}{usb\+\_\+find\+\_\+str\+\_\+desc} (uint8\+\_\+t $\ast$desc, uint8\+\_\+t $\ast$eof, uint8\+\_\+t str\+\_\+index)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+SB protocol definitions. 
+
+This file contains the U\+SB definitions and data structures provided by the U\+SB 2.\+0 specification.
+
+Copyright (C) 2015 Atmel Corporation. All rights reserved. 

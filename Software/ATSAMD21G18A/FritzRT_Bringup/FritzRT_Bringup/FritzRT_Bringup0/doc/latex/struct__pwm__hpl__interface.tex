@@ -1,0 +1,49 @@
+\hypertarget{struct__pwm__hpl__interface}{}\section{\+\_\+pwm\+\_\+hpl\+\_\+interface Struct Reference}
+\label{struct__pwm__hpl__interface}\index{\+\_\+pwm\+\_\+hpl\+\_\+interface@{\+\_\+pwm\+\_\+hpl\+\_\+interface}}
+
+
+P\+WM functions, pointers to low-\/level functions.  
+
+
+
+
+{\ttfamily \#include $<$hpl\+\_\+pwm.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct__pwm__hpl__interface_a0cbac907fec1983464c9a4d76fee7c39}\label{struct__pwm__hpl__interface_a0cbac907fec1983464c9a4d76fee7c39}} 
+int32\+\_\+t($\ast$ {\bfseries init} )(struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device, void $\ast$const hw)
+\item 
+\mbox{\Hypertarget{struct__pwm__hpl__interface_aafdf931ed591b7dc209fdd09df1f54c2}\label{struct__pwm__hpl__interface_aafdf931ed591b7dc209fdd09df1f54c2}} 
+void($\ast$ {\bfseries deinit} )(struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\item 
+\mbox{\Hypertarget{struct__pwm__hpl__interface_aae54bf9d0a287e3235b82c65943d9e87}\label{struct__pwm__hpl__interface_aae54bf9d0a287e3235b82c65943d9e87}} 
+void($\ast$ {\bfseries start\+\_\+pwm} )(struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\item 
+\mbox{\Hypertarget{struct__pwm__hpl__interface_a0484c11e84a73f385e6383a98828ad55}\label{struct__pwm__hpl__interface_a0484c11e84a73f385e6383a98828ad55}} 
+void($\ast$ {\bfseries stop\+\_\+pwm} )(struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\item 
+\mbox{\Hypertarget{struct__pwm__hpl__interface_a75c97c7b773a727bec1ac5fc2490fffa}\label{struct__pwm__hpl__interface_a75c97c7b773a727bec1ac5fc2490fffa}} 
+void($\ast$ {\bfseries set\+\_\+pwm\+\_\+param} )(struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device, const \hyperlink{group___h_p_l_ga54b3c18a071fea0c56652e887810b3f6}{pwm\+\_\+period\+\_\+t} period, const \hyperlink{group___h_p_l_ga54b3c18a071fea0c56652e887810b3f6}{pwm\+\_\+period\+\_\+t} duty\+\_\+cycle)
+\item 
+\mbox{\Hypertarget{struct__pwm__hpl__interface_a50b9c5366dab2b53e13b9cbbf1e4430c}\label{struct__pwm__hpl__interface_a50b9c5366dab2b53e13b9cbbf1e4430c}} 
+bool($\ast$ {\bfseries is\+\_\+pwm\+\_\+enabled} )(const struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\item 
+\mbox{\Hypertarget{struct__pwm__hpl__interface_a59aceb97fe2d40e082902316f76a12d3}\label{struct__pwm__hpl__interface_a59aceb97fe2d40e082902316f76a12d3}} 
+\hyperlink{group___h_p_l_ga54b3c18a071fea0c56652e887810b3f6}{pwm\+\_\+period\+\_\+t}($\ast$ {\bfseries pwm\+\_\+get\+\_\+period} )(const struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\item 
+\mbox{\Hypertarget{struct__pwm__hpl__interface_a9e5008d4274c994de965aa87af01fdfc}\label{struct__pwm__hpl__interface_a9e5008d4274c994de965aa87af01fdfc}} 
+uint32\+\_\+t($\ast$ {\bfseries pwm\+\_\+get\+\_\+duty} )(const struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device)
+\item 
+\mbox{\Hypertarget{struct__pwm__hpl__interface_ab07f8c7524d8c1e57a849fef6a03ee93}\label{struct__pwm__hpl__interface_ab07f8c7524d8c1e57a849fef6a03ee93}} 
+void($\ast$ {\bfseries set\+\_\+irq\+\_\+state} )(struct \hyperlink{struct__pwm__device}{\+\_\+pwm\+\_\+device} $\ast$const device, const enum \hyperlink{group___h_p_l_gaa279abe5a858ccbaea89be01192a2d6c}{\+\_\+pwm\+\_\+callback\+\_\+type} type, const bool disable)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+P\+WM functions, pointers to low-\/level functions. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+hal/include/\hyperlink{hpl__pwm_8h}{hpl\+\_\+pwm.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,205 @@
+\hypertarget{cdcdf__acm_8h}{}\section{usb/class/cdc/device/cdcdf\+\_\+acm.h File Reference}
+\label{cdcdf__acm_8h}\index{usb/class/cdc/device/cdcdf\+\_\+acm.\+h@{usb/class/cdc/device/cdcdf\+\_\+acm.\+h}}
+
+
+U\+SB Device Stack C\+DC A\+CM Function Definition.  
+
+
+{\ttfamily \#include \char`\"{}usbdc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}usb\+\_\+protocol\+\_\+cdc.\+h\char`\"{}}\newline
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{cdcdf__acm_8h_a73c830ab08f643dd83129c325ae61a63}{cdcdf\+\_\+acm\+\_\+notify\+\_\+state\+\_\+t}) (uint16\+\_\+t)
+\item 
+typedef bool($\ast$ \hyperlink{cdcdf__acm_8h_aff7d358171afa5c9ed099a7d59416ab6}{cdcdf\+\_\+acm\+\_\+set\+\_\+line\+\_\+coding\+\_\+t}) (struct \hyperlink{structusb__cdc__line__coding}{usb\+\_\+cdc\+\_\+line\+\_\+coding} $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{cdcdf__acm_8h_aa04e6ff9b37d18e45f947ce3de6b895e}{cdcdf\+\_\+acm\+\_\+cb\+\_\+type} \{ {\bfseries C\+D\+C\+D\+F\+\_\+\+A\+C\+M\+\_\+\+C\+B\+\_\+\+R\+E\+AD}, 
+{\bfseries C\+D\+C\+D\+F\+\_\+\+A\+C\+M\+\_\+\+C\+B\+\_\+\+W\+R\+I\+TE}, 
+{\bfseries C\+D\+C\+D\+F\+\_\+\+A\+C\+M\+\_\+\+C\+B\+\_\+\+L\+I\+N\+E\+\_\+\+C\+O\+D\+I\+N\+G\+\_\+C}, 
+{\bfseries C\+D\+C\+D\+F\+\_\+\+A\+C\+M\+\_\+\+C\+B\+\_\+\+S\+T\+A\+T\+E\+\_\+C}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \hyperlink{cdcdf__acm_8h_a372b47e781aefb26f81fd2576045a654}{cdcdf\+\_\+acm\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the U\+SB C\+DC A\+CM Function Driver. \end{DoxyCompactList}\item 
+void \hyperlink{cdcdf__acm_8h_a7f0778fca077cf8c0a408fd430919ccc}{cdcdf\+\_\+acm\+\_\+deinit} (void)
+\begin{DoxyCompactList}\small\item\em Deinitialize the U\+SB C\+DC A\+CM Function Driver. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{cdcdf__acm_8h_aea4561d0b66e331ca91731a94ea030f6}{cdcdf\+\_\+acm\+\_\+read} (uint8\+\_\+t $\ast$buf, uint32\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em U\+SB C\+DC A\+CM Function Read Data. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{cdcdf__acm_8h_a49fa2c15fb8365bad76ca232b4b60b44}{cdcdf\+\_\+acm\+\_\+write} (uint8\+\_\+t $\ast$buf, uint32\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em U\+SB C\+DC A\+CM Function Write Data. \end{DoxyCompactList}\item 
+void \hyperlink{cdcdf__acm_8h_a929b107352157479dd47ab7773725c76}{cdcdf\+\_\+acm\+\_\+stop\+\_\+xfer} (void)
+\begin{DoxyCompactList}\small\item\em U\+SB C\+DC A\+CM Stop the currnet data transfer. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{cdcdf__acm_8h_a0248d9cac918b45124530932ea030987}{cdcdf\+\_\+acm\+\_\+register\+\_\+callback} (enum \hyperlink{cdcdf__acm_8h_aa04e6ff9b37d18e45f947ce3de6b895e}{cdcdf\+\_\+acm\+\_\+cb\+\_\+type} cb\+\_\+type, \hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR} func)
+\begin{DoxyCompactList}\small\item\em U\+SB C\+DC A\+CM Function Register Callback. \end{DoxyCompactList}\item 
+bool \hyperlink{cdcdf__acm_8h_a0f4a3b8cb8cc5ece08624936dbe3146a}{cdcdf\+\_\+acm\+\_\+is\+\_\+enabled} (void)
+\begin{DoxyCompactList}\small\item\em Check whether C\+DC A\+CM Function is enabled. \end{DoxyCompactList}\item 
+const struct \hyperlink{structusb__cdc__line__coding}{usb\+\_\+cdc\+\_\+line\+\_\+coding} $\ast$ \hyperlink{cdcdf__acm_8h_a52e2749c14ebf2980a79c1d1c56836a0}{cdcdf\+\_\+acm\+\_\+get\+\_\+line\+\_\+coding} (void)
+\begin{DoxyCompactList}\small\item\em Return the C\+DC A\+CM line coding structure start address. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{cdcdf__acm_8h_a52a7cd76f4bf14a6ea747c9150e0ecc4}\label{cdcdf__acm_8h_a52a7cd76f4bf14a6ea747c9150e0ecc4}} 
+uint32\+\_\+t \hyperlink{cdcdf__acm_8h_a52a7cd76f4bf14a6ea747c9150e0ecc4}{cdcdf\+\_\+acm\+\_\+get\+\_\+version} (void)
+\begin{DoxyCompactList}\small\item\em Return version. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+U\+SB Device Stack C\+DC A\+CM Function Definition. 
+
+Copyright (C) 2015 Atmel Corporation. All rights reserved. 
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{cdcdf__acm_8h_a73c830ab08f643dd83129c325ae61a63}\label{cdcdf__acm_8h_a73c830ab08f643dd83129c325ae61a63}} 
+\index{cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}!cdcdf\+\_\+acm\+\_\+notify\+\_\+state\+\_\+t@{cdcdf\+\_\+acm\+\_\+notify\+\_\+state\+\_\+t}}
+\index{cdcdf\+\_\+acm\+\_\+notify\+\_\+state\+\_\+t@{cdcdf\+\_\+acm\+\_\+notify\+\_\+state\+\_\+t}!cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}}
+\subsubsection{\texorpdfstring{cdcdf\+\_\+acm\+\_\+notify\+\_\+state\+\_\+t}{cdcdf\_acm\_notify\_state\_t}}
+{\footnotesize\ttfamily typedef void($\ast$ cdcdf\+\_\+acm\+\_\+notify\+\_\+state\+\_\+t) (uint16\+\_\+t)}
+
+C\+DC A\+CM Notify Line State Callback. \mbox{\Hypertarget{cdcdf__acm_8h_aff7d358171afa5c9ed099a7d59416ab6}\label{cdcdf__acm_8h_aff7d358171afa5c9ed099a7d59416ab6}} 
+\index{cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}!cdcdf\+\_\+acm\+\_\+set\+\_\+line\+\_\+coding\+\_\+t@{cdcdf\+\_\+acm\+\_\+set\+\_\+line\+\_\+coding\+\_\+t}}
+\index{cdcdf\+\_\+acm\+\_\+set\+\_\+line\+\_\+coding\+\_\+t@{cdcdf\+\_\+acm\+\_\+set\+\_\+line\+\_\+coding\+\_\+t}!cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}}
+\subsubsection{\texorpdfstring{cdcdf\+\_\+acm\+\_\+set\+\_\+line\+\_\+coding\+\_\+t}{cdcdf\_acm\_set\_line\_coding\_t}}
+{\footnotesize\ttfamily typedef bool($\ast$ cdcdf\+\_\+acm\+\_\+set\+\_\+line\+\_\+coding\+\_\+t) (struct \hyperlink{structusb__cdc__line__coding}{usb\+\_\+cdc\+\_\+line\+\_\+coding} $\ast$)}
+
+C\+DC A\+CM Set Line Coding Callback. 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{cdcdf__acm_8h_aa04e6ff9b37d18e45f947ce3de6b895e}\label{cdcdf__acm_8h_aa04e6ff9b37d18e45f947ce3de6b895e}} 
+\index{cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}!cdcdf\+\_\+acm\+\_\+cb\+\_\+type@{cdcdf\+\_\+acm\+\_\+cb\+\_\+type}}
+\index{cdcdf\+\_\+acm\+\_\+cb\+\_\+type@{cdcdf\+\_\+acm\+\_\+cb\+\_\+type}!cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}}
+\subsubsection{\texorpdfstring{cdcdf\+\_\+acm\+\_\+cb\+\_\+type}{cdcdf\_acm\_cb\_type}}
+{\footnotesize\ttfamily enum \hyperlink{cdcdf__acm_8h_aa04e6ff9b37d18e45f947ce3de6b895e}{cdcdf\+\_\+acm\+\_\+cb\+\_\+type}}
+
+C\+DC A\+CM Class Callback Type 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{cdcdf__acm_8h_a7f0778fca077cf8c0a408fd430919ccc}\label{cdcdf__acm_8h_a7f0778fca077cf8c0a408fd430919ccc}} 
+\index{cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}!cdcdf\+\_\+acm\+\_\+deinit@{cdcdf\+\_\+acm\+\_\+deinit}}
+\index{cdcdf\+\_\+acm\+\_\+deinit@{cdcdf\+\_\+acm\+\_\+deinit}!cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}}
+\subsubsection{\texorpdfstring{cdcdf\+\_\+acm\+\_\+deinit()}{cdcdf\_acm\_deinit()}}
+{\footnotesize\ttfamily void cdcdf\+\_\+acm\+\_\+deinit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Deinitialize the U\+SB C\+DC A\+CM Function Driver. 
+
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{cdcdf__acm_8h_a52e2749c14ebf2980a79c1d1c56836a0}\label{cdcdf__acm_8h_a52e2749c14ebf2980a79c1d1c56836a0}} 
+\index{cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}!cdcdf\+\_\+acm\+\_\+get\+\_\+line\+\_\+coding@{cdcdf\+\_\+acm\+\_\+get\+\_\+line\+\_\+coding}}
+\index{cdcdf\+\_\+acm\+\_\+get\+\_\+line\+\_\+coding@{cdcdf\+\_\+acm\+\_\+get\+\_\+line\+\_\+coding}!cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}}
+\subsubsection{\texorpdfstring{cdcdf\+\_\+acm\+\_\+get\+\_\+line\+\_\+coding()}{cdcdf\_acm\_get\_line\_coding()}}
+{\footnotesize\ttfamily const struct \hyperlink{structusb__cdc__line__coding}{usb\+\_\+cdc\+\_\+line\+\_\+coding}$\ast$ cdcdf\+\_\+acm\+\_\+get\+\_\+line\+\_\+coding (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Return the C\+DC A\+CM line coding structure start address. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to U\+SB C\+DC A\+CM line coding data. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{cdcdf__acm_8h_a372b47e781aefb26f81fd2576045a654}\label{cdcdf__acm_8h_a372b47e781aefb26f81fd2576045a654}} 
+\index{cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}!cdcdf\+\_\+acm\+\_\+init@{cdcdf\+\_\+acm\+\_\+init}}
+\index{cdcdf\+\_\+acm\+\_\+init@{cdcdf\+\_\+acm\+\_\+init}!cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}}
+\subsubsection{\texorpdfstring{cdcdf\+\_\+acm\+\_\+init()}{cdcdf\_acm\_init()}}
+{\footnotesize\ttfamily int32\+\_\+t cdcdf\+\_\+acm\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialize the U\+SB C\+DC A\+CM Function Driver. 
+
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{cdcdf__acm_8h_a0f4a3b8cb8cc5ece08624936dbe3146a}\label{cdcdf__acm_8h_a0f4a3b8cb8cc5ece08624936dbe3146a}} 
+\index{cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}!cdcdf\+\_\+acm\+\_\+is\+\_\+enabled@{cdcdf\+\_\+acm\+\_\+is\+\_\+enabled}}
+\index{cdcdf\+\_\+acm\+\_\+is\+\_\+enabled@{cdcdf\+\_\+acm\+\_\+is\+\_\+enabled}!cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}}
+\subsubsection{\texorpdfstring{cdcdf\+\_\+acm\+\_\+is\+\_\+enabled()}{cdcdf\_acm\_is\_enabled()}}
+{\footnotesize\ttfamily bool cdcdf\+\_\+acm\+\_\+is\+\_\+enabled (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Check whether C\+DC A\+CM Function is enabled. 
+
+\begin{DoxyReturn}{Returns}
+Operation status. 
+
+true C\+DC A\+CM Function is enabled 
+
+false C\+DC A\+CM Function is disabled 
+\end{DoxyReturn}
+\mbox{\Hypertarget{cdcdf__acm_8h_aea4561d0b66e331ca91731a94ea030f6}\label{cdcdf__acm_8h_aea4561d0b66e331ca91731a94ea030f6}} 
+\index{cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}!cdcdf\+\_\+acm\+\_\+read@{cdcdf\+\_\+acm\+\_\+read}}
+\index{cdcdf\+\_\+acm\+\_\+read@{cdcdf\+\_\+acm\+\_\+read}!cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}}
+\subsubsection{\texorpdfstring{cdcdf\+\_\+acm\+\_\+read()}{cdcdf\_acm\_read()}}
+{\footnotesize\ttfamily int32\+\_\+t cdcdf\+\_\+acm\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{buf,  }\item[{uint32\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+U\+SB C\+DC A\+CM Function Read Data. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em buf} & Pointer to the buffer which receives data \\
+\hline
+\mbox{\tt in}  & {\em size} & the size of data to be received \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{cdcdf__acm_8h_a0248d9cac918b45124530932ea030987}\label{cdcdf__acm_8h_a0248d9cac918b45124530932ea030987}} 
+\index{cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}!cdcdf\+\_\+acm\+\_\+register\+\_\+callback@{cdcdf\+\_\+acm\+\_\+register\+\_\+callback}}
+\index{cdcdf\+\_\+acm\+\_\+register\+\_\+callback@{cdcdf\+\_\+acm\+\_\+register\+\_\+callback}!cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}}
+\subsubsection{\texorpdfstring{cdcdf\+\_\+acm\+\_\+register\+\_\+callback()}{cdcdf\_acm\_register\_callback()}}
+{\footnotesize\ttfamily int32\+\_\+t cdcdf\+\_\+acm\+\_\+register\+\_\+callback (\begin{DoxyParamCaption}\item[{enum \hyperlink{cdcdf__acm_8h_aa04e6ff9b37d18e45f947ce3de6b895e}{cdcdf\+\_\+acm\+\_\+cb\+\_\+type}}]{cb\+\_\+type,  }\item[{\hyperlink{group__doc__driver__hal__utils__macro_gae40b38bc5f5a5bd452bdd59c67d9a9cf}{F\+U\+N\+C\+\_\+\+P\+TR}}]{func }\end{DoxyParamCaption})}
+
+
+
+U\+SB C\+DC A\+CM Function Register Callback. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cb\+\_\+type} & Callback type of C\+DC A\+CM Function \\
+\hline
+\mbox{\tt in}  & {\em func} & Pointer to callback function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{cdcdf__acm_8h_a929b107352157479dd47ab7773725c76}\label{cdcdf__acm_8h_a929b107352157479dd47ab7773725c76}} 
+\index{cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}!cdcdf\+\_\+acm\+\_\+stop\+\_\+xfer@{cdcdf\+\_\+acm\+\_\+stop\+\_\+xfer}}
+\index{cdcdf\+\_\+acm\+\_\+stop\+\_\+xfer@{cdcdf\+\_\+acm\+\_\+stop\+\_\+xfer}!cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}}
+\subsubsection{\texorpdfstring{cdcdf\+\_\+acm\+\_\+stop\+\_\+xfer()}{cdcdf\_acm\_stop\_xfer()}}
+{\footnotesize\ttfamily void cdcdf\+\_\+acm\+\_\+stop\+\_\+xfer (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+U\+SB C\+DC A\+CM Stop the currnet data transfer. 
+
+U\+SB C\+DC A\+CM Stop the currnet data transfer. \mbox{\Hypertarget{cdcdf__acm_8h_a49fa2c15fb8365bad76ca232b4b60b44}\label{cdcdf__acm_8h_a49fa2c15fb8365bad76ca232b4b60b44}} 
+\index{cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}!cdcdf\+\_\+acm\+\_\+write@{cdcdf\+\_\+acm\+\_\+write}}
+\index{cdcdf\+\_\+acm\+\_\+write@{cdcdf\+\_\+acm\+\_\+write}!cdcdf\+\_\+acm.\+h@{cdcdf\+\_\+acm.\+h}}
+\subsubsection{\texorpdfstring{cdcdf\+\_\+acm\+\_\+write()}{cdcdf\_acm\_write()}}
+{\footnotesize\ttfamily int32\+\_\+t cdcdf\+\_\+acm\+\_\+write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{buf,  }\item[{uint32\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+U\+SB C\+DC A\+CM Function Write Data. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em buf} & Pointer to the buffer which stores data \\
+\hline
+\mbox{\tt in}  & {\em size} & the size of data to be sent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Operation status. 
+\end{DoxyReturn}

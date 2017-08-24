@@ -1,0 +1,609 @@
+\hypertarget{hpl__usb_8h}{}\section{hal/include/hpl\+\_\+usb.h File Reference}
+\label{hpl__usb_8h}\index{hal/include/hpl\+\_\+usb.\+h@{hal/include/hpl\+\_\+usb.\+h}}
+
+
+S\+AM U\+SB H\+PL.  
+
+
+{\ttfamily \#include $<$compiler.\+h$>$}\newline
+{\ttfamily \#include $<$utils.\+h$>$}\newline
+\subsection*{Macros}
+\begin{Indent}\textbf{ U\+SB Spec definitions}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{hpl__usb_8h_a8881d7d10c38ae56218d9fc87c2a4aa9}{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U8}(addr,  offset)~(((uint8\+\_\+t $\ast$)(addr))\mbox{[}(offset)\mbox{]})
+\item 
+\#define \hyperlink{hpl__usb_8h_a40fc5452e2b1f6a22efbcf294b6c2fd7}{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U16}(addr,  offset)~((((uint8\+\_\+t $\ast$)(addr))\mbox{[}(offset) + 0\mbox{]} $<$$<$ 0) + (((uint8\+\_\+t $\ast$)(addr))\mbox{[}(offset) + 1\mbox{]} $<$$<$ 8))
+\item 
+\#define \hyperlink{hpl__usb_8h_a4f54bf0fdaec4cb66ebe019bef51a91c}{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U32}(addr,  offset)
+\item 
+\#define \hyperlink{hpl__usb_8h_a38145b9b9119702a0259a21d6f3cb96d}{U\+S\+B\+\_\+bm\+Request\+Type\+\_\+\+Offset}~0
+\item 
+\#define \hyperlink{hpl__usb_8h_afe4d707e4a3b5467d7e04e496731681a}{U\+S\+B\+\_\+b\+Request\+\_\+\+Offset}~1
+\item 
+\#define \hyperlink{hpl__usb_8h_a21db81f595082bcf29e08371c9fd5c45}{U\+S\+B\+\_\+w\+Value\+\_\+\+Offset}~2
+\item 
+\#define \hyperlink{hpl__usb_8h_aeb7c849710317097800c344dd29e22f1}{U\+S\+B\+\_\+w\+Index\+\_\+\+Offset}~4
+\item 
+\#define \hyperlink{hpl__usb_8h_adf6e0edba154829963ad9a620db30513}{U\+S\+B\+\_\+w\+Length\+\_\+\+Offset}~6
+\item 
+\#define \hyperlink{hpl__usb_8h_a43724817f023287f0887821f7b9904bd}{U\+S\+B\+\_\+\+G\+E\+T\+\_\+bm\+Request\+Type}(req)~\hyperlink{hpl__usb_8h_a8881d7d10c38ae56218d9fc87c2a4aa9}{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U8}((req), \hyperlink{hpl__usb_8h_a38145b9b9119702a0259a21d6f3cb96d}{U\+S\+B\+\_\+bm\+Request\+Type\+\_\+\+Offset})
+\item 
+\#define \hyperlink{hpl__usb_8h_aed87bf093c19e9e7ca637587813cc34a}{U\+S\+B\+\_\+\+G\+E\+T\+\_\+b\+Request}(req)~\hyperlink{hpl__usb_8h_a8881d7d10c38ae56218d9fc87c2a4aa9}{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U8}((req), \hyperlink{hpl__usb_8h_afe4d707e4a3b5467d7e04e496731681a}{U\+S\+B\+\_\+b\+Request\+\_\+\+Offset})
+\item 
+\#define \hyperlink{hpl__usb_8h_a0f3bbf02b585b799832f3e76e221b107}{U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Value}(req)~\hyperlink{hpl__usb_8h_a40fc5452e2b1f6a22efbcf294b6c2fd7}{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U16}((req), \hyperlink{hpl__usb_8h_a21db81f595082bcf29e08371c9fd5c45}{U\+S\+B\+\_\+w\+Value\+\_\+\+Offset})
+\item 
+\#define \hyperlink{hpl__usb_8h_abb43363d8f26e1491870ca2495b2cd89}{U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Index}(req)~\hyperlink{hpl__usb_8h_a40fc5452e2b1f6a22efbcf294b6c2fd7}{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U16}((req), \hyperlink{hpl__usb_8h_aeb7c849710317097800c344dd29e22f1}{U\+S\+B\+\_\+w\+Index\+\_\+\+Offset})
+\item 
+\#define \hyperlink{hpl__usb_8h_a907b041e08f0a1782614c640cbf2d970}{U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Length}(req)~\hyperlink{hpl__usb_8h_a40fc5452e2b1f6a22efbcf294b6c2fd7}{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U16}((req), \hyperlink{hpl__usb_8h_adf6e0edba154829963ad9a620db30513}{U\+S\+B\+\_\+w\+Length\+\_\+\+Offset})
+\item 
+\#define \hyperlink{hpl__usb_8h_a70030b8303e51d92728ac82677657505}{U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+T\+Y\+P\+E\+\_\+\+IN}~0x80u
+\item 
+\#define \hyperlink{hpl__usb_8h_a837ab3f6b2cd240e67a95f5c666702af}{U\+S\+B\+\_\+\+E\+P\+\_\+\+N\+\_\+\+M\+A\+SK}~0x0\+Fu
+\item 
+\#define \hyperlink{hpl__usb_8h_a351581610ef35515432a9c1ab9827433}{U\+S\+B\+\_\+\+E\+P\+\_\+\+D\+IR}~0x80u
+\item 
+\#define \hyperlink{hpl__usb_8h_a362a7770b521f595748b1c712b6d5079}{U\+S\+B\+\_\+\+E\+P\+\_\+\+G\+E\+T\+\_\+\+D\+IR}(ep\+\_\+addr)~((ep\+\_\+addr)\&\hyperlink{hpl__usb_8h_a351581610ef35515432a9c1ab9827433}{U\+S\+B\+\_\+\+E\+P\+\_\+\+D\+IR})
+\item 
+\#define \hyperlink{hpl__usb_8h_a62200f7177f9f052be4cce8ebbc2f147}{U\+S\+B\+\_\+\+E\+P\+\_\+\+G\+E\+T\+\_\+N}(ep\+\_\+addr)~((ep\+\_\+addr)\&\hyperlink{hpl__usb_8h_a837ab3f6b2cd240e67a95f5c666702af}{U\+S\+B\+\_\+\+E\+P\+\_\+\+N\+\_\+\+M\+A\+SK})
+\item 
+\#define \hyperlink{hpl__usb_8h_af3cd63963cd4f9f06e99d849b85dd4b5}{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+C\+T\+RL}~0x0
+\item 
+\#define \hyperlink{hpl__usb_8h_a833d81577e6b6995b995423e7a1fe88b}{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+I\+S\+O\+CH}~0x1
+\item 
+\#define \hyperlink{hpl__usb_8h_a2ccdf08508298e7d5869388d2c67d821}{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+B\+U\+LK}~0x2
+\item 
+\#define \hyperlink{hpl__usb_8h_a9b5dc012c0f24435adbf0920eeb02943}{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}~0x3
+\item 
+\#define \hyperlink{hpl__usb_8h_a35c94f3d792ac9602fe74f4647e1c19c}{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+M\+A\+SK}~0x3u
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ U\+SB status codes}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{hpl__usb_8h_a285537b8fcc650388eadbc77a96c654b}{U\+S\+B\+\_\+\+OK}~0
+\item 
+\#define \hyperlink{hpl__usb_8h_a699d9a2b614b6a67adfe9e2c0ee69308}{U\+S\+B\+\_\+\+B\+U\+SY}~1
+\item 
+\#define \hyperlink{hpl__usb_8h_a1c4446ed3b3564d3a2250c9959da706d}{U\+S\+B\+\_\+\+H\+A\+L\+T\+ED}~2
+\item 
+\#define \hyperlink{hpl__usb_8h_a49ac3de4589410d3dc6415e5add03152}{U\+S\+B\+\_\+\+E\+R\+R\+OR}~0x10
+\item 
+\#define \hyperlink{hpl__usb_8h_a1a23dbf4da06768862b75f12939c8338}{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+D\+E\+N\+I\+ED}~0x11
+\item 
+\#define \hyperlink{hpl__usb_8h_a1bf2c086dabe7c44b6b54b8a59abb835}{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+P\+A\+R\+AM}~0x12
+\item 
+\#define \hyperlink{hpl__usb_8h_a3f3aa88174cbe27cf4952d4b17039163}{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+F\+U\+NC}~0x13
+\item 
+\#define \hyperlink{hpl__usb_8h_a928a73340d24b3e4eb3e95a4b85aceca}{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+R\+E\+DO}~0x14
+\item 
+\#define \hyperlink{hpl__usb_8h_ac09c11a81e7ff2719b4ed55892cb66ee}{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+A\+L\+L\+O\+C\+\_\+\+F\+A\+IL}~0x15
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340}{usb\+\_\+speed} \{ \hyperlink{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340abcd9329da8231e2d78e728b068d870c8}{U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+LS}, 
+\hyperlink{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340a20bb7ec351e3d0ea8d4568e7258a8319}{U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+FS}, 
+\hyperlink{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340aae90ddc98b0a056b3898d19a639ffb62}{U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+HS}, 
+\hyperlink{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340a8473685855acbdf2bfafb097bb77d862}{U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+SS}
+ \}
+\item 
+enum \hyperlink{hpl__usb_8h_ae2d4c981102d46e97b74cd280184a705}{usb\+\_\+trans\+\_\+type} \{ \hyperlink{hpl__usb_8h_ae2d4c981102d46e97b74cd280184a705af755b97dab6bb2480c0431d13dde60d5}{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+S\+E\+T\+UP}, 
+\hyperlink{hpl__usb_8h_ae2d4c981102d46e97b74cd280184a705a0863b782c0a783d79a101308bc500aa6}{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+IN}, 
+\hyperlink{hpl__usb_8h_ae2d4c981102d46e97b74cd280184a705aa2c5b6ffbf18380895a87572db26cb93}{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+O\+UT}
+ \}
+\item 
+enum \hyperlink{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94}{usb\+\_\+event} \{ \newline
+\hyperlink{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94ae4f10e2dbde72d387c03281da60b5ff5}{U\+S\+B\+\_\+\+E\+V\+\_\+\+V\+B\+US}, 
+\hyperlink{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94afc4b9701e5da2a5b9d13b176b4025890}{U\+S\+B\+\_\+\+E\+V\+\_\+\+R\+E\+S\+ET}, 
+\hyperlink{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94ab967c1fe70e8089215843887eb90f734}{U\+S\+B\+\_\+\+E\+V\+\_\+\+W\+A\+K\+E\+UP}, 
+\hyperlink{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94a4687c3c302d81b387d9e779481c026fb}{U\+S\+B\+\_\+\+E\+V\+\_\+\+L\+P\+M\+\_\+\+S\+U\+S\+P\+E\+ND}, 
+\newline
+\hyperlink{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94a18c5b131b0d4f993bcc86e85dc8c0ea5}{U\+S\+B\+\_\+\+E\+V\+\_\+\+S\+U\+S\+P\+E\+ND}, 
+\hyperlink{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94aff62509a31c015b02b0556f31f615bd5}{U\+S\+B\+\_\+\+E\+V\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94a386ffcc8986cc833ceab92165afd8f41}{U\+S\+B\+\_\+\+E\+V\+\_\+N}
+ \}
+\item 
+enum \hyperlink{hpl__usb_8h_a3f8b44aed46a8be6cc2b32211e641202}{usb\+\_\+ep\+\_\+stall\+\_\+ctrl} \{ \hyperlink{hpl__usb_8h_a3f8b44aed46a8be6cc2b32211e641202a9688af7f1f08e2c248362d571406c58e}{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+C\+LR}, 
+\hyperlink{hpl__usb_8h_a3f8b44aed46a8be6cc2b32211e641202a86ff3cd56a1dc7b2851254c9715b520d}{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+S\+ET}, 
+\hyperlink{hpl__usb_8h_a3f8b44aed46a8be6cc2b32211e641202af78daf7e1339c8a1957ec1d79a07bde2}{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+G\+ET}
+ \}
+\item 
+enum \hyperlink{hpl__usb_8h_a579e31b2de8b2343e818b13c492f30cb}{usb\+\_\+ep\+\_\+halt\+\_\+ctrl} \{ \hyperlink{hpl__usb_8h_a579e31b2de8b2343e818b13c492f30cba5a0719eaa80b8599fd3afac8af865ece}{U\+S\+B\+\_\+\+E\+P\+\_\+\+H\+A\+L\+T\+\_\+\+C\+LR} = U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+C\+LR, 
+\hyperlink{hpl__usb_8h_a579e31b2de8b2343e818b13c492f30cba03f537d5225fafca6248f59661367859}{U\+S\+B\+\_\+\+E\+P\+\_\+\+H\+A\+L\+T\+\_\+\+S\+ET} = U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+S\+ET, 
+\hyperlink{hpl__usb_8h_a579e31b2de8b2343e818b13c492f30cba62c50bbd6d89d1d877ff8ee1d6950dd7}{U\+S\+B\+\_\+\+E\+P\+\_\+\+H\+A\+L\+T\+\_\+\+G\+ET} = U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+G\+ET
+ \}
+\item 
+enum \hyperlink{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474c}{usb\+\_\+trans\+\_\+code} \{ \newline
+\hyperlink{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474ca7b3b54ee8a5f04c23e8755a79fef194d}{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+D\+O\+NE}, 
+\hyperlink{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474ca019eb30d1df1b486c11f30ea42a063a5}{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+S\+T\+A\+LL}, 
+\hyperlink{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474ca61b5fccd532c8df7f62638268664016a}{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+A\+B\+O\+RT}, 
+\hyperlink{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474ca07dba42a4ca6f9966b9eaa4bb4f21179}{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+R\+E\+S\+ET}, 
+\newline
+\hyperlink{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474ca55e42f3b85f972f5eedf70d17243b14c}{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+E\+R\+R\+OR}
+ \}
+\item 
+enum \hyperlink{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5e}{usb\+\_\+xfer\+\_\+code} \{ \newline
+\hyperlink{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5ea12da6774558ef6d43792c0490b41b9c5}{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+D\+O\+NE}, 
+\hyperlink{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5ea72fc7640425fa318f17b9d6f0654dae9}{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+D\+A\+TA}, 
+\hyperlink{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5eaca41010d3e50f3414d853f4df1d5de99}{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+H\+A\+LT}, 
+\hyperlink{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5ea17dd817550554d37b19264f403e7c15a}{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+U\+N\+H\+A\+LT}, 
+\newline
+\hyperlink{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5ead0c0800a812aec7bb406339a82b649d4}{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+A\+B\+O\+RT}, 
+\hyperlink{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5ea0b67854449182503534e65c736e22af6}{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+R\+E\+S\+ET}, 
+\hyperlink{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5ea5263d9f810e0e11e92187a0bf2ea1346}{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+E\+R\+R\+OR}
+ \}
+\item 
+enum \hyperlink{hpl__usb_8h_af74459862f136bee5d985e694647a99b}{usb\+\_\+ep\+\_\+error} \{ \hyperlink{hpl__usb_8h_af74459862f136bee5d985e694647a99ba03ee856e1a1166be3cacfedf0456ab29}{U\+S\+B\+\_\+\+E\+P\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{hpl__usb_8h_af74459862f136bee5d985e694647a99ba816844a050b5ffe5ec9d42d81a92a4b8}{U\+S\+B\+\_\+\+E\+P\+\_\+\+E\+R\+R\+\_\+\+C\+RC}, 
+\hyperlink{hpl__usb_8h_af74459862f136bee5d985e694647a99ba13e421fc4f93d64b86655a22aba50155}{U\+S\+B\+\_\+\+E\+P\+\_\+\+E\+R\+R\+\_\+\+O\+V\+E\+R\+F\+L\+OW}, 
+\hyperlink{hpl__usb_8h_af74459862f136bee5d985e694647a99ba25ed3513ee0f2170f91684874fc389f3}{U\+S\+B\+\_\+\+E\+P\+\_\+\+E\+R\+R\+\_\+\+G\+E\+N\+E\+R\+AL}
+ \}
+\item 
+enum \hyperlink{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36a}{usb\+\_\+ep\+\_\+state} \{ \newline
+\hyperlink{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aa7d1cc5375a18900bd43b8e7d40b0b95f}{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+D\+I\+S\+A\+B\+L\+ED}, 
+\hyperlink{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aa94014a5498520e572921c63ad843ddc0}{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+I\+D\+LE}, 
+\hyperlink{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aa5dda4fc1d0fe078b1cf1d3bf5ebe5ab6}{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+X\+\_\+\+S\+E\+T\+UP}, 
+\hyperlink{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aac40f0890415985e75867a4db5024a8d6}{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+X\+\_\+\+D\+A\+TA}, 
+\newline
+\hyperlink{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aa8cc15fae3e2a12ccd1e5c796069a592f}{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+X\+\_\+\+S\+T\+A\+T\+US}, 
+\hyperlink{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aadb18e380a2987a87b71e123784edf165}{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+H\+A\+L\+T\+ED}, 
+\hyperlink{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aa27ce1aab51f5dc10aa08e02a5f4e8847}{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+E\+R\+R\+OR}
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+S\+AM U\+SB H\+PL. 
+
+Copyright (C) 2015 Atmel Corporation. All rights reserved.
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{hpl__usb_8h_a38145b9b9119702a0259a21d6f3cb96d}\label{hpl__usb_8h_a38145b9b9119702a0259a21d6f3cb96d}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+bm\+Request\+Type\+\_\+\+Offset@{U\+S\+B\+\_\+bm\+Request\+Type\+\_\+\+Offset}}
+\index{U\+S\+B\+\_\+bm\+Request\+Type\+\_\+\+Offset@{U\+S\+B\+\_\+bm\+Request\+Type\+\_\+\+Offset}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+bm\+Request\+Type\+\_\+\+Offset}{USB\_bmRequestType\_Offset}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+bm\+Request\+Type\+\_\+\+Offset~0}
+
+Offset of bm\+Request\+Type in U\+SB request buffer. \mbox{\Hypertarget{hpl__usb_8h_afe4d707e4a3b5467d7e04e496731681a}\label{hpl__usb_8h_afe4d707e4a3b5467d7e04e496731681a}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+b\+Request\+\_\+\+Offset@{U\+S\+B\+\_\+b\+Request\+\_\+\+Offset}}
+\index{U\+S\+B\+\_\+b\+Request\+\_\+\+Offset@{U\+S\+B\+\_\+b\+Request\+\_\+\+Offset}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+b\+Request\+\_\+\+Offset}{USB\_bRequest\_Offset}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+b\+Request\+\_\+\+Offset~1}
+
+Offset of b\+Request in U\+SB request buffer. \mbox{\Hypertarget{hpl__usb_8h_a699d9a2b614b6a67adfe9e2c0ee69308}\label{hpl__usb_8h_a699d9a2b614b6a67adfe9e2c0ee69308}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+B\+U\+SY@{U\+S\+B\+\_\+\+B\+U\+SY}}
+\index{U\+S\+B\+\_\+\+B\+U\+SY@{U\+S\+B\+\_\+\+B\+U\+SY}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+B\+U\+SY}{USB\_BUSY}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+B\+U\+SY~1}
+
+U\+SB (endpoint) is busy. \mbox{\Hypertarget{hpl__usb_8h_a351581610ef35515432a9c1ab9827433}\label{hpl__usb_8h_a351581610ef35515432a9c1ab9827433}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+D\+IR@{U\+S\+B\+\_\+\+E\+P\+\_\+\+D\+IR}}
+\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+D\+IR@{U\+S\+B\+\_\+\+E\+P\+\_\+\+D\+IR}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+E\+P\+\_\+\+D\+IR}{USB\_EP\_DIR}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+E\+P\+\_\+\+D\+IR~0x80u}
+
+U\+SB endpoint direction bit of b\+Endpoint\+Address. \mbox{\Hypertarget{hpl__usb_8h_a362a7770b521f595748b1c712b6d5079}\label{hpl__usb_8h_a362a7770b521f595748b1c712b6d5079}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+G\+E\+T\+\_\+\+D\+IR@{U\+S\+B\+\_\+\+E\+P\+\_\+\+G\+E\+T\+\_\+\+D\+IR}}
+\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+G\+E\+T\+\_\+\+D\+IR@{U\+S\+B\+\_\+\+E\+P\+\_\+\+G\+E\+T\+\_\+\+D\+IR}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+E\+P\+\_\+\+G\+E\+T\+\_\+\+D\+IR}{USB\_EP\_GET\_DIR}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+E\+P\+\_\+\+G\+E\+T\+\_\+\+D\+IR(\begin{DoxyParamCaption}\item[{}]{ep\+\_\+addr }\end{DoxyParamCaption})~((ep\+\_\+addr)\&\hyperlink{hpl__usb_8h_a351581610ef35515432a9c1ab9827433}{U\+S\+B\+\_\+\+E\+P\+\_\+\+D\+IR})}
+
+Get U\+SB endpoint direction from endpoint address. \mbox{\Hypertarget{hpl__usb_8h_a62200f7177f9f052be4cce8ebbc2f147}\label{hpl__usb_8h_a62200f7177f9f052be4cce8ebbc2f147}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+G\+E\+T\+\_\+N@{U\+S\+B\+\_\+\+E\+P\+\_\+\+G\+E\+T\+\_\+N}}
+\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+G\+E\+T\+\_\+N@{U\+S\+B\+\_\+\+E\+P\+\_\+\+G\+E\+T\+\_\+N}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+E\+P\+\_\+\+G\+E\+T\+\_\+N}{USB\_EP\_GET\_N}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+E\+P\+\_\+\+G\+E\+T\+\_\+N(\begin{DoxyParamCaption}\item[{}]{ep\+\_\+addr }\end{DoxyParamCaption})~((ep\+\_\+addr)\&\hyperlink{hpl__usb_8h_a837ab3f6b2cd240e67a95f5c666702af}{U\+S\+B\+\_\+\+E\+P\+\_\+\+N\+\_\+\+M\+A\+SK})}
+
+Get U\+SB endpoint number from endpoint address. \mbox{\Hypertarget{hpl__usb_8h_a837ab3f6b2cd240e67a95f5c666702af}\label{hpl__usb_8h_a837ab3f6b2cd240e67a95f5c666702af}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+N\+\_\+\+M\+A\+SK@{U\+S\+B\+\_\+\+E\+P\+\_\+\+N\+\_\+\+M\+A\+SK}}
+\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+N\+\_\+\+M\+A\+SK@{U\+S\+B\+\_\+\+E\+P\+\_\+\+N\+\_\+\+M\+A\+SK}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+E\+P\+\_\+\+N\+\_\+\+M\+A\+SK}{USB\_EP\_N\_MASK}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+E\+P\+\_\+\+N\+\_\+\+M\+A\+SK~0x0\+Fu}
+
+U\+SB endpoint number mask of b\+Endpoint\+Address. \mbox{\Hypertarget{hpl__usb_8h_a2ccdf08508298e7d5869388d2c67d821}\label{hpl__usb_8h_a2ccdf08508298e7d5869388d2c67d821}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+B\+U\+LK@{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+B\+U\+LK}}
+\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+B\+U\+LK@{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+B\+U\+LK}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+B\+U\+LK}{USB\_EP\_XTYPE\_BULK}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+B\+U\+LK~0x2}
+
+Transfer type in EP descriptor bm\+Attributes\+: Bulk. \mbox{\Hypertarget{hpl__usb_8h_af3cd63963cd4f9f06e99d849b85dd4b5}\label{hpl__usb_8h_af3cd63963cd4f9f06e99d849b85dd4b5}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+C\+T\+RL@{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+C\+T\+RL}}
+\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+C\+T\+RL@{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+C\+T\+RL}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+C\+T\+RL}{USB\_EP\_XTYPE\_CTRL}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+C\+T\+RL~0x0}
+
+Transfer type in EP descriptor bm\+Attributes\+: Control. \mbox{\Hypertarget{hpl__usb_8h_a9b5dc012c0f24435adbf0920eeb02943}\label{hpl__usb_8h_a9b5dc012c0f24435adbf0920eeb02943}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT@{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}}
+\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT@{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT}{USB\_EP\_XTYPE\_INTERRUPT}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+I\+N\+T\+E\+R\+R\+U\+PT~0x3}
+
+Transfer type in EP descriptor bm\+Attributes\+: Interrupt. \mbox{\Hypertarget{hpl__usb_8h_a833d81577e6b6995b995423e7a1fe88b}\label{hpl__usb_8h_a833d81577e6b6995b995423e7a1fe88b}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+I\+S\+O\+CH@{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+I\+S\+O\+CH}}
+\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+I\+S\+O\+CH@{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+I\+S\+O\+CH}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+I\+S\+O\+CH}{USB\_EP\_XTYPE\_ISOCH}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+I\+S\+O\+CH~0x1}
+
+Transfer type in EP descriptor bm\+Attributes\+: Isochronous. \mbox{\Hypertarget{hpl__usb_8h_a35c94f3d792ac9602fe74f4647e1c19c}\label{hpl__usb_8h_a35c94f3d792ac9602fe74f4647e1c19c}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+M\+A\+SK@{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+M\+A\+SK}}
+\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+M\+A\+SK@{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+M\+A\+SK}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+M\+A\+SK}{USB\_EP\_XTYPE\_MASK}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+E\+P\+\_\+\+X\+T\+Y\+P\+E\+\_\+\+M\+A\+SK~0x3u}
+
+Transfer type mask in EP descriptor bm\+Attributes. \mbox{\Hypertarget{hpl__usb_8h_ac09c11a81e7ff2719b4ed55892cb66ee}\label{hpl__usb_8h_ac09c11a81e7ff2719b4ed55892cb66ee}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+A\+L\+L\+O\+C\+\_\+\+F\+A\+IL@{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+A\+L\+L\+O\+C\+\_\+\+F\+A\+IL}}
+\index{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+A\+L\+L\+O\+C\+\_\+\+F\+A\+IL@{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+A\+L\+L\+O\+C\+\_\+\+F\+A\+IL}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+A\+L\+L\+O\+C\+\_\+\+F\+A\+IL}{USB\_ERR\_ALLOC\_FAIL}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+A\+L\+L\+O\+C\+\_\+\+F\+A\+IL~0x15}
+
+Not enough resource (memory, endpoints ...). \mbox{\Hypertarget{hpl__usb_8h_a1a23dbf4da06768862b75f12939c8338}\label{hpl__usb_8h_a1a23dbf4da06768862b75f12939c8338}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+D\+E\+N\+I\+ED@{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+D\+E\+N\+I\+ED}}
+\index{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+D\+E\+N\+I\+ED@{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+D\+E\+N\+I\+ED}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+D\+E\+N\+I\+ED}{USB\_ERR\_DENIED}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+D\+E\+N\+I\+ED~0x11}
+
+Operation is denied by hardware (e.\+g., syncing). \mbox{\Hypertarget{hpl__usb_8h_a3f3aa88174cbe27cf4952d4b17039163}\label{hpl__usb_8h_a3f3aa88174cbe27cf4952d4b17039163}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+F\+U\+NC@{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+F\+U\+NC}}
+\index{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+F\+U\+NC@{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+F\+U\+NC}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+F\+U\+NC}{USB\_ERR\_FUNC}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+F\+U\+NC~0x13}
+
+Functionality is not supported (e.\+g., initialize endpoint without cache to be control). \mbox{\Hypertarget{hpl__usb_8h_a1bf2c086dabe7c44b6b54b8a59abb835}\label{hpl__usb_8h_a1bf2c086dabe7c44b6b54b8a59abb835}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+P\+A\+R\+AM@{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+P\+A\+R\+AM}}
+\index{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+P\+A\+R\+AM@{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+P\+A\+R\+AM}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+P\+A\+R\+AM}{USB\_ERR\_PARAM}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+P\+A\+R\+AM~0x12}
+
+Input parameter error. \mbox{\Hypertarget{hpl__usb_8h_a928a73340d24b3e4eb3e95a4b85aceca}\label{hpl__usb_8h_a928a73340d24b3e4eb3e95a4b85aceca}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+R\+E\+DO@{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+R\+E\+DO}}
+\index{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+R\+E\+DO@{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+R\+E\+DO}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+R\+E\+DO}{USB\_ERR\_REDO}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+E\+R\+R\+\_\+\+R\+E\+DO~0x14}
+
+Re-\/initialize, re-\/enable ... \mbox{\Hypertarget{hpl__usb_8h_a49ac3de4589410d3dc6415e5add03152}\label{hpl__usb_8h_a49ac3de4589410d3dc6415e5add03152}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+R\+R\+OR@{U\+S\+B\+\_\+\+E\+R\+R\+OR}}
+\index{U\+S\+B\+\_\+\+E\+R\+R\+OR@{U\+S\+B\+\_\+\+E\+R\+R\+OR}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+E\+R\+R\+OR}{USB\_ERROR}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+E\+R\+R\+OR~0x10}
+
+General error. \mbox{\Hypertarget{hpl__usb_8h_a43724817f023287f0887821f7b9904bd}\label{hpl__usb_8h_a43724817f023287f0887821f7b9904bd}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+G\+E\+T\+\_\+bm\+Request\+Type@{U\+S\+B\+\_\+\+G\+E\+T\+\_\+bm\+Request\+Type}}
+\index{U\+S\+B\+\_\+\+G\+E\+T\+\_\+bm\+Request\+Type@{U\+S\+B\+\_\+\+G\+E\+T\+\_\+bm\+Request\+Type}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+G\+E\+T\+\_\+bm\+Request\+Type}{USB\_GET\_bmRequestType}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+G\+E\+T\+\_\+bm\+Request\+Type(\begin{DoxyParamCaption}\item[{}]{req }\end{DoxyParamCaption})~\hyperlink{hpl__usb_8h_a8881d7d10c38ae56218d9fc87c2a4aa9}{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U8}((req), \hyperlink{hpl__usb_8h_a38145b9b9119702a0259a21d6f3cb96d}{U\+S\+B\+\_\+bm\+Request\+Type\+\_\+\+Offset})}
+
+Get value of bm\+Request\+Type from U\+SB request. \mbox{\Hypertarget{hpl__usb_8h_aed87bf093c19e9e7ca637587813cc34a}\label{hpl__usb_8h_aed87bf093c19e9e7ca637587813cc34a}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+G\+E\+T\+\_\+b\+Request@{U\+S\+B\+\_\+\+G\+E\+T\+\_\+b\+Request}}
+\index{U\+S\+B\+\_\+\+G\+E\+T\+\_\+b\+Request@{U\+S\+B\+\_\+\+G\+E\+T\+\_\+b\+Request}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+G\+E\+T\+\_\+b\+Request}{USB\_GET\_bRequest}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+G\+E\+T\+\_\+b\+Request(\begin{DoxyParamCaption}\item[{}]{req }\end{DoxyParamCaption})~\hyperlink{hpl__usb_8h_a8881d7d10c38ae56218d9fc87c2a4aa9}{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U8}((req), \hyperlink{hpl__usb_8h_afe4d707e4a3b5467d7e04e496731681a}{U\+S\+B\+\_\+b\+Request\+\_\+\+Offset})}
+
+Get value of b\+Request from U\+SB request. \mbox{\Hypertarget{hpl__usb_8h_a40fc5452e2b1f6a22efbcf294b6c2fd7}\label{hpl__usb_8h_a40fc5452e2b1f6a22efbcf294b6c2fd7}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U16@{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U16}}
+\index{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U16@{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U16}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U16}{USB\_GET\_U16}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U16(\begin{DoxyParamCaption}\item[{}]{addr,  }\item[{}]{offset }\end{DoxyParamCaption})~((((uint8\+\_\+t $\ast$)(addr))\mbox{[}(offset) + 0\mbox{]} $<$$<$ 0) + (((uint8\+\_\+t $\ast$)(addr))\mbox{[}(offset) + 1\mbox{]} $<$$<$ 8))}
+
+Return 16-\/bit unsigned U\+SB data. \mbox{\Hypertarget{hpl__usb_8h_a4f54bf0fdaec4cb66ebe019bef51a91c}\label{hpl__usb_8h_a4f54bf0fdaec4cb66ebe019bef51a91c}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U32@{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U32}}
+\index{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U32@{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U32}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U32}{USB\_GET\_U32}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U32(\begin{DoxyParamCaption}\item[{}]{addr,  }\item[{}]{offset }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+((((uint8\_t *)(addr))[(offset) + 0] << 0) + (((uint8\_t *)(addr))[(offset) + 1] << 8)                       
+              \(\backslash\)
+     + (((uint8\_t *)(addr))[(offset) + 2] << 16)                                                           
+                  \(\backslash\)
+     + (((uint8\_t *)(addr))[(offset) + 3] << 32))
+\end{DoxyCode}
+Return 32-\/bit unsigned U\+SB data. \mbox{\Hypertarget{hpl__usb_8h_a8881d7d10c38ae56218d9fc87c2a4aa9}\label{hpl__usb_8h_a8881d7d10c38ae56218d9fc87c2a4aa9}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U8@{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U8}}
+\index{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U8@{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U8}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U8}{USB\_GET\_U8}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U8(\begin{DoxyParamCaption}\item[{}]{addr,  }\item[{}]{offset }\end{DoxyParamCaption})~(((uint8\+\_\+t $\ast$)(addr))\mbox{[}(offset)\mbox{]})}
+
+Return 8-\/bit unsigned U\+SB data. \mbox{\Hypertarget{hpl__usb_8h_abb43363d8f26e1491870ca2495b2cd89}\label{hpl__usb_8h_abb43363d8f26e1491870ca2495b2cd89}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Index@{U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Index}}
+\index{U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Index@{U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Index}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Index}{USB\_GET\_wIndex}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Index(\begin{DoxyParamCaption}\item[{}]{req }\end{DoxyParamCaption})~\hyperlink{hpl__usb_8h_a40fc5452e2b1f6a22efbcf294b6c2fd7}{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U16}((req), \hyperlink{hpl__usb_8h_aeb7c849710317097800c344dd29e22f1}{U\+S\+B\+\_\+w\+Index\+\_\+\+Offset})}
+
+Get value of w\+Index from U\+SB request. \mbox{\Hypertarget{hpl__usb_8h_a907b041e08f0a1782614c640cbf2d970}\label{hpl__usb_8h_a907b041e08f0a1782614c640cbf2d970}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Length@{U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Length}}
+\index{U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Length@{U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Length}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Length}{USB\_GET\_wLength}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Length(\begin{DoxyParamCaption}\item[{}]{req }\end{DoxyParamCaption})~\hyperlink{hpl__usb_8h_a40fc5452e2b1f6a22efbcf294b6c2fd7}{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U16}((req), \hyperlink{hpl__usb_8h_adf6e0edba154829963ad9a620db30513}{U\+S\+B\+\_\+w\+Length\+\_\+\+Offset})}
+
+Get value of w\+Length from U\+SB request. \mbox{\Hypertarget{hpl__usb_8h_a0f3bbf02b585b799832f3e76e221b107}\label{hpl__usb_8h_a0f3bbf02b585b799832f3e76e221b107}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Value@{U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Value}}
+\index{U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Value@{U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Value}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Value}{USB\_GET\_wValue}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+G\+E\+T\+\_\+w\+Value(\begin{DoxyParamCaption}\item[{}]{req }\end{DoxyParamCaption})~\hyperlink{hpl__usb_8h_a40fc5452e2b1f6a22efbcf294b6c2fd7}{U\+S\+B\+\_\+\+G\+E\+T\+\_\+\+U16}((req), \hyperlink{hpl__usb_8h_a21db81f595082bcf29e08371c9fd5c45}{U\+S\+B\+\_\+w\+Value\+\_\+\+Offset})}
+
+Get value of w\+Value from U\+SB request. \mbox{\Hypertarget{hpl__usb_8h_a1c4446ed3b3564d3a2250c9959da706d}\label{hpl__usb_8h_a1c4446ed3b3564d3a2250c9959da706d}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+H\+A\+L\+T\+ED@{U\+S\+B\+\_\+\+H\+A\+L\+T\+ED}}
+\index{U\+S\+B\+\_\+\+H\+A\+L\+T\+ED@{U\+S\+B\+\_\+\+H\+A\+L\+T\+ED}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+H\+A\+L\+T\+ED}{USB\_HALTED}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+H\+A\+L\+T\+ED~2}
+
+U\+SB (endpoint) is halted. \mbox{\Hypertarget{hpl__usb_8h_a285537b8fcc650388eadbc77a96c654b}\label{hpl__usb_8h_a285537b8fcc650388eadbc77a96c654b}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+OK@{U\+S\+B\+\_\+\+OK}}
+\index{U\+S\+B\+\_\+\+OK@{U\+S\+B\+\_\+\+OK}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+OK}{USB\_OK}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+OK~0}
+
+U\+SB operation is done successfully. \mbox{\Hypertarget{hpl__usb_8h_a70030b8303e51d92728ac82677657505}\label{hpl__usb_8h_a70030b8303e51d92728ac82677657505}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+T\+Y\+P\+E\+\_\+\+IN@{U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+T\+Y\+P\+E\+\_\+\+IN}}
+\index{U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+T\+Y\+P\+E\+\_\+\+IN@{U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+T\+Y\+P\+E\+\_\+\+IN}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+T\+Y\+P\+E\+\_\+\+IN}{USB\_REQ\_TYPE\_IN}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+R\+E\+Q\+\_\+\+T\+Y\+P\+E\+\_\+\+IN~0x80u}
+
+U\+SB request IN indication of bm\+Request\+Type. \mbox{\Hypertarget{hpl__usb_8h_aeb7c849710317097800c344dd29e22f1}\label{hpl__usb_8h_aeb7c849710317097800c344dd29e22f1}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+w\+Index\+\_\+\+Offset@{U\+S\+B\+\_\+w\+Index\+\_\+\+Offset}}
+\index{U\+S\+B\+\_\+w\+Index\+\_\+\+Offset@{U\+S\+B\+\_\+w\+Index\+\_\+\+Offset}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+w\+Index\+\_\+\+Offset}{USB\_wIndex\_Offset}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+w\+Index\+\_\+\+Offset~4}
+
+Offset of w\+Index in U\+SB request buffer. \mbox{\Hypertarget{hpl__usb_8h_adf6e0edba154829963ad9a620db30513}\label{hpl__usb_8h_adf6e0edba154829963ad9a620db30513}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+w\+Length\+\_\+\+Offset@{U\+S\+B\+\_\+w\+Length\+\_\+\+Offset}}
+\index{U\+S\+B\+\_\+w\+Length\+\_\+\+Offset@{U\+S\+B\+\_\+w\+Length\+\_\+\+Offset}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+w\+Length\+\_\+\+Offset}{USB\_wLength\_Offset}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+w\+Length\+\_\+\+Offset~6}
+
+Offset of w\+Length in U\+SB request buffer. \mbox{\Hypertarget{hpl__usb_8h_a21db81f595082bcf29e08371c9fd5c45}\label{hpl__usb_8h_a21db81f595082bcf29e08371c9fd5c45}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+w\+Value\+\_\+\+Offset@{U\+S\+B\+\_\+w\+Value\+\_\+\+Offset}}
+\index{U\+S\+B\+\_\+w\+Value\+\_\+\+Offset@{U\+S\+B\+\_\+w\+Value\+\_\+\+Offset}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{U\+S\+B\+\_\+w\+Value\+\_\+\+Offset}{USB\_wValue\_Offset}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+w\+Value\+\_\+\+Offset~2}
+
+Offset of w\+Value in U\+SB request buffer. 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{hpl__usb_8h_af74459862f136bee5d985e694647a99b}\label{hpl__usb_8h_af74459862f136bee5d985e694647a99b}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!usb\+\_\+ep\+\_\+error@{usb\+\_\+ep\+\_\+error}}
+\index{usb\+\_\+ep\+\_\+error@{usb\+\_\+ep\+\_\+error}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+ep\+\_\+error}{usb\_ep\_error}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb_8h_af74459862f136bee5d985e694647a99b}{usb\+\_\+ep\+\_\+error}}
+
+U\+SB endpoint errors. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR@{U\+S\+B\+\_\+\+E\+P\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR@{U\+S\+B\+\_\+\+E\+P\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR}}}\mbox{\Hypertarget{hpl__usb_8h_af74459862f136bee5d985e694647a99ba03ee856e1a1166be3cacfedf0456ab29}\label{hpl__usb_8h_af74459862f136bee5d985e694647a99ba03ee856e1a1166be3cacfedf0456ab29}} 
+U\+S\+B\+\_\+\+E\+P\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR&No error. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+E\+R\+R\+\_\+\+C\+RC@{U\+S\+B\+\_\+\+E\+P\+\_\+\+E\+R\+R\+\_\+\+C\+RC}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+E\+R\+R\+\_\+\+C\+RC@{U\+S\+B\+\_\+\+E\+P\+\_\+\+E\+R\+R\+\_\+\+C\+RC}}}\mbox{\Hypertarget{hpl__usb_8h_af74459862f136bee5d985e694647a99ba816844a050b5ffe5ec9d42d81a92a4b8}\label{hpl__usb_8h_af74459862f136bee5d985e694647a99ba816844a050b5ffe5ec9d42d81a92a4b8}} 
+U\+S\+B\+\_\+\+E\+P\+\_\+\+E\+R\+R\+\_\+\+C\+RC&C\+RC error. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+E\+R\+R\+\_\+\+O\+V\+E\+R\+F\+L\+OW@{U\+S\+B\+\_\+\+E\+P\+\_\+\+E\+R\+R\+\_\+\+O\+V\+E\+R\+F\+L\+OW}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+E\+R\+R\+\_\+\+O\+V\+E\+R\+F\+L\+OW@{U\+S\+B\+\_\+\+E\+P\+\_\+\+E\+R\+R\+\_\+\+O\+V\+E\+R\+F\+L\+OW}}}\mbox{\Hypertarget{hpl__usb_8h_af74459862f136bee5d985e694647a99ba13e421fc4f93d64b86655a22aba50155}\label{hpl__usb_8h_af74459862f136bee5d985e694647a99ba13e421fc4f93d64b86655a22aba50155}} 
+U\+S\+B\+\_\+\+E\+P\+\_\+\+E\+R\+R\+\_\+\+O\+V\+E\+R\+F\+L\+OW&Endpoint transfer overflow. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+E\+R\+R\+\_\+\+G\+E\+N\+E\+R\+AL@{U\+S\+B\+\_\+\+E\+P\+\_\+\+E\+R\+R\+\_\+\+G\+E\+N\+E\+R\+AL}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+E\+R\+R\+\_\+\+G\+E\+N\+E\+R\+AL@{U\+S\+B\+\_\+\+E\+P\+\_\+\+E\+R\+R\+\_\+\+G\+E\+N\+E\+R\+AL}}}\mbox{\Hypertarget{hpl__usb_8h_af74459862f136bee5d985e694647a99ba25ed3513ee0f2170f91684874fc389f3}\label{hpl__usb_8h_af74459862f136bee5d985e694647a99ba25ed3513ee0f2170f91684874fc389f3}} 
+U\+S\+B\+\_\+\+E\+P\+\_\+\+E\+R\+R\+\_\+\+G\+E\+N\+E\+R\+AL&Other endpoint errors. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{hpl__usb_8h_a579e31b2de8b2343e818b13c492f30cb}\label{hpl__usb_8h_a579e31b2de8b2343e818b13c492f30cb}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!usb\+\_\+ep\+\_\+halt\+\_\+ctrl@{usb\+\_\+ep\+\_\+halt\+\_\+ctrl}}
+\index{usb\+\_\+ep\+\_\+halt\+\_\+ctrl@{usb\+\_\+ep\+\_\+halt\+\_\+ctrl}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+ep\+\_\+halt\+\_\+ctrl}{usb\_ep\_halt\_ctrl}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb_8h_a579e31b2de8b2343e818b13c492f30cb}{usb\+\_\+ep\+\_\+halt\+\_\+ctrl}}
+
+Control action for U\+SB device endpoint halt. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+H\+A\+L\+T\+\_\+\+C\+LR@{U\+S\+B\+\_\+\+E\+P\+\_\+\+H\+A\+L\+T\+\_\+\+C\+LR}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+H\+A\+L\+T\+\_\+\+C\+LR@{U\+S\+B\+\_\+\+E\+P\+\_\+\+H\+A\+L\+T\+\_\+\+C\+LR}}}\mbox{\Hypertarget{hpl__usb_8h_a579e31b2de8b2343e818b13c492f30cba5a0719eaa80b8599fd3afac8af865ece}\label{hpl__usb_8h_a579e31b2de8b2343e818b13c492f30cba5a0719eaa80b8599fd3afac8af865ece}} 
+U\+S\+B\+\_\+\+E\+P\+\_\+\+H\+A\+L\+T\+\_\+\+C\+LR&Clear halt of the endpoint. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+H\+A\+L\+T\+\_\+\+S\+ET@{U\+S\+B\+\_\+\+E\+P\+\_\+\+H\+A\+L\+T\+\_\+\+S\+ET}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+H\+A\+L\+T\+\_\+\+S\+ET@{U\+S\+B\+\_\+\+E\+P\+\_\+\+H\+A\+L\+T\+\_\+\+S\+ET}}}\mbox{\Hypertarget{hpl__usb_8h_a579e31b2de8b2343e818b13c492f30cba03f537d5225fafca6248f59661367859}\label{hpl__usb_8h_a579e31b2de8b2343e818b13c492f30cba03f537d5225fafca6248f59661367859}} 
+U\+S\+B\+\_\+\+E\+P\+\_\+\+H\+A\+L\+T\+\_\+\+S\+ET&Stall the endpoint. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+H\+A\+L\+T\+\_\+\+G\+ET@{U\+S\+B\+\_\+\+E\+P\+\_\+\+H\+A\+L\+T\+\_\+\+G\+ET}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+H\+A\+L\+T\+\_\+\+G\+ET@{U\+S\+B\+\_\+\+E\+P\+\_\+\+H\+A\+L\+T\+\_\+\+G\+ET}}}\mbox{\Hypertarget{hpl__usb_8h_a579e31b2de8b2343e818b13c492f30cba62c50bbd6d89d1d877ff8ee1d6950dd7}\label{hpl__usb_8h_a579e31b2de8b2343e818b13c492f30cba62c50bbd6d89d1d877ff8ee1d6950dd7}} 
+U\+S\+B\+\_\+\+E\+P\+\_\+\+H\+A\+L\+T\+\_\+\+G\+ET&Return the halt status. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{hpl__usb_8h_a3f8b44aed46a8be6cc2b32211e641202}\label{hpl__usb_8h_a3f8b44aed46a8be6cc2b32211e641202}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!usb\+\_\+ep\+\_\+stall\+\_\+ctrl@{usb\+\_\+ep\+\_\+stall\+\_\+ctrl}}
+\index{usb\+\_\+ep\+\_\+stall\+\_\+ctrl@{usb\+\_\+ep\+\_\+stall\+\_\+ctrl}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+ep\+\_\+stall\+\_\+ctrl}{usb\_ep\_stall\_ctrl}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb_8h_a3f8b44aed46a8be6cc2b32211e641202}{usb\+\_\+ep\+\_\+stall\+\_\+ctrl}}
+
+Control action for U\+SB device endpoint stall. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+C\+LR@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+C\+LR}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+C\+LR@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+C\+LR}}}\mbox{\Hypertarget{hpl__usb_8h_a3f8b44aed46a8be6cc2b32211e641202a9688af7f1f08e2c248362d571406c58e}\label{hpl__usb_8h_a3f8b44aed46a8be6cc2b32211e641202a9688af7f1f08e2c248362d571406c58e}} 
+U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+C\+LR&Clear stall of the endpoint. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+S\+ET@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+S\+ET}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+S\+ET@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+S\+ET}}}\mbox{\Hypertarget{hpl__usb_8h_a3f8b44aed46a8be6cc2b32211e641202a86ff3cd56a1dc7b2851254c9715b520d}\label{hpl__usb_8h_a3f8b44aed46a8be6cc2b32211e641202a86ff3cd56a1dc7b2851254c9715b520d}} 
+U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+S\+ET&Stall the endpoint. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+G\+ET@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+G\+ET}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+G\+ET@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+G\+ET}}}\mbox{\Hypertarget{hpl__usb_8h_a3f8b44aed46a8be6cc2b32211e641202af78daf7e1339c8a1957ec1d79a07bde2}\label{hpl__usb_8h_a3f8b44aed46a8be6cc2b32211e641202af78daf7e1339c8a1957ec1d79a07bde2}} 
+U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+T\+A\+L\+L\+\_\+\+G\+ET&Return the stall status. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36a}\label{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36a}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!usb\+\_\+ep\+\_\+state@{usb\+\_\+ep\+\_\+state}}
+\index{usb\+\_\+ep\+\_\+state@{usb\+\_\+ep\+\_\+state}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+ep\+\_\+state}{usb\_ep\_state}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36a}{usb\+\_\+ep\+\_\+state}}
+
+Endpoint transfer state. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+D\+I\+S\+A\+B\+L\+ED@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+D\+I\+S\+A\+B\+L\+ED}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+D\+I\+S\+A\+B\+L\+ED@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+D\+I\+S\+A\+B\+L\+ED}}}\mbox{\Hypertarget{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aa7d1cc5375a18900bd43b8e7d40b0b95f}\label{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aa7d1cc5375a18900bd43b8e7d40b0b95f}} 
+U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+D\+I\+S\+A\+B\+L\+ED&Endpoint is disabled. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+I\+D\+LE@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+I\+D\+LE}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+I\+D\+LE@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+I\+D\+LE}}}\mbox{\Hypertarget{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aa94014a5498520e572921c63ad843ddc0}\label{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aa94014a5498520e572921c63ad843ddc0}} 
+U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+I\+D\+LE&Endpoint is not busy. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+X\+\_\+\+S\+E\+T\+UP@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+X\+\_\+\+S\+E\+T\+UP}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+X\+\_\+\+S\+E\+T\+UP@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+X\+\_\+\+S\+E\+T\+UP}}}\mbox{\Hypertarget{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aa5dda4fc1d0fe078b1cf1d3bf5ebe5ab6}\label{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aa5dda4fc1d0fe078b1cf1d3bf5ebe5ab6}} 
+U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+X\+\_\+\+S\+E\+T\+UP&Control transfer only, endpoint is transferring setup packet. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+X\+\_\+\+D\+A\+TA@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+X\+\_\+\+D\+A\+TA}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+X\+\_\+\+D\+A\+TA@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+X\+\_\+\+D\+A\+TA}}}\mbox{\Hypertarget{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aac40f0890415985e75867a4db5024a8d6}\label{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aac40f0890415985e75867a4db5024a8d6}} 
+U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+X\+\_\+\+D\+A\+TA&Endpoint is transferring data. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+X\+\_\+\+S\+T\+A\+T\+US@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+X\+\_\+\+S\+T\+A\+T\+US}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+X\+\_\+\+S\+T\+A\+T\+US@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+X\+\_\+\+S\+T\+A\+T\+US}}}\mbox{\Hypertarget{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aa8cc15fae3e2a12ccd1e5c796069a592f}\label{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aa8cc15fae3e2a12ccd1e5c796069a592f}} 
+U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+X\+\_\+\+S\+T\+A\+T\+US&Control transfer only, endpoint is in status stage. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+H\+A\+L\+T\+ED@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+H\+A\+L\+T\+ED}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+H\+A\+L\+T\+ED@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+H\+A\+L\+T\+ED}}}\mbox{\Hypertarget{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aadb18e380a2987a87b71e123784edf165}\label{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aadb18e380a2987a87b71e123784edf165}} 
+U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+H\+A\+L\+T\+ED&Endpoint is halted. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+E\+R\+R\+OR@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+E\+R\+R\+OR}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+E\+R\+R\+OR@{U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+E\+R\+R\+OR}}}\mbox{\Hypertarget{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aa27ce1aab51f5dc10aa08e02a5f4e8847}\label{hpl__usb_8h_acc70a8353261a6e2e1e22ae668ace36aa27ce1aab51f5dc10aa08e02a5f4e8847}} 
+U\+S\+B\+\_\+\+E\+P\+\_\+\+S\+\_\+\+E\+R\+R\+OR&Endpoint error. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94}\label{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!usb\+\_\+event@{usb\+\_\+event}}
+\index{usb\+\_\+event@{usb\+\_\+event}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+event}{usb\_event}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94}{usb\+\_\+event}}
+
+U\+SB events that generates the device callbacks. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+V\+\_\+\+V\+B\+US@{U\+S\+B\+\_\+\+E\+V\+\_\+\+V\+B\+US}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+V\+\_\+\+V\+B\+US@{U\+S\+B\+\_\+\+E\+V\+\_\+\+V\+B\+US}}}\mbox{\Hypertarget{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94ae4f10e2dbde72d387c03281da60b5ff5}\label{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94ae4f10e2dbde72d387c03281da60b5ff5}} 
+U\+S\+B\+\_\+\+E\+V\+\_\+\+V\+B\+US&U\+SB V\+Bus changed, with parameter as present/not present. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+V\+\_\+\+R\+E\+S\+ET@{U\+S\+B\+\_\+\+E\+V\+\_\+\+R\+E\+S\+ET}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+V\+\_\+\+R\+E\+S\+ET@{U\+S\+B\+\_\+\+E\+V\+\_\+\+R\+E\+S\+ET}}}\mbox{\Hypertarget{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94afc4b9701e5da2a5b9d13b176b4025890}\label{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94afc4b9701e5da2a5b9d13b176b4025890}} 
+U\+S\+B\+\_\+\+E\+V\+\_\+\+R\+E\+S\+ET&U\+SB R\+E\+S\+ET detected on bus. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+V\+\_\+\+W\+A\+K\+E\+UP@{U\+S\+B\+\_\+\+E\+V\+\_\+\+W\+A\+K\+E\+UP}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+V\+\_\+\+W\+A\+K\+E\+UP@{U\+S\+B\+\_\+\+E\+V\+\_\+\+W\+A\+K\+E\+UP}}}\mbox{\Hypertarget{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94ab967c1fe70e8089215843887eb90f734}\label{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94ab967c1fe70e8089215843887eb90f734}} 
+U\+S\+B\+\_\+\+E\+V\+\_\+\+W\+A\+K\+E\+UP&U\+SB wakeup. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+V\+\_\+\+L\+P\+M\+\_\+\+S\+U\+S\+P\+E\+ND@{U\+S\+B\+\_\+\+E\+V\+\_\+\+L\+P\+M\+\_\+\+S\+U\+S\+P\+E\+ND}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+V\+\_\+\+L\+P\+M\+\_\+\+S\+U\+S\+P\+E\+ND@{U\+S\+B\+\_\+\+E\+V\+\_\+\+L\+P\+M\+\_\+\+S\+U\+S\+P\+E\+ND}}}\mbox{\Hypertarget{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94a4687c3c302d81b387d9e779481c026fb}\label{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94a4687c3c302d81b387d9e779481c026fb}} 
+U\+S\+B\+\_\+\+E\+V\+\_\+\+L\+P\+M\+\_\+\+S\+U\+S\+P\+E\+ND&U\+SB L\+PM suspend, with parameter as \hyperlink{structusb__lpm__attributes}{usb\+\_\+lpm\+\_\+attributes}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+V\+\_\+\+S\+U\+S\+P\+E\+ND@{U\+S\+B\+\_\+\+E\+V\+\_\+\+S\+U\+S\+P\+E\+ND}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+V\+\_\+\+S\+U\+S\+P\+E\+ND@{U\+S\+B\+\_\+\+E\+V\+\_\+\+S\+U\+S\+P\+E\+ND}}}\mbox{\Hypertarget{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94a18c5b131b0d4f993bcc86e85dc8c0ea5}\label{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94a18c5b131b0d4f993bcc86e85dc8c0ea5}} 
+U\+S\+B\+\_\+\+E\+V\+\_\+\+S\+U\+S\+P\+E\+ND&U\+SB suspend. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+V\+\_\+\+E\+R\+R\+OR@{U\+S\+B\+\_\+\+E\+V\+\_\+\+E\+R\+R\+OR}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+V\+\_\+\+E\+R\+R\+OR@{U\+S\+B\+\_\+\+E\+V\+\_\+\+E\+R\+R\+OR}}}\mbox{\Hypertarget{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94aff62509a31c015b02b0556f31f615bd5}\label{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94aff62509a31c015b02b0556f31f615bd5}} 
+U\+S\+B\+\_\+\+E\+V\+\_\+\+E\+R\+R\+OR&U\+SB error, with parameter as error code. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+E\+V\+\_\+N@{U\+S\+B\+\_\+\+E\+V\+\_\+N}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+E\+V\+\_\+N@{U\+S\+B\+\_\+\+E\+V\+\_\+N}}}\mbox{\Hypertarget{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94a386ffcc8986cc833ceab92165afd8f41}\label{hpl__usb_8h_ac59f9b94dab75e205ee8e980ee8efc94a386ffcc8986cc833ceab92165afd8f41}} 
+U\+S\+B\+\_\+\+E\+V\+\_\+N&Number of U\+SB event types. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340}\label{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!usb\+\_\+speed@{usb\+\_\+speed}}
+\index{usb\+\_\+speed@{usb\+\_\+speed}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+speed}{usb\_speed}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340}{usb\+\_\+speed}}
+
+U\+SB speed. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+LS@{U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+LS}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+LS@{U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+LS}}}\mbox{\Hypertarget{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340abcd9329da8231e2d78e728b068d870c8}\label{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340abcd9329da8231e2d78e728b068d870c8}} 
+U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+LS&U\+SB Low Speed. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+FS@{U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+FS}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+FS@{U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+FS}}}\mbox{\Hypertarget{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340a20bb7ec351e3d0ea8d4568e7258a8319}\label{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340a20bb7ec351e3d0ea8d4568e7258a8319}} 
+U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+FS&U\+SB Full Speed. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+HS@{U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+HS}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+HS@{U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+HS}}}\mbox{\Hypertarget{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340aae90ddc98b0a056b3898d19a639ffb62}\label{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340aae90ddc98b0a056b3898d19a639ffb62}} 
+U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+HS&U\+SB High Speed. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+SS@{U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+SS}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+SS@{U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+SS}}}\mbox{\Hypertarget{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340a8473685855acbdf2bfafb097bb77d862}\label{hpl__usb_8h_aa8869b6740b8c54598b0c8aa8bf4d340a8473685855acbdf2bfafb097bb77d862}} 
+U\+S\+B\+\_\+\+S\+P\+E\+E\+D\+\_\+\+SS&U\+SB Super Speed. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474c}\label{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474c}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!usb\+\_\+trans\+\_\+code@{usb\+\_\+trans\+\_\+code}}
+\index{usb\+\_\+trans\+\_\+code@{usb\+\_\+trans\+\_\+code}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+trans\+\_\+code}{usb\_trans\_code}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474c}{usb\+\_\+trans\+\_\+code}}
+
+U\+SB transactions status codes. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+D\+O\+NE@{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+D\+O\+NE}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+D\+O\+NE@{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+D\+O\+NE}}}\mbox{\Hypertarget{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474ca7b3b54ee8a5f04c23e8755a79fef194d}\label{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474ca7b3b54ee8a5f04c23e8755a79fef194d}} 
+U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+D\+O\+NE&TX or RX has been done without error. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+S\+T\+A\+LL@{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+S\+T\+A\+LL}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+S\+T\+A\+LL@{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+S\+T\+A\+LL}}}\mbox{\Hypertarget{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474ca019eb30d1df1b486c11f30ea42a063a5}\label{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474ca019eb30d1df1b486c11f30ea42a063a5}} 
+U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+S\+T\+A\+LL&The endpoint is stalled. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+A\+B\+O\+RT@{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+A\+B\+O\+RT}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+A\+B\+O\+RT@{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+A\+B\+O\+RT}}}\mbox{\Hypertarget{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474ca61b5fccd532c8df7f62638268664016a}\label{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474ca61b5fccd532c8df7f62638268664016a}} 
+U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+A\+B\+O\+RT&The endpoint transactions are aborted (cancel, control setup/status). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+R\+E\+S\+ET@{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+R\+E\+S\+ET}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+R\+E\+S\+ET@{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+R\+E\+S\+ET}}}\mbox{\Hypertarget{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474ca07dba42a4ca6f9966b9eaa4bb4f21179}\label{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474ca07dba42a4ca6f9966b9eaa4bb4f21179}} 
+U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+R\+E\+S\+ET&The endpoint transactions are aborted by reset/disable. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+E\+R\+R\+OR@{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+E\+R\+R\+OR}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+E\+R\+R\+OR@{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+E\+R\+R\+OR}}}\mbox{\Hypertarget{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474ca55e42f3b85f972f5eedf70d17243b14c}\label{hpl__usb_8h_a84e296b5500e28645b78411ff0ae474ca55e42f3b85f972f5eedf70d17243b14c}} 
+U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+E\+R\+R\+OR&Error is reported on the endpoint. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{hpl__usb_8h_ae2d4c981102d46e97b74cd280184a705}\label{hpl__usb_8h_ae2d4c981102d46e97b74cd280184a705}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!usb\+\_\+trans\+\_\+type@{usb\+\_\+trans\+\_\+type}}
+\index{usb\+\_\+trans\+\_\+type@{usb\+\_\+trans\+\_\+type}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+trans\+\_\+type}{usb\_trans\_type}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb_8h_ae2d4c981102d46e97b74cd280184a705}{usb\+\_\+trans\+\_\+type}}
+
+U\+SB transaction type. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+S\+E\+T\+UP@{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+S\+E\+T\+UP}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+S\+E\+T\+UP@{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+S\+E\+T\+UP}}}\mbox{\Hypertarget{hpl__usb_8h_ae2d4c981102d46e97b74cd280184a705af755b97dab6bb2480c0431d13dde60d5}\label{hpl__usb_8h_ae2d4c981102d46e97b74cd280184a705af755b97dab6bb2480c0431d13dde60d5}} 
+U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+S\+E\+T\+UP&U\+SB S\+E\+T\+UP transaction. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+IN@{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+IN}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+IN@{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+IN}}}\mbox{\Hypertarget{hpl__usb_8h_ae2d4c981102d46e97b74cd280184a705a0863b782c0a783d79a101308bc500aa6}\label{hpl__usb_8h_ae2d4c981102d46e97b74cd280184a705a0863b782c0a783d79a101308bc500aa6}} 
+U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+IN&U\+SB IN transaction. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+O\+UT@{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+O\+UT}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+O\+UT@{U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+O\+UT}}}\mbox{\Hypertarget{hpl__usb_8h_ae2d4c981102d46e97b74cd280184a705aa2c5b6ffbf18380895a87572db26cb93}\label{hpl__usb_8h_ae2d4c981102d46e97b74cd280184a705aa2c5b6ffbf18380895a87572db26cb93}} 
+U\+S\+B\+\_\+\+T\+R\+A\+N\+S\+\_\+\+O\+UT&U\+SB O\+UT transaction. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5e}\label{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5e}} 
+\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!usb\+\_\+xfer\+\_\+code@{usb\+\_\+xfer\+\_\+code}}
+\index{usb\+\_\+xfer\+\_\+code@{usb\+\_\+xfer\+\_\+code}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}
+\subsubsection{\texorpdfstring{usb\+\_\+xfer\+\_\+code}{usb\_xfer\_code}}
+{\footnotesize\ttfamily enum \hyperlink{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5e}{usb\+\_\+xfer\+\_\+code}}
+
+Transfer status codes. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+D\+O\+NE@{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+D\+O\+NE}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+D\+O\+NE@{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+D\+O\+NE}}}\mbox{\Hypertarget{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5ea12da6774558ef6d43792c0490b41b9c5}\label{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5ea12da6774558ef6d43792c0490b41b9c5}} 
+U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+D\+O\+NE&Transfer is done without error, for ctrl it means status packet done. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+D\+A\+TA@{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+D\+A\+TA}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+D\+A\+TA@{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+D\+A\+TA}}}\mbox{\Hypertarget{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5ea72fc7640425fa318f17b9d6f0654dae9}\label{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5ea72fc7640425fa318f17b9d6f0654dae9}} 
+U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+D\+A\+TA&For control transfer only, data stage is done without error. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+H\+A\+LT@{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+H\+A\+LT}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+H\+A\+LT@{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+H\+A\+LT}}}\mbox{\Hypertarget{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5eaca41010d3e50f3414d853f4df1d5de99}\label{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5eaca41010d3e50f3414d853f4df1d5de99}} 
+U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+H\+A\+LT&Endpoint stall is set. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+U\+N\+H\+A\+LT@{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+U\+N\+H\+A\+LT}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+U\+N\+H\+A\+LT@{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+U\+N\+H\+A\+LT}}}\mbox{\Hypertarget{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5ea17dd817550554d37b19264f403e7c15a}\label{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5ea17dd817550554d37b19264f403e7c15a}} 
+U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+U\+N\+H\+A\+LT&Endpoint stall is cleared. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+A\+B\+O\+RT@{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+A\+B\+O\+RT}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+A\+B\+O\+RT@{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+A\+B\+O\+RT}}}\mbox{\Hypertarget{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5ead0c0800a812aec7bb406339a82b649d4}\label{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5ead0c0800a812aec7bb406339a82b649d4}} 
+U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+A\+B\+O\+RT&Transfer is aborted. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+R\+E\+S\+ET@{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+R\+E\+S\+ET}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+R\+E\+S\+ET@{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+R\+E\+S\+ET}}}\mbox{\Hypertarget{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5ea0b67854449182503534e65c736e22af6}\label{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5ea0b67854449182503534e65c736e22af6}} 
+U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+R\+E\+S\+ET&Transfer is aborted because endpoint reset/disable. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+E\+R\+R\+OR@{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+E\+R\+R\+OR}!hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}}\index{hpl\+\_\+usb.\+h@{hpl\+\_\+usb.\+h}!U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+E\+R\+R\+OR@{U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+E\+R\+R\+OR}}}\mbox{\Hypertarget{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5ea5263d9f810e0e11e92187a0bf2ea1346}\label{hpl__usb_8h_aade1cf1cf1633cd4c57b2b9d3b410c5ea5263d9f810e0e11e92187a0bf2ea1346}} 
+U\+S\+B\+\_\+\+X\+F\+E\+R\+\_\+\+E\+R\+R\+OR&There was an error. \\
+\hline
+
+\end{DoxyEnumFields}

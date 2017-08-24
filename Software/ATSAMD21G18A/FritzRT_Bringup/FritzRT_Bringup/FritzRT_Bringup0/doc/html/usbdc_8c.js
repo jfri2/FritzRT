@@ -1,0 +1,27 @@
+var usbdc_8c =
+[
+    [ "usbdc_sof_handler", "structusbdc__sof__handler.html", "structusbdc__sof__handler" ],
+    [ "usbdc_req_handler", "structusbdc__req__handler.html", "structusbdc__req__handler" ],
+    [ "usbdc_change_handler", "structusbdc__change__handler.html", "structusbdc__change__handler" ],
+    [ "usbdc_handlers", "structusbdc__handlers.html", "structusbdc__handlers" ],
+    [ "usbdc_driver", "structusbdc__driver.html", "structusbdc__driver" ],
+    [ "USBDC_VERSION", "usbdc_8c.html#ab6b9ba3a9619d8c7f42bae6761b60aad", null ],
+    [ "usbdc_attach", "usbdc_8c.html#a0f07590a1bd0b88d050da8bb65c76038", null ],
+    [ "usbdc_check_desces", "usbdc_8c.html#ae85b23944fb5c7bdd8768abda4e6f0d0", null ],
+    [ "usbdc_deinit", "usbdc_8c.html#a7b65803c68a1b3e343ae5000df25b66c", null ],
+    [ "usbdc_detach", "usbdc_8c.html#a79978b48d86fcfe93ec297e755c8037c", null ],
+    [ "usbdc_get_ctrl_buffer", "usbdc_8c.html#ae8ec409dc9c5bc01a7bbe21d3ec6d987", null ],
+    [ "usbdc_get_state", "usbdc_8c.html#a320e31688e4dfe53e07e608d2a71bb80", null ],
+    [ "usbdc_get_version", "usbdc_8c.html#a91f4b8df6f1f0cdb1261f61bd3a61af8", null ],
+    [ "usbdc_init", "usbdc_8c.html#a3695e513fe584059cd6731a828276400", null ],
+    [ "usbdc_register_function", "usbdc_8c.html#a2328a31e072ebc604f8e8044e134a206", null ],
+    [ "usbdc_register_handler", "usbdc_8c.html#a06bede7ea2660ad2f36e0f1d1a74c617", null ],
+    [ "usbdc_remotewakeup", "usbdc_8c.html#aae0e86598c4d6e84ee3176dc94f95962", null ],
+    [ "usbdc_reset", "usbdc_8c.html#a01c80928f64b25c148333510497260f6", null ],
+    [ "usbdc_start", "usbdc_8c.html#af5a3fde4d8fb103380ddacb74e2f79ec", null ],
+    [ "usbdc_stop", "usbdc_8c.html#a9246e844341684daeb4aef423e094da3", null ],
+    [ "usbdc_unregister_function", "usbdc_8c.html#a5b48232344aed00da8b3ebd0b083a92a", null ],
+    [ "usbdc_unregister_handler", "usbdc_8c.html#a65f314d87ecfbd84bf2b8f68c7bbe221", null ],
+    [ "usbdc_validate_desces", "usbdc_8c.html#a8b5b10cbd8cba68ca2aaf1d2b9d7f0b7", null ],
+    [ "usbdc_xfer", "usbdc_8c.html#ad213bfedb40fe0440d70b619bf5a9b07", null ]
+];
