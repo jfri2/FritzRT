@@ -43,12 +43,13 @@ uint8_t sx1238_spi_rw_buffer[SX1238_SPI_RW_BUFFER_MAX_SIZE] = {0};
 /******************************************************************************
 Private Function Declarations
 ******************************************************************************/
-void sx1238_hal_spi_stop(void);
-void sx1238_hal_spi_start(void);
+void sx1238_spi_stop(void);
+void sx1238_spi_start(void);
 
 /******************************************************************************
 Public Function Definitions
 ******************************************************************************/
+<<<<<<< HEAD:Software/old/ATSAMD21G18A/FritzRT_Bringup/FritzRT_Bringup/FritzRT_Bringup0/app/drivers/sx1238_hal.c
 /*!
 * @brief Writes a byte to the SX1238 using SX1238 control spi
 * @param[in] addr  Address on SX1238 to write to
@@ -59,6 +60,11 @@ void sx1238_hal_write(uint8_t addr, uint8_t data)
 {
     // Load address into spi buffer and set to write access
     sx1238_spi_byte_rw_buffer[0] = (addr | WNR_WRITE_BM);
+=======
+void sx1238_write(uint8_t addr, uint8_t data)
+{
+    sx1238_spi_byte_rw_buffer[0] = addr;
+>>>>>>> parent of 5c86e46... Updated HAL:Software/ATSAMD21G18A/FritzRT_Bringup/FritzRT_Bringup/FritzRT_Bringup0/app/drivers/sx1238_hal.c
     sx1238_spi_byte_rw_buffer[1] = data;
 
     // Create spi transfer struct
@@ -66,15 +72,23 @@ void sx1238_hal_write(uint8_t addr, uint8_t data)
     {
         .txbuf = sx1238_spi_byte_rw_buffer,
         .rxbuf = sx1238_spi_byte_rw_buffer,
+<<<<<<< HEAD:Software/old/ATSAMD21G18A/FritzRT_Bringup/FritzRT_Bringup/FritzRT_Bringup0/app/drivers/sx1238_hal.c
         .size = 2
     };
 
     // Do spi transfer
     sx1238_hal_spi_start();    
+=======
+        .size = SX1238_SPI_BYTE_RW_BUFFER_SIZE
+    };
+
+    sx1238_spi_start();    
+>>>>>>> parent of 5c86e46... Updated HAL:Software/ATSAMD21G18A/FritzRT_Bringup/FritzRT_Bringup/FritzRT_Bringup0/app/drivers/sx1238_hal.c
     spi_m_sync_transfer(&CTRL_SPI, &temp_xfer);
-    sx1238_hal_spi_stop();
+    sx1238_spi_stop();
 }
 
+<<<<<<< HEAD:Software/old/ATSAMD21G18A/FritzRT_Bringup/FritzRT_Bringup/FritzRT_Bringup0/app/drivers/sx1238_hal.c
 /*!
 * @brief Reads a byte to the SX1238 using SX1238 control spi
 * @param[in] addr  Address on SX1238 to read from
@@ -84,6 +98,11 @@ uint8_t sx1238_hal_read(uint8_t addr)
 {
     // Load address into spi buffer and set to read access
     sx1238_spi_byte_rw_buffer[0] = (addr & WNR_READ_BM);
+=======
+uint8_t sx1238_read(uint8_t addr)
+{
+    sx1238_spi_byte_rw_buffer[0] = addr;
+>>>>>>> parent of 5c86e46... Updated HAL:Software/ATSAMD21G18A/FritzRT_Bringup/FritzRT_Bringup/FritzRT_Bringup0/app/drivers/sx1238_hal.c
     sx1238_spi_byte_rw_buffer[1] = 0x00;
 
     // Create spi transfer struct
@@ -91,14 +110,22 @@ uint8_t sx1238_hal_read(uint8_t addr)
     {
         .txbuf = sx1238_spi_byte_rw_buffer,
         .rxbuf = sx1238_spi_byte_rw_buffer,
+<<<<<<< HEAD:Software/old/ATSAMD21G18A/FritzRT_Bringup/FritzRT_Bringup/FritzRT_Bringup0/app/drivers/sx1238_hal.c
         .size = 2
     };
 
     // Do spi transfer
     sx1238_hal_spi_start();
-    spi_m_sync_transfer(&CTRL_SPI, &temp_xfer);
-    sx1238_hal_spi_stop();
+=======
+        .size = SX1238_SPI_BYTE_RW_BUFFER_SIZE
+    };
 
+    sx1238_spi_start();
+>>>>>>> parent of 5c86e46... Updated HAL:Software/ATSAMD21G18A/FritzRT_Bringup/FritzRT_Bringup/FritzRT_Bringup0/app/drivers/sx1238_hal.c
+    spi_m_sync_transfer(&CTRL_SPI, &temp_xfer);
+    sx1238_spi_stop();
+
+<<<<<<< HEAD:Software/old/ATSAMD21G18A/FritzRT_Bringup/FritzRT_Bringup/FritzRT_Bringup0/app/drivers/sx1238_hal.c
     // Return data read from SX1238
     return (sx1238_spi_byte_rw_buffer[1]);
 }
@@ -114,6 +141,14 @@ void sx1238_hal_write_buffer(uint8_t addr, uint8_t *buffer, uint16_t size)
 {
     // Load address into spi buffer and set to write access
     sx1238_spi_rw_buffer[0] = (addr | WNR_WRITE_BM);
+=======
+    return (sx1238_spi_byte_rw_buffer[1]);
+}
+
+void sx1238_write_buffer(uint8_t addr, uint8_t *buffer, uint16_t size)
+{
+    sx1238_spi_rw_buffer[0] = addr;
+>>>>>>> parent of 5c86e46... Updated HAL:Software/ATSAMD21G18A/FritzRT_Bringup/FritzRT_Bringup/FritzRT_Bringup0/app/drivers/sx1238_hal.c
 
     // Load data from buffer passed to this function to spi buffer
     for (uint16_t i = 0; i < size; i++)
@@ -126,6 +161,7 @@ void sx1238_hal_write_buffer(uint8_t addr, uint8_t *buffer, uint16_t size)
     {
         .txbuf = sx1238_spi_rw_buffer,
         .rxbuf = sx1238_spi_rw_buffer,
+<<<<<<< HEAD:Software/old/ATSAMD21G18A/FritzRT_Bringup/FritzRT_Bringup/FritzRT_Bringup0/app/drivers/sx1238_hal.c
         .size = size + 1
     };
 
@@ -146,12 +182,31 @@ void sx1238_hal_read_buffer(uint8_t addr, uint8_t *buffer, uint16_t size)
 {
     // Load address into spi buffer and set to read access
     sx1238_spi_rw_buffer[0] = (addr & WNR_READ_BM);
+=======
+        .size = SX1238_SPI_BYTE_RW_BUFFER_SIZE
+    };
+
+    sx1238_spi_start();
+    spi_m_sync_transfer(&CTRL_SPI, &temp_xfer);
+    sx1238_spi_stop();
+}
+
+void sx1238_read_buffer(uint8_t addr, uint8_t *buffer, uint16_t size)
+{
+    sx1238_spi_rw_buffer[0] = addr;
+
+    for (uint16_t i = 0; i < size; i++)
+    {
+        sx1238_spi_rw_buffer[i + 1] = buffer[i];
+    }
+>>>>>>> parent of 5c86e46... Updated HAL:Software/ATSAMD21G18A/FritzRT_Bringup/FritzRT_Bringup/FritzRT_Bringup0/app/drivers/sx1238_hal.c
 
     // Create spi transfer struct
     struct spi_xfer temp_xfer =
     {
         .txbuf = sx1238_spi_rw_buffer,
         .rxbuf = sx1238_spi_rw_buffer,
+<<<<<<< HEAD:Software/old/ATSAMD21G18A/FritzRT_Bringup/FritzRT_Bringup/FritzRT_Bringup0/app/drivers/sx1238_hal.c
         .size = size + 1
     };
 
@@ -165,6 +220,14 @@ void sx1238_hal_read_buffer(uint8_t addr, uint8_t *buffer, uint16_t size)
     {
         buffer[i] = sx1238_spi_rw_buffer[i + 1];
     }
+=======
+        .size = SX1238_SPI_BYTE_RW_BUFFER_SIZE
+    };
+
+    sx1238_spi_start();
+    spi_m_sync_transfer(&CTRL_SPI, &temp_xfer);
+    sx1238_spi_stop();
+>>>>>>> parent of 5c86e46... Updated HAL:Software/ATSAMD21G18A/FritzRT_Bringup/FritzRT_Bringup/FritzRT_Bringup0/app/drivers/sx1238_hal.c
 }
 
 /******************************************************************************
@@ -174,7 +237,7 @@ Private Function Definitions
 * @brief Starts SX1238 control SPI
 * @return void
 */
-void sx1238_hal_spi_start(void)
+void sx1238_spi_start(void)
 {
     gpio_set_pin_level(PIN_SPI_CTRL_CS, false);
     spi_m_sync_get_io_descriptor(&CTRL_SPI, &sx1238_ctrl_spi_io);
@@ -185,7 +248,7 @@ void sx1238_hal_spi_start(void)
 * @brief Stops SX1238 control SPI
 * @return void
 */
-void sx1238_hal_spi_stop(void)
+void sx1238_spi_stop(void)
 {
     spi_m_sync_get_io_descriptor(&CTRL_SPI, &sx1238_ctrl_spi_io);
     spi_m_sync_disable(&CTRL_SPI);
