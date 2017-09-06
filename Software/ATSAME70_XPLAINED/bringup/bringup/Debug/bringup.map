@@ -551,6 +551,8 @@ Discarded input sections
  .text          0x00000000        0x0 app/drivers/sx1238_hal.o
  .data          0x00000000        0x0 app/drivers/sx1238_hal.o
  .bss           0x00000000      0x108 app/drivers/sx1238_hal.o
+ .text.sx1238_hal_reset
+                0x00000000       0x20 app/drivers/sx1238_hal.o
  .text.sx1238_hal_spi_start
                 0x00000000       0x30 app/drivers/sx1238_hal.o
  .text.sx1238_hal_spi_stop
@@ -562,14 +564,14 @@ Discarded input sections
  .text.sx1238_hal_write_buffer
                 0x00000000       0x5c app/drivers/sx1238_hal.o
  .text.sx1238_hal_read_buffer
-                0x00000000       0x60 app/drivers/sx1238_hal.o
- .rodata        0x00000000        0xc app/drivers/sx1238_hal.o
- .debug_info    0x00000000      0xc8f app/drivers/sx1238_hal.o
- .debug_abbrev  0x00000000      0x2ab app/drivers/sx1238_hal.o
- .debug_loc     0x00000000      0x37d app/drivers/sx1238_hal.o
+                0x00000000       0x68 app/drivers/sx1238_hal.o
+ .rodata        0x00000000       0x18 app/drivers/sx1238_hal.o
+ .debug_info    0x00000000      0xe28 app/drivers/sx1238_hal.o
+ .debug_abbrev  0x00000000      0x2be app/drivers/sx1238_hal.o
+ .debug_loc     0x00000000      0x46b app/drivers/sx1238_hal.o
  .debug_aranges
-                0x00000000       0x48 app/drivers/sx1238_hal.o
- .debug_ranges  0x00000000       0x38 app/drivers/sx1238_hal.o
+                0x00000000       0x50 app/drivers/sx1238_hal.o
+ .debug_ranges  0x00000000       0x40 app/drivers/sx1238_hal.o
  .debug_macro   0x00000000      0x702 app/drivers/sx1238_hal.o
  .debug_macro   0x00000000      0x8aa app/drivers/sx1238_hal.o
  .debug_macro   0x00000000      0x16d app/drivers/sx1238_hal.o
@@ -716,12 +718,12 @@ Discarded input sections
  .debug_macro   0x00000000       0xca app/drivers/sx1238_hal.o
  .debug_macro   0x00000000       0x1c app/drivers/sx1238_hal.o
  .debug_macro   0x00000000       0x16 app/drivers/sx1238_hal.o
- .debug_macro   0x00000000       0x3a app/drivers/sx1238_hal.o
+ .debug_macro   0x00000000       0x40 app/drivers/sx1238_hal.o
  .debug_macro   0x00000000       0xc9 app/drivers/sx1238_hal.o
- .debug_line    0x00000000      0xd50 app/drivers/sx1238_hal.o
- .debug_str     0x00000000   0x110dc6 app/drivers/sx1238_hal.o
+ .debug_line    0x00000000      0xd75 app/drivers/sx1238_hal.o
+ .debug_str     0x00000000   0x110e22 app/drivers/sx1238_hal.o
  .comment       0x00000000       0x5a app/drivers/sx1238_hal.o
- .debug_frame   0x00000000       0xc0 app/drivers/sx1238_hal.o
+ .debug_frame   0x00000000       0xe0 app/drivers/sx1238_hal.o
  .ARM.attributes
                 0x00000000       0x37 app/drivers/sx1238_hal.o
  .group         0x00000000        0x8 atmel_start.o
@@ -1019,7 +1021,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xca atmel_start.o
  .debug_macro   0x00000000       0x1c atmel_start.o
  .debug_macro   0x00000000       0x16 atmel_start.o
- .debug_macro   0x00000000       0x3a atmel_start.o
+ .debug_macro   0x00000000       0x40 atmel_start.o
  .debug_macro   0x00000000       0xc9 atmel_start.o
  .group         0x00000000        0x8 Device_Startup/startup_same70q21.o
  .group         0x00000000        0x8 Device_Startup/startup_same70q21.o
@@ -1755,7 +1757,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xca driver_init.o
  .debug_macro   0x00000000       0x1c driver_init.o
  .debug_macro   0x00000000       0x16 driver_init.o
- .debug_macro   0x00000000       0x3a driver_init.o
+ .debug_macro   0x00000000       0x40 driver_init.o
  .debug_macro   0x00000000       0xc9 driver_init.o
  .group         0x00000000        0x8 examples/driver_examples.o
  .group         0x00000000        0x8 examples/driver_examples.o
@@ -2061,10 +2063,10 @@ Discarded input sections
  .debug_macro   0x00000000       0xca examples/driver_examples.o
  .debug_macro   0x00000000       0x1c examples/driver_examples.o
  .debug_macro   0x00000000       0x16 examples/driver_examples.o
- .debug_macro   0x00000000       0x3a examples/driver_examples.o
+ .debug_macro   0x00000000       0x40 examples/driver_examples.o
  .debug_macro   0x00000000       0xc9 examples/driver_examples.o
  .debug_line    0x00000000      0xcc2 examples/driver_examples.o
- .debug_str     0x00000000   0x110929 examples/driver_examples.o
+ .debug_str     0x00000000   0x11094f examples/driver_examples.o
  .comment       0x00000000       0x5a examples/driver_examples.o
  .debug_frame   0x00000000       0x30 examples/driver_examples.o
  .ARM.attributes
@@ -7492,7 +7494,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xca main.o
  .debug_macro   0x00000000       0x1c main.o
  .debug_macro   0x00000000       0x16 main.o
- .debug_macro   0x00000000       0x3a main.o
+ .debug_macro   0x00000000       0x40 main.o
  .debug_macro   0x00000000       0xc9 main.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-exit.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-exit.o)
@@ -8227,7 +8229,7 @@ OUTPUT(bringup.elf elf32-littlearm)
  .debug_ranges  0x00000120      0x260 hpl/spi/hpl_spi.o
  .debug_ranges  0x00000380       0x10 main.o
 
-.debug_macro    0x00000000    0x35dc5
+.debug_macro    0x00000000    0x35dcb
  .debug_macro   0x00000000      0x701 app/app.o
  .debug_macro   0x00000701      0x8aa app/app.o
  .debug_macro   0x00000fab      0x16d app/app.o
@@ -8374,28 +8376,28 @@ OUTPUT(bringup.elf elf32-littlearm)
  .debug_macro   0x00030e4f       0xca app/app.o
  .debug_macro   0x00030f19       0x1c app/app.o
  .debug_macro   0x00030f35       0x16 app/app.o
- .debug_macro   0x00030f4b       0x3a app/app.o
- .debug_macro   0x00030f85       0xc9 app/app.o
- .debug_macro   0x0003104e      0x6eb atmel_start.o
- .debug_macro   0x00031739      0x439 Device_Startup/startup_same70q21.o
- .debug_macro   0x00031b72       0x76 Device_Startup/startup_same70q21.o
- .debug_macro   0x00031be8      0x6f4 driver_init.o
- .debug_macro   0x000322dc       0x10 driver_init.o
- .debug_macro   0x000322ec       0x3a driver_init.o
- .debug_macro   0x00032326      0x602 hal/src/hal_atomic.o
- .debug_macro   0x00032928      0x65f hal/src/hal_spi_m_sync.o
- .debug_macro   0x00032f87      0x60c hal/utils/src/utils_assert.o
- .debug_macro   0x00033593       0x10 hal/utils/src/utils_assert.o
- .debug_macro   0x000335a3      0x67a hpl/core/hpl_init.o
- .debug_macro   0x00033c1d      0x324 hpl/core/hpl_init.o
- .debug_macro   0x00033f41      0x9df hpl/core/hpl_init.o
- .debug_macro   0x00034920      0x62b hpl/pmc/hpl_pmc.o
- .debug_macro   0x00034f4b      0x6d2 hpl/spi/hpl_spi.o
- .debug_macro   0x0003561d       0x64 hpl/spi/hpl_spi.o
- .debug_macro   0x00035681       0x1c hpl/spi/hpl_spi.o
- .debug_macro   0x0003569d       0x22 hpl/spi/hpl_spi.o
- .debug_macro   0x000356bf       0x10 hpl/spi/hpl_spi.o
- .debug_macro   0x000356cf      0x6f6 main.o
+ .debug_macro   0x00030f4b       0x40 app/app.o
+ .debug_macro   0x00030f8b       0xc9 app/app.o
+ .debug_macro   0x00031054      0x6eb atmel_start.o
+ .debug_macro   0x0003173f      0x439 Device_Startup/startup_same70q21.o
+ .debug_macro   0x00031b78       0x76 Device_Startup/startup_same70q21.o
+ .debug_macro   0x00031bee      0x6f4 driver_init.o
+ .debug_macro   0x000322e2       0x10 driver_init.o
+ .debug_macro   0x000322f2       0x3a driver_init.o
+ .debug_macro   0x0003232c      0x602 hal/src/hal_atomic.o
+ .debug_macro   0x0003292e      0x65f hal/src/hal_spi_m_sync.o
+ .debug_macro   0x00032f8d      0x60c hal/utils/src/utils_assert.o
+ .debug_macro   0x00033599       0x10 hal/utils/src/utils_assert.o
+ .debug_macro   0x000335a9      0x67a hpl/core/hpl_init.o
+ .debug_macro   0x00033c23      0x324 hpl/core/hpl_init.o
+ .debug_macro   0x00033f47      0x9df hpl/core/hpl_init.o
+ .debug_macro   0x00034926      0x62b hpl/pmc/hpl_pmc.o
+ .debug_macro   0x00034f51      0x6d2 hpl/spi/hpl_spi.o
+ .debug_macro   0x00035623       0x64 hpl/spi/hpl_spi.o
+ .debug_macro   0x00035687       0x1c hpl/spi/hpl_spi.o
+ .debug_macro   0x000356a3       0x22 hpl/spi/hpl_spi.o
+ .debug_macro   0x000356c5       0x10 hpl/spi/hpl_spi.o
+ .debug_macro   0x000356d5      0x6f6 main.o
 
 .debug_line     0x00000000     0x8e28
  .debug_line    0x00000000      0xcbe app/app.o
@@ -8410,29 +8412,29 @@ OUTPUT(bringup.elf elf32-littlearm)
  .debug_line    0x00006b06     0x1677 hpl/spi/hpl_spi.o
  .debug_line    0x0000817d      0xcab main.o
 
-.debug_str      0x00000000   0x1158f0
- .debug_str     0x00000000   0x10feff app/app.o
-                             0x1108be (size before relaxing)
- .debug_str     0x0010feff       0x30 atmel_start.o
-                             0x1108c5 (size before relaxing)
- .debug_str     0x0010ff2f      0x738 Device_Startup/startup_same70q21.o
+.debug_str      0x00000000   0x115916
+ .debug_str     0x00000000   0x10ff25 app/app.o
+                             0x1108e4 (size before relaxing)
+ .debug_str     0x0010ff25       0x30 atmel_start.o
+                             0x1108eb (size before relaxing)
+ .debug_str     0x0010ff55      0x738 Device_Startup/startup_same70q21.o
                              0x10f406 (size before relaxing)
- .debug_str     0x00110667      0x974 driver_init.o
-                             0x11126b (size before relaxing)
- .debug_str     0x00110fdb       0xa3 hal/src/hal_atomic.o
+ .debug_str     0x0011068d      0x974 driver_init.o
+                             0x111291 (size before relaxing)
+ .debug_str     0x00111001       0xa3 hal/src/hal_atomic.o
                              0x110042 (size before relaxing)
- .debug_str     0x0011107e      0x2e5 hal/src/hal_spi_m_sync.o
+ .debug_str     0x001110a4      0x2e5 hal/src/hal_spi_m_sync.o
                              0x110993 (size before relaxing)
- .debug_str     0x00111363       0x2f hal/utils/src/utils_assert.o
+ .debug_str     0x00111389       0x2f hal/utils/src/utils_assert.o
                              0x11003e (size before relaxing)
- .debug_str     0x00111392     0x309f hpl/core/hpl_init.o
+ .debug_str     0x001113b8     0x309f hpl/core/hpl_init.o
                              0x113456 (size before relaxing)
- .debug_str     0x00114431      0x1d6 hpl/pmc/hpl_pmc.o
+ .debug_str     0x00114457      0x1d6 hpl/pmc/hpl_pmc.o
                              0x111074 (size before relaxing)
- .debug_str     0x00114607     0x12dd hpl/spi/hpl_spi.o
+ .debug_str     0x0011462d     0x12dd hpl/spi/hpl_spi.o
                              0x111cd9 (size before relaxing)
- .debug_str     0x001158e4        0xc main.o
-                             0x1108c8 (size before relaxing)
+ .debug_str     0x0011590a        0xc main.o
+                             0x1108ee (size before relaxing)
 
 .debug_frame    0x00000000      0x8a4
  .debug_frame   0x00000000       0x20 app/app.o
