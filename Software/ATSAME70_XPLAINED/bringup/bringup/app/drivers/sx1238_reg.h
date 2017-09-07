@@ -185,17 +185,23 @@ typedef enum
 
 typedef enum
 {
-    TODO1
+    SX1238_CR_32PI = 0x00,
+    SX1238_CR_8PI,
+    SX1238_CR_4PI,
+    SX1238_CR_2PI
 } sx1238_ook_avg_thresh_filt_t;
 
 typedef enum
 {
-    TODO2
+    SX1238_AVG_OFFSET_0DB = 0x00,
+    SX1238_AVG_OFFSET_2DB,
+    SX1238_AVG_OFFSET_4DB,
+    SX1238_AVG_OFFSET_6DB
 } sx1238_ook_avg_offset_t;
 
 typedef enum
 {
-    TODO3
+    TODO1
 } sx1238_ook_peak_thresh_dec_t;
 
 typedef enum
@@ -667,11 +673,11 @@ union
     uint8_t byte;
     struct
     {
-        uint8_t sync_size                           : 3;    // Size of sync word: (SyncSize + 1) bytes, (SyncSize) bytes if ioHomeOn = 1
-        bool fifo_fill_condition                    : 1;    // 0 = if SyncAddress interrupt occurs, 1 = as long as FifoFillCondition is set
-        bool sync_on                                : 1;    // Enables Sync word generation & detection
-        bool preamble_polarity                      : 1;    // 0 = 0xAA, 1 = 0x55
-        sx1238_auto_restart_rx_t auto_restart_rx_mode      : 2;    // Controls auto restart of receiver after rx of a valid packet
+        uint8_t sync_size                               : 3;    // Size of sync word: (SyncSize + 1) bytes, (SyncSize) bytes if ioHomeOn = 1
+        bool fifo_fill_condition                        : 1;    // 0 = if SyncAddress interrupt occurs, 1 = as long as FifoFillCondition is set
+        bool sync_on                                    : 1;    // Enables Sync word generation & detection
+        bool preamble_polarity                          : 1;    // 0 = 0xAA, 1 = 0x55
+        sx1238_auto_restart_rx_t auto_restart_rx_mode   : 2;    // Controls auto restart of receiver after rx of a valid packet
     } bits;
 } sx1238_reg_sync_config;
 
@@ -753,10 +759,10 @@ union
     struct
     {
         bool crc_whitening_type                     : 1;    // 0 = CCITT CRC w/Standard Whitening, 1 = IBM CRC w/Alternate Whitening
-        sx1238_addr_filt_t address_filtering               : 2;    // Defines addressed based filter in Rx
+        sx1238_addr_filt_t address_filtering        : 2;    // Defines addressed based filter in Rx
         bool crc_auto_clear_off                     : 1;    // Clear FIFO and restart new packet retention, no PayloadReady interrupt issued. FIFO not cleared, PayloadReady interrupt issued. 
         bool crc_on                                 : 1;    // Enables CRC calculations/check (Tx & Rx)
-        sx1238_dc_free_t dc_free                           : 2;    // Defines DC-free encoding/decoding
+        sx1238_dc_free_t dc_free                    : 2;    // Defines DC-free encoding/decoding
         bool packet_format                          : 1;    // 0 = Fixed Length, 1 = Variable Length
     } bits;
 } sx1238_reg_packet_config_1;
@@ -844,8 +850,8 @@ union
     uint8_t byte;
     struct
     {
-        sx1238_timer_2_res_t timer_2_resolution            : 2;    // Resolution of Timer 2
-        sx1238_timer_1_res_t timer_1_resolution            : 2;    // Resolution of Timer 1
+        sx1238_timer_2_res_t timer_2_resolution     : 2;    // Resolution of Timer 2
+        sx1238_timer_1_res_t timer_1_resolution     : 2;    // Resolution of Timer 1
         uint8_t unused                              : 4;
     } bits;
 } sx1238_reg_timer_resol;
@@ -874,7 +880,7 @@ union
     struct
     {
         bool temp_monitor_off                       : 1;    // 0 = Temp monitoring done in all modes but sleep and standby, 1 = Temp monitoring stopped
-        sx1238_temp_threshold_t temp_threshold             : 2;    // Sets temperature change threshold to trigger new IQ cal (degC)
+        sx1238_temp_threshold_t temp_threshold      : 2;    // Sets temperature change threshold to trigger new IQ cal (degC)
         bool temp_change                            : 1;    // IRQ flag witnessing a temp change exceeding temp threshold since last Image & RSSI cal. 0 = No change, 1 = Change over threshold
         bool unused                                 : 1;
         bool image_cal_running                      : 1;    // Set to 1 while IQ & RSSI cal is running, cleared when complete
@@ -897,7 +903,7 @@ union
     uint8_t byte;
     struct
     {
-        sx1238_low_bat_trim_t low_bat_trim                 : 3;    // Trimming of Low Battery threshold
+        sx1238_low_bat_trim_t low_bat_trim          : 3;    // Trimming of Low Battery threshold
         bool low_bat_on                             : 1;    // Low battery detector enable/disable signal
         uint8_t unused                              : 4;
     } bits;
