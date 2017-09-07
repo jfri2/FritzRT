@@ -23,3 +23,8 @@ void CTRL_SPI_example(void)
 	spi_m_sync_enable(&CTRL_SPI);
 	io_write(io, example_CTRL_SPI, 12);
 }
+
+void delay_example(void)
+{
+	delay_ms(5000);
+}

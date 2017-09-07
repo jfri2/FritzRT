@@ -18,6 +18,8 @@ extern "C" {
 
 void CTRL_SPI_example(void);
 
+void delay_example(void);
+
 #ifdef __cplusplus
 }
 #endif

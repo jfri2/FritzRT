@@ -23,11 +23,20 @@ extern "C" {
 
 #include <hal_spi_m_sync.h>
 
+#include <hal_delay.h>
+
+#include "hal_usb_device.h"
+
 extern struct spi_m_sync_descriptor CTRL_SPI;
 
 void CTRL_SPI_PORT_init(void);
 void CTRL_SPI_CLOCK_init(void);
 void CTRL_SPI_init(void);
+
+void delay_driver_init(void);
+
+void USB_DEVICE_INSTANCE_CLOCK_init(void);
+void USB_DEVICE_INSTANCE_init(void);
 
 /**
  * \brief Perform system initialization, initialize pins and clocks for

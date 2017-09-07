@@ -32,6 +32,8 @@ hal\src\hal_sleep.c
 
 hal\src\hal_spi_m_sync.c
 
+hal\src\hal_usb_device.c
+
 hal\utils\src\utils_assert.c
 
 hal\utils\src\utils_event.c
@@ -50,7 +52,19 @@ hpl\pmc\hpl_sleep.c
 
 hpl\spi\hpl_spi.c
 
+hpl\systick\hpl_systick_ARMv7_base.c
+
+hpl\usbhs\hpl_usbhs.c
+
 hpl\xdmac\hpl_xdmac.c
 
 main.c
+
+usb\class\cdc\device\cdcdf_acm.c
+
+usb\device\usbdc.c
+
+usb\usb_protocol.c
+
+usb_start.c
 

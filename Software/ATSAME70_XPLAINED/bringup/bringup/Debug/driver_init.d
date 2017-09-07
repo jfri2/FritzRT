@@ -131,7 +131,9 @@ driver_init.d driver_init.o: .././driver_init.c .././driver_init.h \
  ../hal/include/hal_sleep.h ../hal/include/hal_spi_m_sync.h \
  ../hal/include/hpl_spi_m_sync.h ../hal/include/hpl_spi.h \
  ../hal/utils/include/utils.h ../hal/include/hpl_spi_sync.h \
- ../hpl/pmc/hpl_pmc.h ../Config/peripheral_clk_config.h
+ ../hal/include/hal_usb_device.h ../hal/include/hpl_usb_device.h \
+ ../hal/include/hpl_usb.h ../Config/hpl_usb_config.h ../hpl/pmc/hpl_pmc.h \
+ ../Config/peripheral_clk_config.h
 
 .././driver_init.h:
 
@@ -474,6 +476,14 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME70_DFP\2.1.82\include/
 ../hal/utils/include/utils.h:
 
 ../hal/include/hpl_spi_sync.h:
+
+../hal/include/hal_usb_device.h:
+
+../hal/include/hpl_usb_device.h:
+
+../hal/include/hpl_usb.h:
+
+../Config/hpl_usb_config.h:
 
 ../hpl/pmc/hpl_pmc.h:
 

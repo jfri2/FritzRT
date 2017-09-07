@@ -954,7 +954,7 @@
 // <i> Indicates whether configuration for UPLLCK is enabled or not
 // <id> enable_upllck
 #ifndef CONF_UPLLCK_CONFIG
-#define CONF_UPLLCK_CONFIG 0
+#define CONF_UPLLCK_CONFIG 1
 #endif
 
 // <y> UPLLCK Reference Clock Source
@@ -970,7 +970,7 @@
 // <i> Indicates whether UPLLCK Oscillator is enabled or not
 // <id> upllck_arch_enable
 #ifndef CONF_UPLLCK_ENABLE
-#define CONF_UPLLCK_ENABLE 0
+#define CONF_UPLLCK_ENABLE 1
 #endif
 // </h>
 // </e>

@@ -5,7 +5,66 @@ board:
   device: ATSAME70Q21A-AN
 details: null
 application: null
-middlewares: {}
+middlewares:
+  USB_CHAPTER_9:
+    user_label: USB_CHAPTER_9
+    configuration: {}
+    definition: Atmel:USB:0.0.1::USB_Chapter_9
+    functionality: USB_Chapter_9
+    api: USB:Protocol:Core
+    dependencies: {}
+  USB_CLASS_CDC:
+    user_label: USB_CLASS_CDC
+    configuration: {}
+    definition: Atmel:USB:0.0.1::USB_Class_CDC
+    functionality: USB_Class_CDC
+    api: USB:Protocol:CDC
+    dependencies:
+      USB Chapter 9: USB_CHAPTER_9
+  USB_DEVICE_STACK_CORE_INSTANCE:
+    user_label: USB_DEVICE_STACK_CORE_INSTANCE
+    configuration: {}
+    definition: Atmel:USB:0.0.1::USB_Device_Core
+    functionality: USB_Device_Core
+    api: USB:Device:Core
+    dependencies:
+      USB Chapter 9: USB_CHAPTER_9
+      USB Device instance: USB_DEVICE_INSTANCE
+  USB_DEVICE_STACK_CDC_ACM_0:
+    user_label: USB_DEVICE_STACK_CDC_ACM_0
+    configuration:
+      usb_cdcd_acm_bcddevice: 256
+      usb_cdcd_acm_bcdusb: USB 2.0 version
+      usb_cdcd_acm_bconfigval: 1
+      usb_cdcd_acm_bmattri: Bus power supply, not support for remote wakeup
+      usb_cdcd_acm_bmaxpksz0: 64 bytes
+      usb_cdcd_acm_bmaxpower: 50
+      usb_cdcd_acm_bnumconfig: 1
+      usb_cdcd_acm_comm_baltset: 0
+      usb_cdcd_acm_comm_bifcnum: 0
+      usb_cdcd_acm_comm_iifc: 0
+      usb_cdcd_acm_comm_int_interval: 10
+      usb_cdcd_acm_comm_int_maxpksz: 64 bytes
+      usb_cdcd_acm_data_baltset: 0
+      usb_cdcd_acm_data_bifcnum: 1
+      usb_cdcd_acm_data_buckout_maxpksz: 64 bytes
+      usb_cdcd_acm_data_builin_maxpksz: 64 bytes
+      usb_cdcd_acm_data_bulkin_epaddr: EndpointAddress = 0x81
+      usb_cdcd_acm_data_bulkout_epaddr: EndpointAddress = 0x02
+      usb_cdcd_acm_data_iifc: 0
+      usb_cdcd_acm_epaddr: EndpointAddress = 0x83
+      usb_cdcd_acm_iconfig: 0
+      usb_cdcd_acm_idproduct: 9220
+      usb_cdcd_acm_idvender: 1003
+      usb_cdcd_acm_imanufact: 0
+      usb_cdcd_acm_iproduct: 0
+      usb_cdcd_acm_iserialnum: 0
+    definition: Atmel:USB:0.0.1::USB_Device_CDC_ACM
+    functionality: USB_Device_Stack_CDC_ACM
+    api: USB:Device:CDC_ACM
+    dependencies:
+      USB Device Stack Core Instance: USB_DEVICE_STACK_CORE_INSTANCE
+      USB Class CDC: USB_CLASS_CDC
 drivers:
   PMC:
     user_label: PMC
@@ -74,7 +133,7 @@ drivers:
       enable_osc32k: true
       enable_pllack: true
       enable_systick_clk_clock: true
-      enable_upllck: false
+      enable_upllck: true
       enable_upllckdiv: true
       enable_xosc20m: true
       enable_xosc32k: false
@@ -103,7 +162,7 @@ drivers:
       systick_clk_clock_div: '8'
       systick_clk_clock_source: Master Clock Controller (PMC_MCKR)
       systick_clock_div: '8'
-      upllck_arch_enable: false
+      upllck_arch_enable: true
       upllck_ref_clock: External 3-20MHz Oscillator (XOSC20M)
       upllckdiv_div: '2'
       upllckdiv_ref_clock: USB 480M Clock (UPLLCK)
@@ -157,6 +216,39 @@ drivers:
           input: Master Clock (MCK)
         configuration:
           spi_clock_source: Master Clock (MCK)
+  DELAY_0:
+    user_label: DELAY_0
+    definition: Atmel:SAME70_Drivers:0.0.1::ATSAME70Q21A-AN::SysTick::driver_config_definition::Delay::HAL:Driver:Delay
+    functionality: Delay
+    api: HAL:Driver:Delay
+    configuration:
+      systick_arch_tickint: false
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group: null
+  USB_DEVICE_INSTANCE:
+    user_label: USB_DEVICE_INSTANCE
+    definition: Atmel:SAME70_Drivers:0.0.1::ATSAME70Q21A-AN::USBHS::driver_config_definition::USB.Device::HAL:Driver:USB.Device
+    functionality: USB
+    api: HAL:Driver:USB_Device
+    configuration:
+      usbd_arch_max_ep_n: 3 (EP03/EP83)
+      usbd_arch_speed: Full speed
+      usbd_dma_enable: true
+      usbd_num_ep_sp: 4 (EP0 + 3 endpoints)
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: FSLS_USB
+          input: USB Clock Controller (USB_48M)
+        - name: USB
+          input: USB High Speed Clock (USB_480M)
+        configuration:
+          usb_clock_source: USB High Speed Clock (USB_480M)
+          usb_fsls_clock_source: USB Clock Controller (USB_48M)
   XDMAC:
     user_label: XDMAC
     definition: Atmel:SAME70_Drivers:0.0.1::ATSAME70Q21A-AN::XDMAC::driver_config_definition::DMAC::HAL:HPL:DMAC
@@ -409,6 +501,13 @@ drivers:
     clocks:
       domain_group: null
 pads:
+  PIN_SX1238_RESET:
+    name: PC31
+    definition: Atmel:SAME70_Drivers:0.0.1::ATSAME70Q21A-AN::pad::PC31
+    mode: Digital output
+    user_label: PIN_SX1238_RESET
+    configuration:
+      pad_initial_level: High
   PIN_SPI_CTRL_CS:
     name: PD25
     definition: Atmel:SAME70_Drivers:0.0.1::ATSAME70Q21A-AN::pad::PD25

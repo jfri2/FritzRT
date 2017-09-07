@@ -132,6 +132,26 @@ app/drivers/sx1238_hal.d app/drivers/sx1238_hal.o: \
  ../hal/include/hal_sleep.h ../hal/include/hal_spi_m_sync.h \
  ../hal/include/hpl_spi_m_sync.h ../hal/include/hpl_spi.h \
  ../hal/utils/include/utils.h ../hal/include/hpl_spi_sync.h \
+ ../hal/include/hal_usb_device.h ../hal/include/hpl_usb_device.h \
+ ../hal/include/hpl_usb.h ../Config/hpl_usb_config.h ../usb_start.h \
+ ../usb/class/cdc/device/cdcdf_acm.h ../usb/device/usbdc.h \
+ ../usb/usb_includes.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\newlib.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\config.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\reent.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_types.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_types.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\lock.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_locale.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h \
+ ../hal/utils/include/utils_list.h ../usb/usb_protocol.h \
+ ../usb/usb_includes.h ../usb/class/cdc/usb_protocol_cdc.h \
+ ../usb/class/cdc/device/cdcdf_acm_desc.h ../Config/usbd_cdc_acm_config.h \
  ../app/drivers/sx1238_hal.h
 
 ../atmel_start.h:
@@ -477,5 +497,59 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME70_DFP\2.1.82\include/
 ../hal/utils/include/utils.h:
 
 ../hal/include/hpl_spi_sync.h:
+
+../hal/include/hal_usb_device.h:
+
+../hal/include/hpl_usb_device.h:
+
+../hal/include/hpl_usb.h:
+
+../Config/hpl_usb_config.h:
+
+../usb_start.h:
+
+../usb/class/cdc/device/cdcdf_acm.h:
+
+../usb/device/usbdc.h:
+
+../usb/usb_includes.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\newlib.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\config.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\reent.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_types.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_types.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\lock.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_locale.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h:
+
+../hal/utils/include/utils_list.h:
+
+../usb/usb_protocol.h:
+
+../usb/usb_includes.h:
+
+../usb/class/cdc/usb_protocol_cdc.h:
+
+../usb/class/cdc/device/cdcdf_acm_desc.h:
+
+../Config/usbd_cdc_acm_config.h:
 
 ../app/drivers/sx1238_hal.h:

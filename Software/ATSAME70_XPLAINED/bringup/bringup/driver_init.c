@@ -36,6 +36,30 @@ void CTRL_SPI_init(void)
 	CTRL_SPI_PORT_init();
 }
 
+void delay_driver_init(void)
+{
+	delay_init(SysTick);
+}
+
+/* The USB module requires a GCLK_USB of 48 MHz ~ 0.25% clock
+ * for low speed and full speed operation. */
+#if (CONF_USBHS_SRC == CONF_SRC_USB_48M)
+#if (CONF_USBHS_FREQUENCY > (48000000 + 48000000 / 400)) || (CONF_USBHS_FREQUENCY < (48000000 - 48000000 / 400))
+#warning USB clock should be 48MHz ~ 0.25% clock, check your configuration!
+#endif
+#endif
+
+void USB_DEVICE_INSTANCE_CLOCK_init(void)
+{
+	_pmc_enable_periph_clock(ID_USBHS);
+}
+
+void USB_DEVICE_INSTANCE_init(void)
+{
+	USB_DEVICE_INSTANCE_CLOCK_init();
+	usb_d_init();
+}
+
 void system_init(void)
 {
 	init_mcu();
@@ -61,6 +85,20 @@ void system_init(void)
 
 	gpio_set_pin_function(PIN_LED, GPIO_PIN_FUNCTION_OFF);
 
+	// GPIO on PC31
+
+	// Set pin direction to output
+	gpio_set_pin_direction(PIN_SX1238_RESET, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_level(PIN_SX1238_RESET,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   true);
+
+	gpio_set_pin_function(PIN_SX1238_RESET, GPIO_PIN_FUNCTION_OFF);
+
 	// GPIO on PD25
 
 	// Set pin direction to output
@@ -76,4 +114,8 @@ void system_init(void)
 	gpio_set_pin_function(PIN_SPI_CTRL_CS, GPIO_PIN_FUNCTION_OFF);
 
 	CTRL_SPI_init();
+
+	delay_driver_init();
+
+	USB_DEVICE_INSTANCE_init();
 }

@@ -68,4 +68,3 @@ void sx1238_read_buffer(sx1238_reg_addr_t addr, uint8_t *buffer, uint16_t size)
 {
     sx1238_hal_read_buffer(addr, buffer, size);
 }
-
