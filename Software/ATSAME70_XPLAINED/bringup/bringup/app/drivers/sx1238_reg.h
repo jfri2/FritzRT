@@ -166,14 +166,14 @@ typedef enum
 
 typedef enum
 {
-    SX1238_1_PER_CHIP = 0x00,
-    SX1238_1_PER_2_CHIP,
-    SX1238_1_PER_4_CHIP,
-    SX1238_1_PER_8_CHIP,
-    SX1238_2_PER_1_CHIP,
-    SX1238_4_PER_1_CHIP,
-    SX1238_8_PER_1_CHIP,
-    SX1238_16_PER_1_CHIP
+    SX1238_0_5DB = 0x00,
+    SX1238_1_0DB,
+    SX1238_1_5DB,
+    SX1238_2_0DB,
+    SX1238_3_0DB,
+    SX1238_4_0DB,
+    SX1238_5_0DB,
+    SX1238_6_0DB
 } sx1238_ook_peak_thresh_step_t;
 
 typedef enum
@@ -201,78 +201,116 @@ typedef enum
 
 typedef enum
 {
-    TODO1
+    SX1238_1_PER_CHIP = 0x00,
+    SX1238_1_PER_2_CHIP,
+    SX1238_1_PER_4_CHIP,
+    SX1238_1_PER_8_CHIP,
+    SX1238_2_PER_1_CHIP,
+    SX1238_4_PER_1_CHIP,
+    SX1238_8_PER_1_CHIP,
+    SX1238_16_PER_1_CHIP
 } sx1238_ook_peak_thresh_dec_t;
 
 typedef enum
 {
-    TODO4
+    SX1238_PREAMBLEDET_1BYTE,
+    SX1238_PREAMBLEDET_2BYTE,
+    SX1238_PREAMBLEDET_3BYTE
 } sx1238_preamble_detector_size_t;
 
 typedef enum
 {
-    TODO5
+    SX1238_CLKOUT_DIV_1 = 0x00,
+    SX1238_CLKOUT_DIV_2,
+    SX1238_CLKOUT_DIV_4,
+    SX1238_CLKOUT_DIV_8,
+    SX1238_CLKOUT_DIV_16,
+    SX1238_CLKOUT_DIV_32,
+    SX1238_CLKOUT_RC
 } sx1238_clk_out_t;
 
 typedef enum
 {
-    TODO6
+    SX1238_AUTORESTART_OFF = 0x00,
+    SX1238_AUTORESTART_ON_NOLOCK,
+    SX1238_AUTORESTART_ON_LOCK
 } sx1238_auto_restart_rx_t;
 
 typedef enum
 {
-    TODO7
+    SX1238_ADDRFILT_NONE = 0x00,
+    SX1238_ADDRFILT_NODE,
+    SX1238_ADDRFILT_NODE_BROADCAST
 } sx1238_addr_filt_t;
 
 typedef enum
 {
-    TODO8
+    SX1238_DCFREE_NONE = 0x00,
+    SX1238_DCFREE_MANCHESTER,
+    SX1238_DCFREE_WHITENING
 } sx1238_dc_free_t;
 
 typedef enum
 {
-    TODO9
+    SX1238_SEQ_RXD_IDLE = 0x00,
+    SX1238_SEQ_RXD_TX,
+    SX1238_SEQ_RXD_LOWPOWER_IDLE,
+    SX1238_SEQ_RXD_IDLE
 } sx1238_seq_from_packet_rxd_t;
 
 typedef enum
 {
-    TODOtodo
+    SX1238_SEQ_RXTIMEOUT_RECEIVERESTART = 0x00,
+    SX1238_SEQ_RXTIMEOUT_TX,
+    SX1238_SEQ_RXTIMEOUT_LOWPOWER_IDLE,
+    SX1238_SEQ_RXTIMEOUT_IDLE
 } sx1238_seq_from_rx_timeout_t;
 
 typedef enum
 {
-    TODO10
+    SX1238_SEQ_RX_TO_PACKETRXD_PAYLOADRDY = 0x01,
+    SX1238_SEQ_RX_TO_LOWPOWER_IDLE,
+    SX1238_SEQ_RX_TO_PACKETRXD_CRCOK,
+    SX1238_SEQ_RX_TO_IDLE_RSSI,
+    SX1238_SEQ_RX_TO_IDLE_SYNCADDR,
+    SX1238_SEQ_RX_TO_IDLE_PREAMBLEDET
 } sx1238_seq_from_rx_t;
 
 typedef enum
 {
-    TODO11
-} sx1238_timer_2_res_t;
+    SX1238_TIMER_DISABLE = 0x00,
+    SX1238_TIMER_64_US,
+    SX1238_TIMER_410_US,
+    SX1238_TIMER_262_MS
+} sx1238_timer_res_t;
 
 typedef enum
 {
-    TODO12
-} sx1238_timer_1_res_t;
-
-typedef enum
-{
-    TODO13
+    SX1238_TEMP_THRESH_5_DEGC = 0x00,
+    SX1238_TEMP_THRESH_10_DEGC,
+    SX1238_TEMP_THRESH_15_DEGC,
+    SX1238_TEMP_THRESH_20_DEGC
 } sx1238_temp_threshold_t;
 
 typedef enum
 {
-    TODO14
+    SX1238_BAT_THRESH_1695_MV = 0x00,
+    SX1238_BAT_THRESH_1764_MV,
+    SX1238_BAT_THRESH_1835_MV,
+    SX1238_BAT_THRESH_1905_MV,
+    SX1238_BAT_THRESH_1976_MV,
+    SX1238_BAT_THRESH_2045_MV,
+    SX1238_BAT_THRESH_2116_MV,
+    SX1238_BAT_THRESH_2185_MV
 } sx1238_low_bat_trim_t;
 
 typedef enum
 {
-    TODO15
+    SX1238_BW_75_KHZ = 0x00,
+    SX1238_BW_150_KHZ,
+    SX1238_BW_225_KHZ,
+    SX1238_BW_300_KHZ
 } sx1238_pll_bandwidth_t;
-
-typedef enum
-{
-    TODO16
-} sx1238_pn_pll_bandwidth_t;
 
 /******************************************************************************
 Public Variable Declarations
@@ -597,9 +635,9 @@ union
     uint8_t byte;
     struct
     {
-        uint8_t preamble_detector_tol                   : 5;    // Number or chip errors tolerated over PreambleDetectorSize. 4 Chips per bit
-        sx1238_preamble_detector_size_t preamble_detector_size : 2;    // Number of Preamble bytes to detect to trigger an interrupt
-        bool preamble_detector_on                       : 1;    // Enables preamble detector when set to 1. AGC settings supersede this bit during startup / AGC phase
+        uint8_t preamble_detector_tol                           : 5;    // Number or chip errors tolerated over PreambleDetectorSize. 4 Chips per bit
+        sx1238_preamble_detector_size_t preamble_detector_size  : 2;    // Number of Preamble bytes to detect to trigger an interrupt
+        bool preamble_detector_on                               : 1;    // Enables preamble detector when set to 1. AGC settings supersede this bit during startup / AGC phase
     } bits;
 } sx1238_reg_preamble_detect;
 
@@ -850,8 +888,8 @@ union
     uint8_t byte;
     struct
     {
-        sx1238_timer_2_res_t timer_2_resolution     : 2;    // Resolution of Timer 2
-        sx1238_timer_1_res_t timer_1_resolution     : 2;    // Resolution of Timer 1
+        sx1238_timer_res_t timer_2_resolution       : 2;    // Resolution of Timer 2
+        sx1238_timer_res_t timer_1_resolution       : 2;    // Resolution of Timer 1
         uint8_t unused                              : 4;
     } bits;
 } sx1238_reg_timer_resol;
@@ -1040,8 +1078,8 @@ union
     uint8_t byte;
     struct
     {
-        uint8_t reserved                        : 6;
-        sx1238_pll_bandwidth_t pll_bandwidth    : 2;    // Controls Standard PLL bandwidth
+        uint8_t reserved                            : 6;
+        sx1238_pll_bandwidth_t pll_bandwidth        : 2;    // Controls Standard PLL bandwidth
     } bits;
 } sx1238_reg_pll;
 
@@ -1051,7 +1089,7 @@ union
     struct
     {
         uint8_t reserved                            : 6;
-        sx1238_pn_pll_bandwidth_t pll_bandwidth     : 2;    // Controls Low Phase Noise PLL bandwidth
+        sx1238_pll_bandwidth_t pll_bandwidth        : 2;    // Controls Low Phase Noise PLL bandwidth
     } bits;
 } sx1238_reg_pll_low_pn;
 
