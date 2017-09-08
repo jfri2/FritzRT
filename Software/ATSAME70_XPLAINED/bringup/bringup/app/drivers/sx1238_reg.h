@@ -255,7 +255,8 @@ typedef enum
     SX1238_SEQ_RXD_IDLE = 0x00,
     SX1238_SEQ_RXD_TX,
     SX1238_SEQ_RXD_LOWPOWER_IDLE,
-    SX1238_SEQ_RXD_IDLE
+    SX1238_SEQ_RXD_RX_FX,
+    SX1238_SEQ_RXD_RX
 } sx1238_seq_from_packet_rxd_t;
 
 typedef enum
