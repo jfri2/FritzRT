@@ -36,13 +36,21 @@
       <require Dname="ATSAME70Q21"/>
       <accept Tcompiler="GCC"/>
     </condition>
+    <condition id="IAR">
+      <require Dname="ATSAME70Q21"/>
+      <accept Tcompiler="IAR"/>
+    </condition>
+    <condition id="ARMCC">
+      <require Dname="ATSAME70Q21"/>
+      <accept Tcompiler="ARMCC"/>
+    </condition>
   </conditions>
   <components generator="AtmelStart">
     <component Cclass="AtmelStart" Cgroup="Framework" Cversion="1.0.0" condition="CMSIS Device Startup">
       <description>Atmel Start Framework</description>
       <RTE_Components_h>#define ATMEL_START</RTE_Components_h>
       <files>
-        <file category="doc" condition="ARMCC, GCC, IAR" name="hal/documentation/spi_master_sync.rst"/>
+        <file category="doc" condition="ARMCC, GCC, IAR" name="hal/documentation/spi_master_os.rst"/>
         <file category="doc" condition="ARMCC, GCC, IAR" name="hal/documentation/usb_device_async.rst"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_atomic.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_delay.h"/>
@@ -50,7 +58,7 @@
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_init.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_io.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_sleep.h"/>
-        <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_spi_m_sync.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_spi_m_os.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_usb_device.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_core.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_delay.h"/>
@@ -79,7 +87,7 @@
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_init.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_io.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_sleep.c"/>
-        <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_spi_m_sync.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_spi_m_os.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_usb_device.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/utils/include/compiler.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/utils/include/err_codes.h"/>
@@ -137,6 +145,42 @@
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_utmi_e70.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_wdt_e70.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hri/hri_xdmac_e70.h"/>
+        <file category="doc" condition="ARMCC, GCC, IAR" name="documentation/RTOS.rst"/>
+        <file category="doc" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/License/license.txt"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/croutine.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/event_groups.c"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/FreeRTOS.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/StackMacros.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/croutine.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/deprecated_definitions.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/event_groups.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/list.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/mpu_wrappers.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/portable.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/projdefs.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/queue.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/semphr.h"/>
+        <file category="doc" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/stdint.readme"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/task.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/timers.h"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/list.c"/>
+        <file category="source" condition="GCC" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/portable/GCC/ARM_CM7/port.c"/>
+        <file category="header" condition="GCC" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/portable/GCC/ARM_CM7/portmacro.h"/>
+        <file category="source" condition="IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/portable/IAR/ARM_CM7/port.c"/>
+        <file category="source" condition="IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/portable/IAR/ARM_CM7/portasm.s"/>
+        <file category="header" condition="IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/portable/IAR/ARM_CM7/portmacro.h"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/portable/MemMang/heap_1.c"/>
+        <file category="source" condition="ARMCC" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/portable/RVDS/ARM_CM7/port.c"/>
+        <file category="header" condition="ARMCC" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/portable/RVDS/ARM_CM7/portmacro.h"/>
+        <file category="doc" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/portable/readme.txt"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/queue.c"/>
+        <file category="doc" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/readme.txt"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/tasks.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/timers.c"/>
+        <file category="doc" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/readme.txt"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/rtos_port.c"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/rtos_port.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/hal_rtos.h"/>
         <file category="doc" condition="ARMCC, GCC, IAR" name="documentation/usb_device_cdc.rst"/>
         <file category="doc" condition="ARMCC, GCC, IAR" name="documentation/usb_device_core.rst"/>
         <file category="doc" condition="ARMCC, GCC, IAR" name="documentation/usb_protocol_cdc.rst"/>
@@ -174,6 +218,8 @@
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/systick/hpl_systick_ARMv7_base.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/usbhs/hpl_usbhs.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/xdmac/hpl_xdmac.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="rtos_start.c"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="rtos_start.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="usb_start.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="usb_start.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="atmel_start.h"/>
@@ -184,6 +230,7 @@
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/hpl_usb_config.h"/>
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/hpl_xdmac_config.h"/>
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/peripheral_clk_config.h"/>
+        <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/FreeRTOSConfig.h"/>
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="usb/class/cdc/device/usbd_cdc_acm_config.h"/>
         <file category="include" condition="ARMCC, GCC, IAR" name=""/>
         <file category="include" condition="ARMCC, GCC, IAR" name="config"/>
@@ -198,6 +245,15 @@
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/usbhs"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/xdmac"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hri"/>
+        <file category="include" condition="ARMCC, GCC, IAR" name=""/>
+        <file category="include" condition="ARMCC, GCC, IAR" name="config"/>
+        <file category="include" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS"/>
+        <file category="include" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3"/>
+        <file category="include" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include"/>
+        <file category="include" condition="GCC" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/portable/GCC/ARM_CM7"/>
+        <file category="include" condition="IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/portable/IAR/ARM_CM7"/>
+        <file category="include" condition="ARMCC" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/portable/RVDS/ARM_CM7"/>
+        <file category="include" condition="ARMCC, GCC, IAR" name="thirdparty/RTOS/freertos/FreeRTOSV8.2.3/module_config"/>
         <file category="include" condition="ARMCC, GCC, IAR" name=""/>
         <file category="include" condition="ARMCC, GCC, IAR" name="usb"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="usb/class/cdc"/>

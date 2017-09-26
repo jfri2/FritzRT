@@ -11,17 +11,24 @@
 #include "utils.h"
 
 /**
- * Example of using CTRL_SPI to write "Hello World" using the IO abstraction.
+ * Example task of using CTRL_SPI to echo using the IO abstraction.
  */
-static uint8_t example_CTRL_SPI[12] = "Hello World!";
-
-void CTRL_SPI_example(void)
+void CTRL_SPI_example_task(void *p)
 {
 	struct io_descriptor *io;
-	spi_m_sync_get_io_descriptor(&CTRL_SPI, &io);
+	uint16_t              data;
 
-	spi_m_sync_enable(&CTRL_SPI);
-	io_write(io, example_CTRL_SPI, 12);
+	(void)p;
+
+	spi_m_os_get_io_descriptor(&CTRL_SPI, &io);
+
+	for (;;) {
+		if (io_read(io, (uint8_t *)&data, 2) == 2) {
+			/* read OK, handle data. */;
+		} else {
+			/* error. */;
+		}
+	}
 }
 
 void delay_example(void)

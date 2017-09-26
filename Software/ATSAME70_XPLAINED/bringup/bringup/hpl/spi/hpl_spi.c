@@ -115,6 +115,8 @@ static const struct spi_regs_cfg spi_regs[] = {
 };
 #endif
 
+static struct _spi_async_dev *_spi0_dev = NULL;
+
 /**
  * \brief Retrieve IRQ number for the given hardware instance
  */
@@ -133,6 +135,9 @@ static IRQn_Type _spi_get_irq_num(const void *const hw)
  */
 static void _spi_init_irq_param(const void *const hw, struct _spi_async_dev *dev)
 {
+	if (hw == SPI0) {
+		_spi0_dev = dev;
+	}
 }
 
 /** \internal De-initialize SPI
@@ -313,6 +318,14 @@ static void _spi_handler(struct _spi_async_dev *dev)
 	} else if (st & (SPI_SR_OVRES | SPI_SR_NSSR | SPI_SR_MODF | SPI_SR_UNDES)) {
 		dev->callbacks.complete(dev, ERR_OVERFLOW);
 	}
+}
+
+/**
+ * \internal SPI interrupt handler
+ */
+void SPI0_Handler(void)
+{
+	_spi_handler(_spi0_dev);
 }
 
 int32_t _spi_m_sync_init(struct _spi_m_sync_dev *dev, void *const hw)

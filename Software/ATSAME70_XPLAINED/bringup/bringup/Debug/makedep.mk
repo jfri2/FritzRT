@@ -30,7 +30,7 @@ hal\src\hal_io.c
 
 hal\src\hal_sleep.c
 
-hal\src\hal_spi_m_sync.c
+hal\src\hal_spi_m_os.c
 
 hal\src\hal_usb_device.c
 
@@ -59,6 +59,26 @@ hpl\usbhs\hpl_usbhs.c
 hpl\xdmac\hpl_xdmac.c
 
 main.c
+
+rtos_start.c
+
+thirdparty\RTOS\freertos\FreeRTOSV8.2.3\rtos_port.c
+
+thirdparty\RTOS\freertos\FreeRTOSV8.2.3\Source\croutine.c
+
+thirdparty\RTOS\freertos\FreeRTOSV8.2.3\Source\event_groups.c
+
+thirdparty\RTOS\freertos\FreeRTOSV8.2.3\Source\list.c
+
+thirdparty\RTOS\freertos\FreeRTOSV8.2.3\Source\portable\GCC\ARM_CM7\port.c
+
+thirdparty\RTOS\freertos\FreeRTOSV8.2.3\Source\portable\MemMang\heap_1.c
+
+thirdparty\RTOS\freertos\FreeRTOSV8.2.3\Source\queue.c
+
+thirdparty\RTOS\freertos\FreeRTOSV8.2.3\Source\tasks.c
+
+thirdparty\RTOS\freertos\FreeRTOSV8.2.3\Source\timers.c
 
 usb\class\cdc\device\cdcdf_acm.c
 

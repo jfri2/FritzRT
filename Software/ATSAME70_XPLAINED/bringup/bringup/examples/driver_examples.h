@@ -16,7 +16,7 @@
 extern "C" {
 #endif
 
-void CTRL_SPI_example(void);
+void CTRL_SPI_example_task(void *p);
 
 void delay_example(void);
 

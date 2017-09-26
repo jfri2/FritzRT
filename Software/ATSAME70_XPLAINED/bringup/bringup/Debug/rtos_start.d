@@ -1,6 +1,6 @@
-hal/src/hal_spi_m_sync.d hal/src/hal_spi_m_sync.o: \
- ../hal/src/hal_spi_m_sync.c ../hal/include/hal_spi_m_sync.h \
- ../hal/include/hal_io.h ../hal/utils/include/compiler.h \
+rtos_start.d rtos_start.o: .././rtos_start.c .././atmel_start.h \
+ .././driver_init.h .././atmel_start_pins.h ../hal/include/hal_gpio.h \
+ ../hal/include/hpl_gpio.h ../hal/utils/include/compiler.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.2.1\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\lib\gcc\arm-none-eabi\6.2.1\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdint.h \
@@ -123,13 +123,58 @@ hal/src/hal_spi_m_sync.d hal/src/hal_spi_m_sync.o: \
  ../hri/hri_tc_e70.h ../hri/hri_trng_e70.h ../hri/hri_twihs_e70.h \
  ../hri/hri_uart_e70.h ../hri/hri_usart_e70.h ../hri/hri_usbhs_e70.h \
  ../hri/hri_utmi_e70.h ../hri/hri_wdt_e70.h ../hri/hri_xdmac_e70.h \
- ../hal/utils/include/err_codes.h ../hal/include/hpl_spi_m_sync.h \
- ../hal/include/hpl_spi.h ../hal/utils/include/utils.h \
- ../hal/include/hpl_spi_sync.h ../hal/utils/include/utils_assert.h
+ ../hal/utils/include/err_codes.h ../hpl/pio/hpl_gpio_base.h \
+ ../hal/utils/include/utils_assert.h ../hal/include/hal_delay.h \
+ ../hal/include/hpl_irq.h ../hal/include/hpl_reset.h \
+ ../hal/include/hpl_sleep.h ../hal/include/hal_init.h \
+ ../hal/include/hpl_init.h ../hal/include/hal_io.h \
+ ../hal/include/hal_sleep.h ../hal/include/hal_spi_m_os.h \
+ ../hal/include/hpl_spi_m_async.h ../hal/include/hpl_spi.h \
+ ../hal/utils/include/utils.h ../hal/include/hpl_spi_async.h \
+ ../thirdparty/RTOS/hal_rtos.h ../hal/include/hpl_core.h \
+ ../hpl/core/hpl_core_port.h ../Config/peripheral_clk_config.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/rtos_port.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/FreeRTOS.h \
+ ../Config/FreeRTOSConfig.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/projdefs.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/portable.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/deprecated_definitions.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/portable/GCC/ARM_CM7/portmacro.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/mpu_wrappers.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/semphr.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/queue.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/task.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/list.h \
+ ../hal/include/hal_usb_device.h ../hal/include/hpl_usb_device.h \
+ ../hal/include/hpl_usb.h ../Config/hpl_usb_config.h .././rtos_start.h \
+ .././usb_start.h ../usb/class/cdc/device/cdcdf_acm.h \
+ ../usb/device/usbdc.h ../usb/usb_includes.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\newlib.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\config.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\reent.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_types.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_types.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\lock.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_locale.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h \
+ ../hal/utils/include/utils_list.h ../usb/usb_protocol.h \
+ ../usb/usb_includes.h ../usb/class/cdc/usb_protocol_cdc.h \
+ ../usb/class/cdc/device/cdcdf_acm_desc.h ../Config/usbd_cdc_acm_config.h
 
-../hal/include/hal_spi_m_sync.h:
+.././atmel_start.h:
 
-../hal/include/hal_io.h:
+.././driver_init.h:
+
+.././atmel_start_pins.h:
+
+../hal/include/hal_gpio.h:
+
+../hal/include/hpl_gpio.h:
 
 ../hal/utils/include/compiler.h:
 
@@ -435,12 +480,120 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME70_DFP\2.1.82\include/
 
 ../hal/utils/include/err_codes.h:
 
-../hal/include/hpl_spi_m_sync.h:
+../hpl/pio/hpl_gpio_base.h:
+
+../hal/utils/include/utils_assert.h:
+
+../hal/include/hal_delay.h:
+
+../hal/include/hpl_irq.h:
+
+../hal/include/hpl_reset.h:
+
+../hal/include/hpl_sleep.h:
+
+../hal/include/hal_init.h:
+
+../hal/include/hpl_init.h:
+
+../hal/include/hal_io.h:
+
+../hal/include/hal_sleep.h:
+
+../hal/include/hal_spi_m_os.h:
+
+../hal/include/hpl_spi_m_async.h:
 
 ../hal/include/hpl_spi.h:
 
 ../hal/utils/include/utils.h:
 
-../hal/include/hpl_spi_sync.h:
+../hal/include/hpl_spi_async.h:
 
-../hal/utils/include/utils_assert.h:
+../thirdparty/RTOS/hal_rtos.h:
+
+../hal/include/hpl_core.h:
+
+../hpl/core/hpl_core_port.h:
+
+../Config/peripheral_clk_config.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/rtos_port.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/FreeRTOS.h:
+
+../Config/FreeRTOSConfig.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/projdefs.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/portable.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/deprecated_definitions.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/portable/GCC/ARM_CM7/portmacro.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/mpu_wrappers.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/semphr.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/queue.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/task.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/list.h:
+
+../hal/include/hal_usb_device.h:
+
+../hal/include/hpl_usb_device.h:
+
+../hal/include/hpl_usb.h:
+
+../Config/hpl_usb_config.h:
+
+.././rtos_start.h:
+
+.././usb_start.h:
+
+../usb/class/cdc/device/cdcdf_acm.h:
+
+../usb/device/usbdc.h:
+
+../usb/usb_includes.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\newlib.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\config.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\ieeefp.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\reent.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_types.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\_types.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\lock.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\cdefs.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\_locale.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h:
+
+../hal/utils/include/utils_list.h:
+
+../usb/usb_protocol.h:
+
+../usb/usb_includes.h:
+
+../usb/class/cdc/usb_protocol_cdc.h:
+
+../usb/class/cdc/device/cdcdf_acm_desc.h:
+
+../Config/usbd_cdc_acm_config.h:

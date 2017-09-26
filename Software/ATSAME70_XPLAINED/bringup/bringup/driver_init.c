@@ -12,7 +12,7 @@
 #include <peripheral_clk_config.h>
 #include <utils.h>
 
-struct spi_m_sync_descriptor CTRL_SPI;
+struct spi_m_os_descriptor CTRL_SPI;
 
 void CTRL_SPI_PORT_init(void)
 {
@@ -26,13 +26,17 @@ void CTRL_SPI_PORT_init(void)
 
 void CTRL_SPI_CLOCK_init(void)
 {
+
 	_pmc_enable_periph_clock(ID_SPI0);
 }
 
 void CTRL_SPI_init(void)
 {
+
 	CTRL_SPI_CLOCK_init();
-	spi_m_sync_init(&CTRL_SPI, SPI0);
+
+	spi_m_os_init(&CTRL_SPI, SPI0);
+	spi_m_os_enable(&CTRL_SPI);
 	CTRL_SPI_PORT_init();
 }
 

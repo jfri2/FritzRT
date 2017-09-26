@@ -128,12 +128,25 @@ driver_init.d driver_init.o: .././driver_init.c .././driver_init.h \
  ../hal/include/hpl_irq.h ../hal/include/hpl_reset.h \
  ../hal/include/hpl_sleep.h ../hal/include/hal_init.h \
  ../hal/include/hpl_init.h ../hal/include/hal_io.h \
- ../hal/include/hal_sleep.h ../hal/include/hal_spi_m_sync.h \
- ../hal/include/hpl_spi_m_sync.h ../hal/include/hpl_spi.h \
- ../hal/utils/include/utils.h ../hal/include/hpl_spi_sync.h \
+ ../hal/include/hal_sleep.h ../hal/include/hal_spi_m_os.h \
+ ../hal/include/hpl_spi_m_async.h ../hal/include/hpl_spi.h \
+ ../hal/utils/include/utils.h ../hal/include/hpl_spi_async.h \
+ ../thirdparty/RTOS/hal_rtos.h ../hal/include/hpl_core.h \
+ ../hpl/core/hpl_core_port.h ../Config/peripheral_clk_config.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/rtos_port.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/FreeRTOS.h \
+ ../Config/FreeRTOSConfig.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/projdefs.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/portable.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/deprecated_definitions.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/portable/GCC/ARM_CM7/portmacro.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/mpu_wrappers.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/semphr.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/queue.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/task.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/list.h \
  ../hal/include/hal_usb_device.h ../hal/include/hpl_usb_device.h \
- ../hal/include/hpl_usb.h ../Config/hpl_usb_config.h ../hpl/pmc/hpl_pmc.h \
- ../Config/peripheral_clk_config.h
+ ../hal/include/hpl_usb.h ../Config/hpl_usb_config.h ../hpl/pmc/hpl_pmc.h
 
 .././driver_init.h:
 
@@ -467,15 +480,47 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME70_DFP\2.1.82\include/
 
 ../hal/include/hal_sleep.h:
 
-../hal/include/hal_spi_m_sync.h:
+../hal/include/hal_spi_m_os.h:
 
-../hal/include/hpl_spi_m_sync.h:
+../hal/include/hpl_spi_m_async.h:
 
 ../hal/include/hpl_spi.h:
 
 ../hal/utils/include/utils.h:
 
-../hal/include/hpl_spi_sync.h:
+../hal/include/hpl_spi_async.h:
+
+../thirdparty/RTOS/hal_rtos.h:
+
+../hal/include/hpl_core.h:
+
+../hpl/core/hpl_core_port.h:
+
+../Config/peripheral_clk_config.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/rtos_port.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/FreeRTOS.h:
+
+../Config/FreeRTOSConfig.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/projdefs.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/portable.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/deprecated_definitions.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/portable/GCC/ARM_CM7/portmacro.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/mpu_wrappers.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/semphr.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/queue.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/task.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/list.h:
 
 ../hal/include/hal_usb_device.h:
 
@@ -486,5 +531,3 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME70_DFP\2.1.82\include/
 ../Config/hpl_usb_config.h:
 
 ../hpl/pmc/hpl_pmc.h:
-
-../Config/peripheral_clk_config.h:

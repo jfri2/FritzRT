@@ -129,12 +129,26 @@ app/drivers/sx1238_hal.d app/drivers/sx1238_hal.o: \
  ../hal/include/hpl_irq.h ../hal/include/hpl_reset.h \
  ../hal/include/hpl_sleep.h ../hal/include/hal_init.h \
  ../hal/include/hpl_init.h ../hal/include/hal_io.h \
- ../hal/include/hal_sleep.h ../hal/include/hal_spi_m_sync.h \
- ../hal/include/hpl_spi_m_sync.h ../hal/include/hpl_spi.h \
- ../hal/utils/include/utils.h ../hal/include/hpl_spi_sync.h \
+ ../hal/include/hal_sleep.h ../hal/include/hal_spi_m_os.h \
+ ../hal/include/hpl_spi_m_async.h ../hal/include/hpl_spi.h \
+ ../hal/utils/include/utils.h ../hal/include/hpl_spi_async.h \
+ ../thirdparty/RTOS/hal_rtos.h ../hal/include/hpl_core.h \
+ ../hpl/core/hpl_core_port.h ../Config/peripheral_clk_config.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/rtos_port.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/FreeRTOS.h \
+ ../Config/FreeRTOSConfig.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/projdefs.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/portable.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/deprecated_definitions.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/portable/GCC/ARM_CM7/portmacro.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/mpu_wrappers.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/semphr.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/queue.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/task.h \
+ ../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/list.h \
  ../hal/include/hal_usb_device.h ../hal/include/hpl_usb_device.h \
- ../hal/include/hpl_usb.h ../Config/hpl_usb_config.h ../usb_start.h \
- ../usb/class/cdc/device/cdcdf_acm.h ../usb/device/usbdc.h \
+ ../hal/include/hpl_usb.h ../Config/hpl_usb_config.h ../rtos_start.h \
+ ../usb_start.h ../usb/class/cdc/device/cdcdf_acm.h ../usb/device/usbdc.h \
  ../usb/usb_includes.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
@@ -152,7 +166,7 @@ app/drivers/sx1238_hal.d app/drivers/sx1238_hal.o: \
  ../hal/utils/include/utils_list.h ../usb/usb_protocol.h \
  ../usb/usb_includes.h ../usb/class/cdc/usb_protocol_cdc.h \
  ../usb/class/cdc/device/cdcdf_acm_desc.h ../Config/usbd_cdc_acm_config.h \
- ../app/drivers/sx1238_hal.h
+ ../app/drivers/sx1238_hal.h ../app/drivers/task_delay.h
 
 ../atmel_start.h:
 
@@ -488,15 +502,47 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME70_DFP\2.1.82\include/
 
 ../hal/include/hal_sleep.h:
 
-../hal/include/hal_spi_m_sync.h:
+../hal/include/hal_spi_m_os.h:
 
-../hal/include/hpl_spi_m_sync.h:
+../hal/include/hpl_spi_m_async.h:
 
 ../hal/include/hpl_spi.h:
 
 ../hal/utils/include/utils.h:
 
-../hal/include/hpl_spi_sync.h:
+../hal/include/hpl_spi_async.h:
+
+../thirdparty/RTOS/hal_rtos.h:
+
+../hal/include/hpl_core.h:
+
+../hpl/core/hpl_core_port.h:
+
+../Config/peripheral_clk_config.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/rtos_port.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/FreeRTOS.h:
+
+../Config/FreeRTOSConfig.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/projdefs.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/portable.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/deprecated_definitions.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/portable/GCC/ARM_CM7/portmacro.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/mpu_wrappers.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/semphr.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/queue.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/task.h:
+
+../thirdparty/RTOS/freertos/FreeRTOSV8.2.3/Source/include/list.h:
 
 ../hal/include/hal_usb_device.h:
 
@@ -505,6 +551,8 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAME70_DFP\2.1.82\include/
 ../hal/include/hpl_usb.h:
 
 ../Config/hpl_usb_config.h:
+
+../rtos_start.h:
 
 ../usb_start.h:
 
@@ -553,3 +601,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../Config/usbd_cdc_acm_config.h:
 
 ../app/drivers/sx1238_hal.h:
+
+../app/drivers/task_delay.h:

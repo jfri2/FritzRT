@@ -71,7 +71,7 @@ void sx1238_hal_write(uint8_t addr, uint8_t data)
 
     // Do spi transfer
     sx1238_hal_spi_start();    
-    spi_m_sync_transfer(&CTRL_SPI, &temp_xfer);
+    spi_m_os_transfer(&CTRL_SPI, temp_xfer.txbuf, temp_xfer.rxbuf, temp_xfer.size);
     sx1238_hal_spi_stop();
 }
 
@@ -95,7 +95,7 @@ uint8_t sx1238_hal_read(uint8_t addr)
 
     // Do spi transfer
     sx1238_hal_spi_start();
-    spi_m_sync_transfer(&CTRL_SPI, &temp_xfer);
+    spi_m_os_transfer(&CTRL_SPI, temp_xfer.txbuf, temp_xfer.rxbuf, temp_xfer.size);
     sx1238_hal_spi_stop();
 
     // Return data read from SX1238
@@ -130,7 +130,7 @@ void sx1238_hal_write_buffer(uint8_t addr, uint8_t *buffer, uint16_t size)
 
     // Do spi transfer
     sx1238_hal_spi_start();
-    spi_m_sync_transfer(&CTRL_SPI, &temp_xfer);
+    spi_m_os_transfer(&CTRL_SPI, temp_xfer.txbuf, temp_xfer.rxbuf, temp_xfer.size);
     sx1238_hal_spi_stop();    
 }
 
@@ -156,7 +156,7 @@ void sx1238_hal_read_buffer(uint8_t addr, uint8_t *buffer, uint16_t size)
 
     // Do spi transfer
     sx1238_hal_spi_start();
-    spi_m_sync_transfer(&CTRL_SPI, &temp_xfer);
+    spi_m_os_transfer(&CTRL_SPI, temp_xfer.txbuf, temp_xfer.rxbuf, temp_xfer.size);
     sx1238_hal_spi_stop();
     
     // Move data from temp spi buffer to buffer passed to this function
@@ -188,8 +188,6 @@ Private Function Definitions
 void sx1238_hal_spi_start(void)
 {
     gpio_set_pin_level(PIN_SPI_CTRL_CS, false);
-    spi_m_sync_get_io_descriptor(&CTRL_SPI, &sx1238_ctrl_spi_io);
-    spi_m_sync_enable(&CTRL_SPI);
 }
 
 /*!
@@ -198,7 +196,5 @@ void sx1238_hal_spi_start(void)
 */
 void sx1238_hal_spi_stop(void)
 {
-    spi_m_sync_get_io_descriptor(&CTRL_SPI, &sx1238_ctrl_spi_io);
-    spi_m_sync_disable(&CTRL_SPI);
-    gpio_set_pin_level(PIN_SPI_CTRL_CS, true);
+    spi_m_os_get_io_descriptor(&CTRL_SPI, &sx1238_ctrl_spi_io);
 }

@@ -10,8 +10,6 @@
 /******************************************************************************
 Includes
 ******************************************************************************/
-#include "sx1238_hal.h"
-#include "sx1238_reg.h"
 #include "sx1238.h"
 
 /******************************************************************************
@@ -37,10 +35,6 @@ Private Variables
 /******************************************************************************
 Private Function Declarations
 ******************************************************************************/
-void sx1238_write(sx1238_reg_addr_t addr, uint8_t data);
-uint8_t sx1238_read(sx1238_reg_addr_t addr);
-void sx1238_write_buffer(sx1238_reg_addr_t addr, uint8_t *buffer, uint16_t size);
-void sx1238_read_buffer(sx1238_reg_addr_t addr, uint8_t *buffer, uint16_t size);
 
 /******************************************************************************
 Public Function Definitions
@@ -49,22 +43,3 @@ Public Function Definitions
 /******************************************************************************
 Private Function Definitions
 ******************************************************************************/
-void sx1238_write(sx1238_reg_addr_t addr, uint8_t data)
-{
-    sx1238_hal_write(addr, data);
-}
-
-uint8_t sx1238_read(sx1238_reg_addr_t addr)
-{
-    return(sx1238_hal_read(addr));
-}
-
-void sx1238_write_buffer(sx1238_reg_addr_t addr, uint8_t *buffer, uint16_t size)
-{
-    sx1238_hal_write_buffer(addr, buffer, size);
-}
-
-void sx1238_read_buffer(sx1238_reg_addr_t addr, uint8_t *buffer, uint16_t size)
-{
-    sx1238_hal_read_buffer(addr, buffer, size);
-}
