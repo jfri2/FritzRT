@@ -466,7 +466,7 @@ union
     uint8_t byte;
     struct
     {
-        sx1238_rssi_smoothing_t rssi_smoothing              : 3;    // Defines number of samples taken to average RSSI result
+        sx1238_rssi_smoothing_t rssi_smoothing      : 3;    // Defines number of samples taken to average RSSI result
         int8_t rssi_offset                          : 5;    // Signed RSSI offset to compensate for the possible losses/gains from the front end. 1 dB / LSB. 2's complement in dB
     } bits;
 } sx1238_reg_rssi_config;
@@ -503,10 +503,10 @@ union
     uint8_t byte;
     struct
     {
-        uint8_t rx_bw_exp                : 3;    // Channel filter bandwidth control: RxBw = (FXOSC) / (RxBwMant * (2 ^ (RxBwExp + 2))
-        sx1238_rx_bw_mant_t rx_bw_mant          : 2;    // Channel Filter bandwidth control. 16, 20, or 24
-        uint8_t reserved                 : 2;
-        bool unused                      : 1;
+        uint8_t rx_bw_exp                          : 3;    // Channel filter bandwidth control: RxBw = (FXOSC) / (RxBwMant * (2 ^ (RxBwExp + 2))
+        sx1238_rx_bw_mant_t rx_bw_mant             : 2;    // Channel Filter bandwidth control. 16, 20, or 24
+        uint8_t reserved                           : 2;
+        bool unused                                : 1;
     } bits;
 } sx1238_reg_rx_bw;
 

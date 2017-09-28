@@ -37,14 +37,14 @@ static const uint8_t WNR_WRITE_BM = 0x80;
 Private Variables
 ******************************************************************************/
 static struct io_descriptor *sx1238_ctrl_spi_io;
-uint8_t sx1238_hal_spi_byte_rw_buffer[SX1238_SPI_BYTE_RW_BUFFER_SIZE] = {0};
-uint8_t sx1238_hal_spi_rw_buffer[SX1238_SPI_RW_BUFFER_MAX_SIZE] = {0};
+static uint8_t sx1238_hal_spi_byte_rw_buffer[SX1238_SPI_BYTE_RW_BUFFER_SIZE] = {0};
+static uint8_t sx1238_hal_spi_rw_buffer[SX1238_SPI_RW_BUFFER_MAX_SIZE] = {0};
 
 /******************************************************************************
 Private Function Declarations
 ******************************************************************************/
-void sx1238_hal_spi_stop(void);
-void sx1238_hal_spi_start(void);
+static void sx1238_hal_spi_stop(void);
+static void sx1238_hal_spi_start(void);
 
 /******************************************************************************
 Public Function Definitions
