@@ -425,7 +425,7 @@ void sx1238_dio1_isr_handler(void)
                     break;
                 
                 case SX1238_STDBY:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio1_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -524,7 +524,7 @@ void sx1238_dio2_isr_handler(void)
             switch (sx1238_mode)
             {
                 case SX1238_SLEEP:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio2_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -545,7 +545,7 @@ void sx1238_dio2_isr_handler(void)
                     break;
                 
                 case SX1238_STDBY:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio2_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -588,7 +588,7 @@ void sx1238_dio2_isr_handler(void)
                     break;
                     
                 case SX1238_RX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio2_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -609,7 +609,7 @@ void sx1238_dio2_isr_handler(void)
                     break;
                     
                 case SX1238_TX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio2_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -635,7 +635,7 @@ void sx1238_dio2_isr_handler(void)
             switch (sx1238_mode)
             {
                 case SX1238_SLEEP:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio2_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -656,7 +656,7 @@ void sx1238_dio2_isr_handler(void)
                     break;
                 
                 case SX1238_STDBY:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio2_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -678,7 +678,7 @@ void sx1238_dio2_isr_handler(void)
                 
                 case SX1238_FS_MODE_TX:
                 case SX1238_FS_MODE_RX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio2_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -699,7 +699,7 @@ void sx1238_dio2_isr_handler(void)
                     break;
                 
                 case SX1238_RX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio2_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -720,7 +720,7 @@ void sx1238_dio2_isr_handler(void)
                     break;
                 
                 case SX1238_TX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio2_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -755,7 +755,7 @@ void sx1238_dio3_isr_handler(void)
             switch (sx1238_mode)
             {
                 case SX1238_SLEEP:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio3_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -776,7 +776,7 @@ void sx1238_dio3_isr_handler(void)
                     break;
                 
                 case SX1238_STDBY:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio3_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -798,7 +798,7 @@ void sx1238_dio3_isr_handler(void)
                     
                 case SX1238_FS_MODE_TX:
                 case SX1238_FS_MODE_RX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio3_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -819,7 +819,7 @@ void sx1238_dio3_isr_handler(void)
                     break;
                     
                 case SX1238_RX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio3_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -840,7 +840,7 @@ void sx1238_dio3_isr_handler(void)
                     break;
                     
                 case SX1238_TX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio3_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -866,7 +866,7 @@ void sx1238_dio3_isr_handler(void)
             switch (sx1238_mode)
             {
                 case SX1238_SLEEP:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio3_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -887,7 +887,7 @@ void sx1238_dio3_isr_handler(void)
                     break;
                 
                 case SX1238_STDBY:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio3_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -909,7 +909,7 @@ void sx1238_dio3_isr_handler(void)
                 
                 case SX1238_FS_MODE_TX:
                 case SX1238_FS_MODE_RX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio3_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -930,7 +930,7 @@ void sx1238_dio3_isr_handler(void)
                     break;
                 
                 case SX1238_RX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio3_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -951,7 +951,7 @@ void sx1238_dio3_isr_handler(void)
                     break;
                 
                 case SX1238_TX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio3_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -986,7 +986,7 @@ void sx1238_dio4_isr_handler(void)
             switch (sx1238_mode)
             {
                 case SX1238_SLEEP:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio4_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -1007,7 +1007,7 @@ void sx1238_dio4_isr_handler(void)
                     break;
                 
                 case SX1238_STDBY:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio4_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -1029,7 +1029,7 @@ void sx1238_dio4_isr_handler(void)
                     
                 case SX1238_FS_MODE_TX:
                 case SX1238_FS_MODE_RX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio4_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -1050,7 +1050,7 @@ void sx1238_dio4_isr_handler(void)
                     break;
                     
                 case SX1238_RX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio4_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -1071,7 +1071,7 @@ void sx1238_dio4_isr_handler(void)
                     break;
                     
                 case SX1238_TX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio4_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -1097,7 +1097,7 @@ void sx1238_dio4_isr_handler(void)
             switch (sx1238_mode)
             {
                 case SX1238_SLEEP:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio4_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -1118,7 +1118,7 @@ void sx1238_dio4_isr_handler(void)
                     break;
                 
                 case SX1238_STDBY:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio4_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -1140,7 +1140,7 @@ void sx1238_dio4_isr_handler(void)
                 
                 case SX1238_FS_MODE_TX:
                 case SX1238_FS_MODE_RX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio4_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -1161,7 +1161,7 @@ void sx1238_dio4_isr_handler(void)
                     break;
                 
                 case SX1238_RX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio4_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -1182,7 +1182,7 @@ void sx1238_dio4_isr_handler(void)
                     break;
                 
                 case SX1238_TX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio4_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -1217,7 +1217,7 @@ void sx1238_dio5_isr_handler(void)
             switch (sx1238_mode)
             {
                 case SX1238_SLEEP:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio5_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -1238,7 +1238,7 @@ void sx1238_dio5_isr_handler(void)
                     break;
                 
                 case SX1238_STDBY:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio5_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -1260,7 +1260,7 @@ void sx1238_dio5_isr_handler(void)
                     
                 case SX1238_FS_MODE_TX:
                 case SX1238_FS_MODE_RX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio5_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -1281,7 +1281,7 @@ void sx1238_dio5_isr_handler(void)
                     break;
                     
                 case SX1238_RX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio5_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -1302,7 +1302,7 @@ void sx1238_dio5_isr_handler(void)
                     break;
                     
                 case SX1238_TX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio5_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -1328,7 +1328,7 @@ void sx1238_dio5_isr_handler(void)
             switch (sx1238_mode)
             {
                 case SX1238_SLEEP:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio5_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -1349,7 +1349,7 @@ void sx1238_dio5_isr_handler(void)
                     break;
                 
                 case SX1238_STDBY:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio5_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -1371,7 +1371,7 @@ void sx1238_dio5_isr_handler(void)
                 
                 case SX1238_FS_MODE_TX:
                 case SX1238_FS_MODE_RX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio5_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -1392,7 +1392,7 @@ void sx1238_dio5_isr_handler(void)
                     break;
                 
                 case SX1238_RX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio5_mapping)
                     {
                         case MAP_0:
                             // @todo
@@ -1413,7 +1413,7 @@ void sx1238_dio5_isr_handler(void)
                     break;
                 
                 case SX1238_TX:
-                    switch (sx1238_dio0_mapping)
+                    switch (sx1238_dio5_mapping)
                     {
                         case MAP_0:
                             // @todo
