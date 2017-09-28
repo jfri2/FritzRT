@@ -69,11 +69,11 @@ sx1238_dio_mapping_t    sx1238_dio5_mapping;
 Public Function Declarations
 ******************************************************************************/
 // Note: these functions need to be called in the ISR for DIOs 1-5
-void sx1238_dio1_isr_handler(void);
-void sx1238_dio2_isr_handler(void);
-void sx1238_dio3_isr_handler(void);
-void sx1238_dio4_isr_handler(void);
-void sx1238_dio5_isr_handler(void);
+extern void sx1238_dio1_isr_handler(void);
+extern void sx1238_dio2_isr_handler(void);
+extern void sx1238_dio3_isr_handler(void);
+extern void sx1238_dio4_isr_handler(void);
+extern void sx1238_dio5_isr_handler(void);
 
 void sx1238_init(void);
 void sx1238_mode_get(void);
