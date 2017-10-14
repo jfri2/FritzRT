@@ -48,7 +48,16 @@ typedef struct
     bool pll_lock           : 1;
     bool auto_mode          : 1;
     bool rssi_preamdetect   : 1;
-    bool sync_address       : 1
+    bool sync_address       : 1;
+    bool rx_ready           : 1;
+    bool tx_ready           : 1;
+    bool payload_ready      : 1;
+    bool packet_sent        : 1;
+    bool crc_ok             : 1;
+    bool fifo_empty         : 1;
+    bool fifo_full          : 1;
+    bool fifo_level         : 1;
+    bool timeout            : 1
 } sx1238_flags_t;
 
 /******************************************************************************
@@ -69,11 +78,12 @@ sx1238_dio_mapping_t    sx1238_dio5_mapping;
 Public Function Declarations
 ******************************************************************************/
 // Note: these functions need to be called in the ISR for DIOs 1-5
-extern void sx1238_dio1_isr_handler(void);
-extern void sx1238_dio2_isr_handler(void);
-extern void sx1238_dio3_isr_handler(void);
-extern void sx1238_dio4_isr_handler(void);
 extern void sx1238_dio5_isr_handler(void);
+extern void sx1238_dio4_isr_handler(void);
+extern void sx1238_dio3_isr_handler(void);
+extern void sx1238_dio2_isr_handler(void);
+extern void sx1238_dio1_isr_handler(void);
+extern void sx1238_dio0_isr_handler(void);
 
 void sx1238_init(void);
 void sx1238_mode_get(void);
